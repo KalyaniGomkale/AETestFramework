@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [AutomationEdgeSuite_6.0.0]" guice-stage="DEVELOPMENT" verbose="10">
+  <listeners>
+    <listener class-name="com.ae.qa.Listeners.ITestListenerImplementation"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)" verbose="10">
+    <classes>
+      <class name="com.ae.qa.testcasesTenantAdmin.WorkflowAssignmentPageTestTA">
+        <methods>
+          <include name="endReport"/>
+          <include name="setExtent"/>
+          <include name="validateSingleWorkflowAssignmentTest" invocation-numbers="0"/>
+          <include name="initialization"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.WorkflowAssignmentPageTestTA -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [AutomationEdgeSuite_6.0.0] -->

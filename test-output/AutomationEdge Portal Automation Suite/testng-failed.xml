@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [AutomationEdge Portal Automation Suite]">
+  <test thread-count="5" name="AutomationEdge Test Cases (failed)">
+    <classes>
+      <class name="com.ae.qa.testcasesTenantAdmin.HomePageTestTA">
+        <methods>
+          <include name="setExtent"/>
+          <include name="getResult"/>
+          <include name="validateUploadLicenseTest"/>
+          <include name="initialization"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.HomePageTestTA -->
+      <class name="com.ae.qa.testcases.SystemSettingsPageTest">
+        <methods>
+          <include name="getResult"/>
+          <include name="validateSystemSettingsTest"/>
+          <include name="endReport"/>
+          <include name="initialization"/>
+          <include name="setExtent"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcases.SystemSettingsPageTest -->
+      <class name="com.ae.qa.testcases.LoginPageTest">
+        <methods>
+          <include name="getResult"/>
+          <include name="endReport"/>
+          <include name="initialization"/>
+          <include name="loginPageTitleTest"/>
+          <include name="setExtent"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcases.LoginPageTest -->
+      <class name="com.ae.qa.testcases.TenantUsersPageTest">
+        <methods>
+          <include name="getResult"/>
+          <include name="endReport"/>
+          <include name="creatingTenantAdminTest"/>
+          <include name="initialization"/>
+          <include name="setExtent"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcases.TenantUsersPageTest -->
+    </classes>
+  </test> <!-- AutomationEdge Test Cases (failed) -->
+</suite> <!-- Failed suite [AutomationEdge Portal Automation Suite] -->

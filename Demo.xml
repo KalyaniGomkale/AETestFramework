@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite" thread-count="1" parallel="methods">
+	<test name="AESanity">
+
+
+		<classes>
+			<!-- <class name="com.ae.qa.testcases.LoginPageTest"> <methods> <include 
+				name="ValidateFirstTimeLoginTest" /> </methods> </class> -->
+			<class name="com.ae.qa.testcases.HomePageTest">
+				<methods>
+					<include name="validateHomePageForConsumptionTabTest" />
+					<include name="validateUploadLicenseTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.TenantsPageTest">
+				<methods>
+					<include name="validateCreateAllotmentBasedTenantTest" />
+					<include name="validateAllocateConsumptionBasedTest" />
+					<include name="validateAmendLicenseTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.SystemUsersPageTest">
+				<methods>
+					<include name="validateCreatingTenantLicenseAdminTest" />
+					<include name="validateEditTenantLicenseAdminTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<listeners>
+		<listener
+			class-name="com.ae.qa.Listeners.ITestListenerImplementation"></listener>
+	</listeners>
+</suite> 

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite" thread-count="1" parallel="methods" >
+<test name="AESanity">
+<classes>
+ <class name="com.ae.qa.testcases.TenantsPageTest"> 
+ 				<methods> 
+ 					<include name="validateAddNewTenant" /> 
+ 					<include name="validateaddNewTenantsWithDuplicateOrgCode" /> 
+				</methods> 
+			</class>  
+			<!-- <class name="com.ae.qa.testcases.AuditLogsPageTest">
+				<methods>
+					<include name="validatedownloadingAuditLogs" /> 
+			</methods>
+			</class> 
+			 <class name="com.ae.qa.testcases.SmtpPageTest">
+				<methods>
+					<include name="validateAddSmtpServerTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.SystemSettingsPageTest">
+				<methods>
+					<include name="validateInvalidURLTest" />
+					<include name="validateServerUrlTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.PurgePolicyPageTest">
+				<methods>
+					<include name="validateWFReqLessThanNotfTest" />
+					<include name="validatePurgePolicyDurationTest"/>
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantAdmin.HomePageTestTA">
+				<methods>
+					<include name="validateUploadLicenseTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA">
+				<methods>
+					<include name="ValidateCreatingTenantAdminTest" />
+					<include name="ValidateCreatingTenantUserTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantAdmin.CategoriesPageTestTA">
+				<methods>
+					<include name="ValidateCreateCategoryTest" />
+					<include name="ValidateDeleteCategoryTest" />
+				</methods>
+			</class>  
+			<class name="com.ae.qa.testcasesTenantAdmin.UserGroupsPageTestTA">
+				<methods>
+					<include name="validateCreateUserGroup" />
+					<include name="validateEditUserGroup" />
+			</methods>
+			</class> -->
+			</classes>
+	</test>
+	 <listeners>
+  		<listener class-name="com.ae.qa.Listeners.ITestListenerImplementation"></listener>
+  </listeners>
+</suite> 

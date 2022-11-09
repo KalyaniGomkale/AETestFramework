@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="SanitySuite">
+  <test thread-count="1" name="Test">
+    <classes>
+      <class name="com.ae.qa.testcases.AuditLogsPageTest"/>
+      <class name="com.ae.qa.testcasesTenantAdmin.CataloguePageTestTA"/>
+      <class name="com.ae.qa.testcases.SystemUsersPageTest"/>
+      <class name="com.ae.qa.testcasesTenantAdmin.UserGroupsPageTestTA"/>
+      <class name="com.ae.qa.testcasesTenantAdmin.ProcessStudioPageTestTA"/>
+      <class name="com.ae.qa.testcasesTenantAdmin.RequestsPageTestTA"/>
+      <class name="com.ae.qa.testcases.LoginPageTest"/>
+      <class name="com.ae.qa.testcasesTenantAdmin.CredentialsPageTestTA"/>
+      <class name="com.ae.qa.testcasesTenantAdmin.WorkflowAssignmentPageTestTA"/>
+      <class name="com.ae.qa.testcasesTenantAdmin.HomePageTestTA"/>
+      <class name="com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA"/>
+      <class name="com.ae.qa.testcases.HomePageTest"/>
+      <class name="com.ae.qa.testcases.SystemSettingsPageTest"/>
+      <class name="com.ae.qa.testcases.IntegrationServicePageTest"/>
+      <class name="com.ae.qa.testcases.PurgeSchedulePageTest"/>
+      <class name="com.ae.qa.testcases.TenantsPageTest"/>
+      <class name="com.ae.qa.testcasesTenantAdmin.WorkflowListPageTestTA"/>
+      <class name="com.ae.qa.testcases.PluginsPageTest"/>
+      <class name="com.ae.qa.testcases.SmtpPageTest"/>
+      <class name="com.ae.qa.testcasesTenantAdmin.CategoriesPageTestTA"/>
+      <class name="com.ae.qa.testcasesTenantAdmin.LoginPageTestTA"/>
+      <class name="com.ae.qa.testcases.PluginAssignmentsPageTest"/>
+      <class name="com.ae.qa.testcases.PurgePolicyPageTest"/>
+      <class name="com.ae.qa.testcasesTenantAdmin.AuditLogsPageTestTA"/>
+      <class name="com.ae.qa.testcases.SecurityQuestionsPageTest"/>
+      <class name="com.ae.qa.testcases.SysadminPolicyPageTest"/>
+      <class name="com.ae.qa.testcases.InformationPageTest"/>
+      <class name="com.ae.qa.testcasesTenantAdmin.AgentListPageTestTA"/>
+      <class name="com.ae.qa.testcases.TenantUsersPageTest"/>
+      <class name="com.ae.qa.testcases.ArtifactsPageTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- SanitySuite -->
