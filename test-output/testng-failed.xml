@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA">
+        <methods>
+          <include name="endReport"/>
+          <include name="validateColumnHideTest" invocation-numbers="0"/>
+          <include name="setExtent"/>
+          <include name="initialization"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

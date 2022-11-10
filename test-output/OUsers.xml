@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite" thread-count="1" parallel="methods">
+	<test name="AESanity">
+
+
+		<classes>
+			<!-- <class name="com.ae.qa.testcases.LoginPageTest"> <methods> <include 
+				name="ValidateFirstTimeLoginTest" /> </methods> </class> -->
+			<class name="com.ae.qa.testcases.TenantsPageTest">
+				<methods>
+					<include name="validateAddNewTenant" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.SystemUsersPageTest">
+				<methods>
+					<include name="creatingSystemAdminTest" />
+					<include name="validateEditSystemUsers" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.TenantUsersPageTest">
+				<methods>
+					<include name="ValidateCreatingTenantAdminTest" />
+					<include name="ValidateEditTenantUserTest" />
+				</methods>
+			</class>
+			
+			<class name="com.ae.qa.testcasesTenantAdmin.LoginPageTestTA">
+				<methods>
+					<include name="ValidateFirstTimeTALoginTest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA">
+				<methods>
+					<include name="ValidateCreatingWorkflowAdminTest" />
+					<include name="ValidateCreatingTenantAdminTest" />
+					<include name="ValidateCreatingUserAdminTest" />
+					<include name="ValidateCreatingTenantUserTest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesTenantAdmin.WorkflowListPageTestTA">
+				<methods>
+					<include name="validateImportWorkflowTest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesTenantAdmin.AgentListPageTestTA">
+				<methods>
+					<include name="validateDownloadAgentTest" />
+					<include name="validateCheckStatusOfAgent" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesTenantAdmin.WorkflowListPageTestTA">
+				<methods>
+					<include name="validateImportWorkflowWithConfigParamTest" />
+					<include name="validateImportWorkflowWithRuntimeParamTest" />
+					<include
+						name="validateImportWorkflowWithConfigRuntimeParamTest" />
+					<include
+						name="validateImportWorkflowWithCredConfigParamTest" />
+					<include name="ValidateShowFileStructureTest" />
+					<include name="ValidateUpdateWFWithConfigWFTest" />
+					<include
+						name="validateImportWorkflowWithConfigParamCredAndCredpoolTATest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<listeners>
+		<listener
+			class-name="com.ae.qa.Listeners.ITestListenerImplementation"></listener>
+	</listeners>
+</suite> 

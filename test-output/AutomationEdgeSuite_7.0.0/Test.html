@@ -1,0 +1,1000 @@
+<html>
+<head>
+<title>TestNG:  Test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>22/2/3</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Jul 22 18:36:01 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>950 seconds (950972 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.ae.qa.testcases.SystemSettingsPageTest.getResult()'><b>getResult</b><br>Test class: com.ae.qa.testcases.SystemSettingsPageTest<br>Parameters: [TestResult name=validateAgentServerNotSetTest status=FAILURE method=SystemSettingsPageTest.validateAgentServerNotSetTest(java.lang.reflect.Method)[pri:16, instance:com.ae.qa.testcases.SystemSettingsPageTest@158d255c] output=User logged in successfully]</td>
+<td><div><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=91.0.4472.164)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;LPT-0919&apos;, ip: &apos;10.81.24.38&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.9&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.164, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\kalyanig\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:52460}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ab2b48fb442aefa16f2ac8f6a1eb306b
+	at jdk.internal.reflect.GeneratedConstructorAccessor38.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
+	at com.ae.qa.base.TestBase.getScreenShot(TestBase.java:106)
+	at com.ae.qa.base.TestBase.getResult(TestBase.java:176)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace416242770", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace416242770'><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=91.0.4472.164)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;LPT-0919&apos;, ip: &apos;10.81.24.38&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.9&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.164, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\kalyanig\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:52460}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ab2b48fb442aefa16f2ac8f6a1eb306b
+	at jdk.internal.reflect.GeneratedConstructorAccessor38.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
+	at com.ae.qa.base.TestBase.getScreenShot(TestBase.java:106)
+	at com.ae.qa.base.TestBase.getResult(TestBase.java:176)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.ae.qa.testcases.SystemSettingsPageTest@158d255c</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.ae.qa.testcases.SystemSettingsPageTest.initialization()'><b>initialization</b><br>Test class: com.ae.qa.testcases.SystemSettingsPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.ae.qa.testcases.SystemSettingsPageTest@158d255c</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SystemSettingsPageTest.initialization()'><b>initialization</b><br>Test class: com.ae.qa.testcases.SystemSettingsPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.ae.qa.testcases.SystemSettingsPageTest@158d255c</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SystemSettingsPageTest.getResult()'><b>getResult</b><br>Test class: com.ae.qa.testcases.SystemSettingsPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.ae.qa.testcases.SystemSettingsPageTest@158d255c</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SystemSettingsPageTest.getResult()'><b>getResult</b><br>Test class: com.ae.qa.testcases.SystemSettingsPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.ae.qa.testcases.SystemSettingsPageTest@158d255c</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.ae.qa.testcases.SystemSettingsPageTest.validateAgentServerNotSetTest()'><b>validateAgentServerNotSetTest</b><br>Test class: com.ae.qa.testcases.SystemSettingsPageTest<br>Parameters: public void com.ae.qa.testcases.SystemSettingsPageTest.validateAgentServerNotSetTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-1108136194" onClick='toggleBox("Output-1108136194", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1108136194" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1108136194">
+User logged in successfully<br/>
+After sysadmin login Server Setting is: Not Configured<br/>
+Server Settings are not done, validated successfully<br/>
+User LogIn Succesfully<br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=91.0.4472.164)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;LPT-0919&apos;, ip: &apos;10.81.24.38&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.9&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.164, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\kalyanig\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:52460}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ab2b48fb442aefa16f2ac8f6a1eb306b
+*** Element info: {Using=xpath, value=//span[text()=&apos;Agents&apos;]}
+	at jdk.internal.reflect.GeneratedConstructorAccessor38.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy30.toString(Unknown Source)
+	at java.base/java.lang.String.valueOf(String.java:2951)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:168)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.toString(ExpectedConditions.java:305)
+	at java.base/java.lang.String.valueOf(String.java:2951)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:168)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:268)
+	at com.ae.qa.pages.SystemSettingsPage.validateAgentServerNotSet(SystemSettingsPage.java:83)
+	at com.ae.qa.testcases.SystemSettingsPageTest.validateAgentServerNotSetTest(SystemSettingsPageTest.java:24)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1108136194", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1108136194'><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=91.0.4472.164)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;LPT-0919&apos;, ip: &apos;10.81.24.38&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.9&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.164, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\kalyanig\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:52460}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ab2b48fb442aefa16f2ac8f6a1eb306b
+*** Element info: {Using=xpath, value=//span[text()=&apos;Agents&apos;]}
+	at jdk.internal.reflect.GeneratedConstructorAccessor38.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy30.toString(Unknown Source)
+	at java.base/java.lang.String.valueOf(String.java:2951)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:168)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.toString(ExpectedConditions.java:305)
+	at java.base/java.lang.String.valueOf(String.java:2951)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:168)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:268)
+	at com.ae.qa.pages.SystemSettingsPage.validateAgentServerNotSet(SystemSettingsPage.java:83)
+	at com.ae.qa.testcases.SystemSettingsPageTest.validateAgentServerNotSetTest(SystemSettingsPageTest.java:24)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>127</td>
+<td>com.ae.qa.testcases.SystemSettingsPageTest@158d255c</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.AuditLogsPageTest.verifycheckLogsTest()'><b>verifycheckLogsTest</b><br>Test class: com.ae.qa.testcases.AuditLogsPageTest<br>Parameters: public void com.ae.qa.testcases.AuditLogsPageTest.verifycheckLogsTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-1823075447" onClick='toggleBox("Output-1823075447", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1823075447" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1823075447">
+User logged in successfully<br/>
+configure button is clicked<br/>
+Started configuring server url<br/>
+Server URL field edited Successfully<br/>
+Clean Up Requests Hours field edited Successfully<br/>
+Verify button is clicked<br/>
+System Settings saved<br/>
+User logged in successfully<br/>
+LOGOUT<br/>
+CREATE<br/>
+AUTHENTICATE<br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: Operation in audit logs not validated in table expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertTrue(Assert.java:44)
+	at com.ae.qa.pages.AuditLogsPage.checkLogs(AuditLogsPage.java:202)
+	at com.ae.qa.testcases.AuditLogsPageTest.verifycheckLogsTest(AuditLogsPageTest.java:65)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1823075447", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1823075447'><pre>java.lang.AssertionError: Operation in audit logs not validated in table expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertTrue(Assert.java:44)
+	at com.ae.qa.pages.AuditLogsPage.checkLogs(AuditLogsPage.java:202)
+	at com.ae.qa.testcases.AuditLogsPageTest.verifycheckLogsTest(AuditLogsPageTest.java:65)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>20</td>
+<td>com.ae.qa.testcases.AuditLogsPageTest@35038141</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.ae.qa.testcases.LoginPageTest.ValidateLoginWithResetPswdTest()'><b>ValidateLoginWithResetPswdTest</b><br>Test class: com.ae.qa.testcases.LoginPageTest<br>Parameters: public void com.ae.qa.testcases.LoginPageTest.ValidateLoginWithResetPswdTest(java.lang.reflect.Method) throws java.lang.Exception</td>
+<td></td>
+<td>6</td>
+<td>com.ae.qa.testcases.LoginPageTest@2970a5bc</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.LoginPageTest.ValidateResetPswdTest()'><b>ValidateResetPswdTest</b><br>Test class: com.ae.qa.testcases.LoginPageTest<br>Parameters: public void com.ae.qa.testcases.LoginPageTest.ValidateResetPswdTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-269406874" onClick='toggleBox("Output-269406874", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-269406874" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-269406874">
+Forgot password link clicked<br/>
+Username entered<br/>
+submitted<br/>
+security questions submitted<br/>
+Set new password successfully<br/>
+Password set successfully<br/>
+</div>
+</td>
+<td></td>
+<td>45</td>
+<td>com.ae.qa.testcases.LoginPageTest@2970a5bc</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.LoginPageTest.ValidateSettingPwdWOComplexityTest()'><b>ValidateSettingPwdWOComplexityTest</b><br>Test class: com.ae.qa.testcases.LoginPageTest<br>Parameters: public void com.ae.qa.testcases.LoginPageTest.ValidateSettingPwdWOComplexityTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-1183965941" onClick='toggleBox("Output-1183965941", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1183965941" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1183965941">
+User log in Successfully<br/>
+Forgot password link clicked<br/>
+Username entered<br/>
+submitted<br/>
+security questions submitted<br/>
+</div>
+</td>
+<td></td>
+<td>51</td>
+<td>com.ae.qa.testcases.LoginPageTest@2970a5bc</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SmtpPageTest.validateAddSmtpServerTest()'><b>validateAddSmtpServerTest</b><br>Test class: com.ae.qa.testcases.SmtpPageTest<br>Parameters: public void com.ae.qa.testcases.SmtpPageTest.validateAddSmtpServerTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-655183968" onClick='toggleBox("Output-655183968", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-655183968" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-655183968">
+User log in Successfully<br/>
+Add smtp config button clicked<br/>
+Test connection successfully<br/>
+SMTP configured successfully<br/>
+User signed out successfully<br/>
+</div>
+</td>
+<td></td>
+<td>49</td>
+<td>com.ae.qa.testcases.SmtpPageTest@2ca65ce4</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.InformationPageTest.validateChangePasswordTest()'><b>validateChangePasswordTest</b><br>Test class: com.ae.qa.testcases.InformationPageTest<br>Parameters: public void com.ae.qa.testcases.InformationPageTest.validateChangePasswordTest(java.lang.reflect.Method) throws java.lang.Exception</td>
+<td></td>
+<td>21</td>
+<td>com.ae.qa.testcases.InformationPageTest@2b5cb9b2</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.LoginPageTest.validateForgotPswdTest()'><b>validateForgotPswdTest</b><br>Test class: com.ae.qa.testcases.LoginPageTest<br>Parameters: public void com.ae.qa.testcases.LoginPageTest.validateForgotPswdTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-2080142643" onClick='toggleBox("Output-2080142643", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2080142643" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2080142643">
+Forgotten password link is Present<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.ae.qa.testcases.LoginPageTest@2970a5bc</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.InformationPageTest.validateLastLoginTest()'><b>validateLastLoginTest</b><br>Test class: com.ae.qa.testcases.InformationPageTest<br>Parameters: public void com.ae.qa.testcases.InformationPageTest.validateLastLoginTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-929803808" onClick='toggleBox("Output-929803808", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-929803808" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-929803808">
+User logged in successfully<br/>
+Last login time displayed successfully<br/>
+</div>
+</td>
+<td></td>
+<td>16</td>
+<td>com.ae.qa.testcases.InformationPageTest@2b5cb9b2</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SysadminPolicyPageTest.validateNoOfAttemptsTest()'><b>validateNoOfAttemptsTest</b><br>Test class: com.ae.qa.testcases.SysadminPolicyPageTest<br>Parameters: public void com.ae.qa.testcases.SysadminPolicyPageTest.validateNoOfAttemptsTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-1231374901" onClick='toggleBox("Output-1231374901", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1231374901" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1231374901">
+User log in Successfully<br/>
+Sysadmin Policy tab clicked<br/>
+Below validation validates no.of attempts for wrong password is equal to what user set in confirm Policy pop-up<br/>
+No. of attempts is validated successfully<br/>
+</div>
+</td>
+<td></td>
+<td>110</td>
+<td>com.ae.qa.testcases.SysadminPolicyPageTest@5707c1cb</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SysadminPolicyPageTest.validatePasswordHistoryTest()'><b>validatePasswordHistoryTest</b><br>Test class: com.ae.qa.testcases.SysadminPolicyPageTest<br>Parameters: public void com.ae.qa.testcases.SysadminPolicyPageTest.validatePasswordHistoryTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-1871293699" onClick='toggleBox("Output-1871293699", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1871293699" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1871293699">
+User changed first time password of sysadmin Successfully<br/>
+User log in Successfully<br/>
+Below validation validates number of password to be checked is equal to what user set in confirm Policy pop-up<br/>
+Password policy updated<br/>
+Password History of sysadmin validated successfully<br/>
+</div>
+</td>
+<td></td>
+<td>95</td>
+<td>com.ae.qa.testcases.SysadminPolicyPageTest@5707c1cb</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SysadminPolicyPageTest.validatePswdComplexityTest()'><b>validatePswdComplexityTest</b><br>Test class: com.ae.qa.testcases.SysadminPolicyPageTest<br>Parameters: public void com.ae.qa.testcases.SysadminPolicyPageTest.validatePswdComplexityTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-1086342015" onClick='toggleBox("Output-1086342015", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1086342015" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1086342015">
+User log in Successfully<br/>
+</div>
+</td>
+<td></td>
+<td>29</td>
+<td>com.ae.qa.testcases.SysadminPolicyPageTest@5707c1cb</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.PurgePolicyPageTest.validatePurgePolicyDurationTest()'><b>validatePurgePolicyDurationTest</b><br>Test class: com.ae.qa.testcases.PurgePolicyPageTest<br>Parameters: public void com.ae.qa.testcases.PurgePolicyPageTest.validatePurgePolicyDurationTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-1331896734" onClick='toggleBox("Output-1331896734", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1331896734" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1331896734">
+User log in Successfully<br/>
+Actual success message after setting purging policy:Policy saved successfully<br/>
+Expected success message after setting purging policy:Policy saved successfully<br/>
+Purge policy saved successfully<br/>
+</div>
+</td>
+<td></td>
+<td>26</td>
+<td>com.ae.qa.testcases.PurgePolicyPageTest@ecf9049</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.PurgeSchedulePageTest.validatePurgingScheduleDayTest()'><b>validatePurgingScheduleDayTest</b><br>Test class: com.ae.qa.testcases.PurgeSchedulePageTest<br>Parameters: public void com.ae.qa.testcases.PurgeSchedulePageTest.validatePurgingScheduleDayTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-986792688" onClick='toggleBox("Output-986792688", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-986792688" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-986792688">
+User log in Successfully<br/>
+Add button clicked<br/>
+Schedule created for day of Month<br/>
+</div>
+</td>
+<td></td>
+<td>36</td>
+<td>com.ae.qa.testcases.PurgeSchedulePageTest@672f11c2</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.PurgeSchedulePageTest.validatePurgingScheduleWeekendTest()'><b>validatePurgingScheduleWeekendTest</b><br>Test class: com.ae.qa.testcases.PurgeSchedulePageTest<br>Parameters: public void com.ae.qa.testcases.PurgeSchedulePageTest.validatePurgingScheduleWeekendTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-1215550667" onClick='toggleBox("Output-1215550667", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1215550667" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1215550667">
+User log in Successfully<br/>
+Schedule created for day of week<br/>
+</div>
+</td>
+<td></td>
+<td>29</td>
+<td>com.ae.qa.testcases.PurgeSchedulePageTest@672f11c2</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SecurityQuestionsPageTest.validateSecurityQuesTest()'><b>validateSecurityQuesTest</b><br>Test class: com.ae.qa.testcases.SecurityQuestionsPageTest<br>Parameters: public void com.ae.qa.testcases.SecurityQuestionsPageTest.validateSecurityQuesTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-524323510" onClick='toggleBox("Output-524323510", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-524323510" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-524323510">
+User log in Successfully<br/>
+Security questions set successfully<br/>
+</div>
+</td>
+<td></td>
+<td>24</td>
+<td>com.ae.qa.testcases.SecurityQuestionsPageTest@327120c8</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SecurityQuestionsPageTest.validateSkipQuesTest()'><b>validateSkipQuesTest</b><br>Test class: com.ae.qa.testcases.SecurityQuestionsPageTest<br>Parameters: public void com.ae.qa.testcases.SecurityQuestionsPageTest.validateSkipQuesTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-1090123277" onClick='toggleBox("Output-1090123277", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1090123277" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1090123277">
+User log in Successfully<br/>
+User skipped the set security question and navigated to Tenant Tab<br/>
+</div>
+</td>
+<td></td>
+<td>10</td>
+<td>com.ae.qa.testcases.SecurityQuestionsPageTest@327120c8</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SecurityQuestionsPageTest.validateSkipThenSetQuesTest()'><b>validateSkipThenSetQuesTest</b><br>Test class: com.ae.qa.testcases.SecurityQuestionsPageTest<br>Parameters: public void com.ae.qa.testcases.SecurityQuestionsPageTest.validateSkipThenSetQuesTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-2016530858" onClick='toggleBox("Output-2016530858", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2016530858" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2016530858">
+User changed first time password of sysadmin Successfully<br/>
+User log in Successfully<br/>
+User first skip the security question and then set security questions successfully<br/>
+</div>
+</td>
+<td></td>
+<td>32</td>
+<td>com.ae.qa.testcases.SecurityQuestionsPageTest@327120c8</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.PurgePolicyPageTest.validateUpdatePurgePolicyEntityTest()'><b>validateUpdatePurgePolicyEntityTest</b><br>Test class: com.ae.qa.testcases.PurgePolicyPageTest<br>Parameters: public void com.ae.qa.testcases.PurgePolicyPageTest.validateUpdatePurgePolicyEntityTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-214441139" onClick='toggleBox("Output-214441139", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-214441139" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-214441139">
+User log in Successfully<br/>
+Actual success message after setting purging policy:Policy saved successfully<br/>
+Expected success message after setting purging policy:Policy saved successfully<br/>
+Purge policy saved successfully<br/>
+</div>
+</td>
+<td></td>
+<td>27</td>
+<td>com.ae.qa.testcases.PurgePolicyPageTest@ecf9049</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SecurityQuestionsPageTest.validateUpdatingSecQuesWithWrongPswdTest()'><b>validateUpdatingSecQuesWithWrongPswdTest</b><br>Test class: com.ae.qa.testcases.SecurityQuestionsPageTest<br>Parameters: public void com.ae.qa.testcases.SecurityQuestionsPageTest.validateUpdatingSecQuesWithWrongPswdTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-1770701191" onClick='toggleBox("Output-1770701191", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1770701191" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1770701191">
+User log in Successfully<br/>
+Security questions can not be updated due to wrong password<br/>
+</div>
+</td>
+<td></td>
+<td>23</td>
+<td>com.ae.qa.testcases.SecurityQuestionsPageTest@327120c8</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SecurityQuestionsPageTest.validateUpdatingSecurityQuesTest()'><b>validateUpdatingSecurityQuesTest</b><br>Test class: com.ae.qa.testcases.SecurityQuestionsPageTest<br>Parameters: public void com.ae.qa.testcases.SecurityQuestionsPageTest.validateUpdatingSecurityQuesTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-322505366" onClick='toggleBox("Output-322505366", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-322505366" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-322505366">
+User log in Successfully<br/>
+Security questions updated successfully<br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>com.ae.qa.testcases.SecurityQuestionsPageTest@327120c8</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.PluginsPageTest.validateUploadPluginsTest()'><b>validateUploadPluginsTest</b><br>Test class: com.ae.qa.testcases.PluginsPageTest<br>Parameters: public void com.ae.qa.testcases.PluginsPageTest.validateUploadPluginsTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-584694804" onClick='toggleBox("Output-584694804", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-584694804" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-584694804">
+User log in Successfully<br/>
+Plugins Tab is selected<br/>
+Upload zip button clicked<br/>
+Plugin zip started uploading<br/>
+Upgrade all plugin checkbox is selected<br/>
+Assign to all checkbox is selected<br/>
+Save button is selected<br/>
+</div>
+</td>
+<td></td>
+<td>30</td>
+<td>com.ae.qa.testcases.PluginsPageTest@5149f008</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.InformationPageTest.validateViewProfileTest()'><b>validateViewProfileTest</b><br>Test class: com.ae.qa.testcases.InformationPageTest<br>Parameters: public void com.ae.qa.testcases.InformationPageTest.validateViewProfileTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-996955574" onClick='toggleBox("Output-996955574", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-996955574" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-996955574">
+User logged in successfully<br/>
+Profile details validation successfully.<br/>
+</div>
+</td>
+<td></td>
+<td>38</td>
+<td>com.ae.qa.testcases.InformationPageTest@2b5cb9b2</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.PurgePolicyPageTest.validateWFReqLessThanNotfTest()'><b>validateWFReqLessThanNotfTest</b><br>Test class: com.ae.qa.testcases.PurgePolicyPageTest<br>Parameters: public void com.ae.qa.testcases.PurgePolicyPageTest.validateWFReqLessThanNotfTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-56702195" onClick='toggleBox("Output-56702195", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-56702195" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-56702195">
+User log in Successfully<br/>
+Actual Error when notification history is gretaer than wf requestNotification History Duration has be less than or equal to Workflow Requests Duration<br/>
+Expected Error when notification history is gretaer than wf request:Notification History Duration has be less than or equal to Workflow Requests Duration<br/>
+Getting correct error message.<br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>com.ae.qa.testcases.PurgePolicyPageTest@ecf9049</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.ae.qa.testcases.SystemSettingsPageTest.validateEditCleanUpRequest()'><b>validateEditCleanUpRequest</b><br>Test class: com.ae.qa.testcases.SystemSettingsPageTest</td>
+<td><div><pre>java.lang.Throwable: Method SystemSettingsPageTest.validateEditCleanUpRequest(java.lang.reflect.Method)[pri:19, instance:com.ae.qa.testcases.SystemSettingsPageTest@158d255c] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1991010480", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1991010480'><pre>java.lang.Throwable: Method SystemSettingsPageTest.validateEditCleanUpRequest(java.lang.reflect.Method)[pri:19, instance:com.ae.qa.testcases.SystemSettingsPageTest@158d255c] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SystemSettingsPageTest.validateInvalidURLTest()'><b>validateInvalidURLTest</b><br>Test class: com.ae.qa.testcases.SystemSettingsPageTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=91.0.4472.164)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;LPT-0919&apos;, ip: &apos;10.81.24.38&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.9&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.164, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\kalyanig\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:52460}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ab2b48fb442aefa16f2ac8f6a1eb306b
+	at jdk.internal.reflect.GeneratedConstructorAccessor38.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
+	at com.ae.qa.base.TestBase.getScreenShot(TestBase.java:106)
+	at com.ae.qa.base.TestBase.getResult(TestBase.java:176)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1342373353", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1342373353'><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=91.0.4472.164)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;LPT-0919&apos;, ip: &apos;10.81.24.38&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.9&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.164, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\kalyanig\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:52460}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ab2b48fb442aefa16f2ac8f6a1eb306b
+	at jdk.internal.reflect.GeneratedConstructorAccessor38.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
+	at com.ae.qa.base.TestBase.getScreenShot(TestBase.java:106)
+	at com.ae.qa.base.TestBase.getResult(TestBase.java:176)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.ae.qa.testcases.SystemSettingsPageTest@158d255c</td></tr>
+<tr>
+<td title='com.ae.qa.testcases.SystemSettingsPageTest.validateServerUrlTest()'><b>validateServerUrlTest</b><br>Test class: com.ae.qa.testcases.SystemSettingsPageTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=91.0.4472.164)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;LPT-0919&apos;, ip: &apos;10.81.24.38&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.9&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.164, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\kalyanig\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:52460}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ab2b48fb442aefa16f2ac8f6a1eb306b
+	at jdk.internal.reflect.GeneratedConstructorAccessor38.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
+	at com.ae.qa.base.TestBase.getScreenShot(TestBase.java:106)
+	at com.ae.qa.base.TestBase.getResult(TestBase.java:176)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1083650811", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1083650811'><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=91.0.4472.164)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;LPT-0919&apos;, ip: &apos;10.81.24.38&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.9&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.164, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\kalyanig\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:52460}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ab2b48fb442aefa16f2ac8f6a1eb306b
+	at jdk.internal.reflect.GeneratedConstructorAccessor38.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
+	at com.ae.qa.base.TestBase.getScreenShot(TestBase.java:106)
+	at com.ae.qa.base.TestBase.getResult(TestBase.java:176)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.ae.qa.testcases.SystemSettingsPageTest@158d255c</td></tr>
+</table><p>
+</body>
+</html>

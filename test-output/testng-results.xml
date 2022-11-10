@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+    <line>
+      <![CDATA[User logged in successfully]]>
+    </line>
+    <line>
+      <![CDATA[Reports Tab is clicked]]>
+    </line>
+    <line>
+      <![CDATA[Dashboard chosed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Field of Columns: Workflow Name]]>
+    </line>
+    <line>
+      <![CDATA[Field of Columns: Submitted By]]>
+    </line>
+    <line>
+      <![CDATA[Field of Columns: Created Time]]>
+    </line>
+    <line>
+      <![CDATA[Field of Columns: Execution Start Time]]>
+    </line>
+    <line>
+      <![CDATA[Field of Columns: Completed Time]]>
+    </line>
+    <line>
+      <![CDATA[Column Value found]]>
+    </line>
+    <line>
+      <![CDATA[All columns selected found in table.]]>
+    </line>
+    <line>
+      <![CDATA[User signed out successfully]]>
+    </line>
+  </reporter-output>
+  <suite started-at="2022-11-02T07:55:06Z" name="Default suite" finished-at="2022-11-02T07:55:56Z" duration-ms="49454">
+    <groups>
+    </groups>
+    <test started-at="2022-11-02T07:55:06Z" name="Default test" finished-at="2022-11-02T07:55:56Z" duration-ms="49454">
+      <class name="com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA">
+        <test-method is-config="true" signature="setExtent()[pri:0, instance:com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA@2692b61e]" started-at="2022-11-02T07:55:06Z" name="setExtent" finished-at="2022-11-02T07:55:06Z" duration-ms="246" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setExtent -->
+        <test-method is-config="true" signature="initialization()[pri:0, instance:com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA@2692b61e]" started-at="2022-11-02T07:55:06Z" name="initialization" finished-at="2022-11-02T07:55:13Z" duration-ms="6254" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialization -->
+        <test-method signature="validateColumnHideTest(java.lang.reflect.Method)[pri:336, instance:com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA@2692b61e]" started-at="2022-11-02T07:55:13Z" name="validateColumnHideTest" finished-at="2022-11-02T07:55:55Z" duration-ms="41886" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA.validateColumnHideTest(java.lang.reflect.Method) throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[User logged in successfully]]>
+            </line>
+            <line>
+              <![CDATA[Reports Tab is clicked]]>
+            </line>
+            <line>
+              <![CDATA[Dashboard chosed successfully]]>
+            </line>
+            <line>
+              <![CDATA[Field of Columns: Workflow Name]]>
+            </line>
+            <line>
+              <![CDATA[Field of Columns: Submitted By]]>
+            </line>
+            <line>
+              <![CDATA[Field of Columns: Created Time]]>
+            </line>
+            <line>
+              <![CDATA[Field of Columns: Execution Start Time]]>
+            </line>
+            <line>
+              <![CDATA[Field of Columns: Completed Time]]>
+            </line>
+            <line>
+              <![CDATA[Column Value found]]>
+            </line>
+            <line>
+              <![CDATA[All columns selected found in table.]]>
+            </line>
+            <line>
+              <![CDATA[User signed out successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- validateColumnHideTest -->
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA@2692b61e]" started-at="2022-11-02T07:55:55Z" name="getResult" finished-at="2022-11-02T07:55:55Z" duration-ms="403" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=validateColumnHideTest status=SUCCESS method=DashboardsPageTestTA.validateColumnHideTest(java.lang.reflect.Method)[pri:336, instance:com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA@2692b61e] output=User logged in successfully]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method is-config="true" signature="endReport()[pri:0, instance:com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA@2692b61e]" started-at="2022-11-02T07:55:55Z" name="endReport" finished-at="2022-11-02T07:55:56Z" duration-ms="607" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endReport -->
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
