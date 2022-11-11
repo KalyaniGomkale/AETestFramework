@@ -159,6 +159,8 @@ public class TenantUsersPageTA extends TestBase {
 	WebElement fileManagementTab;
 	@FindBy(xpath = "//span[text()='Home']")
 	WebElement homeTab;
+	@FindBy(xpath = "//span[text()='Settings']")
+	WebElement settingTab;
 	@FindBy(xpath = "//select[@formcontrolname='action']")
 	WebElement actionSelect;
 
@@ -802,6 +804,53 @@ public class TenantUsersPageTA extends TestBase {
 		informationpageta.validateSignOut();
 		//loginpageta.ValidateFirstTimeLogin(UserName, FT_password, password);
 		//loginpageta.login(UserName, password);*/
+	}
+	public void validateCreateActivityMonitorSpaceInUsername(String userType, String FName, String LName, String UserMail, String UserName,
+			String Pswd, String ConfirmPswd, String RoleName,String Password) throws Exception{
+		creatingUser(userType, FName, LName, UserMail, UserName,Pswd, ConfirmPswd, RoleName);
+		loginpageta.ValidateFirstTimeLogin(UserName, ConfirmPswd, Password);
+		loginpageta.login(UserName,Password);
+		Thread.sleep(5000);
+		if(homeTab.isDisplayed()&&agentsTab.isDisplayed()&&requestTab.isDisplayed()&&
+				reportsTab.isDisplayed()){
+			Assert.assertTrue(true);
+			Reporter.log("Activity Monitor role with space in username is created successfully",true);
+		}else{
+			Assert.assertTrue(false);
+			Reporter.log("Activity Monitor role with space in username is not created successfully",true);
+		}
+		informationpageta.validateSignOut();
+		
+	}
+	public void validateCreateAgentAdminApostropheLastname(String userType, String FName, String LName, String UserMail, String UserName,
+			String Pswd, String ConfirmPswd, String RoleName,String Password) throws Exception{
+		creatingUser(userType, FName, LName, UserMail, UserName,Pswd, ConfirmPswd, RoleName);
+		loginpageta.ValidateFirstTimeLogin(UserName, ConfirmPswd, Password);
+		loginpageta.login(UserName,Password);
+		Thread.sleep(5000);
+		if(agentsTab.isDisplayed()&&fileManagementTab.isDisplayed()&&pluginsTab.isDisplayed()){
+			Assert.assertTrue(true);
+			Reporter.log("Agent admin role with Apostrophe in last name is created successfully",true);
+		}else{
+			Assert.assertTrue(false);
+			Reporter.log("Agent admin role with Apostrophe in last name is not created successfully",true);
+		}
+		informationpageta.validateSignOut();
+	}
+	public void validateCreateUserAdminEmailidUsername(String userType, String FName, String LName, String UserMail, String UserName,
+			String Pswd, String ConfirmPswd, String RoleName,String Password) throws Exception{
+		creatingUser(userType, FName, LName, UserMail, UserName,Pswd, ConfirmPswd, RoleName);
+		loginpageta.ValidateFirstTimeLogin(UserName, ConfirmPswd, Password);
+		loginpageta.login(UserName,Password);
+		Thread.sleep(5000);
+		if(usersTab.isDisplayed()&&workflowTab.isDisplayed()&&settingTab.isDisplayed()){
+			Assert.assertTrue(true);
+			Reporter.log("User admin role with Email id in username is created successfully",true);
+		}else{
+			Assert.assertTrue(false);
+			Reporter.log("User admin role with Email id in username is not created successfully",true);
+		}
+		informationpageta.validateSignOut();
 	}
 	public void validateAdvSearch() throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
