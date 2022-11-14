@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA">
+      <class name="com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA">
         <methods>
+          <include name="validateCreateUserAdminEmailidUsernameTest" invocation-numbers="0"/>
           <include name="endReport"/>
-          <include name="validateColumnHideTest" invocation-numbers="0"/>
           <include name="setExtent"/>
           <include name="initialization"/>
           <include name="getResult"/>
         </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA -->
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

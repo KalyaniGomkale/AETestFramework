@@ -2,112 +2,94 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
     <line>
-      <![CDATA[User logged in successfully]]>
+      <![CDATA[User log in Successfully]]>
     </line>
     <line>
-      <![CDATA[Reports Tab is clicked]]>
+      <![CDATA[started creating new User Admin]]>
     </line>
     <line>
-      <![CDATA[Dashboard chosed successfully]]>
+      <![CDATA[User Admin is created successfully]]>
     </line>
     <line>
-      <![CDATA[Field of Columns: Workflow Name]]>
+      <![CDATA[User Admin created successfully]]>
     </line>
     <line>
-      <![CDATA[Field of Columns: Submitted By]]>
+      <![CDATA[User signed out successfully]]>
     </line>
     <line>
-      <![CDATA[Field of Columns: Created Time]]>
+      <![CDATA[User changed first time password of User Successfully]]>
     </line>
     <line>
-      <![CDATA[Field of Columns: Execution Start Time]]>
-    </line>
-    <line>
-      <![CDATA[Field of Columns: Completed Time]]>
-    </line>
-    <line>
-      <![CDATA[Column Value found]]>
-    </line>
-    <line>
-      <![CDATA[All columns selected found in table.]]>
+      <![CDATA[User admin role with Email id in username is created successfully]]>
     </line>
     <line>
       <![CDATA[User signed out successfully]]>
     </line>
   </reporter-output>
-  <suite started-at="2022-11-02T07:55:06Z" name="Default suite" finished-at="2022-11-02T07:55:56Z" duration-ms="49454">
+  <suite started-at="2022-11-11T11:48:40Z" name="Default suite" finished-at="2022-11-11T11:50:00Z" duration-ms="80008">
     <groups>
     </groups>
-    <test started-at="2022-11-02T07:55:06Z" name="Default test" finished-at="2022-11-02T07:55:56Z" duration-ms="49454">
-      <class name="com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA">
-        <test-method is-config="true" signature="setExtent()[pri:0, instance:com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA@2692b61e]" started-at="2022-11-02T07:55:06Z" name="setExtent" finished-at="2022-11-02T07:55:06Z" duration-ms="246" status="PASS">
+    <test started-at="2022-11-11T11:48:40Z" name="Default test" finished-at="2022-11-11T11:50:00Z" duration-ms="80008">
+      <class name="com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA">
+        <test-method is-config="true" signature="setExtent()[pri:0, instance:com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA@2692b61e]" started-at="2022-11-11T11:48:40Z" name="setExtent" finished-at="2022-11-11T11:48:40Z" duration-ms="194" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setExtent -->
-        <test-method is-config="true" signature="initialization()[pri:0, instance:com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA@2692b61e]" started-at="2022-11-02T07:55:06Z" name="initialization" finished-at="2022-11-02T07:55:13Z" duration-ms="6254" status="PASS">
+        <test-method is-config="true" signature="initialization()[pri:0, instance:com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA@2692b61e]" started-at="2022-11-11T11:48:41Z" name="initialization" finished-at="2022-11-11T11:48:48Z" duration-ms="7005" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialization -->
-        <test-method signature="validateColumnHideTest(java.lang.reflect.Method)[pri:336, instance:com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA@2692b61e]" started-at="2022-11-02T07:55:13Z" name="validateColumnHideTest" finished-at="2022-11-02T07:55:55Z" duration-ms="41886" status="PASS">
+        <test-method signature="validateCreateUserAdminEmailidUsernameTest(java.lang.reflect.Method)[pri:331, instance:com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA@2692b61e]" started-at="2022-11-11T11:48:48Z" name="validateCreateUserAdminEmailidUsernameTest" finished-at="2022-11-11T11:50:00Z" duration-ms="72066" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA.validateColumnHideTest(java.lang.reflect.Method) throws java.lang.Exception]]>
+                <![CDATA[public void com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA.validateCreateUserAdminEmailidUsernameTest(java.lang.reflect.Method) throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[User logged in successfully]]>
+              <![CDATA[User log in Successfully]]>
             </line>
             <line>
-              <![CDATA[Reports Tab is clicked]]>
+              <![CDATA[started creating new User Admin]]>
             </line>
             <line>
-              <![CDATA[Dashboard chosed successfully]]>
+              <![CDATA[User Admin is created successfully]]>
             </line>
             <line>
-              <![CDATA[Field of Columns: Workflow Name]]>
+              <![CDATA[User Admin created successfully]]>
             </line>
             <line>
-              <![CDATA[Field of Columns: Submitted By]]>
+              <![CDATA[User signed out successfully]]>
             </line>
             <line>
-              <![CDATA[Field of Columns: Created Time]]>
+              <![CDATA[User changed first time password of User Successfully]]>
             </line>
             <line>
-              <![CDATA[Field of Columns: Execution Start Time]]>
-            </line>
-            <line>
-              <![CDATA[Field of Columns: Completed Time]]>
-            </line>
-            <line>
-              <![CDATA[Column Value found]]>
-            </line>
-            <line>
-              <![CDATA[All columns selected found in table.]]>
+              <![CDATA[User admin role with Email id in username is created successfully]]>
             </line>
             <line>
               <![CDATA[User signed out successfully]]>
             </line>
           </reporter-output>
-        </test-method> <!-- validateColumnHideTest -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA@2692b61e]" started-at="2022-11-02T07:55:55Z" name="getResult" finished-at="2022-11-02T07:55:55Z" duration-ms="403" status="PASS">
+        </test-method> <!-- validateCreateUserAdminEmailidUsernameTest -->
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA@2692b61e]" started-at="2022-11-11T11:50:00Z" name="getResult" finished-at="2022-11-11T11:50:00Z" duration-ms="245" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateColumnHideTest status=SUCCESS method=DashboardsPageTestTA.validateColumnHideTest(java.lang.reflect.Method)[pri:336, instance:com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA@2692b61e] output=User logged in successfully]]]>
+                <![CDATA[[TestResult name=validateCreateUserAdminEmailidUsernameTest status=SUCCESS method=TenantUsersPageTestTA.validateCreateUserAdminEmailidUsernameTest(java.lang.reflect.Method)[pri:331, instance:com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA@2692b61e] output=User log in Successfully]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="endReport()[pri:0, instance:com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA@2692b61e]" started-at="2022-11-02T07:55:55Z" name="endReport" finished-at="2022-11-02T07:55:56Z" duration-ms="607" status="PASS">
+        <test-method is-config="true" signature="endReport()[pri:0, instance:com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA@2692b61e]" started-at="2022-11-11T11:50:00Z" name="endReport" finished-at="2022-11-11T11:50:00Z" duration-ms="468" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endReport -->
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA -->
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

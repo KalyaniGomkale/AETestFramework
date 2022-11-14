@@ -152,7 +152,7 @@
 
 						<configuration>
 							<!-- From Email address -->
-							<from>rohil.kumbhar06@gmail.com</from>
+							<from>kalyani.gomkale@automationedge.com</from>
 
 							<!-- Email subject -->
 							<subject>Test Automation Report</subject>
@@ -161,15 +161,15 @@
 							<failonerror>true</failonerror>
 
 							<!-- host -->
-							<mailhost>smtp.gmail.com</mailhost>
+							<mailhost>smtp.office365.com</mailhost>
 							<!-- port of the host -->
-							<mailport>465</mailport>
+							<mailport>587</mailport>
 							<mailssl>false</mailssl>
 							<mailAltConfig>true</mailAltConfig>
 
 							<!-- Email Authentication(USername and Password) -->
-							<mailuser>rohil.kumbhar06@gmail.com</mailuser>
-							<mailpassword>@ustf12347299</mailpassword>
+							<mailuser>kalyani.gomkale@automationedge.com</mailuser>
+							<mailpassword>Passionmpsc2022</mailpassword>
 
 							<receivers>
 								<!-- To Email address -->
