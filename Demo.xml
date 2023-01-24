@@ -150,7 +150,7 @@
 					<include name="validateLogLevelDropdownNotEqualToAuditLogsPageTest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcases.TenantUsersPageTestTA">
+			<class name="com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA">
 				<methods>
 					<include name="validateAdvSearchForUserNameEqualToTenantuserPageTATest" />
 					<include name="validateAdvSearchForUserNameNotEqualToTenantuserPageTATest" />
@@ -181,7 +181,7 @@
 					<include name="validateStateDropdownNotEqualToTenantuserPageTATest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcases.UserGroupsPageTestTA">
+			<class name="com.ae.qa.testcasesTenantAdmin.UserGroupsPageTestTA">
 				<methods>
 					<include name="validateAdvSearchForGroupNameEqualToUsergroupsPageTATest" />
 					<include name="validateAdvSearchForGroupNameNotEqualToUsergroupsPageTATest" />
@@ -190,7 +190,7 @@
 					<include name="validateAdvSearchForGroupNameEndsWithUsergroupsPageTATest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcases.WorkflowListPageTestTA">
+			<class name="com.ae.qa.testcasesTenantAdmin.WorkflowListPageTestTA">
 				<methods>
 					<include name="validateAdvSearchForWFNameEqualToWorkflowsPageTATest" />
 					<include name="validateAdvSearchForWFNameNotEqualToWorkflowsPageTATest" />
@@ -211,7 +211,7 @@
 					<include name="validateStatusDropdownNotEqualToWorkflowsPageTATest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcases.SchedulerPageTestTA">
+			<class name="com.ae.qa.testcasesTenantAdmin.SchedulerPageTestTA">
 				<methods>
 					<include name="validateAdvSearchForScheduleNameEqualToSchedulerPageTATest" />
 					<include name="validateAdvSearchForScheduleNameNotEqualToSchedulerPageTATest" />
@@ -222,7 +222,7 @@
 					<include name="validateStatusDropdownNotEqualToSchedulerPageTATest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcases.AgentListPageTestTA">
+			<class name="com.ae.qa.testcasesTenantAdmin.AgentListPageTestTA">
 				<methods>
 					<include name="validateAdvSearchForAgentNameEqualToAgentsPageTATest" />
 					<include name="validateAdvSearchForAgentNameNotEqualToAgentsPageTATest" />
@@ -239,7 +239,7 @@
 					<include name="validateAdvSearchForExecutionThreadNotInRangeAgentsPageTATest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcases.PluginsPageTestTA">
+			<class name="com.ae.qa.testcasesTenantAdmin.PluginsPageTestTA">
 				<methods>
 					<include name="validateAdvSearchForPluginNameEqualToPluginsPageTATest" />
 					<include name="validateAdvSearchForPluginNameNotEqualToPluginsPageTATest" />
@@ -258,7 +258,7 @@
 					<include name="validateLastUpdatedModifiedNotInBetweenPluginsPageTATest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcases.AuditLogsPageTestTA">
+			<class name="com.ae.qa.testcasesTenantAdmin.AuditLogsPageTestTA">
 				<methods>
 					<include name="validateEntityDropdownEqualToAuditLogsPageTATest" />
 					<include name="validateEntityDropdownNotEqualToAuditLogsPageTATest" />
@@ -287,7 +287,7 @@
 					<include name="validateLogLevelDropdownNotEqualToAuditLogsPageTATest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcases.RequestsPageTestTA">
+			<class name="com.ae.qa.testcasesTenantAdmin.RequestsPageTestTA">
 				<methods>
 					<include name="validateAdvSearchForIDEqualToRequestPageTATest" />
 					<include name="validateAdvSearchForIDNotEqualToRequestPageTATest" />
@@ -331,7 +331,7 @@
 					<include name="validateCreatedNotInBetweenRequestPageTATest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcases.HolidayCalenderPageTestTA">
+			<class name="com.ae.qa.testcasesTenantAdmin.HolidayCalenderPageTestTA">
 				<methods>
 					<include name="validateAdvSearchForNameEqualToHolidayPageTATest" />
 					<include name="validateAdvSearchForNameNotEqualToHolidayPageTATest" />
