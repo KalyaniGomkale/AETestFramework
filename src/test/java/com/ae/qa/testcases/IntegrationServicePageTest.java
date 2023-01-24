@@ -57,6 +57,33 @@ public class IntegrationServicePageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Integration services enabled for more than one tenant successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
+	/*@Test(priority=900)
+	public void validateEditConfJobLowerLimitTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateEditConfJobLowerLimitTest", "TC_83:Verify Edit  conf job Lower limit Minutes");
+		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		integrationservicespage = new IntegrationServicesPage();
+		integrationservicespage.validateEditConfJobLowerLimit("IntService1","7");
+		extentTest.log(extentTest.getStatus(), "Conf job lower limit is edited successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+	}
+	@Test(priority=901)
+	public void validateEditUpdateResponseJobLowerLimitTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateEditUpdateResponseJobLowerLimitTest", "TC_84:Verify Edit Update Response Job Lower Limit (in seconds");
+		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		integrationservicespage = new IntegrationServicesPage();
+		integrationservicespage.validateEditUpdateResponseJobLowerLimit("IntService1","35");
+		extentTest.log(extentTest.getStatus(), "Update Response lower limit is edited successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+	}
+	@Test(priority=902)
+	public void validateIntegrationServiceStatusTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateIntegrationServiceStatusTest", "TC_93:Verify Integration service status");
+		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		integrationservicespage = new IntegrationServicesPage();
+		integrationservicespage.validateIntegrationServiceStatus("Stopped");
+		extentTest.log(extentTest.getStatus(), "Integration Service Status is verified successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+	}*/
 	@Test(priority=162)
 	public void validateIntegrationServicesPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateIntegrationServicesPageTest", "TC_Additional:Verify Clicking Integration Services tab and checking that appropiate page is loaded");

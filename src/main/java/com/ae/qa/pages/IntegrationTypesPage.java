@@ -43,6 +43,8 @@ public class IntegrationTypesPage extends TestBase {
 	WebElement alertMessage;
 	@FindBy(xpath="//div[@class='title-div']/h2")
 	WebElement pageTitle;
+	@FindBy(id="popup-button-ok")
+	WebElement confirmDeleteBtn;
 	
 	public IntegrationTypesPage() {
 		PageFactory.initElements(driver, this);
@@ -105,6 +107,30 @@ public class IntegrationTypesPage extends TestBase {
 		String expected_Msg="Integration type jar for ["+typename_lowerCase+"] updated successfully";
 		Assert.assertEquals(actual_Msg,expected_Msg,"Integration type not updated.");
 		Reporter.log("Integration type updated successfully",true);
+		informationpage.validateSignOut();
+	}
+	public void validateDeleteIntegrationType(String typeName) throws Exception{
+		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		Reporter.log("User log in Successfully",true);
+		//First search for tab and click on it
+		// click IntegrationTab Tab
+		Thread.sleep(5000);
+		//wait.until(ExpectedConditions.visibilityOf(integrationTab));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", integrationTab);
+		// click on services Tab
+		js.executeScript("arguments[0].click();", typesTab);
+		Thread.sleep(5000);
+		WebElement deleteBtn = driver.findElement(By.xpath("//div/table/tr/td/a[text()='"+typeName+"']/../../td/span[@class='fa fa-trash danger email-left-margin']"));
+		deleteBtn.click();
+		Thread.sleep(2000);
+		confirmDeleteBtn.click();
+		Thread.sleep(2000);
+		String actual_success_msg = alertMessage.getText();
+		String expected_success_msg = "Integration type ["+typeName+"] deleted successfully";
+		System.out.println("actual success msg is: " + actual_success_msg);
+		Assert.assertEquals(actual_success_msg, expected_success_msg, "Integration type is not deleted successfully");
+		Reporter.log("Integration type is deleted successfully",true);
 		informationpage.validateSignOut();
 	}
 	public void validateIntegrationTypePage(String PageTitle) throws Exception {

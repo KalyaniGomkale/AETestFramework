@@ -169,6 +169,7 @@ public class TenantUsersPage extends TestBase {
 		System.out.println("Expected Username:" + expected_EditUserMsg);
 		Assert.assertEquals(actual_EditUserMsg, expected_EditUserMsg, "Tenant User details not edited successfully");
 		Reporter.log("Tenant User details got edited.",true);
+		Thread.sleep(50000);
 		informationpage.validateSignOut();
 	}
 	public void validateTenantUsersPage(String PageTitle) throws Exception {

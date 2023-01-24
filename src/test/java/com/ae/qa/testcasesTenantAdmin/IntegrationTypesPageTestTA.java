@@ -28,6 +28,24 @@ public class IntegrationTypesPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Integration Type added successfully with default jar");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
+	/*@Test(priority=1013)
+	public void validateEditIntegrationTypesTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateEditIntegrationTypesTATest", "TC_500:Verfiy delete integration type");
+		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		integrationtypespageta = new IntegrationTypesPageTA();
+		integrationtypespageta.validateEditIntegrationTypesTA("RemedyForce_TA","Integration of AE with RemedyForce for TA and pp");
+		extentTest.log(extentTest.getStatus(), "Integration Type is edited successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority=1014)
+	public void validateDeleteIntegrationTypeTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateDeleteIntegrationTypeTATest", "TC_500:Verfiy delete integration type");
+		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		integrationtypespageta = new IntegrationTypesPageTA();
+		integrationtypespageta.validateDeleteIntegrationTypeTA("RemedyForce_TA");
+		extentTest.log(extentTest.getStatus(), "Integration Type is deleted successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}*/
 	@Test(priority=196)
 	public void validateIntegrationTypesPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateIntegrationTypesPageTATest", "TC_Additional:Verify Clicking Integration Types tab and checking that appropiate page is loaded");

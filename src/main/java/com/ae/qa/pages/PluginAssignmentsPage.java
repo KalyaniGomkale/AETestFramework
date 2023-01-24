@@ -438,16 +438,18 @@ public class PluginAssignmentsPage extends TestBase {
 		Thread.sleep(3000);
 		informationpage.validateSignOut();
 	}
-	public void validateWFInActiveAfterSysadminRemovesPluginPermission(String wfName, String wfdes, String category, String WFImportPath, String priority,
+	//Test case to make the Workflow Inactive
+	public void validateWFInActiveAfterSysadminRemovesPluginPermission(String uploadJarFile,String wfName, String wfdes, String category, String WFImportPath, String priority,
 			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit,String value1,String value2,String pluginName) throws Exception{
 		//Need to hard the values
-		workflowpage.ImportForm(wfName, wfdes, category, WFImportPath, priority,
-				expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
+		pluginspage.validateUploadSinglePlugins(uploadJarFile);
+		workflowpage.ImportForm(wfName, wfdes, category, WFImportPath, priority,expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
 		validateImportWFForPlugin(wfName,value1,value2);
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
 		// click Plugins Tab
-		wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js= (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", pluginsTab);
 		Reporter.log("Plugin Tab is Selected",true);
@@ -460,14 +462,16 @@ public class PluginAssignmentsPage extends TestBase {
 		} else {
 			System.out.println("Plugin Radio Btn is already selected");
 		}
-
-		Select plugin_dropdwn = new Select(pluginList);
+        Select plugin_dropdwn = new Select(pluginList);
 		plugin_dropdwn.selectByValue(pluginName);
 		Thread.sleep(3000);
 		editBtn.click();
 		Thread.sleep(7000);
-		tenantCheckbox.click();
-		Reporter.log("Tenant Checkbox is unchecked",true);
+		if (tenantCheckbox.isSelected()) {
+			tenantCheckbox.click();
+		} else {
+			System.out.println("Tenant Checkbox is already unchecked");
+		}
 		okBtn.click();
 		Thread.sleep(2000);
 		saveBtn.click();
@@ -482,7 +486,8 @@ public class PluginAssignmentsPage extends TestBase {
 		//Login with tenant admin and checking wf can be made inactive
 		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);;
 		js.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
 		Thread.sleep(2000);
@@ -506,11 +511,13 @@ public class PluginAssignmentsPage extends TestBase {
 			Assert.assertEquals(actual_SliderColor, expected_SliderColor, "Workflow is not in Inactive state");
 		}
 	}
-	public void validateWFActiveAfterSysadminRemovesPluginPermission(String wfName) throws Exception{
+	//Test cases to make the inactive wf to active state but cannot go to active state because of plugin access
+	public void validateWFActiveFailureAfterSysadminRemovesPluginPermission(String wfName) throws Exception{
 		//Login with tenant admin and checking wf can be made inactive
 		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js= (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
@@ -524,6 +531,73 @@ public class PluginAssignmentsPage extends TestBase {
 		Assert.assertEquals(Actual_FailureMsg, Expected_FailureMsg, "Workflow is made active successfully");
 		Reporter.log("Plugin permission is removed so workflow cannot be made inactive",true);
 		informationpage.validateSignOut();	
+	}
+	public void validateWFActiveSuccessAfterSysadminAssignPluginPermission(String pluginName,String wfName) throws Exception{
+		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		Reporter.log("User log in Successfully",true);
+		// click Plugins Tab
+		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		Thread.sleep(3000);
+		JavascriptExecutor js= (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", pluginsTab);
+		Reporter.log("Plugin Tab is Selected",true);
+		// click on pluginAssignments Tab
+		wait.until(ExpectedConditions.visibilityOf(pluginAssignmentsTab));
+		js.executeScript("arguments[0].click();", pluginAssignmentsTab);
+		Reporter.log("Plugin Assignment tab is Selected",true);
+		if (!pluginRadioBtn.isSelected()) {
+			pluginRadioBtn.click();
+		} else {
+			System.out.println("Plugin Radio Btn is already selected");
+		}
+        Select plugin_dropdwn = new Select(pluginList);
+		plugin_dropdwn.selectByValue(pluginName);
+		Thread.sleep(3000);
+		editBtn.click();
+		Thread.sleep(7000);
+		if (!tenantCheckbox.isSelected()) {
+			tenantCheckbox.click();
+		} else {
+			System.out.println("Tenant Checkbox is already checked");
+		}
+		okBtn.click();
+		Thread.sleep(2000);
+		saveBtn.click();
+		Reporter.log("Save Button is Clicked",true);
+		Thread.sleep(4000);
+		String Actual_SuccessMsg = success_Message.getText();
+		System.out.println("Actual Success Message" + Actual_SuccessMsg);
+		String Expected_SuccessMsg = Messages.assignPluginSingleTenant;
+		System.out.println("Expected Success Message" + Expected_SuccessMsg);
+		Assert.assertEquals(Actual_SuccessMsg, Expected_SuccessMsg, "Plugin assignment is not successfully");
+		informationpage.validateSignOut();
+		//Login with tenant admin and checking wf can be made active
+		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Reporter.log("User logged in successfully",true);
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked",true);
+		Thread.sleep(2000);
+		WebElement sliderToEnableWF=driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']/../td/label/span"));
+		String color = sliderToEnableWF.getCssValue("background-color");
+		String HexColor = Color.fromString(color).asHex();
+		Reporter.log("HexColor of WF Slider:-"+HexColor);
+		if(HexColor.equals(prop.getProperty("BlueSlider"))){
+			String actual_SliderColor = HexColor;
+			System.out.println("Actual Color of Inactive WF Slider:-"+actual_SliderColor);
+			String expected_SliderColor = prop.getProperty("GreySlider");
+			System.out.println("Expected Color of Inactive WF Slider:-"+expected_SliderColor);
+			Assert.assertEquals(actual_SliderColor, expected_SliderColor, "Workflow is not in Inactive state");
+			informationpage.validateSignOut();
+		}
+		else if(HexColor.equals(prop.getProperty("GreySlider"))){
+			String actual_SliderColor = HexColor;
+			System.out.println("Actual Color of Inactive WF Slider:-"+actual_SliderColor);
+			String expected_SliderColor = prop.getProperty("GreySlider");
+			System.out.println("Expected Color of Inactive WF Slider:-"+expected_SliderColor);
+			Assert.assertEquals(actual_SliderColor, expected_SliderColor, "Workflow is not in Inactive state");
+		}
 	}
 	public void validateUploadPluginWithoutAssignToAllTenant() throws Exception{
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));

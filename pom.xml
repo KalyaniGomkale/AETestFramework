@@ -111,6 +111,14 @@
 			<version>5.0.2</version>
 		</dependency>
 
+
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -130,12 +138,38 @@
 					<testFailureIgnore>true</testFailureIgnore>
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
-						<suiteXmlFile>DemoQA.xml</suiteXmlFile>
+						<suiteXmlFile>Shrut.xml</suiteXmlFile>
 					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+			<!-- For making exeutable jar files -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.inventory.gui.InventoryApp</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
 				</configuration>
 			</plugin>
 
 			<!-- Post-Man plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<compilerArgs>
+						<arg>-Dhttps.protocols=TLSv1.2</arg>
+					</compilerArgs>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>ch.fortysix</groupId>
 				<artifactId>maven-postman-plugin</artifactId>
@@ -151,8 +185,9 @@
 						<inherited>true</inherited>
 
 						<configuration>
+
 							<!-- From Email address -->
-							<from>kalyani.gomkale@automationedge.com</from>
+							<from>rohil.kumbhar@automationedge.com</from>
 
 							<!-- Email subject -->
 							<subject>Test Automation Report</subject>
@@ -168,8 +203,8 @@
 							<mailAltConfig>true</mailAltConfig>
 
 							<!-- Email Authentication(USername and Password) -->
-							<mailuser>kalyani.gomkale@automationedge.com</mailuser>
-							<mailpassword>Passionmpsc2022</mailpassword>
+							<mailuser>rohil.kumbhar@automationedge.com</mailuser>
+							<mailpassword>@ustf1237299</mailpassword>
 
 							<receivers>
 								<!-- To Email address -->
@@ -192,7 +227,7 @@
 							<fileSets>
 								<fileSet>
 									<!-- Report directory Path -->
-									<directory>F://Automation Edge Project//AutomationEdgePortal_7.0(1)WorkSpace//test-output//</directory>
+									<directory>${project.build.directory}//test-output</directory>
 									<includes>
 										<!-- Report file name -->
 										<include>AEExtentReport.html</include>

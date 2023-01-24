@@ -19,8 +19,9 @@ public class AgentListPageTestAA extends TestBase{
 	public AgentListPageTestAA() {
 		super();
 	}
+	
 
-	/*@Test(priority=92)
+	@Test(priority=92)
 	public void validateEditAssistedAgentNameAATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditAssistedAgentNameAATest", "TC_15: Verify Edit Assisted Agent Name");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AAsheetname"),method.getName());
@@ -28,6 +29,7 @@ public class AgentListPageTestAA extends TestBase{
 		agentlistpageaa.validateEditAssistedAgentNameAA(TestDataInMap.get("AgentName"));	
 		extentTest.log(extentTest.getStatus(), "Edit Assisted Agent Name Successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AAsheetname"), "Pass", method.getName());
+		
 	}
 	@Test(priority=93)
 	public void validateDeleteAssistedAgentAATest(Method method) throws Exception {
@@ -91,7 +93,7 @@ public class AgentListPageTestAA extends TestBase{
 		agentlistpageaa.validateDeleteAgentAA();
 		extentTest.log(extentTest.getStatus(), "Agent is deleted successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AAsheetname"), "Pass", method.getName());
-	}*/
+	}
 	//For Agent Name
 	@Test
 	public void validateAdvSearchForAgentNameEqualToTest(Method method) throws Exception {

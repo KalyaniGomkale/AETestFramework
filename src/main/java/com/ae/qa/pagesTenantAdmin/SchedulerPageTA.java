@@ -25,8 +25,6 @@ public class SchedulerPageTA extends TestBase {
 	public WebElements webelements = new WebElements();
 	public LoginPageTA loginpageta = new LoginPageTA();
 	public InformationPageTA informationpageta=new InformationPageTA();
-	public CataloguePageTA cataloguepageta=new CataloguePageTA();
-	public RequestsPageTA requestpageta=new RequestsPageTA();
 	public CommonWebElements wb = new CommonWebElements();
 
 	@FindBy(xpath = "//span[text()='Workflows']")

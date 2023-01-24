@@ -23,7 +23,6 @@ public class CataloguePageTA extends TestBase{
 	public WebElements webelements = new WebElements();
 	public LoginPageTA loginpageta = new LoginPageTA();
 	public InformationPageTA informationpageta=new InformationPageTA();
-	public RequestsPageTA requestspageta=new RequestsPageTA();
 	public WorkflowAssignmentPageTA wfassignment = new WorkflowAssignmentPageTA();
 	
 	@FindBy(xpath = "//span[text()='Catalogue']")

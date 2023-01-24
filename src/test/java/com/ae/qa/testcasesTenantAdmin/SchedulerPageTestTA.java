@@ -30,7 +30,6 @@ public class SchedulerPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "User created daily schedule successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-
 	@Test(priority=82)
 	public void validateEditDailyScheduleTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditDailySchedule", "TC_188: Verify user can edit end date of above scheduled");
@@ -77,7 +76,7 @@ public class SchedulerPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "User created infinite schedule with repeated interval successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	} 
-	@Test(priority=86,alwaysRun=true)
+	@Test(priority=999,alwaysRun=true)
 	public void validateDeleteScheduleTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeleteScheduleTest", "TC_197: Verify user can delete schedule");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -141,70 +140,75 @@ public class SchedulerPageTestTA extends TestBase {
 		schedulerpageta.validateDeleteUserScheduleTransfer("50","MadhuRani1");
 		extentTest.log(extentTest.getStatus(), "Not able to delete user who has active schedule is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
-	}
-/*	//For Schedule Name
-	@Test
-	public void validateAdvSearchForScheduleNameEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForScheduleNameEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	}*/
+		//For Schedule Name
+	/*@Test(priority = 3172)
+	public void validateAdvSearchForScheduleNameEqualToSchedulerPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForScheduleNameEqualToSchedulerPageTATest", "TC_009: To Verfiy Advance search for schedule name with equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		schedulerpageta = new SchedulerPageTA();
-		schedulerpageta.validateAdvSearchForScheduleNameEqualTo("Schedule Name","equal to","WeeklySchedule","50");
+		schedulerpageta.validateAdvSearchForScheduleNameEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Schedule Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForScheduleNameNotEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForScheduleNameNotEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3173)
+	public void validateAdvSearchForScheduleNameNotEqualToSchedulerPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForScheduleNameNotEqualToSchedulerPageTATest", "TC_009: To Verfiy Advance search for schedule name with not equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		schedulerpageta = new SchedulerPageTA();
-		schedulerpageta.validateAdvSearchForScheduleNameNotEqualTo("Schedule Name", "not equal to","WeeklySchedule","50");
+		schedulerpageta.validateAdvSearchForScheduleNameNotEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Schedule Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForScheduleNameIsLikeTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForScheduleNameIsLikeTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3174)
+	public void validateAdvSearchForScheduleNameIsLikeSchedulerPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForScheduleNameIsLikeSchedulerPageTATest", "TC_009: To Verfiy Advance search for schedule name with Is like criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		schedulerpageta = new SchedulerPageTA();
-		schedulerpageta.validateAdvSearchForScheduleNameIsLike("Schedule Name", "is like","Schedule","50");
+		schedulerpageta.validateAdvSearchForScheduleNameIsLike(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Schedule Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForScheduleNameBeginsWithTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForScheduleNameBeginsWithTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3175)
+	public void validateAdvSearchForScheduleNameBeginsWithSchedulerPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForScheduleNameBeginsWithSchedulerPageTATest", "TC_009: To Verfiy Advance search for schedule name with begins with criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		schedulerpageta = new SchedulerPageTA();
-		schedulerpageta.validateAdvSearchForScheduleNameBeginsWith("Schedule Name", "begins with","Monthly","50");
+		schedulerpageta.validateAdvSearchForScheduleNameBeginsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Schedule Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForScheduleNameEndsWithTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForScheduleNameEndsWithTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3176)
+	public void validateAdvSearchForScheduleNameEndsWithSchedulerPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForScheduleNameEndsWithSchedulerPageTATest", "TC_009: To Verfiy Advance search for schedule name with ends with criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		schedulerpageta = new SchedulerPageTA();
-		schedulerpageta.validateAdvSearchForScheduleNameEndsWith("Schedule Name", "ends with","Schedule","50");
+		schedulerpageta.validateAdvSearchForScheduleNameEndsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Schedule Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	// For Schedule Status 
-	@Test
-	public void validateStatusDropdownEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateStatusDropdownEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3177)
+	public void validateStatusDropdownEqualToSchedulerPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateStatusDropdownEqualToSchedulerPageTATest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		schedulerpageta = new SchedulerPageTA();
 		schedulerpageta.validateStatusDropdownEqualTo("Status", "equal to","Active","50");
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateStatusDropdownNotEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateStatusDropdownNotEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3178)
+	public void validateStatusDropdownNotEqualToSchedulerPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateStatusDropdownNotEqualToSchedulerPageTATest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		schedulerpageta = new SchedulerPageTA();
 		schedulerpageta.validateStatusDropdownNotEqualTo("Status", "not equal to","Active","50");
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}*/
 }

@@ -59,28 +59,38 @@ public class PluginAssignmentsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Plugin Assignments page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	/*@Test(priority=464)
+	/*@Test(priority=900)
 	public void validateWFInActiveAfterSysadminRemovesPluginPermissionTest(Method method) throws Exception {
 		//Workflow should be in active state
 		extentTest = extent.createTest("validateWFInActiveAfterSysadminRemovesPluginPermissionTest", "TC_38:Verify workflow active/inactive status after sysadmin removes the permission of plugin");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		pluginassignmentspage = new PluginAssignmentsPage();
-		pluginassignmentspage.validateWFInActiveAfterSysadminRemovesPluginPermission("PowerShellWF","For Plugin permission","Default","C:\\Users\\DELL\\Downloads\\AE_Automation_UploadFiles\\Powershell_v1_signed.zip",
+		pluginassignmentspage.validateWFInActiveAfterSysadminRemovesPluginPermission(prop.getProperty("C:\\Users\\DELL\\Downloads\\AE_Automation_UploadFiles\\execute-powershell-script-3.0-complete.jar"),"PowerShellWF","For Plugin permission","Default","C:\\Users\\DELL\\Downloads\\AE_Automation_UploadFiles\\Powershell_v1_signed.zip",
 				"High","15","20","3","15","Minutes","10","20","Powershell-Script");
 		extentTest.log(extentTest.getStatus(), "WF status are sysadmin removes plugin permission is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=465,dependsOnMethods="validateWFInActiveAfterSysadminRemovesPluginPermissionTest")
-	public void validateWFActiveAfterSysadminRemovesPluginPermissionTest(Method method) throws Exception {
+	@Test(priority=901,dependsOnMethods="validateWFInActiveAfterSysadminRemovesPluginPermissionTest")
+	public void validateWFActiveFailureAfterSysadminRemovesPluginPermissionTest(Method method) throws Exception {
 		//Workflow should be in active state
-		extentTest = extent.createTest("validateWFActiveAfterSysadminRemovesPluginPermissionTest", "TC_39:Verify workflow active/inactive functioanality after sysadmin removes permission of plugin");
+		extentTest = extent.createTest("validateWFActiveFailureAfterSysadminRemovesPluginPermissionTest", "TC_39:Verify workflow active/inactive functioanality after sysadmin removes permission of plugin");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		pluginassignmentspage = new PluginAssignmentsPage();
-		pluginassignmentspage.validateWFActiveAfterSysadminRemovesPluginPermission("PowerShellWF");
+		pluginassignmentspage.validateWFActiveFailureAfterSysadminRemovesPluginPermission("PowerShellWF");
 		extentTest.log(extentTest.getStatus(), "WF status after sysadmin removes plugin permission is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=464)
+	@Test(priority=902,dependsOnMethods="validateWFActiveFailureAfterSysadminRemovesPluginPermissionTest")
+	public void validateWFActiveSuccessAfterSysadminAssignPluginPermissionTest(Method method) throws Exception {
+		//Workflow should be in active state
+		extentTest = extent.createTest("validateWFActiveSuccessAfterSysadminAssignPluginPermissionTest", "TC_39:Verify workflow active/inactive functioanality after sysadmin removes permission of plugin");
+		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		pluginassignmentspage = new PluginAssignmentsPage();
+		pluginassignmentspage.validateWFActiveSuccessAfterSysadminAssignPluginPermission("Powershell-Script","PowerShellWF");
+		extentTest.log(extentTest.getStatus(), "WF status after sysadmin removes plugin permission is verified successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+	}
+	/*@Test(priority=464)
 	public void validateUploadPluginWithoutAssignToAllTenantTest(Method method) throws Exception {
 		//Workflow should be in active state
 		extentTest = extent.createTest("validateUploadPluginWithoutAssignToAllTenantTest", "TC_40:Plugin zip upload without Assign to all Tenant option");
@@ -109,9 +119,7 @@ public class PluginAssignmentsPageTest extends TestBase {
 		pluginassignmentspage.validatePluginAccessAssignToAllNotSelected("Plugin Name","equal to","Powershell-Script","50");
 		extentTest.log(extentTest.getStatus(), "plugin access of newly added tenant when  assign all option not selected on Plugin assignment page is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}
-
-	/*	
+	}*/	
 	@Test(priority = 37)
 	public void validateAssignPluginToMultipleTenantTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUploadPlugins", "TC_043: Verify assign plugins to Specific/multiple tenants");
@@ -120,10 +128,7 @@ public class PluginAssignmentsPageTest extends TestBase {
 		pluginassignmentspage.validateAssignPluginToMultipleTenants(TestDataInMap.get("PluginName"),TestDataInMap.get("TenantOrgCode1"),TestDataInMap.get("TenantOrgCode2"),TestDataInMap.get("TenantOrgCode3"));
 		extentTest.log(extentTest.getStatus(), "Plugin assigned to specific/multiple tenants successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}
-
-/*	
-
+	}	
 	@Test(priority = 39)
 	public void validateAssignTenantMultiplePluginsTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAssignTenantSinglePluginTest", "TC_045: Verify assign tenant Specific/multiple plugins");
@@ -141,5 +146,6 @@ public class PluginAssignmentsPageTest extends TestBase {
 		pluginassignmentspage.validateAssignTenantAllPlugins(TestDataInMap.get("TenantOrgCode"));//("BR01","MSSQL-Server");
 		extentTest.log(extentTest.getStatus(), "All Plugins are assigned to tenant successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}*/
+	}
+
 }

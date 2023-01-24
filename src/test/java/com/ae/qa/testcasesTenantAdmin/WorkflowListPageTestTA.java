@@ -258,180 +258,191 @@ public class WorkflowListPageTestTA extends TestBase {
 				"10","1","1","Hours","KG_Private2", "AE1");
 		extentTest.log(extentTest.getStatus(), "update workflow uses config parameter as credentials and credential pool is updated successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}*/
+	@Test(priority=733)
+	public void validateEditWFtoSequentialTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateEditWFtoSequentialTest", "TC_163: To verify workflow get edited to Sequential");
+		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		workflowlistpageta = new WorkflowListPageTA(); 
+		workflowlistpageta.validateEditWFtoSequential("Sanity1");
+		extentTest.log(extentTest.getStatus(), "Worflow is edited to sequential successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-    /*	//For Workflow Name
-	@Test
-	public void validateAdvSearchForWFNameEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForWFNameEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+    	//For Workflow Name
+	/*@Test(priority = 3155)
+	public void validateAdvSearchForWFNameEqualToWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForWFNameEqualToWorkflowsPageTATest", "TC_009: To Verfiy Advance search for workflow name with equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateAdvSearchForWFNameEqualTo("Name","equal to","Sanity1","50");
+		workflowlistpageta.validateAdvSearchForWFNameEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Workflow Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	/*@Test
-	public void validateAdvSearchForWFNameNotEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForWFNameNotEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3156)
+	public void validateAdvSearchForWFNameNotEqualToWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForWFNameNotEqualToWorkflowsPageTATest", "TC_009: To Verfiy Advance search for workflow name with not equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateAdvSearchForWFNameNotEqualTo("Name", "not equal to","Sanity1","50");
+		workflowlistpageta.validateAdvSearchForWFNameNotEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Workflow Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForWFNameIsLikeTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForWFNameIsLikeTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3157)
+	public void validateAdvSearchForWFNameIsLikeWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForWFNameIsLikeWorkflowsPageTATest", "TC_009: To Verfiy Advance search for workflow name with Is like criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateAdvSearchForWFNameIsLike("Name", "is like","Param","50");
+		workflowlistpageta.validateAdvSearchForWFNameIsLike(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Workflow Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForWFNameBeginsWithTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForWFNameBeginsWithTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3158)
+	public void validateAdvSearchForWFNameBeginsWithWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForWFNameBeginsWithWorkflowsPageTATest", "TC_009: To Verfiy Advance search for workflow name with begins with criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateAdvSearchForWFNameBeginsWith("Name", "begins with","WF","50");
+		workflowlistpageta.validateAdvSearchForWFNameBeginsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Workflow Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForWFNameEndsWithTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForWFNameEndsWithTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3159)
+	public void validateAdvSearchForWFNameEndsWithWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForWFNameEndsWithWorkflowsPageTATest", "TC_009: To Verfiy Advance search for workflow name with ends with criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateAdvSearchForWFNameEndsWith("Name", "ends with","Param","50");
+		workflowlistpageta.validateAdvSearchForWFNameEndsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Workflow Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 
 	//For Workflow Category
-	@Test
-	public void validateAdvSearchForWFCategoryEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForWFCategoryEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3160)
+	public void validateAdvSearchForWFCategoryEqualToWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForWFCategoryEqualToWorkflowsPageTATest", "TC_009: To Verfiy Advance search for Category with equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateAdvSearchForWFCategoryEqualTo("Category","equal to","Default","50");
+		workflowlistpageta.validateAdvSearchForWFCategoryEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Workflow Category is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForWFCategoryNotEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForWFCategoryNotEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3161)
+	public void validateAdvSearchForWFCategoryNotEqualToWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForWFCategoryNotEqualToWorkflowsPageTATest", "TC_009: To Verfiy Advance search for Category with not equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateAdvSearchForWFCategoryNotEqualTo("Category", "not equal to","Default1","50");
+		workflowlistpageta.validateAdvSearchForWFCategoryNotEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Workflow Category is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForWFCategoryIsLikeTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForWFCategoryIsLikeTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3162)
+	public void validateAdvSearchForWFCategoryIsLikeWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForWFCategoryIsLikeWorkflowsPageTATest", "TC_009: To Verfiy Advance search for Category with Is like criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateAdvSearchForWFCategoryIsLike("Category", "is like","fault","50");
+		workflowlistpageta.validateAdvSearchForWFCategoryIsLike(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Workflow Category is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForWFCategoryBeginsWithTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForWFCategoryBeginsWithTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3163)
+	public void validateAdvSearchForWFCategoryBeginsWithWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForWFCategoryBeginsWithWorkflowsPageTATest", "TC_009: To Verfiy Advance search for Category with begins with criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateAdvSearchForWFCategoryBeginsWith("Category", "begins with","De","50");
+		workflowlistpageta.validateAdvSearchForWFCategoryBeginsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Workflow Category is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForWFCategoryEndsWithTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForWFCategoryEndsWithTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3164)
+	public void validateAdvSearchForWFCategoryEndsWithWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForWFCategoryEndsWithWorkflowsPageTATest", "TC_009: To Verfiy Advance search for Category with ends with criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateAdvSearchForWFCategoryEndsWith("Category", "ends with","fault","50");
+		workflowlistpageta.validateAdvSearchForWFCategoryEndsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Workflow Category is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 
 	//For Created [Calender]
-	@Test
-	public void validateCreatedEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreatedEqualToTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3165)
+	public void validateCreatedEqualToWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateCreatedEqualToWorkflowsPageTATest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateCreatedEqualTo("exact date","2022","Jul","6","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		workflowlistpageta.validateCreatedEqualTo(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateCreatedBeforeTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreatedBeforeTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3166)
+	public void validateCreatedBeforeWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateCreatedBeforeWorkflowsPageTATest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateCreatedBefore("before","2022","Jul","27","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		workflowlistpageta.validateCreatedBefore(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateCreatedAfterTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreatedAfterTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3167)
+	public void validateCreatedAfterWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateCreatedAfterWorkflowsPageTATest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateCreatedAfter("after","2022","Jul","6","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		workflowlistpageta.validateCreatedAfter(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateCreatedInBetweenTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreatedInBetweenTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3168)
+	public void validateCreatedInBetweenWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateCreatedInBetweenWorkflowsPageTATest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateCreatedInBetween("in between","2022","Jul","6","2022","Aug","1","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		workflowlistpageta.validateCreatedInBetween(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateCreatedNotInBetweenTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreatedNotInBetweenTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3169)
+	public void validateCreatedNotInBetweenWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateCreatedNotInBetweenWorkflowsPageTATest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateCreatedNotInBetween("not in between","2022","Jul","30","2022","Aug","1","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		workflowlistpageta.validateCreatedNotInBetween(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	// For Workflow Status 
-	@Test
-	public void validateStatusDropdownEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateStatusDropdownEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3170)
+	public void validateStatusDropdownEqualToWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateStatusDropdownEqualToWorkflowsPageTATest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateStatusDropdownEqualTo("Status", "equal to","Active","50");
+		workflowlistpageta.validateStatusDropdownEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateStatusDropdownNotEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateStatusDropdownNotEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3171)
+	public void validateStatusDropdownNotEqualToWorkflowsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateStatusDropdownNotEqualToWorkflowsPageTATest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		workflowlistpageta=new WorkflowListPageTA();
-		workflowlistpageta.validateStatusDropdownNotEqualTo("Status", "not equal to","Active","50");
+		workflowlistpageta.validateStatusDropdownNotEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}*/
 }
 

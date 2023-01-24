@@ -1,5 +1,7 @@
 package com.ae.qa.pagesTenantAdmin;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -13,6 +15,7 @@ import org.testng.Reporter;
 
 import com.ae.qa.base.TestBase;
 import com.ae.qa.pages.WebElements;
+import com.ae.qa.util.CommonWebElements;
 import com.ae.qa.util.Messages;
 
 public class HolidayCalenderPageTA extends TestBase{
@@ -20,6 +23,7 @@ public class HolidayCalenderPageTA extends TestBase{
 	public WebElements webelements = new WebElements();
 	public LoginPageTA loginpageta = new LoginPageTA();
 	public InformationPageTA informationpageta=new InformationPageTA();
+	public CommonWebElements wb = new CommonWebElements();
 
 	@FindBy(xpath = "//span[text()='Workflows']")
 	WebElement workflowsTab;
@@ -84,7 +88,7 @@ public class HolidayCalenderPageTA extends TestBase{
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", holidayCalenderTab);
 		Reporter.log("Holiday Calender Tab is clicked",true);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		addNewBtn.click();
 		Thread.sleep(2000);
 		nameField.sendKeys(cName);
@@ -454,5 +458,277 @@ public class HolidayCalenderPageTA extends TestBase{
 		Assert.assertEquals(actual_title, expected_title,"Appropriate page didn't loaded properly");
 		Reporter.log("Respective Page is clicked and appropriate page is loaded properly",true);
 		informationpageta.validateSignOut();
+	}
+	public void validateAdvSearch() throws Exception {
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Reporter.log("User log in Successfully", true);
+		Thread.sleep(2000);		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", workflowsTab);
+		js.executeScript("arguments[0].click();", holidayCalenderTab);
+		wb.validateClickOnAdvanceSearch();
+	}
+	//For Holiday Calender Name
+	public void validateAdvSearchForNameEqualTo(String SearchColumn,String SearchCriteria,
+			String Name,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, Name);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Holiday name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[1]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Holidayname record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Name=op.get(i).getText();
+			System.out.println("actual_Holiday name name present in table are: "+actual_Name);
+			Assert.assertTrue(actual_Name.equals(Name));
+		}
+	}
+	public void validateAdvSearchForNameNotEqualTo(String SearchColumn,String SearchCriteria,
+			String Name,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, Name);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Holiday name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[1]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total workflow record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Name=op.get(i).getText();
+			System.out.println("actual_Holiday name present in table are: "+actual_Name);
+			Assert.assertFalse(actual_Name.equals(Name));
+		}
+	}
+	public void validateAdvSearchForNameIsLike(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Holiday name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[1]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Holiday name record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Name=op.get(i).getText();
+			System.out.println("actual_Holiday name present in table are: "+actual_Name);
+			Assert.assertTrue(actual_Name.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForNameBeginsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Holiday name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[1]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Holiday name record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Name=op.get(i).getText();
+			//String lowercase_UserName = actual_UserName.toLowerCase();
+			System.out.println("actual_Holiday name present in table are: "+actual_Name);
+			Thread.sleep(3000);
+			Assert.assertTrue(actual_Name.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForNameEndsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Holiday name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[1]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Holiday name record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Name=op.get(i).getText();
+			System.out.println("actual_Holiday name present in table are: "+actual_Name);
+			Assert.assertTrue(actual_Name.contains(advSearchFor));
+		}
+	}
+	public void HandleEnterFieldValue(String SearchColumn,String SearchCriteria,String SearchFor,String PageSize)
+			throws Exception {
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,SearchFor);
+		Thread.sleep(3000);
+		wb.changePageSize(PageSize);
+		System.out.println("Page size changed to 50");
+		Thread.sleep(3000);
+	}
+	//For Year
+	public void validateAdvSearchForYearEqualTo(String SearchColumn, String SearchCriteria, String AdvSearchFor,
+			String PageSize) throws Exception {
+		validateAdvSearch();
+		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate Year : " + AdvSearchFor + " record for " + SearchCriteria
+				+ " criteria is visible in webtable", true);
+		List<WebElement> op = driver
+				.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[2]"));
+		for (int i = 0; i < op.size(); i++) {
+			System.out.println("Total Matching record present in table are :" + op.size());
+			Thread.sleep(1000);
+			String actual_Year = op.get(i).getText();
+			Reporter.log("actual_Year present in table are: " + actual_Year + " expected Year is " + AdvSearchFor, true);
+			Assert.assertEquals(actual_Year, AdvSearchFor,
+					"Mismatch in actual and expected Year of advance search of Holiday page");
+		}
+		informationpageta.validateSignOut();
+	}
+	public void validateAdvSearchForYearNotEqualTo(String SearchColumn, String SearchCriteria, String AdvSearchFor,
+			String PageSize) throws Exception {
+		validateAdvSearch();
+		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate Year : " + AdvSearchFor + " record for " + SearchCriteria
+				+ " criteria is visible in webtable", true);
+		List<WebElement> op = driver
+				.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[2]"));
+		for (int i = 0; i < op.size(); i++) {
+			System.out.println("Total Matching record present in table are :" + op.size());
+			Thread.sleep(1000);
+			String actual_Year = op.get(i).getText();
+			Reporter.log("actual_Year present in table are: " + actual_Year + " expected Year is " + AdvSearchFor, true);
+			Assert.assertFalse(actual_Year.equals(AdvSearchFor));
+		}
+		informationpageta.validateSignOut();
+	}
+	public void validateAdvSearchForYearLessThan(String SearchColumn, String SearchCriteria, String AdvSearchFor,
+			String PageSize) throws Exception {
+		validateAdvSearch();
+		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate Year : " + AdvSearchFor + " record for " + SearchCriteria
+				+ " criteria is visible in webtable", true);
+		List<WebElement> op = driver
+				.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[2]"));
+		for (int i = 0; i < op.size(); i++) {
+			System.out.println("Total Matching record present in table are :" + op.size());
+			Thread.sleep(1000);
+			String actual_Year = op.get(i).getText();
+			int actualYear= Integer. parseInt(actual_Year);
+			int expectedYear= Integer. parseInt(AdvSearchFor);
+			Reporter.log("actual_Year present in table are: " + actual_Year + " expected Year is " + AdvSearchFor, true);
+			Assert.assertTrue(actualYear < expectedYear);
+		}
+		informationpageta.validateSignOut();
+	}
+	public void validateAdvSearchForYearGreaterThan(String SearchColumn, String SearchCriteria, String AdvSearchFor,
+			String PageSize) throws Exception {
+		validateAdvSearch();
+		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate Year : " + AdvSearchFor + " record for " + SearchCriteria
+				+ " criteria is visible in webtable", true);
+		List<WebElement> op = driver
+				.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[2]"));
+		for (int i = 0; i < op.size(); i++) {
+			System.out.println("Total Matching record present in table are :" + op.size());
+			Thread.sleep(1000);
+			String actual_Year = op.get(i).getText();
+			int actualYear= Integer. parseInt(actual_Year);
+			int expectedYear= Integer. parseInt(AdvSearchFor);
+			Reporter.log("actual_Year present in table are: " + actual_Year + " expected Year is " + AdvSearchFor, true);
+			Assert.assertTrue(actualYear > expectedYear);
+		}
+		informationpageta.validateSignOut();
+	}
+	public void validateAdvSearchForYearInRange(String SearchColumn, String SearchCriteria, String SearchField1,
+			String SearchField2,String PageSize) throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchFieldForRange(SearchColumn, SearchCriteria,SearchField1,SearchField2);
+		Thread.sleep(3000);
+		wb.changePageSize(PageSize);
+		System.out.println("Page size changed to 50");
+		Thread.sleep(3000);
+		// Verify data in table now//2-4
+		Reporter.log("Below validation is to validate Year : " + SearchCriteria
+				+ " of "+SearchField1+"-"+SearchField2+" is visible in webtable or not", true);
+		List<WebElement> op = driver
+				.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[2]"));
+		for (int i = 0; i < op.size(); i++) {
+			System.out.println("Total Matching record present in table are :" + op.size());
+			Thread.sleep(1000);
+			String actual_Year = op.get(i).getText();//2,3,4
+			int actualYear= Integer. parseInt(actual_Year);
+			int expected_SearchFiledYearRange1= Integer. parseInt(SearchField1);
+			int expected_SearchFiledYearRange2= Integer. parseInt(SearchField2);
+			Reporter.log("actual_Year present in table are: " + actual_Year + " expected Year is in range of " + expected_SearchFiledYearRange1+"-"+expected_SearchFiledYearRange2, true);
+			Assert.assertTrue(actualYear >= expected_SearchFiledYearRange1 && actualYear <= expected_SearchFiledYearRange2 );
+		} 
+		informationpageta.validateSignOut();
+	}
+	public void validateAdvSearchForYearNotInRange(String SearchColumn, String SearchCriteria, String SearchField1,
+			String SearchField2, String PageSize) throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchFieldForRange(SearchColumn, SearchCriteria,SearchField1,SearchField2);
+		Thread.sleep(3000);
+		wb.changePageSize(PageSize);
+		System.out.println("Page size changed to 50");
+		Thread.sleep(3000);
+		// Verify data in table now//2-4
+		Reporter.log("Below validation is to validate Year : " + SearchCriteria
+				+ " of "+SearchField1+"-"+SearchField2+" is visible in webtable or not", true);
+		List<WebElement> op = driver
+				.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[2]"));
+		for (int i = 0; i < op.size(); i++) {
+			System.out.println("Total Matching record present in table are :" + op.size());
+			Thread.sleep(1000);
+			String actual_Year = op.get(i).getText();//1,5,6,7
+			int actualYear= Integer. parseInt(actual_Year);
+			int expected_SearchFiledYearRange1= Integer. parseInt(SearchField1);
+			int expected_SearchFiledYearRange2= Integer. parseInt(SearchField2);
+			Reporter.log("actual_Year present in table are: " + actual_Year + " expected Year is in range of " + expected_SearchFiledYearRange1+"-"+expected_SearchFiledYearRange2, true);
+			Assert.assertTrue(actualYear < expected_SearchFiledYearRange1 || actualYear > expected_SearchFiledYearRange2 );
+		} 
+		informationpageta.validateSignOut();
+	}
+	//For Time Zone
+	public void validateTimeZoneDropdownEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Time Zone record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[3]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total TimeZone record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_TimeZone=op.get(i).getText();
+			String str_actual_TimeZone = actual_TimeZone.split(" ")[0];
+			System.out.println("actual_TimeZone present in table are: "+str_actual_TimeZone);
+			Assert.assertTrue(str_actual_TimeZone.equalsIgnoreCase(searchValue));
+		}
+	}
+	public void validateTimeZoneDropdownNotEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new TimeZone record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[3]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total TimeZone record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_TimeZone=op.get(i).getText();
+			String str_actual_TimeZone = actual_TimeZone.split(" ")[0];
+			System.out.println("actual_TimeZone present in table are: "+str_actual_TimeZone);
+			Assert.assertFalse(str_actual_TimeZone.equalsIgnoreCase(searchValue));
+		}
 	}
 }

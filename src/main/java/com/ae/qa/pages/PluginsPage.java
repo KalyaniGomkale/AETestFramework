@@ -1,6 +1,7 @@
 package com.ae.qa.pages;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -18,6 +19,8 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.ae.qa.base.TestBase;
+import com.ae.qa.pagesTenantAdmin.HomePageTA;
+import com.ae.qa.pagesTenantAdmin.WorkflowAssignmentPageTA;
 import com.ae.qa.util.CommonWebElements;
 import com.ae.qa.util.Messages;
 
@@ -27,12 +30,19 @@ public class PluginsPage extends TestBase {
 	public WebElements webelements = new WebElements();
 	public InformationPage informationpage=new InformationPage();
 	public WorkflowsPage workflowpage = new WorkflowsPage();
+	public WorkflowAssignmentPageTA wfAssignmentPageTA = new WorkflowAssignmentPageTA();
+	public TenantUsersPage tenantuserpage = new TenantUsersPage();
+	public TenantsPage tenantspage = new TenantsPage();
 	public CommonWebElements wb = new CommonWebElements();
 
 	@FindBy(xpath = "//span[(text()='Plugins')]")
 	WebElement pluginsTab;
+	@FindBy(xpath="//span[text()='Home']")
+	WebElement homeTab;
 	@FindBy(name = "upload-zip")
 	WebElement uploadZipBtn;
+	@FindBy(xpath="//h2[text()='Activate']")
+	WebElement uploadLicense;
 	@CacheLookup
 	@FindBy(id = "pluginsFile")
 	WebElement chooseFile;
@@ -80,6 +90,8 @@ public class PluginsPage extends TestBase {
 	WebElement workflowListTab;
 	@FindBy(xpath = "(//input[@name='search'])[1]")
 	WebElement searchField;
+	@FindBy(id = "assignedToAllTenantCheck")
+	WebElement assignToAllTenantCheck;
 
 	public PluginsPage() {
 		PageFactory.initElements(driver, this);
@@ -169,6 +181,12 @@ public class PluginsPage extends TestBase {
 		//choose file from location
 		uploadJar.sendKeys(uploadJarFile);
 		Thread.sleep(3000);
+		if (!assignToAllTenantCheck.isSelected()) {
+			assignToAllTenantCheck.click();
+		} else {
+			System.out.println("Assign to all Tenant Checkbox is already selected");
+		}
+		Thread.sleep(2000);
 		uploadSingeJarBtn.click();
 		Reporter.log("Single Plugin Jar started uploading",true);
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
@@ -208,7 +226,9 @@ public class PluginsPage extends TestBase {
 		Reporter.log("Same plugin jar not uploaded successfully");
 		informationpage.validateSignOut();
 	}
-	public void validateDeletePluginNoActiveWF(String Operation,String pName) throws Exception {
+	//Need to change to plugin to Powershell currently it is OOTB Plugin which can hamper the test suite
+	public void validateDeletePluginNoActiveWF(String Operation,String pName,String wfName) throws Exception {
+		wfAssignmentPageTA.validateSingleWorkflowAssignment(wfName);
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
 		// click Plugins Tab
@@ -228,7 +248,7 @@ public class PluginsPage extends TestBase {
 		confirmDeleteBtn.click();
 		Thread.sleep(2000);
 		String actual_failure_msg =alertMessage.getText();
-		String expected_failure_msg ="Step/Entry [LoopStart] from plugin [OOTB-Plugin] is being used in workflows [Sanity1]. Make these workflows inactive and try again";
+		String expected_failure_msg ="Step/Entry [ScriptValueMod] from plugin ["+pName+"] is being used in workflows ["+wfName+"]. Make these workflows inactive and try again";
 		System.out.println("actual failure msg is: " + actual_failure_msg);
 		Assert.assertEquals(actual_failure_msg, expected_failure_msg, "Plugin is deleted successfully");
 		Reporter.log("Plugin is not deleted successfully because workflow are enabled");
@@ -237,7 +257,8 @@ public class PluginsPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
 		// click Plugins Tab
-		wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		Thread.sleep(4000);
 		js.executeScript("arguments[0].click();", pluginsTab);
 		Reporter.log("Plugins Tab is selected",true);
 		Thread.sleep(3000);
@@ -466,8 +487,206 @@ public class PluginsPage extends TestBase {
 		Reporter.log("Single plugin jar of lower version is uploaded successfully");
 		informationpage.validateSignOut();
 	}
-	
-	
+	public void validateStepUnit(String pluginName,String stepUnitCount) throws Exception{
+		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		Reporter.log("User log in Successfully",true);
+		//First search for tab and click on it
+		Thread.sleep(3000);
+		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",pluginsTab);
+		Thread.sleep(2000);
+		WebElement stepUnitBtn = driver.findElement(By.xpath("//table/tbody/tr/td[@title='"+pluginName+"']/../td/span[@title='Plugin Steps']"));
+		stepUnitBtn.click();
+		Thread.sleep(5000);
+		String Actual_stepUnitCount = driver.findElement(By.xpath("//div[@class='modal-body step-window-body']/table/tbody/tr/td[text()='"+pluginName+"']/../td[4]")).getText();
+		String Expected_stepUnitCount = stepUnitCount;
+		Assert.assertEquals(Actual_stepUnitCount, Expected_stepUnitCount,"Step Unit Count did not Matched");
+		informationpage.validateSignOut();
+	}
+	public void validatePluginUploadWithoutAssignToAllTenant() throws Exception{
+		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		Reporter.log("User log in Successfully",true);
+		// click Plugins Tab
+		Thread.sleep(5000);
+		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", pluginsTab);
+		Reporter.log("Plugins Tab is selected",true);
+		// Click Upload zip button
+		Thread.sleep(2000);
+		//wait.until(ExpectedConditions.visibilityOf(uploadZipBtn));
+		js.executeScript("arguments[0].click();", uploadZipBtn);
+		Reporter.log("Upload zip button clicked",true);
+		Thread.sleep(2000);
+		//choose file from location
+		chooseFileFromLocation.sendKeys(prop.getProperty("uploadITPluginFile"));
+		Thread.sleep(3000);
+		uploadBtn.click();
+		Reporter.log("Plugin zip started uploading",true);
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].click();", upgradeAllBox);
+		Reporter.log("Upgrade all plugin checkbox is selected",true);
+		Thread.sleep(1000);
+		if (!assignAllBox.isSelected()) {
+			assignAllBox.click();
+			assignAllBox.click();
+		} else {
+			System.out.println("Assign to checkbox is already unselected");
+		}
+		Reporter.log("Assign to all checkbox is unselected",true);
+		Thread.sleep(1000);
+		saveBtn.click();
+		Reporter.log("Save button is selected",true);
+		Thread.sleep(10000);
+		informationpage.validateSignOut();
+	}
+	public void validatePluginUploadWithAssignToAllTenantFewPlugins(String pName1,String pName2,String pName3) throws Exception{
+		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		Reporter.log("User log in Successfully",true);
+		// click Plugins Tab
+		Thread.sleep(5000);
+		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", pluginsTab);
+		Reporter.log("Plugins Tab is selected",true);
+		// Click Upload zip button
+		Thread.sleep(2000);
+		//wait.until(ExpectedConditions.visibilityOf(uploadZipBtn));
+		js.executeScript("arguments[0].click();", uploadZipBtn);
+		Reporter.log("Upload zip button clicked",true);
+		Thread.sleep(2000);
+		//choose file from location
+		chooseFileFromLocation.sendKeys(prop.getProperty("uploadITPluginFile"));
+		Thread.sleep(3000);
+		uploadBtn.click();
+		Reporter.log("Plugin zip started uploading",true);
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].click();", upgradeAllBox);
+		Reporter.log("Upgrade all plugin checkbox is selected",true);
+		Thread.sleep(1000);
+		if (!assignAllBox.isSelected()) {
+			assignAllBox.click();
+			assignAllBox.click();
+		} else {
+			System.out.println("Assign to checkbox is already unselected");
+		}
+		Thread.sleep(2000);
+		//Selecting Few Plugins
+		WebElement plugin1 = driver.findElement(By.xpath("(//table/tbody/tr/td[text()='"+pName1+"']/../td/input[@type='checkbox'])[2]"));
+		plugin1.click();
+		WebElement plugin2 = driver.findElement(By.xpath("(//table/tbody/tr/td[text()='"+pName2+"']/../td/input[@type='checkbox'])[2]"));
+		plugin2.click();
+		WebElement plugin3 = driver.findElement(By.xpath("(//table/tbody/tr/td[text()='"+pName3+"']/../td/input[@type='checkbox'])[2]"));
+		plugin3.click();
+		Thread.sleep(1000);
+		saveBtn.click();
+		Reporter.log("Save button is selected",true);
+		Thread.sleep(5000);
+		informationpage.validateSignOut();
+	}
+	public void validatePluginAccessTenantAssignAllOptionSelected(String PageSize) throws Exception{
+		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		Reporter.log("User log in Successfully",true);
+		//First search for tab and click on it
+		Thread.sleep(5000);
+		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",pluginsTab);
+		Thread.sleep(5000);
+		wb.changePageSize(PageSize);
+		Thread.sleep(3000);
+		List<WebElement> ActualTable_content = driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tbody/tr/td[1]"));
+		ArrayList<String> actual_Plugin = new ArrayList<String>();
+		for (WebElement element : ActualTable_content) {
+			String element_value = element.getText();
+			System.out.println(element_value);
+			actual_Plugin.add(element_value);
+			Thread.sleep(4000);
+		}
+		System.out.println("Actual content in the table is :" +actual_Plugin);
+		Thread.sleep(5000);
+		informationpage.validateSignOut();
+		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();",pluginsTab);
+		Thread.sleep(5000);
+		wb.changePageSize(PageSize);
+		Thread.sleep(5000);
+		List<WebElement> ExpectedTable_content = driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tbody/tr/td[1]"));
+		ArrayList<String> expected_Plugin = new ArrayList<String>();
+		for (WebElement element : ExpectedTable_content) {
+			String element_value = element.getText();
+			System.out.println(element_value);
+			expected_Plugin.add(element_value);
+			Thread.sleep(4000);
+		}
+		System.out.println("Expected content in the table is :" +expected_Plugin);
+		Thread.sleep(4000);
+		if(actual_Plugin.equals(expected_Plugin)) {
+			Assert.assertTrue(true);
+			Reporter.log("Actual Plugin and Expected Plugin are Equal",true);
+		} else {
+			Assert.assertTrue(false);
+			Reporter.log("Actual Plugin and Expected Plugin are not Equal",true);
+		} 
+		informationpage.validateSignOut();
+	}
+	public void validatePluginAccessTenantAssignAllOptionNotSelected(String tName,String tDescription,String PageSize,String tenantOrgCode,String FName,String LName,
+			String UserMail,String UserName,String Pswd,String ConfirmPswd,String RoleName,String password) throws Exception{
+		tenantspage.addNewTenants(tName,tDescription,tenantOrgCode);
+		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		Reporter.log("User log in Successfully",true);
+		//First search for tab and click on it
+		Thread.sleep(5000);
+		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",pluginsTab);
+		Thread.sleep(5000);
+		wb.changePageSize(PageSize);
+		Thread.sleep(2000);
+		List<WebElement> ActualTable_content = driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tbody/tr/td[1]"));
+		ArrayList<String> actual_Plugin = new ArrayList<String>();
+		for (WebElement element : ActualTable_content) {
+			String element_value = element.getText();
+			System.out.println(element_value);
+			actual_Plugin.add(element_value);
+			Thread.sleep(4000);
+		}
+		int PluginCount = actual_Plugin.size();
+		String actual_PluginCount = Integer.toString(PluginCount);
+		System.out.println("Actual content in the table is :" +actual_PluginCount);
+		Thread.sleep(5000);
+		informationpage.validateSignOut();
+		tenantuserpage.creatingTenantUser(tenantOrgCode, FName, LName, UserMail, UserName,Pswd, ConfirmPswd, RoleName);
+		loginpage.ValidateFirstTimeLogin(UserName, ConfirmPswd, password);
+		loginpage.login(prop.getProperty("username_PA"), prop.getProperty("password_PA"));
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();",pluginsTab);
+		Thread.sleep(5000);
+		wb.changePageSize(PageSize);
+		Thread.sleep(5000);
+		List<WebElement> ExpectedTable_content = driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tbody/tr/td[1]"));
+		ArrayList<String> expected_Plugin = new ArrayList<String>();
+		for (WebElement element : ExpectedTable_content) {
+			String element_value = element.getText();
+			System.out.println(element_value);
+			expected_Plugin.add(element_value);
+			Thread.sleep(4000);
+		}
+		int plugincount = expected_Plugin.size();
+		String expected_PluginCount = Integer.toString(plugincount);
+		System.out.println("Expected content in the table is :" +expected_PluginCount);
+		Thread.sleep(4000);
+		if(!actual_PluginCount.equals(expected_PluginCount)) {
+			Assert.assertTrue(true);
+			Reporter.log("Actual Plugin Count and Expected Plugin Count are not Equal",true);
+		} else {
+			Assert.assertTrue(false);
+			Reporter.log("Actual Plugin Count and Expected Plugin Count are Equal",true);
+		} 
+		informationpage.validateSignOut();
+	}
 	public void validatePluginsPage(String PageTitle) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);

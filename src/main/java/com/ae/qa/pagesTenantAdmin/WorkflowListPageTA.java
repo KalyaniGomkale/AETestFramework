@@ -30,10 +30,6 @@ public class WorkflowListPageTA extends TestBase {
 	public WebElements webelements = new WebElements();
 	public LoginPageTA loginpageta = new LoginPageTA();
 	public InformationPageTA informationpageta=new InformationPageTA();
-	public CataloguePageTA cataloguepageta=new CataloguePageTA();
-	public RequestsPageTA requestspageta=new RequestsPageTA();
-	public CredentialsPageTA credentialspageta=new CredentialsPageTA(); 
-	public AgentListPageTA agentlistta=new AgentListPageTA();
 	public CommonWebElements wb = new CommonWebElements();
 	public WorkflowAssignmentPageTA workflowassignmentpageta= new WorkflowAssignmentPageTA();
 
@@ -195,6 +191,8 @@ public class WorkflowListPageTA extends TestBase {
 	WebElement showColumnDrpdown;
 	@FindBy(xpath = "//span[@class='mul-checkmark']")
 	WebElement selectAllCheckBox;
+	@FindBy(id="isSeqExec")
+	WebElement sequentialCheckbox;
 
 	public WorkflowListPageTA() {
 		PageFactory.initElements(driver, this);
@@ -583,6 +581,8 @@ public class WorkflowListPageTA extends TestBase {
 	}
 	public void ValidateUpdateWFWithConfigWF(String wfName,String updatedWFPath) throws Exception
 	{
+		CataloguePageTA cataloguepageta=new CataloguePageTA();
+		RequestsPageTA requestspageta=new RequestsPageTA();
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User LogIn Succesfully",true);
 		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
@@ -651,6 +651,7 @@ public class WorkflowListPageTA extends TestBase {
 	public void validateImportWorkflowWithConfigParamCredAndCredpool(String CredName,String CredDescp,String UserName,String Pswd,String wfName, String wfdes, String category, String WFImportPath, String priority,
 			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit , String credentialName , String credentialPoolName) throws Exception
 	{
+		CredentialsPageTA credentialspageta=new CredentialsPageTA();
 		credentialspageta.ValidateCreateCredentials(CredName,CredDescp,UserName,Pswd);
 		ImportForm(wfName, wfdes, category, WFImportPath, priority, expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
 		//Clicking on Configuration Parameters
@@ -695,6 +696,8 @@ public class WorkflowListPageTA extends TestBase {
 	}
 	public void validateImportWorkflowRegistredAssistedAgent(String wfName, String wfdes, String category, String WFImportPath, String priority,
 			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit) throws Exception {
+		CataloguePageTA cataloguepageta=new CataloguePageTA();
+		RequestsPageTA requestspageta=new RequestsPageTA();
 		ImportForm(wfName,wfdes,category, WFImportPath, priority,
 				expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
 		saveBtn.click();
@@ -720,6 +723,8 @@ public class WorkflowListPageTA extends TestBase {
 	}
 	public void validateImportWorkflowUnRegistredAssistedAgent(String wfName, String wfdes, String category, String WFImportPath, String priority,
 			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit) throws Exception {
+		CataloguePageTA cataloguepageta=new CataloguePageTA();
+		AgentListPageTA agentlistta=new AgentListPageTA();
 		ImportForm(wfName,wfdes,category, WFImportPath, priority,
 				expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
 		saveBtn.click();
@@ -805,6 +810,7 @@ public class WorkflowListPageTA extends TestBase {
 	}
 	public void validateImportWFRunParamCred(String wfName, String wfdes, String category, String WFImportPath, String priority,
 			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit,String Parameter) throws Exception{
+		RequestsPageTA requestspageta=new RequestsPageTA();
 		ImportForm(wfName, wfdes, category, WFImportPath, priority, expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
@@ -925,6 +931,7 @@ public class WorkflowListPageTA extends TestBase {
 	public void validateUpdateWFCredAndCredpool(String CredName,String CredDescp,String UserName,String Pswd,String wfName,String wfdes, String category, String WFImportPath, String priority,
 			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit,String wfFilePath,String credentialName,
 			String credentialPoolName,String RuncredentialName)throws Exception{
+		CredentialsPageTA credentialspageta=new CredentialsPageTA();
 		credentialspageta.ValidateCreateCredentials(CredName,CredDescp,UserName,Pswd);
 		ImportForm(wfName, wfdes, category, WFImportPath, priority, expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
 		//informationpageta.validateSignOut();
@@ -1131,6 +1138,8 @@ public class WorkflowListPageTA extends TestBase {
 		informationpageta.validateSignOut();
 	}
 	public void validateDeleteCredentialWF(String wfName,String CredName) throws Exception{
+		CataloguePageTA cataloguepageta=new CataloguePageTA();
+		CredentialsPageTA credentialspageta=new CredentialsPageTA();
 		workflowassignmentpageta.validateSingleWorkflowAssignment(wfName);
 		credentialspageta.ValidateDeleteCredential(CredName);
 		cataloguepageta.validateSubmitRequest(wfName);
@@ -1171,7 +1180,31 @@ public class WorkflowListPageTA extends TestBase {
 			Assert.assertTrue(!flag);
 		}
 	}
-	
+	public void validateEditWFtoSequential(String wfName) throws Exception{
+		CataloguePageTA cataloguepageta=new CataloguePageTA();
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Reporter.log("User logged in successfully",true);
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(5000);
+		JavascriptExecutor js= (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked",true);
+		Thread.sleep(2000);
+		WebElement editBtn= driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']/../td[7]/span[@title='Edit Workflow']"));
+		editBtn.click();
+		Reporter.log("Edit button is clicked",true);
+		Thread.sleep(2000);
+		if (!sequentialCheckbox.isSelected()) {
+			sequentialCheckbox.click();
+			System.out.println("Sequential CheckBox is selected");
+		} else {
+			System.out.println("Sequential CheckBox is already selected");
+		}
+		Thread.sleep(2000);
+		saveBtn.click();
+		informationpageta.validateSignOut();
+		cataloguepageta.validateSubmitRequest(wfName);
+	}
 	public void validateAdvSearch() throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully", true);

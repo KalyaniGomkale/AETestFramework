@@ -4,10 +4,14 @@ import org.testng.Assert;
 
 import org.testng.ITestContext;
 import java.io.File;
+
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.Capabilities;
+
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.io.FileUtils;
@@ -21,10 +25,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-//import org.apache.logging.log4j.core.util.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -36,7 +36,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
-
+//import org.apache.logging.log4j.core.util.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -45,6 +45,7 @@ import org.testng.annotations.*;
 
 import com.ae.qa.pages.LoginPage;
 import com.ae.qa.pages.TenantsPage;
+import com.ae.qa.util.SendMail;
 import com.ae.qa.util.TestUtil;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -117,8 +118,16 @@ public class TestBase {
 
 
 	@BeforeMethod
-	public void initialization() {
+	public void initialization() throws MalformedURLException {
 		log.debug("Execution started");
+		/* For Selenium Grid
+		String nodeURL="http://192.168.0.106:11340/wd/hub";
+		DesiredCapabilities cap = DesiredCapabilities.chrome();
+		cap.setBrowserName("chrome");
+		cap.setPlatform(Platform.WIN10);
+		driver = new RemoteWebDriver(new URL(nodeURL),cap);
+		For Selenium Grid */
+		
 	/*	ChromeOptions options = new ChromeOptions();
 		options.addArguments("start-maximized"); // open Browser in maximized mode
 		options.addArguments("disable-infobars"); // disabling infobars
@@ -205,8 +214,10 @@ public class TestBase {
 	public void endReport() {
 		// used to erase any previous data on the report and create a new report
 		extent.flush();
-
+		SendMail sendmail= new SendMail();
+		sendmail.sendExtentReport();
 	}
+	
 	
 
 

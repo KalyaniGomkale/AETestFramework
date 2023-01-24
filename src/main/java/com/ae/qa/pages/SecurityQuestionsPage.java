@@ -21,7 +21,8 @@ public class SecurityQuestionsPage extends TestBase {
 	public WebElements webelements = new WebElements();
 	public LoginPage loginpage = new LoginPage();
 	public InformationPage informationpage=new InformationPage();
-	
+	public SystemUsersPage systemuserspage = new SystemUsersPage();
+
 	@FindBy(xpath = "//span[(text()='Settings')]")
 	WebElement settingsTab;
 	@FindBy(xpath = "//a[(text()='Security Questions')]")
@@ -48,10 +49,10 @@ public class SecurityQuestionsPage extends TestBase {
 	public SecurityQuestionsPage() {
 		PageFactory.initElements(driver, this);
 	}
-	
-//Main sysadmin
+
+	//Main sysadmin
 	public void validateSkipQues() throws Exception {
-		 loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
 		Thread.sleep(3000);
 		//wait.until(ExpectedConditions.visibilityOf(settingsTab));
@@ -72,7 +73,7 @@ public class SecurityQuestionsPage extends TestBase {
 		informationpage.validateSignOut();
 	}
 
-//Main sysadmin data is given in test file as this is used as common method
+	//Main sysadmin data is given in test file as this is used as common method
 	public void validateSecurityQues(String Username,String Password) throws Exception {
 		loginpage.login(Username,Password);
 		Reporter.log("User log in Successfully",true);
@@ -103,7 +104,7 @@ public class SecurityQuestionsPage extends TestBase {
 		informationpage.validateSignOut();
 
 	}
-	
+
 	//can
 	public void validateUpdatingSecQuesWithWrongPswd(String invalidPswd) throws Exception {
 		// Click Settings Tab
@@ -137,7 +138,7 @@ public class SecurityQuestionsPage extends TestBase {
 		Reporter.log("Security questions can not be updated due to wrong password",true);
 		informationpage.validateSignOut();
 	}
-//main sysadmin
+	//main sysadmin
 	public void validateUpdatingSecurityQues() throws Exception {
 		// Click Users Tab
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -169,7 +170,7 @@ public class SecurityQuestionsPage extends TestBase {
 		Reporter.log("Security questions updated successfully",true);
 		informationpage.validateSignOut();
 	}
-//Take sysadmin1
+	//Take sysadmin1
 	public void validateSkipThenSetQues(String Username,String FT_password,String Password) throws Exception {
 		loginpage.ValidateFirstTimeLogin(Username,FT_password,Password);
 		driver.navigate().to(prop.getProperty("url"));
@@ -215,11 +216,11 @@ public class SecurityQuestionsPage extends TestBase {
 		js.executeScript("arguments[0].click();", securityQuestionTab);
 		Thread.sleep(5000);
 		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-				//Now validate page title is same as expected
+		//Now validate page title is same as expected
 		String actual_title=pageTitle.getText();
 		String expected_title=PageTitle;
 		Reporter.log("Actual page title displayed on screen is: "+actual_title+ " and Expected "
-						+ "page title is: "+expected_title,true);
+				+ "page title is: "+expected_title,true);
 		Assert.assertEquals(actual_title, expected_title,"Appropriate page didn't loaded properly");
 		Reporter.log("Respective Page is clicked and appropriate page is loaded properly",true);
 		informationpage.validateSignOut();

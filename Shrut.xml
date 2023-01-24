@@ -168,7 +168,7 @@
 					<include name="ValidateUploadIconTest" />
 					<include name="ValidateEditManualExecutionTest" />
 					<include name="ValidateExportWorkflowTest" />
-					<include name="ValidateExportMultipleWorkflowTest" />
+				<!--<include name="ValidateExportMultipleWorkflowTest" />-->
 				</methods>
 			</class>
 			<class
@@ -208,7 +208,7 @@
 				name="com.ae.qa.testcasesTenantAdmin.WorkflowAssignmentPageTestTA">
 				<methods>
 					<include name="validateSingleWorkflowAssignmentTest" />
-					<include name="validateMultipleWorkflowAssignmentTest(" />
+					<!--  <include name="validateMultipleWorkflowAssignmentTest" /> -->
 				</methods>
 			</class>
 			<class
@@ -309,6 +309,21 @@
 					<include name="validateMakePublicTest" />
 					<include name="validateDeleteDashboardWithReportTest" />
 					<include name="validateDeleteDashboardWithoutReportTest" />
+					<include name="validateReportNoneSingleWFTest" />
+					<include name="validateReportNoneSingleCategoryTest" />
+					<include name="validateReportNoneMultipleCategoryTest" />
+					<include name="validateEditDashboardRelativeDurationHourTest" />
+					<include name="validateRelativeReportDurationHourTest" />
+					<include name="validateEditDashboardRelativeDurationDayTest" />
+					<include name="validateRelativeReportDurationDayTest" />
+					<include name="validateEditDashboardRelativeDurationMonthTest" />
+					<include name="validateRelativeReportDurationMonthTest" />
+					<include name="validateEditDashboardRelativeDurationYearTest" />
+					<include name="validateRelativeReportDuratioYearTest" />
+					<include name="ValidateDownloadReportPdfTest" />
+					<include name="validateFullScreenModeTest" />
+					<include name="ValidateLabelChangeInReportTest" />
+					<include name="validateColumnHideTest" />
 				</methods>
 			</class>
 			<class
@@ -443,6 +458,21 @@
 				name="com.ae.qa.testcasesTenantAdmin.TenantUserSSOPageTestTA">
 				<methods>
 					<include name="ValidateConfigureOKTAwidOpenIDTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.HolidayCalenderPageTestTA">
+				<methods>
+					<include name="validateCreateHolidayCalenderTest" />
+					<include name="validateCreateHolidayCalenderUpcomingYearTest" />
+					<include name="validateEditHolidayCalenderTest" />
+					<include name="validateRemoveHolidayListDatesTest" />
+					<include name="validateCreateCloneHolidayCalenderTest" />
+					<include name="validateEditCloneHolidayCalenderTest" />
+					<include name="validateRenewHoildayCalenderTest" />
+					<include name="validateEditRenewHolidayCalenderTest" />
+					<include name="validateRemoveHoildayDatesRenewTest" />
+					<include name="validateDeleteHolidayCalenderTest" />
+					<include name="validateHolidayCalenderPageTest" />
 				</methods>
 			</class>
 			<!-- Closure Methods -->

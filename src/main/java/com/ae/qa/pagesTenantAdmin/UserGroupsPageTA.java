@@ -58,7 +58,25 @@ public class UserGroupsPageTA extends TestBase {
 	WebElement deletePopupBtn;
 	@FindBy(xpath="//div[@class='title-div']/h2")
 	WebElement pageTitle;
-	
+	@FindBy(xpath = "//span[text()='Workflows']")
+	WebElement workflowsTab;
+	@FindBy(xpath = "//a[text()='Permissions']")
+	WebElement permissionsTab;
+	@FindBy(xpath = "//button[normalize-space(text())='Workflows']")
+	WebElement workflowsBtn;
+	@FindBy(xpath = "//button[normalize-space(text())='Groups']")
+	WebElement groupBtn;
+	@FindBy(xpath = "(//button[@name='save'])[2]")
+	WebElement saveBtn;
+	@FindBy(name = "submit")
+	WebElement submitBtn;
+	@FindBy(xpath = "//p[@class='alert-message-text']")
+	WebElement alertMessage;
+	@FindBy(xpath = "//table/tr/td/i/b")
+	WebElement NoRecordMessage;
+	@FindBy(id = "wfDesc")
+	WebElement wfDescription;
+
 	public UserGroupsPageTA() {
 		PageFactory.initElements(driver, this);
 	}
@@ -124,7 +142,7 @@ public class UserGroupsPageTA extends TestBase {
 		Assert.assertEquals(actual_userGroup, expected_userGroup, "User group not get edited");
 		Reporter.log("User group got edited successfully",true);
 		informationpageta.validateSignOut();
-		
+
 	}
 	public void addUserToGroup(String groupName,String user1) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
@@ -197,7 +215,7 @@ public class UserGroupsPageTA extends TestBase {
 		closeBtn.click();
 		Thread.sleep(3000);
 		informationpageta.validateSignOut();
-	/*	Reporter.log("Removing user2",true);
+		/*	Reporter.log("Removing user2",true);
 		Select allUser_drpdown1=new Select(existingMembers);
 		allUser_drpdown1.selectByVisibleText(user2);
 		System.out.println("User to add:"+user2);
@@ -210,15 +228,15 @@ public class UserGroupsPageTA extends TestBase {
 		Assert.assertEquals(actual_userGroup1, expected_userGroup1, "User not assign to group");
 		Thread.sleep(3000);
 		Reporter.log("User2 removed",true);*/
-		
-	/*	Reporter.log("Validation of no.of users",true);
+
+		/*	Reporter.log("Validation of no.of users",true);
 		WebElement size=driver.findElement(By.xpath("//table/tr/td/div[contains(text(),'"+groupName+"')]/../../td[3]/div"));
 		String actual_size=size.getText();
 		System.out.println("Actual member:"+actual_size);
 		Assert.assertEquals(actual_size,"0","No.of members dont match");
 		Reporter.log("After removing all members zero members in group",true);*/	
 	}
-	
+
 	public void ValidateDuplicateUserGroup(String groupName) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
@@ -263,8 +281,8 @@ public class UserGroupsPageTA extends TestBase {
 		Reporter.log("Users group tab clicked",true);
 		Thread.sleep(3000);
 		WebElement delete_Btn=driver.findElement(By.xpath("//table/tr/td/div[contains(text(),'"+groupName+"')]/../../td/span[3]"));
-	    delete_Btn.click();
-	    Thread.sleep(3000);
+		delete_Btn.click();
+		Thread.sleep(3000);
 		Reporter.log("Delete button is clicked",true);
 		deletePopupBtn.click();
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -278,6 +296,166 @@ public class UserGroupsPageTA extends TestBase {
 		Reporter.log("User group deleted",true);
 		informationpageta.validateSignOut();
 	}
+	//When we assign permission to the user group[User is added in User Group] TenantUser2 is used
+	public void validateWFAccessUserAddedInUserGroup(String groupName,String groupDescrp,String userName,String wfName,
+			String permission,String wfdes) throws Exception{
+		//We need to add user in the user group[TenantUser2 is added in HRGroup]
+		//UserGroupsPageTA usergrouppage = new UserGroupsPageTA();
+		//usergrouppage.addUserToGroup(groupName,userName);
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Reporter.log("User logged in successfully", true);
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked", true);
+		//wait.until(ExpectedConditions.visibilityOf(permissionsTab));
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].click();", permissionsTab);
+		Reporter.log("Permissions Tab is clicked", true);
+		//We need to select the workflow first
+		workflowsBtn.click();
+		Thread.sleep(2000);
+		Reporter.log("Workflows button is clicked", true);
+		WebElement selectWF = driver.findElement(By.xpath("//div/ul/li[normalize-space(@title) = '"+wfName+"']/label/i"));
+		selectWF.click();
+		Thread.sleep(2000);
+		groupBtn.click();
+		Reporter.log("Groups button is clicked", true);
+		//Selecting the permisson we want for the user to have
+		WebElement selectPermisson = driver.findElement(By.xpath("//div/ul/li/label[normalize-space(@title) = '"+groupName+" "+groupDescrp+"']/../span/label/del[normalize-space()='"+permission+"']"));
+		selectPermisson.click();
+		Reporter.log("Permission is selected successfully", true);
+		Thread.sleep(2000);
+		saveBtn.click();
+		Reporter.log("Save button is clicked", true);
+		Thread.sleep(2000);
+		String actual_SuccessMsg = alertMessage.getText();
+		Reporter.log("Actual Success Message:- " +actual_SuccessMsg);
+		String expected_SuccessMsg=Messages.permissionsSuccessMsg;
+		Reporter.log("Expected Success Message:- " +expected_SuccessMsg);
+		Assert.assertEquals(actual_SuccessMsg, expected_SuccessMsg, "Permission not updated successfully");
+		Reporter.log("Permission is updated successfully",true);
+		informationpageta.validateSignOut();
+		//Need to login in TenantUser2 to check whether wf is displayed after updating the view permission to HRGroup
+		loginpageta.login(prop.getProperty("username_TU2"), prop.getProperty("password_TU2"));
+		Reporter.log("User logged in successfully", true);
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Thread.sleep(3000);
+		WebElement workflowName = driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']"));
+		String actual_workflowName = workflowName.getText();
+		Reporter.log("Actual Workflow Name:- "+actual_workflowName);
+		String concat_wfName = wfName.concat(" ");
+		String expected_workflowName = concat_wfName;
+		Reporter.log("Expected Workflow Name:- "+expected_workflowName);
+		Assert.assertEquals(actual_workflowName, expected_workflowName, "Workflow is not displayed");
+		Thread.sleep(2000);
+		WebElement permissionDisplayed = driver.findElement(By.xpath("//table/tr/td/p/span[text()='"+permission+"']"));
+		String actual_Permission = permissionDisplayed.getText();
+		Reporter.log("Actual Permission Updated:- "+actual_Permission);
+		String expected_Permission = permission;
+		Reporter.log("Expected Permission Updated:- "+expected_Permission);
+		Assert.assertEquals(actual_Permission, expected_Permission, "Permission not updated successfully");
+		Reporter.log("Permission is updated successfully",true);
+		WebElement editBtn= driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']/../td[7]/span[@title='Edit Workflow']"));
+		editBtn.click(); 
+		wfDescription.clear();
+		wfDescription.sendKeys(wfdes);
+		submitBtn.click();
+		Reporter.log("Save button is clicked",true);
+		Thread.sleep(2000);
+		String Actual_successMsg = alertMessage.getText();
+		System.out.println("Actual Message : " + Actual_successMsg);
+		String Expected_successMsg = Messages.updateWorkflow;
+		System.out.println("Expected Message :"+Expected_successMsg);
+		Assert.assertEquals(Actual_successMsg, Expected_successMsg, "Workflow not updated");
+		Reporter.log("Workflow is updated successfully",true);
+		Reporter.log("Modify permission is updated so user is able to edited the workflow successfully",true);
+		Thread.sleep(3000);
+		informationpageta.validateSignOut();
+	}
+	public void validateRemoveWFPermission(String groupName,String groupDescrp,String wfName,String Removepermission,
+			String permission) throws Exception{
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Reporter.log("User logged in successfully", true);
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked", true);
+		//wait.until(ExpectedConditions.visibilityOf(permissionsTab));
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].click();", permissionsTab);
+		Reporter.log("Permissions Tab is clicked", true);
+		//We need to select the workflow first
+		workflowsBtn.click();
+		Thread.sleep(2000);
+		Reporter.log("Workflows button is clicked", true);
+		WebElement selectWF = driver.findElement(By.xpath("//div/ul/li[normalize-space(@title) = '"+wfName+"']/label/i"));
+		selectWF.click();
+		Thread.sleep(2000);
+		groupBtn.click();
+		Reporter.log("Groups button is clicked", true);
+		//Selecting the permisson we want for the user to have
+		WebElement selectPermisson = driver.findElement(By.xpath("//div/ul/li/label[normalize-space(@title) = '"+groupName+" "+groupDescrp+"']/../span/label[normalize-space()='"+Removepermission+"']"));
+		selectPermisson.click();
+		Reporter.log("Permission is selected successfully", true);
+		Thread.sleep(2000);
+		saveBtn.click();
+		Reporter.log("Save button is clicked", true);
+		Thread.sleep(2000);
+		String actual_SuccessMsg = alertMessage.getText();
+		Reporter.log("Actual Success Message:- " +actual_SuccessMsg);
+		String expected_SuccessMsg=Messages.permissionsSuccessMsg;
+		Reporter.log("Expected Success Message:- " +expected_SuccessMsg);
+		Assert.assertEquals(actual_SuccessMsg, expected_SuccessMsg, "Permission not updated successfully");
+		Reporter.log("Permission is updated successfully",true);
+		informationpageta.validateSignOut();
+		loginpageta.login(prop.getProperty("username_TU2"), prop.getProperty("password_TU2"));
+		Reporter.log("User logged in successfully", true);
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked", true);
+		Thread.sleep(3000);
+		WebElement workflowName = driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']"));
+		String actual_workflowName = workflowName.getText();
+		Reporter.log("Actual Workflow Name:- "+actual_workflowName);
+		String concat_wfName = wfName.concat(" ");
+		String expected_workflowName = concat_wfName;
+		Reporter.log("Expected Workflow Name:- "+expected_workflowName);
+		Assert.assertEquals(actual_workflowName, expected_workflowName, "Workflow is not displayed");
+		Thread.sleep(2000);
+		WebElement permissionDisplayed = driver.findElement(By.xpath("//table/tr/td/p/span[text()='"+permission+"']"));
+		String actual_Permission = permissionDisplayed.getText();
+		Reporter.log("Actual Permission Updated:- "+actual_Permission);
+		String expected_Permission = permission;
+		Reporter.log("Expected Permission Updated:- "+expected_Permission);
+		Assert.assertEquals(actual_Permission, expected_Permission, "Permission not updated successfully");
+		Reporter.log("Permission is updated successfully",true);
+		Reporter.log("Modify permission is removed so user is not able to edited the workflow successfully",true);
+		informationpageta.validateSignOut();
+	}
+	public void validateWFAccessUserRemovedFromUserGroup(String groupName,String userName) throws Exception{
+		UserGroupsPageTA usergrouppage = new UserGroupsPageTA();
+		usergrouppage.removeUserFromGroup(groupName,userName);
+		loginpageta.login(prop.getProperty("username_TU2"), prop.getProperty("password_TU2"));
+		Reporter.log("User logged in successfully", true);
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked", true);
+		Thread.sleep(3000);
+		String actual_Message = NoRecordMessage.getText();
+		Reporter.log("Actual Message:- "+actual_Message);
+		String expected_Message = Messages.recordFoundMessage;
+		Reporter.log("Expected Message:- "+expected_Message);
+		Assert.assertEquals(actual_Message, expected_Message, "Workflow is displayed");
+		informationpageta.validateSignOut();
+	}
 	public void validateUserGroupsPageTA(String PageTitle) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully",true);
@@ -289,11 +467,11 @@ public class UserGroupsPageTA extends TestBase {
 		js.executeScript("arguments[0].click();", userGroupsTab);
 		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Thread.sleep(3000);
-				//Now validate page title is same as expected
+		//Now validate page title is same as expected
 		String actual_title=pageTitle.getText();
 		String expected_title=PageTitle;
 		Reporter.log("Actual page title displayed on screen is: "+actual_title+ " and Expected "
-						+ "page title is: "+expected_title,true);
+				+ "page title is: "+expected_title,true);
 		Assert.assertEquals(actual_title, expected_title,"Appropriate page didn't loaded properly");
 		Reporter.log("Respective Page is clicked and appropriate page is loaded properly",true);
 		informationpageta.validateSignOut();

@@ -74,7 +74,7 @@ public class TenantsPageTest extends TestBase {
 	//Need to add these test cases before normal agent get deleted
 	/*@Test(priority = 472)
 	public void validateDisableTenantTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateDisableTenantTest", "TC_Additional: To verfiy able to disable any tenant");
+		extentTest = extent.createTest("validateDisableTenantTest", "TC_135: To verfiy able to disable any tenant");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		tenantspage = new TenantsPage();
 		tenantspage.validateDisableTenant("KG");
@@ -100,7 +100,7 @@ public class TenantsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}*/
 	//Need to add these test cases after assisted agent gets register
-	@Test(priority = 475)
+	/*@Test(priority = 475)
 	public void validateSubmitRequestDisableTenantAssistedAgentTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSubmitRequestDisableTenantAssistedAgentTest", "TC_136: Verify  submit reqeust of assisted workflow of disabled tenant");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -117,7 +117,7 @@ public class TenantsPageTest extends TestBase {
 		tenantspage.validateSubmitRequestEnableTenantAssistedAgent("KG","AssistedWF");
 		extentTest.log(extentTest.getStatus(), "submit reqeust of assisted workflow of enabled tenant is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}
+	}*/
 	//Test case for usage based license tenant
 	@Test(priority=702)
 	public void validateCreateAllotmentBasedTenantTest(Method method) throws Exception {
@@ -135,7 +135,7 @@ public class TenantsPageTest extends TestBase {
 		extentTest = extent.createTest("validateAllocateConsumptionBasedTest", "TC_99: Verify amend above T.admin license");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAllocateConsumptionBased("UBL01","2022","Oct","12","1","1","1","1");		
+		tenantspage.validateAllocateConsumptionBased("UBL01","2023","Jan","20","1","1","1","1");		
 		extentTest.log(extentTest.getStatus(), "Tenant Admin license is admend successfully");
 		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
@@ -150,167 +150,176 @@ public class TenantsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Consumption Based Allocation is verified successfully");
 		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-/*	//About orgcode
-	/*@Test
-	public void validateAdvSearchForOrgCodeEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForOrgCodeEqualToTest", "TC_003: To Verfiy Advance search for Org Code and created date with equals criteria");
-		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 900)
+	public void validateDisableAllomentBasedTenantTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateDisableAllomentBasedTenantTest", "TC_150: Verify enable/disable of above created  tenant with  sysadmin user ");
+		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchForOrgCodeEqualTo("Org Code", "equal to",TestDataInMap.get("OrganizationCode"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"));
-		extentTest.log(extentTest.getStatus(), "Advance search for Org Code and created date criteria validated successfully");
+		tenantspage.validateDisableAllomentBasedTenant("UBL01");
+		extentTest.log(extentTest.getStatus(), "Tenant is disabled successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForOrgCodeNotEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForOrgCodeNotEqualToTest", "TC_003: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 901)
+	public void validateEnableAllomentBasedTenantTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateEnableAllomentBasedTenantTest", "TC_150: Verify enable/disable of above created  tenant with  sysadmin user ");
+		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchForOrgCodeNotEqualTo("Org Code", "not equal to","KG01","50");
-		extentTest.log(extentTest.getStatus(), "Advance search for Org Code and created date criteria validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		tenantspage.validateEnableAllomentBasedTenant("UBL01");
+		extentTest.log(extentTest.getStatus(), "Tenant is enabled successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForOrgCodeIsLikeTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForOrgCodeIsLikeTest", "TC_003: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	//About orgcode
+/*	@Test(priority = 3001)
+	public void validateAdvSearchForOrgCodeEqualToTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForOrgCodeEqualToTenantPageTest", "TC_003: To Verfiy Advance search for Org Code and created date with equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchForOrgCodeIsLike("ICICI Bank","For Like op for org code","ICICI98","Org Code", "is like","CI","50");
-		extentTest.log(extentTest.getStatus(), "Advance search for Org Code and created date criteria validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		tenantspage.validateAdvSearchForOrgCodeEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
+		extentTest.log(extentTest.getStatus(), "Advance search for Org Code criteria validated successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchOrgBeginsWithTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchOrgEndsWithTest", "TC_003: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3002)
+	public void validateAdvSearchForOrgCodeNotEqualToTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForOrgCodeNotEqualToTenantPageTest", "TC_003: To Verfiy Advance search for Org Code and created date with Not equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchOrgBeginsWith("Org Code", "begins with","KG","50");
-		extentTest.log(extentTest.getStatus(), "Advance search for Org Code and created date criteria validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		tenantspage.validateAdvSearchForOrgCodeNotEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
+		extentTest.log(extentTest.getStatus(), "Advance search for Org Code criteria validated successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchOrgEndsWithTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchOrgEndsWithTest", "TC_003: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3003)
+	public void validateAdvSearchForOrgCodeIsLikeTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForOrgCodeIsLikeTenantPageTest", "TC_003: To Verfiy Advance search for Org Code and created date with Is Like criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchOrgEndsWith("Org Code", "ends with","01","50");
-		extentTest.log(extentTest.getStatus(), "Advance search for Org Code and created date criteria validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		tenantspage.validateAdvSearchForOrgCodeIsLike(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
+				TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),TestDataInMap.get("PageSize"));
+		extentTest.log(extentTest.getStatus(), "Advance search for Org Code criteria validated successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
+	}
+	@Test(priority = 3004)
+	public void validateAdvSearchOrgBeginsWithTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchOrgEndsWithTenantPageTest", "TC_003: To Verfiy Advance search for Org Code and created date with begins with criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
+		tenantspage = new TenantsPage();
+		tenantspage.validateAdvSearchOrgBeginsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
+		extentTest.log(extentTest.getStatus(), "Advance search for Org Code criteria validated successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
+	}
+	@Test(priority = 3005)
+	public void validateAdvSearchOrgEndsWithTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchOrgEndsWithTenantPageTest", "TC_003: To Verfiy Advance search for Org Code and created date with ends with criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
+		tenantspage = new TenantsPage();
+		tenantspage.validateAdvSearchOrgEndsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
+		extentTest.log(extentTest.getStatus(), "Advance search for Org Code criteria validated successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	//About Name
-	@Test
-	public void validateAdvSearchForTNameEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForTNameEqualToTest", "TC_003: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3006)
+	public void validateAdvSearchNameEqualToTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchNameEqualToTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name equal to with equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchForTNameEqualTo("Name", "equal to","KG","50");
-		extentTest.log(extentTest.getStatus(), "Advance search for Org Code and created date criteria validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		tenantspage.validateAdvSearchNameEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
+		extentTest.log(extentTest.getStatus(), "Advance search for Org Code criteria validated successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchNameNotEqualTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchNameNotEqualTest", "TC_003: To Verfiy Advance search for Tenant name not equal to with criteria and Created After criteria");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3007)
+	public void validateAdvSearchNameNotEqualTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchNameNotEqualTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name not equal to with criteria and Created After criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchNameNotEqual("ABC81","ABC xyz","ABC081","Name","not equal to","50");
-		//tenantspage.validateAdvSearchNameNotEqual(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"));
+		tenantspage.validateAdvSearchNameNotEqual(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
+				TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names not equals to and created after criteria validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchNameIsLikeTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchNameIsLikeTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3008)
+	public void validateAdvSearchNameIsLikeTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchNameIsLikeTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchNameIsLike("ABC811KG","A1BC xyz","ABC8KG1","Name","is like","AB","50");
-		//	tenantspage.validateAdvSearchNameIsLike(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		tenantspage.validateAdvSearchNameIsLike(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
+				TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchNameBeginWithTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchNameBeginWithTest", "TC_003: To Verfiy Advance search for Tenant name begins with criteria and Created before criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3009)
+	public void validateAdvSearchNameBeginWithTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchNameBeginWithTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name begins with criteria and Created before criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchNameBeginWith("HDFC110","ForHDFC Customer","HDFC110","Name","is like","HD","50");
-		//	tenantspage.validateAdvSearchNameBeginWith(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//			TestDataInMap.get("AdvSearchFor"));
+		tenantspage.validateAdvSearchNameBeginWith(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
+				TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names begins with and created before criteria validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	} 
-    @Test
-	public void validateAdvSearchNameEndWithTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchNameEndWithTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+    @Test(priority = 3010)
+	public void validateAdvSearchNameEndWithTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchNameEndWithTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchNameEndWith("Name","ends with","KG","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		tenantspage.validateAdvSearchNameEndWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	} 
 	//About Calender
-	@Test
-	public void validateCreatedEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreatedEqualToTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3011)
+	public void validateCreatedEqualToTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateCreatedEqualToTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateCreatedEqualTo("exact date","2022","Aug","1","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		tenantspage.validateCreatedEqualTo(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateCreatedBeforeTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreatedBeforeTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3012)
+	public void validateCreatedBeforeTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateCreatedBeforeTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateCreatedBefore("before","2022","Jul","27","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		tenantspage.validateCreatedBefore(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateCreatedAfterTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreatedAfterTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3013)
+	public void validateCreatedAfterTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateCreatedAfterTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateCreatedAfter("after","2022","Jul","21","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		tenantspage.validateCreatedAfter(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateCreatedInBetweenTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreatedInBetweenTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3014)
+	public void validateCreatedInBetweenTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateCreatedInBetweenTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateCreatedInBetween("in between","2022","Jul","21","2022","Jul","28","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		tenantspage.validateCreatedInBetween(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateCreatedNotInBetweenTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreatedNotInBetweenTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3015)
+	public void validateCreatedNotInBetweenTenantPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateCreatedNotInBetweenTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateCreatedNotInBetween("not in between","2022","Jul","23","2022","Jul","26","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		tenantspage.validateCreatedNotInBetween(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}*/
 
 }

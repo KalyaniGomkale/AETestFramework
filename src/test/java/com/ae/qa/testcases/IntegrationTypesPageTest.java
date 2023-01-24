@@ -36,6 +36,15 @@ public class IntegrationTypesPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Integration type edited successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
+	/*@Test(priority=999)
+	public void validateDeleteIntegrationTypeTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateDeleteIntegrationTypeTest", "TC_92:Verify Delete Integration Type");
+		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		integrationtypespage = new IntegrationTypesPage();
+		integrationtypespage.validateDeleteIntegrationType("RemedyForce");
+		extentTest.log(extentTest.getStatus(), "Integration Service Status is verified successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+	}*/
 	@Test(priority=163)
 	public void validateIntegrationTypePageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateIntegrationTypePageTest", "TC_Additional:Verify Clicking Integration types tab and checking that appropiate page is loaded");

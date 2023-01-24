@@ -31,8 +31,6 @@ public class TenantsPage extends TestBase {
 	public LoginPage loginpage = new LoginPage();
 	public InformationPage informationpage=new InformationPage();
 	//	public WebElements webelements = new WebElements();
-	public CataloguePageTA catalogueta = new CataloguePageTA();
-	public WorkflowListPageTA workflowlistpageta = new WorkflowListPageTA();
 	public TenantUsersPage tenantuserpage = new TenantUsersPage();
 	public CommonWebElements wb = new CommonWebElements();
 
@@ -317,6 +315,7 @@ public class TenantsPage extends TestBase {
 		informationpage.validateSignOut();
 	}
 	public void validateSubmitRequestEnableTenant(String tName,String wfName) throws Exception{
+		CataloguePageTA catalogueta = new CataloguePageTA();
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
 		// click Tenants Tab
@@ -341,8 +340,8 @@ public class TenantsPage extends TestBase {
 	//For Assisted Agent Enable disable tenant
 	public void validateSubmitRequestDisableTenantAssistedAgent(String wfName, String wfdes, String category, String WFImportPath, String priority,
 			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit, String tName, String tOrgCode) throws Exception{
-		workflowlistpageta.validateImportAssistedWorkflow(wfName, wfdes, category, WFImportPath, priority,expTime,
-				maxTime, cleanUpHrs, manExeTime, tUnit);
+		WorkflowListPageTA workflowlistpageta = new WorkflowListPageTA();
+		workflowlistpageta.validateImportAssistedWorkflow(wfName, wfdes, category, WFImportPath, priority,expTime,maxTime, cleanUpHrs, manExeTime, tUnit);
 		validateDisableTenant(tName);
 		validateSubmitRequestDisabledTenant(wfName,tOrgCode);
 	}
@@ -585,6 +584,56 @@ public class TenantsPage extends TestBase {
 		Assert.assertEquals(actual_Consumption.get(1), expected_updateBalance.get(2));
 		informationpage.validateSignOut();
 	}
+	public void validateDisableAllomentBasedTenant(String tName) throws Exception{
+		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		Reporter.log("User log in Successfully",true);
+		// click Tenants Tab
+		//wait.until(ExpectedConditions.visibilityOf(tenantsTab));
+		Thread.sleep(3000);
+		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
+		js_tenant.executeScript("arguments[0].click();", tenantsTab);
+		Reporter.log("Tenant tab is clicked successfully",true);
+		Thread.sleep(2000);
+		js_tenant.executeScript("arguments[0].click();", allotmentBasedTab);
+		Reporter.log("Allotment Based tab is clicked successfully",true);
+		Thread.sleep(2000);
+		WebElement status_Slider = driver.findElement(By.xpath("//table/tr/td[text()='"+tName+"']/../td/label/input/../span"));
+		status_Slider.click();
+		String actual_Btn = driver.findElement(By.xpath("//button[@id='popup-button-ok']")).getText();
+		System.out.println("Actual Button Displayed:-"+actual_Btn);
+		String expected_Btn = prop.getProperty("Disable_Btn");
+		System.out.println("Expected Button Displayed:-"+expected_Btn);
+		Assert.assertEquals(actual_Btn,expected_Btn, "Disable button is not displayed");
+		Reporter.log("Disable button is displayed successfully");
+		Thread.sleep(2000);
+		disableBtn.click();
+		informationpage.validateSignOut();
+	}
+	public void validateEnableAllomentBasedTenant(String tName) throws Exception{
+		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		Reporter.log("User log in Successfully",true);
+		// click Tenants Tab
+		//wait.until(ExpectedConditions.visibilityOf(tenantsTab));
+		Thread.sleep(3000);
+		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
+		js_tenant.executeScript("arguments[0].click();", tenantsTab);
+		Reporter.log("Tenant tab is clicked successfully",true);
+		Thread.sleep(2000);
+		js_tenant.executeScript("arguments[0].click();", allotmentBasedTab);
+		Reporter.log("Allotment Based tab is clicked successfully",true);
+		Thread.sleep(2000);
+		WebElement status_Slider = driver.findElement(By.xpath("//table/tr/td[text()='"+tName+"']/../td/label/input/../span"));
+		status_Slider.click();
+		String actual_Btn = driver.findElement(By.xpath("//button[@id='popup-button-ok']")).getText();
+		System.out.println("Actual Button Displayed:-"+actual_Btn);
+		String expected_Btn = prop.getProperty("Enable_Btn");
+		System.out.println("Expected Button Displayed:-"+expected_Btn);
+		Assert.assertEquals(actual_Btn,expected_Btn, "Enable button is not displayed");
+		Reporter.log("Enable button is displayed successfully");
+		Thread.sleep(2000);
+		disableBtn.click();
+		informationpage.validateSignOut();
+	}
 	public void validateAdvSearch() throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully", true);
@@ -594,7 +643,7 @@ public class TenantsPage extends TestBase {
 		Thread.sleep(2000);
 	}
 	public void validateAdvSearchForOrgCodeEqualTo(String SearchColumn,String SearchCriteria,
-			String orgCode, String year, String month, String date,String PageSize)
+			String orgCode,String PageSize)
 					throws Exception {
 		validateAdvSearch();
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, orgCode);
@@ -677,7 +726,7 @@ public class TenantsPage extends TestBase {
 			Assert.assertTrue(actual_orgCode.endsWith(advSearchFor));
 		}
 	}
-	public void validateAdvSearchForTNameEqualTo(String SearchColumn,String SearchCriteria,
+	public void validateAdvSearchNameEqualTo(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, advSearchFor);

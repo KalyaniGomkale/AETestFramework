@@ -34,7 +34,7 @@ public class DashboardsPageTestTA extends TestBase {
 		super();
 	}
 
-	/*@Test(priority = 97)
+	@Test(priority = 97)
 	public void validateDashboardNoneTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDashboardNoneTest", "TC_378: Verify create Dashboard None level");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -52,6 +52,36 @@ public class DashboardsPageTestTA extends TestBase {
 		dashboardspageta.validateReportNoneMultipleWF(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),
 				TestDataInMap.get("ReportWF1"),TestDataInMap.get("ReportWF2"),TestDataInMap.get("PageSize"),TestDataInMap.get("reportTypeName"));
 		extentTest.log(extentTest.getStatus(), "Dashboard at none level with multiple workflows created successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority = 1000,dependsOnMethods="validateDashboardNoneTest",alwaysRun=true)
+	public void validateReportNoneSingleWFTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateReportNoneSingleWFTest", "TC_399: Verfiy Add Report in -Dashboard Level Duration Duration - None and of a single  workflow");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		dashboardspageta= new DashboardsPageTA();
+		dashboardspageta.validateReportNoneSingleWF(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),TestDataInMap.get("ReportWF1"),
+				TestDataInMap.get("PageSize"),TestDataInMap.get("reportTypeName"));
+		extentTest.log(extentTest.getStatus(), "Dashboard at none level with single workflow created successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority = 1001)
+	public void validateReportNoneSingleCategoryTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateReportNoneSingleCategoryTest", "TC_401: Verify Add Report in -Dashboard Level Duration Duration - None and with single category");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		dashboardspageta= new DashboardsPageTA();
+		dashboardspageta.validateReportNoneSingleCategory(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),TestDataInMap.get("categoryName"),
+				TestDataInMap.get("PageSize"),TestDataInMap.get("reportTypeName"));
+		extentTest.log(extentTest.getStatus(), "Dashboard at none level with single category created successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority=1003)
+	public void validateReportNoneMultipleCategoryTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateReportNoneMultipleCategoryTest", "TC_402: Verfiy Add Report in -Dashboard Level Duration Duration - None and with multiple category");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		dashboardspageta= new DashboardsPageTA();
+		dashboardspageta.validateReportNoneMultipleCategory(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),TestDataInMap.get("categoryName"),
+				TestDataInMap.get("categoryName1"),TestDataInMap.get("PageSize"),TestDataInMap.get("reportTypeName"));
+		extentTest.log(extentTest.getStatus(), "Dashboard at none level with Multiple category created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 105,alwaysRun=true)
@@ -94,6 +124,85 @@ public class DashboardsPageTestTA extends TestBase {
 		dashboardspageta.validateReportRelative(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),
 				TestDataInMap.get("ReportWF1"),TestDataInMap.get("PageSize"),TestDataInMap.get("reportTypeName"));
 		extentTest.log(extentTest.getStatus(), "Report at Today level created successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	
+	@Test(priority=1004)
+	public void validateEditDashboardRelativeDurationHourTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateEditDashboardRelativeTest", "TC_407: Verfiy Dashboard with Dashboard Level Duration Duration - Relative(hour)");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		dashboardspageta= new DashboardsPageTA();
+		dashboardspageta.validateEditDashboardRelativeDurationHour(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("dashboardDescp"),
+				TestDataInMap.get("timeUnit"),TestDataInMap.get("refreshTime"),TestDataInMap.get("dashboardDuration"),
+				TestDataInMap.get("LastTime"),TestDataInMap.get("RangeType"),TestDataInMap.get("StartMin"),TestDataInMap.get("StartHour"));
+		extentTest.log(extentTest.getStatus(), "Dashboard Relative is Edited successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority=1005)
+	public void validateRelativeReportDurationHourTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateRelativeReportDurationHourTest", "TC_408: Verfiy add report in Dashboard Level Duration Duration - Relative(hour)");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		dashboardspageta= new DashboardsPageTA();
+		dashboardspageta.validateRelativeReportDurationHour(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),
+				TestDataInMap.get("ReportWF1"),TestDataInMap.get("PageSize"),TestDataInMap.get("reportTypeName"));
+		extentTest.log(extentTest.getStatus(), "Dashboard Relative Report duration hour is added successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority=1006)
+	public void validateEditDashboardRelativeDurationDayTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateEditDashboardRelativeDurationDayTest", "TC_409: Verfiy Dashboard with Dashboard Level Duration Duration - Relative(day)");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		dashboardspageta= new DashboardsPageTA();
+		dashboardspageta.validateEditDashboardRelativeDurationDay(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("LastTime"),TestDataInMap.get("RangeType"));
+		extentTest.log(extentTest.getStatus(), "Dashboard Relative is Edited successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority=1007)
+	public void validateRelativeReportDurationDayTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateRelativeReportDurationDayTest", "TC_410: Verfiy add report in Dashboard Level Duration Duration - Relative(day)");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		dashboardspageta= new DashboardsPageTA();
+		dashboardspageta.validateRelativeReportDurationDay(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),
+				TestDataInMap.get("ReportWF1"),TestDataInMap.get("PageSize"),TestDataInMap.get("reportTypeName"));
+		extentTest.log(extentTest.getStatus(), "Dashboard Relative Report duration day is added successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority=1008)
+	public void validateEditDashboardRelativeDurationMonthTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateEditDashboardRelativeDurationMonthTest", "TC_411: Verfiy Dashboard with Dashboard Level Duration Duration - Relative(Month)");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		dashboardspageta= new DashboardsPageTA();
+		dashboardspageta.validateEditDashboardRelativeDurationMonth(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("LastTime"),TestDataInMap.get("RangeType"));
+		extentTest.log(extentTest.getStatus(), "Dashboard Relative is Edited successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority=1009)
+	public void validateRelativeReportDurationMonthTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateRelativeReportDurationMonthTest", "TC_412: Verfiy add report in Dashboard Level Duration Duration - Relative(month)");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		dashboardspageta= new DashboardsPageTA();
+		dashboardspageta.validateRelativeReportDurationMonth(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),
+				TestDataInMap.get("ReportWF1"),TestDataInMap.get("PageSize"),TestDataInMap.get("reportTypeName"));
+		extentTest.log(extentTest.getStatus(), "Dashboard Relative Report duration Month is added successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority=1010)
+	public void validateEditDashboardRelativeDurationYearTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateEditDashboardRelativeDurationYearTest", "TC_413: Verfiy Dashboard with Dashboard Level Duration Duration - Relative(Year)");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		dashboardspageta= new DashboardsPageTA();
+		dashboardspageta.validateEditDashboardRelativeDurationYear(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("LastTime"),TestDataInMap.get("RangeType"));
+		extentTest.log(extentTest.getStatus(), "Dashboard Relative is Edited successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority=1011)
+	public void validateRelativeReportDuratioYearTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateRelativeReportDurationYearTest", "TC_414: Verfiy add report in Dashboard Level Duration Duration - Relative(Year)");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		dashboardspageta= new DashboardsPageTA();
+		dashboardspageta.validateRelativeReportDurationYear(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),
+				TestDataInMap.get("ReportWF1"),TestDataInMap.get("PageSize"),TestDataInMap.get("reportTypeName"));
+		extentTest.log(extentTest.getStatus(), "Dashboard Relative Report duration Year is added successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 109,dependsOnMethods="validateDashboarRelativeTest",alwaysRun=true)
@@ -168,7 +277,7 @@ public class DashboardsPageTestTA extends TestBase {
 		extentTest = extent.createTest("ValidateLabelChangeInReportTest", "TC_186:Label Change in Report");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		dashboardspageta= new DashboardsPageTA();
-		dashboardspageta.validateLabelChangeInReport(TestDataInMap.get("reportTypeName"),TestDataInMap.get("dashboardTitle"));
+		dashboardspageta.validateLabelChangeInReport(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeName"),TestDataInMap.get("ColumnName"));
 		extentTest.log(extentTest.getStatus(), "Label Changed in Report successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
@@ -177,8 +286,27 @@ public class DashboardsPageTestTA extends TestBase {
 		extentTest = extent.createTest("ValidateDownloadReportPdfTest", "TC_188:Verify download report as PDF");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		dashboardspageta= new DashboardsPageTA();
-		dashboardspageta.validateDownloadReportPdf(TestDataInMap.get("reportTypeName"));
+		dashboardspageta.validateDownloadReportPdf(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeName"));
 		extentTest.log(extentTest.getStatus(), "Report is downloaded as PDF successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	
+	@Test(priority=590)
+	public void validateFullScreenModeTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateFullScreenModeTest", "TC_185:Verfiy Report in Full screen mode");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		dashboardspageta= new DashboardsPageTA();
+		dashboardspageta.validateFullScreenMode();
+		extentTest.log(extentTest.getStatus(), "Report in full screen is verified successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority=336)
+	public void validateColumnHideTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateColumnHideTest", "TC_425:Verify Column hide");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		dashboardspageta= new DashboardsPageTA();
+		dashboardspageta.validateColumnHide(TestDataInMap.get("dashboardTitle"));
+		extentTest.log(extentTest.getStatus(), "Column hide is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 	@Test(priority=186)
@@ -188,33 +316,6 @@ public class DashboardsPageTestTA extends TestBase {
 		dashboardspageta= new DashboardsPageTA();
 		dashboardspageta.validateDashboardsPageTA(TestDataInMap.get("PageTitle"));
 		extentTest.log(extentTest.getStatus(), "Dashboards Page loading validated successfully");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
-	}
-	@Test(priority=336)
-	public void validateReportNoneMultipleCategoryTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateReportNoneMultipleCategoryTest", "TC_174:Verify add report in-Dashboard level Duration Duration-None and with multiple category");
-		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
-		dashboardspageta= new DashboardsPageTA();
-		dashboardspageta.validateReportNoneMultipleCategory(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),TestDataInMap.get("PageSize"),TestDataInMap.get("reportTypeName"));
-		extentTest.log(extentTest.getStatus(), "Add report in-Dashboard level Duration Duration-None and with multiple category is verified successfully");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
-	}*/
-	/*@Test(priority=590)
-	public void validateFullScreenModeTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateFullScreenModeTest", "TC_185:Verfiy Report in Full screen mode");
-		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
-		dashboardspageta= new DashboardsPageTA();
-		dashboardspageta.validateFullScreenMode();
-		extentTest.log(extentTest.getStatus(), "Report in full screen is verified successfully");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
-	}*/
-	@Test(priority=336)
-	public void validateColumnHideTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateColumnHideTest", "TC_425:Verify Column hide");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
-		dashboardspageta= new DashboardsPageTA();
-		dashboardspageta.validateColumnHide("DashboardNone");
-		extentTest.log(extentTest.getStatus(), "Column hide is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 }

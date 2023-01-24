@@ -5,25 +5,347 @@
 
 
 		<classes>
-			<!-- <class name="com.ae.qa.testcases.LoginPageTest"> <methods> <include 
-				name="ValidateFirstTimeLoginTest" /> </methods> </class> -->
-			<class name="com.ae.qa.testcases.HomePageTest">
-				<methods>
-					<include name="validateHomePageForConsumptionTabTest" />
-					<include name="validateUploadLicenseTest" />
-				</methods>
-			</class>
 			<class name="com.ae.qa.testcases.TenantsPageTest">
 				<methods>
-					<include name="validateCreateAllotmentBasedTenantTest" />
-					<include name="validateAllocateConsumptionBasedTest" />
-					<include name="validateAmendLicenseTest" />
+					<include name="validateAdvSearchForOrgCodeEqualToTenantPageTest" />
+					<include name="validateAdvSearchForOrgCodeNotEqualToTenantPageTest" />
+					<include name="validateAdvSearchForOrgCodeIsLikeTenantPageTest" />
+					<include name="validateAdvSearchOrgBeginsWithTenantPageTest" />
+					<include name="validateAdvSearchOrgEndsWithTenantPageTest" />
+					<include name="validateAdvSearchNameEqualToTenantPageTest" />
+					<include name="validateAdvSearchNameNotEqualTenantPageTest" />
+					<include name="validateAdvSearchNameIsLikeTenantPageTest" />
+					<include name="validateAdvSearchNameBeginWithTenantPageTest" />
+					<include name="validateAdvSearchNameEndWithTenantPageTest" />
+					<include name="validateCreatedEqualToTenantPageTest" />
+					<include name="validateCreatedBeforeTenantPageTest" />
+					<include name="validateCreatedAfterTenantPageTest" />
+					<include name="validateCreatedInBetweenTenantPageTest" />
+					<include name="validateCreatedNotInBetweenTenantPageTest" />
 				</methods>
 			</class>
 			<class name="com.ae.qa.testcases.SystemUsersPageTest">
 				<methods>
-					<include name="validateCreatingTenantLicenseAdminTest" />
-					<include name="validateEditTenantLicenseAdminTest" />
+					<include name="validateAdvSearchForUserNameEqualToSystemUserPageTest" />
+					<include name="validateAdvSearchForUserNameNotEqualToSystemUserPageTest" />
+					<include name="validateAdvSearchForUserNameIsLikeSystemUserPageTest" />
+					<include name="validateAdvSearchForUserNameBeginsWithSystemUserPageTest" />
+					<include name="validateAdvSearchForUserNameEndsWithSystemUserPageTest" />
+					<include name="validateAdvSearchForFirstNameEqualToSystemUserPageTest" />
+					<include name="validateAdvSearchForFirstNameNotEqualToSystemUserPageTest" />
+					<include name="validateAdvSearchForFirstNameIsLikeSystemUserPageTest" />
+					<include name="validateAdvSearchForFirstNameBeginsWithSystemUserPageTest" />
+					<include name="validateAdvSearchForFirstNameEndsWithSystemUserPageTest" />
+					<include name="validateAdvSearchForLastNameEqualToSystemUserPageTest" />
+					<include name="validateAdvSearchForLastNameNotEqualToSystemUserPageTest" />
+					<include name="validateAdvSearchForLastNameIsLikeSystemUserPageTest" />
+					<include name="validateAdvSearchForLastNameBeginsWithSystemUserPageTest" />
+					<include name="validateAdvSearchForLastNameEndsWithSystemUserPageTest" />
+					<include name="validateCreatedEqualToSystemUserPageTest" />
+					<include name="validateCreatedBeforeSystemUserPageTest" />
+					<include name="validateCreatedAfterSystemUserPageTest" />
+					<include name="validateCreatedInBetweenSystemUserPageTest" />
+					<include name="validateLastUpdatedCreatedEqualToSystemUserPageTest" />
+					<include name="validateLastUpdatedCreatedBeforeSystemUserPageTest" />
+					<include name="validateLastUpdatedCreatedAfterSystemUserPageTest" />
+					<include name="validateLastUpdatedCreatedInBetweenSystemUserPageTest" />
+					<include name="validateLastUpdatedCreatedNotInBetweenSystemUserPageTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.TenantUsersPageTest">
+				<methods>
+					<include name="validateAdvSearchForTenantNameEqualToTenantusersPageTest" />
+					<include name="validateAdvSearchForTenantNameNotEqualToTenantusersPageTest" />
+					<include name="validateAdvSearchForTenantNameIsLikeTenantusersPageTest" />
+					<include name="validateAdvSearchForTenantNameBeginsWithTenantusersPageTest" />
+					<include name="validateAdvSearchForTenantNameEndsWithTenantusersPageTest" />
+					<include name="validateAdvSearchForUserNameEqualToTenantusersPageTest" />
+					<include name="validateAdvSearchForUserNameNotEqualToTenantusersPageTest" />
+					<include name="validateAdvSearchForUserNameIsLikeTenantusersPageTest" />
+					<include name="validateAdvSearchForUserNameBeginsWithTenantusersPageTest" />
+					<include name="validateAdvSearchForUserNameEndsWithTenantusersPageTest" />
+					<include name="validateAdvSearchForFirstNameEqualToTenantusersPageTest" />
+					<include name="validateAdvSearchForFirstNameNotEqualToTenantusersPageTest" />
+					<include name="validateAdvSearchForFirstNameIsLikeTenantusersPageTest" />
+					<include name="validateAdvSearchForFirstNameBeginsWithTenantusersPageTest" />
+					<include name="validateAdvSearchForFirstNameEndsWithTenantusersPageTest" />
+					<include name="validateAdvSearchForLastNameEqualToTenantusersPageTest" />
+					<include name="validateAdvSearchForLastNameNotEqualToTenantusersPageTest" />
+					<include name="validateAdvSearchForLastNameIsLikeTenantusersPageTest" />
+					<include name="validateAdvSearchForLastNameBeginsWithTenantusersPageTest" />
+					<include name="validateAdvSearchForLastNameEndsWithTenantusersPageTest" />
+					<include name="validateCreatedEqualToTenantusersPageTest" />
+					<include name="validateCreatedBeforeTenantusersPageTest" />
+					<include name="validateCreatedAfterTenantusersPageTest" />
+					<include name="validateCreatedInBetweenTenantusersPageTest" />
+					<include name="validateCreatedNotInBetweenTenantusersPageTest" />
+					<include name="validateLastUpdatedCreatedEqualToTenantusersPageTest" />
+					<include name="validateLastUpdatedCreatedBeforeTenantusersPageTest" />
+					<include name="validateLastUpdatedCreatedAfterTenantusersPageTest" />
+					<include name="validateLastUpdatedCreatedInBetweenTenantusersPageTest" />
+					<include name="validateLastUpdatedCreatedNotInBetweenTenantusersPageTest" />
+					<include name="validateStateDropdownEqualToTenantusersPageTest" />
+					<include name="validateStateDropdownNotEqualToTenantusersPageTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.PluginsPageTest">
+				<methods>
+					<include name="validateAdvSearchForPluginNameEqualTonPluginPageTest" />
+					<include name="validateAdvSearchForPluginNameNotEqualToPluginPageTest" />
+					<include name="validateAdvSearchForPluginNameIsLikePluginPageTest" />
+					<include name="validateAdvSearchForPluginNameBeginsWithPluginPageTest" />
+					<include name="validateAdvSearchForPluginNameEndsWithPluginPageTest" />
+					<include name="validateCreatedEqualToPluginPageTest" />
+					<include name="validateCreatedBeforePluginPageTest" />
+					<include name="validateCreatedAfterPluginPageTest" />
+					<include name="validateCreatedInBetweenPluginPageTest" />
+					<include name="validateCreatedNotInBetweenPluginPageTest" />
+					<include name="validateLastModifiedCreatedEqualToPluginPageTest" />
+					<include name="validateLastModifiedCreatedBeforePluginPageTest" />
+					<include name="validateLastModifiedCreatedAfterPluginPageTest" />
+					<include name="validateLastModifiedCreatedInBetweenPluginPageTest" />
+					<include name="validateLastUpdatedModifiedNotInBetweenPluginPageTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.FileManagementPageTest">
+				<methods>
+					<include name="validateAdvSearchForFileNameEqualToFileManagementPageTest" />
+					<include name="validateAdvSearchForFileNameNotEqualToFileManagementPageTest" />
+					<include name="validateAdvSearchForFileNameIsLikeFileManagementPageTest" />
+					<include name="validateAdvSearchForFileNameBeginsWithFileManagementPageTest" />
+					<include name="validateAdvSearchForFileNameEndsWithFileManagementPageTest" />
+					<include name="validateUploadedEqualToFileManagementPageTest" />
+					<include name="validateUploadedBeforeFileManagementPageTest" />
+					<include name="validateUploadedAfterFileManagementPageTest" />
+					<include name="validateUploadedInBetweenFileManagementPageTest" />
+					<include name="validateUploadedNotInBetweenFileManagementPageTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.AuditLogsPageTest">
+				<methods>
+					<include name="validateEntityDropdownEqualToAuditLogsPageTest" />
+					<include name="validateEntityDropdownNotEqualToAuditLogsPageTest" />
+					<include name="validateSourceDropdownEqualToAuditLogsPageTest" />
+					<include name="validateSourceDropdownNotEqualToAuditLogsPageTest" />
+					<include name="validateAdvSearchForUserNameEqualToAuditLogsPageTest" />
+					<include name="validateAdvSearchForUserNameNotEqualToAuditLogsPageTest" />
+					<include name="validateAdvSearchForUserNameIsLikeAuditLogsPageTest" />
+					<include name="validateAdvSearchForUserNameBeginsWithAuditLogsPageTest" />
+					<include name="validateAdvSearchForUserNameEndsWithAuditLogsPageTest" />
+					<include name="validateAdvSearchForSourceIPEqualToAuditLogsPageTest" />
+					<include name="validateAdvSearchForSourceIPNotEqualToAuditLogsPageTest" />
+					<include name="validateAdvSearchForSourceIPIsLikeAuditLogsPageTest" />
+					<include name="validateAdvSearchForSourceIPBeginsWithAuditLogsPageTest" />
+					<include name="validateAdvSearchForSourceIPEndsWithAuditLogsPageTest" />
+					<include name="validateOperationDropdownEqualToAuditLogsPageTest" />
+					<include name="validateOperationDropdownNotEqualToAuditLogsPageTest" />
+					<include name="validateCreatedEqualToAuditLogsPageTest" />
+					<include name="validateCreatedBeforeAuditLogsPageTest" />
+					<include name="validateCreatedAfterAuditLogsPageTest" />
+					<include name="validateCreatedInBetweenAuditLogsPageTest" />
+					<include name="validateCreatedNotInBetweenAuditLogsPageTest" />
+					<include name="validateStatusDropdownEqualToAuditLogsPageTest" />
+					<include name="validateStatusDropdownNotEqualToAuditLogsPageTest" />
+					<include name="validateLogLevelDropdownEqualToAuditLogsPageTest" />
+					<include name="validateLogLevelDropdownNotEqualToAuditLogsPageTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.TenantUsersPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForUserNameEqualToTenantuserPageTATest" />
+					<include name="validateAdvSearchForUserNameNotEqualToTenantuserPageTATest" />
+					<include name="validateAdvSearchForUserNameIsLikeTenantuserPageTATest" />
+					<include name="validateAdvSearchForUserNameBeginsWithTenantuserPageTATest" />
+					<include name="validateAdvSearchForUserNameEndsWithTenantuserPageTATest" />
+					<include name="validateAdvSearchForFirstNameEqualToTenantuserPageTATest" />
+					<include name="validateAdvSearchForFirstNameNotEqualToTenantuserPageTATest" />
+					<include name="validateAdvSearchForFirstNameIsLikeTenantuserPageTATest" />
+					<include name="validateAdvSearchForFirstNameBeginsWithTenantuserPageTATest" />
+					<include name="validateAdvSearchForFirstNameEndsWithTenantuserPageTATest" />
+					<include name="validateAdvSearchForLastNameEqualToTenantuserPageTATest" />
+					<include name="validateAdvSearchForLastNameNotEqualToTenantuserPageTATest" />
+					<include name="validateAdvSearchForLastNameIsLikeTenantuserPageTATest" />
+					<include name="validateAdvSearchForLastNameBeginsWithTenantuserPageTATest" />
+					<include name="validateAdvSearchForLastNameEndsWithTAdminTenantuserPageTest" />
+					<include name="validateCreatedEqualToTenantuserPageTATest" />
+					<include name="validateCreatedBeforeTenantuserPageTATest" />
+					<include name="validateCreatedAfterTenantuserPageTATest" />
+					<include name="validateCreatedInBetweenTenantuserPageTATest" />
+					<include name="validateCreatedNotInBetweenTenantuserPageTATest" />
+					<include name="validateLastUpdatedCreatedEqualToTenantuserPageTATest" />
+					<include name="validateLastUpdatedCreatedBeforeTenantuserPageTATest" />
+					<include name="validateLastUpdatedCreatedAfterTenantuserPageTATest" />
+					<include name="validateLastUpdatedCreatedInBetweenTenantuserPageTATest" />
+					<include name="validateLastUpdatedCreatedNotInBetweenTenantuserPageTATest" />
+					<include name="validateStateDropdownEqualToTenantuserPageTATest" />
+					<include name="validateStateDropdownNotEqualToTenantuserPageTATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.UserGroupsPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForGroupNameEqualToUsergroupsPageTATest" />
+					<include name="validateAdvSearchForGroupNameNotEqualToUsergroupsPageTATest" />
+					<include name="validateAdvSearchForGroupNameIsLikeUsergroupsPageTATest" />
+					<include name="validateAdvSearchForGroupNameBeginsWithUsergroupsPageTATest" />
+					<include name="validateAdvSearchForGroupNameEndsWithUsergroupsPageTATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.WorkflowListPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForWFNameEqualToWorkflowsPageTATest" />
+					<include name="validateAdvSearchForWFNameNotEqualToWorkflowsPageTATest" />
+					<include name="validateAdvSearchForWFNameIsLikeWorkflowsPageTATest" />
+					<include name="validateAdvSearchForWFNameBeginsWithWorkflowsPageTATest" />
+					<include name="validateAdvSearchForWFNameEndsWithWorkflowsPageTATest" />
+					<include name="validateAdvSearchForWFCategoryEqualToWorkflowsPageTATest" />
+					<include name="validateAdvSearchForWFCategoryNotEqualToWorkflowsPageTATest" />
+					<include name="validateAdvSearchForWFCategoryIsLikeWorkflowsPageTATest" />
+					<include name="validateAdvSearchForWFCategoryBeginsWithWorkflowsPageTATest" />
+					<include name="validateAdvSearchForWFCategoryEndsWithWorkflowsPageTATest" />
+					<include name="validateCreatedEqualToWorkflowsPageTATest" />
+					<include name="validateCreatedBeforeWorkflowsPageTATest" />
+					<include name="validateCreatedAfterWorkflowsPageTATest" />
+					<include name="validateCreatedInBetweenWorkflowsPageTATest" />
+					<include name="validateCreatedNotInBetweenWorkflowsPageTATest" />
+					<include name="validateStatusDropdownEqualToWorkflowsPageTATest" />
+					<include name="validateStatusDropdownNotEqualToWorkflowsPageTATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.SchedulerPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForScheduleNameEqualToSchedulerPageTATest" />
+					<include name="validateAdvSearchForScheduleNameNotEqualToSchedulerPageTATest" />
+					<include name="validateAdvSearchForScheduleNameIsLikeSchedulerPageTATest" />
+					<include name="validateAdvSearchForScheduleNameBeginsWithSchedulerPageTATest" />
+					<include name="validateAdvSearchForScheduleNameEndsWithSchedulerPageTATest" />
+					<include name="validateStatusDropdownEqualToSchedulerPageTATest" />
+					<include name="validateStatusDropdownNotEqualToSchedulerPageTATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.AgentListPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForAgentNameEqualToAgentsPageTATest" />
+					<include name="validateAdvSearchForAgentNameNotEqualToAgentsPageTATest" />
+					<include name="validateAdvSearchForAgentNameIsLikeAgentsPageTATest" />
+					<include name="validateAdvSearchForAgentNameBeginsWithAgentsPageTATest" />
+					<include name="validateAdvSearchForAgentNameEndsWithAgentsPageTATest" />
+					<include name="validateStatusDropdownEqualToAgentsPageTATest" />
+					<include name="validateStatusDropdownNotEqualToAgentsPageTATest" />
+					<include name="validateAdvSearchForExecutionThreadEqualToAgentsPageTATest" />
+					<include name="validateAdvSearchForExecutionThreadNotEqualToAgentsPageTATest" />
+					<include name="validateAdvSearchForExecutionThreadLessThanAgentsPageTATest" />
+					<include name="validateAdvSearchForExecutionThreadGreaterThanAgentsPageTATest" />
+					<include name="validateAdvSearchForExecutionThreadInRangeAgentsPageTATest" />
+					<include name="validateAdvSearchForExecutionThreadNotInRangeAgentsPageTATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.PluginsPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForPluginNameEqualToPluginsPageTATest" />
+					<include name="validateAdvSearchForPluginNameNotEqualToPluginsPageTATest" />
+					<include name="validateAdvSearchForPluginNameIsLikePluginsPageTATest" />
+					<include name="validateAdvSearchForPluginNameBeginsWithPluginsPageTATest" />
+					<include name="validateAdvSearchForPluginNameEndsWithPluginsPageTATest" />
+					<include name="validateCreatedEqualToPluginsPageTATest" />
+					<include name="validateCreatedBeforePluginsPageTATest" />
+					<include name="validateCreatedAfterPluginsPageTATest" />
+					<include name="validateCreatedInBetweenPluginsPageTATest" />
+					<include name="validateCreatedNotInBetweenPluginsPageTATest" />
+					<include name="validateLastModifiedCreatedEqualToPluginsPageTATest" />
+					<include name="validateLastModifiedCreatedBeforePluginsPageTATest" />
+					<include name="validateLastModifiedCreatedAfterPluginsPageTATest" />
+					<include name="validateLastModifiedCreatedInBetweenPluginsPageTATest" />
+					<include name="validateLastUpdatedModifiedNotInBetweenPluginsPageTATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.AuditLogsPageTestTA">
+				<methods>
+					<include name="validateEntityDropdownEqualToAuditLogsPageTATest" />
+					<include name="validateEntityDropdownNotEqualToAuditLogsPageTATest" />
+					<include name="validateSourceDropdownEqualToAuditLogsPageTATest" />
+					<include name="validateSourceDropdownNotEqualToAuditLogsPageTATest" />
+					<include name="validateAdvSearchForUserNameEqualToAuditLogsPageTATest" />
+					<include name="validateAdvSearchForUserNameNotEqualToAuditLogsPageTATest" />
+					<include name="validateAdvSearchForUserNameIsLikeAuditLogsPageTATest" />
+					<include name="validateAdvSearchForUserNameBeginsWithAuditLogsPageTATest" />
+					<include name="validateAdvSearchForUserNameEndsWithAuditLogsPageTATest" />
+					<include name="validateAdvSearchForSourceIPEqualToAuditLogsPageTATest" />
+					<include name="validateAdvSearchForSourceIPNotEqualToAuditLogsPageTATest" />
+					<include name="validateAdvSearchForSourceIPIsLikeAuditLogsPageTATest" />
+					<include name="validateAdvSearchForSourceIPBeginsWithAuditLogsPageTATest" />
+					<include name="validateAdvSearchForSourceIPEndsWithAuditLogsPageTATest" />
+					<include name="validateOperationDropdownEqualToAuditLogsPageTATest" />
+					<include name="validateOperationDropdownNotEqualToAuditLogsPageTATest" />
+					<include name="validateCreatedEqualToAuditLogsPageTATest" />
+					<include name="validateCreatedBeforeAuditLogsPageTATest" />
+					<include name="validateCreatedAfterAuditLogsPageTATest" />
+					<include name="validateCreatedInBetweenAuditLogsPageTATest" />
+					<include name="validateCreatedNotInBetweenAuditLogsPageTATest" />
+					<include name="validateStatusDropdownEqualToAuditLogsPageTATest" />
+					<include name="validateStatusDropdownNotEqualToAuditLogsPageTATest" />
+					<include name="validateLogLevelDropdownEqualToAuditLogsPageTATest" />
+					<include name="validateLogLevelDropdownNotEqualToAuditLogsPageTATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.RequestsPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForIDEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForIDNotEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForIDLessThanRequestPageTATest" />
+					<include name="validateAdvSearchForIDGreaterThanRequestPageTATest" />
+					<include name="validateAdvSearchForIDInRangeRequestPageTATest" />
+					<include name="validateAdvSearchForIDNotInRangeRequestPageTATest" />
+					<include name="validateAdvSearchForWFNameEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForWFNameNotEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForWFNameIsLikeRequestPageTATest" />
+					<include name="validateAdvSearchForWFNameBeginsWithRequestPageTATest" />
+					<include name="validateAdvSearchForWFNameEndsWithRequestPageTATest" />
+					<include name="validatePriorityDropdownEqualToRequestPageTATest" />
+					<include name="validatePriorityDropdownNotEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForStatusEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForStatusNotEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForSourceEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForSourceNotEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForSourceIsLikeRequestPageTATest" />
+					<include name="validateAdvSearchForSourceBeginsWithRequestPageTATest" />
+					<include name="validateAdvSearchForSourceEndsWithRequestPageTATest" />
+					<include name="validateAdvSearchForSourceIDEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForSourceIDNotEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForSourceIDIsLikeRequestPageTATest" />
+					<include name="validateAdvSearchForSourceIDBeginsWithRequestPageTATest" />
+					<include name="validateAdvSearchForSourceIDEndsWithRequestPageTATest" />
+					<include name="validateAdvSearchForAgentNameEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForAgentNameNotEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForAgentNameIsLikeRequestPageTATest" />
+					<include name="validateAdvSearchForAgentNameBeginsWithRequestPageTATest" />
+					<include name="validateAdvSearchForAgentNameEndsWithRequestPageTATest" />
+					<include name="validateAdvSearchForSubmittedByEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForSubmittedByNotEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForSubmittedByIsLikeRequestPageTATest" />
+					<include name="validateAdvSearchForSubmittedByBeginsWithRequestPageTATest" />
+					<include name="validateAdvSearchForSubmittedByEndsWithRequestPageTATest" />
+					<include name="validateCreatedEqualToRequestPageTATest" />
+					<include name="validateCreatedBeforeRequestPageTATest" />
+					<include name="validateCreatedAfterRequestTATest" />
+					<include name="validateCreatedInBetweenRequestPageTATest" />
+					<include name="validateCreatedNotInBetweenRequestPageTATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.HolidayCalenderPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForNameEqualToHolidayPageTATest" />
+					<include name="validateAdvSearchForNameNotEqualToHolidayPageTATest" />
+					<include name="validateAdvSearchForNameIsLikeHolidayPageTATest" />
+					<include name="validateAdvSearchForNameBeginsWithHolidayPageTATest" />
+					<include name="validateAdvSearchForNameEndsWithHolidayPageTATest" />
+					<include name="validateAdvSearchForYearEqualToHolidayPageTATest" />
+					<include name="validateAdvSearchForYearNotEqualToHolidayPageTATest" />
+					<include name="validateAdvSearchForYearLessThanHolidayPageTATest" />
+					<include name="validateAdvSearchForYearGreaterThanHolidayPageTATest" />
+					<include name="validateAdvSearchForYearInRangeHolidayPageTATest" />
+					<include name="validateAdvSearchForYearNotInRangeHolidayPageTATest" />
+					<include name="validateTimeZoneDropdownEqualToHolidayPageTATest" />
+					<include name="validateTimeZoneDropdownNotEqualToHolidayPageTATest" />
 				</methods>
 			</class>
 		</classes>

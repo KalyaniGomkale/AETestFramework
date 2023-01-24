@@ -5,6 +5,7 @@ import com.ae.qa.base.TestBase;
 public class Messages extends TestBase {
 //Sysadmin specific messages
 	public static String creationOfUser="User created successfully";
+	public static String deletionOfUser="User deleted successfully";
 	public static String downloadAuditLogs = "Audit Logs download started";
 	public static String changePassword = "Password updated successfully";
 	public static String resetPassword = "Password set successfully";
@@ -39,7 +40,7 @@ public class Messages extends TestBase {
 	public static String createUser = "User created successfully";
 	public static String licenseUpload="License uploaded successfully";
 	public static String ImportWOLicense="License not found for the tenant";
-	public static String smtpNotConfig="SMTP not configured for the tenant. Email notification cannot be enabled";
+	public static String smtpNotConfig="Email server not configured for the tenant. Email notification cannot be enabled";
 	public static String deleteSMTPConfig = "SMTP configuration deleted successfully";
 	public static String setLogo = "Logo uploaded successfully";
 	public static String removeLogo = "Logo removed successfully";
@@ -106,5 +107,4 @@ public class Messages extends TestBase {
 	public static String holidayCalenderEditMsg="Calendar updated successfully";
 	public static String holidayCalenderCloneMsg="Calendar copied successfully";
 	public static String holidayCalenderRenewMsg="Calendar renewed successfully";
-	
 }

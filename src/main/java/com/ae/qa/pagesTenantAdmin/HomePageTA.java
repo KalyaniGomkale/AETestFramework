@@ -132,7 +132,7 @@ public class HomePageTA extends TestBase{
 		//check success message comes or not
 		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_successMsg1 = alertMessage.getText();
-		System.out.println("Success message: " + actual_successMsg);
+		System.out.println("Success message: " + actual_successMsg1);
 		String expected_successMsg1 = Messages.licenseUpload;
 		Assert.assertEquals(actual_successMsg1, expected_successMsg1, "License not uploaded successfully");
 		Reporter.log("License Uploaded successfully for Tenant",true);
@@ -195,9 +195,9 @@ public class HomePageTA extends TestBase{
 		actual_content.add(actual_ExpiryDate);
 		//Expected Content
 		ArrayList<String> expected_content = new ArrayList<String>();
-		expected_content.add("20");
-		expected_content.add("100000");
-		expected_content.add("3-Aug-2023");
+		expected_content.add(prop.getProperty("AgentWorkerThreads"));
+		expected_content.add(prop.getProperty("StepUnits"));
+		expected_content.add(prop.getProperty("ExpiryDate"));
 		if(actual_content.equals(expected_content)) {
 			Assert.assertTrue(true);
 			Reporter.log("License details on Homepage are validated successfully",true);
@@ -211,12 +211,13 @@ public class HomePageTA extends TestBase{
 		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully",true);
 		Thread.sleep(3000);
-		wait.until(ExpectedConditions.visibilityOf(homeTab));
+		//wait.until(ExpectedConditions.visibilityOf(homeTab));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", homeTab);
 		Reporter.log("Home Tab is clicked",true);
 		js.executeScript("arguments[0].click();", licenseDetailTab);
 		Reporter.log("License Details Tab is clicked",true);
+		Thread.sleep(2000);
 		List<WebElement> license_details = driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped']/tr/td"));
 		Thread.sleep(2000);
 		ArrayList<String> actual_LicenseDetails = new ArrayList<String>();
@@ -228,14 +229,14 @@ public class HomePageTA extends TestBase{
 		}
 		Reporter.log("Actual License details :-" +actual_LicenseDetails);
 		ArrayList<String> expected_LicenseDetails = new ArrayList<String>();
-		expected_LicenseDetails.add("DEVELOPMENT");
-		expected_LicenseDetails.add("10");
-		expected_LicenseDetails.add("20");
-		expected_LicenseDetails.add("20");
-		expected_LicenseDetails.add("100000");
-		expected_LicenseDetails.add("10");
-		expected_LicenseDetails.add("4-Aug-2022");
-		expected_LicenseDetails.add("3-Aug-2023");
+		expected_LicenseDetails.add(prop.getProperty("LicenseType"));
+		expected_LicenseDetails.add(prop.getProperty("ProcessStudios"));
+		expected_LicenseDetails.add(prop.getProperty("AgentWorkerThreads"));
+		expected_LicenseDetails.add(prop.getProperty("AssistedAgent"));
+		expected_LicenseDetails.add(prop.getProperty("StepUnits"));
+		expected_LicenseDetails.add(prop.getProperty("GracePeriod"));
+		expected_LicenseDetails.add(prop.getProperty("StartDate"));
+		expected_LicenseDetails.add(prop.getProperty("ExpiryDate"));
 		Reporter.log("Expected License details :-" +expected_LicenseDetails);
 		if(actual_LicenseDetails.equals(expected_LicenseDetails)) {
 			Assert.assertTrue(true);

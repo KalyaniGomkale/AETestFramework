@@ -228,6 +228,68 @@ public class IntegrationServicesPageTA extends TestBase {
 			Reporter.log("Integration tab is not displayed for Tenant",true);	
 		}informationpageta.validateSignOut();
 	}
+	public void validateEditConfJobLowerLimitTA(String serviceName,String confjoblowerlimit) throws Exception{
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Reporter.log("User log in Successfully",true);
+		//First search for tab and click on it
+		// click IntegrationTab Tab
+		Thread.sleep(5000);
+		//wait.until(ExpectedConditions.visibilityOf(integrationTab));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", integrationTab);
+		// click on services Tab
+		js.executeScript("arguments[0].click();", servicesTab);
+		Thread.sleep(5000);
+		WebElement editBtn = driver.findElement(By.xpath("//div[@class='table w-100 mul-options-list']/table/tr[3]/td[span='"+serviceName+"']/../td/div/span[1]"));
+		editBtn.click();
+		Thread.sleep(2000);
+		for(int i=0;i<=5;i++) {
+			ConfJobLowerLimit.sendKeys(Keys.BACK_SPACE);
+		}
+		ConfJobLowerLimit.sendKeys(confjoblowerlimit);
+		Thread.sleep(2000);
+		updateBtn.click();
+		Thread.sleep(2000);
+		WebElement actual_servicename = driver.findElement(By.xpath("//div[@class='table w-100 mul-options-list']/table/tr[3]/td[span='"+serviceName+"']/../td[1]"));
+		String actual_ServiceName=actual_servicename.getText();
+		String expected_ServiceName= serviceName;
+		Reporter.log("Actual Service Name in Integration table: "+actual_ServiceName+ " and Expected Servicename in Integration"
+				+ "table: "+expected_ServiceName,true);
+		Assert.assertEquals(actual_ServiceName,expected_ServiceName,"Integration service is not edited successfully");
+		Reporter.log("Integration service edited successfully",true);	
+		informationpageta.validateSignOut();
+	}
+	public void validateEditUpdateResponseJobLowerLimitTA(String serviceName,String confjoblowerlimit) throws Exception{
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Reporter.log("User log in Successfully",true);
+		//First search for tab and click on it
+		// click IntegrationTab Tab
+		Thread.sleep(5000);
+		//wait.until(ExpectedConditions.visibilityOf(integrationTab));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", integrationTab);
+		// click on services Tab
+		js.executeScript("arguments[0].click();", servicesTab);
+		Thread.sleep(5000);
+		WebElement editBtn = driver.findElement(By.xpath("//div[@class='table w-100 mul-options-list']/table/tr[3]/td[span='"+serviceName+"']/../td/div/span[1]"));
+		editBtn.click();
+		Thread.sleep(2000);
+		for(int i=0;i<=5;i++) {
+			ResponseJobLowerLimit.sendKeys(Keys.BACK_SPACE);
+		}
+		ResponseJobLowerLimit.sendKeys(confjoblowerlimit);
+		Thread.sleep(2000);
+		updateBtn.click();
+		Thread.sleep(2000);
+		WebElement actual_servicename = driver.findElement(By.xpath("//div[@class='table w-100 mul-options-list']/table/tr[3]/td[span='"+serviceName+"']/../td[1]"));
+		String actual_ServiceName=actual_servicename.getText();
+		String expected_ServiceName= serviceName;
+		Reporter.log("Actual Service Name in Integration table: "+actual_ServiceName+ " and Expected Servicename in Integration"
+				+ "table: "+expected_ServiceName,true);
+		Assert.assertEquals(actual_ServiceName,expected_ServiceName,"Integration service is not edited successfully");
+		Reporter.log("Integration service edited successfully",true);	
+		informationpageta.validateSignOut();
+	}
 	public void validateIntegrationServicesPageTA(String PageTitle) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully",true);

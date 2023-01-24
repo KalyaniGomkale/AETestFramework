@@ -26,7 +26,8 @@ public class CataloguePageTestTA extends TestBase{
 	   extentTest.log(extentTest.getStatus(), "Request for a workflow submitted successfully");  
 	   ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
   }
-	@Test(priority=710)
+	//Need to add test data in Excel sheet
+	/*@Test(priority=710)
 	public void validateSubmitRequestCustomCategoryTest(Method method) throws Exception {
 	   extentTest = extent.createTest("validateSubmitRequestCustomCategoryTest", "TC_357: Verfiy can submit request from Custom category");
 	   //Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -43,7 +44,7 @@ public class CataloguePageTestTA extends TestBase{
 	   cataloguepageta.validateSubmitRequestDefaultCategory("Default","Sanity1");
 	   extentTest.log(extentTest.getStatus(), "Submit request from default category is verified successfully");  
 	   ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
-  }
+  }*/
 	 @Test(priority=181)
 		public void validateCataloguePageTATest(Method method) throws Exception {
 			extentTest = extent.createTest("validateCataloguePageTATest", "TC_Additional:Verify Clicking Catalogue tab and checking that appropiate page is loaded");

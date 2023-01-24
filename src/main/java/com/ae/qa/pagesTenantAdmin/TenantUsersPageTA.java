@@ -30,9 +30,7 @@ public class TenantUsersPageTA extends TestBase {
 	public WebElements webelements = new WebElements();
 	public LoginPageTA loginpageta = new LoginPageTA();
 	public InformationPageTA informationpageta=new InformationPageTA();
-	public TenantPolicyPageTA tenantpolicypageta=new TenantPolicyPageTA();
 	public CommonWebElements wb = new CommonWebElements();
-	public LDAPPageTA ldappageta = new LDAPPageTA();
 	public TestUtil testutil=new TestUtil();
 
 	@FindBy(xpath = "//span[text()='Users']")
@@ -574,6 +572,7 @@ public class TenantUsersPageTA extends TestBase {
 	public void validateUnlockUserAccessApplication(String userType, String FName, String LName, String UserMail, String UserName,
 			String Pswd, String ConfirmPswd, String RoleName,String FT_password,String password, String invalidPwd,int NoOfAttempt,
 			String UserToUnlock,String NewPswd,String CnfPswd,String FT_password1,String password1) throws Exception{
+		TenantPolicyPageTA tenantpolicypageta=new TenantPolicyPageTA();
 		valiateCreatingTenantUser(userType, FName, LName, UserMail, UserName, Pswd, ConfirmPswd, RoleName);
 		loginpageta.ValidateFirstTimeLogin(UserName, FT_password,password);
 		loginpageta.login(UserName, password);

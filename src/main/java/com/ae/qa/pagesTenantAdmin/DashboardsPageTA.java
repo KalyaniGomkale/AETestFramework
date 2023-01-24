@@ -67,6 +67,8 @@ public class DashboardsPageTA extends TestBase {
 	WebElement reportTypedrpdown;
 	@FindBy(xpath="//input[@value='workflow']")
 	WebElement generateOnWF;
+	@FindBy(xpath="//input[@value='category']")
+	WebElement generateOnCategory;
 	@FindBy(xpath="//span[@class='mul-dorpdown-button']")
 	WebElement selectWFs;
 	@FindBy(xpath="//input[@name='search']")
@@ -125,6 +127,8 @@ public class DashboardsPageTA extends TestBase {
 	WebElement makePublic;
 	@FindBy(xpath="//span[text()='Delete Dashboard']")
 	WebElement deleteDashboard;
+	@FindBy(xpath="//span[text()='Edit Dashboard']")
+	WebElement editDashboard;
 	@FindBy(xpath="//button[text()='Delete']")
 	WebElement deletePopup;
 	@FindBy(xpath="//div[@class='title-div']/h2")
@@ -239,6 +243,93 @@ public class DashboardsPageTA extends TestBase {
 		Reporter.log("Dashboard at None level created successfully",true);
 		informationpageta.validateSignOut();
 	}
+	//Comman Method to Edit dashboard Relative
+	public void editRelativeDashboard(String dashboardTitle,String editLastTime,String editRangeType) throws Exception{
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Reporter.log("User logged in successfully", true);
+		//wait.until(ExpectedConditions.visibilityOf(reportsTab));
+		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",reportsTab);
+		Reporter.log("Reports Tab is clicked", true);
+		Thread.sleep(2000);
+		Select chooseDashboard_dropdown=new Select(chooseDashboard);
+		chooseDashboard_dropdown.selectByVisibleText(dashboardTitle);
+		Reporter.log("Dashboard chosed successfully",true);
+		Thread.sleep(4000);
+		newDashboardDropdown.click();
+		Thread.sleep(2000);
+		editDashboard.click();
+		Thread.sleep(3000);
+		for(int i=0;i<10;i++) {
+			last.sendKeys(Keys.BACK_SPACE);
+		}
+		last.sendKeys(editLastTime);
+		Thread.sleep(3000);
+		Select edit_rangeType_dropdown=new Select(rangeType);
+		edit_rangeType_dropdown.selectByVisibleText(editRangeType);
+		Thread.sleep(2000);
+		saveBtn.click();
+		Reporter.log("Update Button clicked successfully",true);
+		Thread.sleep(2000);
+		String actual_SuccessMsg = alertMessage.getText();
+		String expected_SuccessMsg = Messages.updateDashboard;
+		Assert.assertEquals(actual_SuccessMsg,expected_SuccessMsg,"Dashboard Not Saved Successfully");
+		Reporter.log("Dashboard is saved successfully",true);
+		Thread.sleep(2000);
+	}
+	//Comman Method for Dashboard Relative Report Generation
+	public void addRelativeReport(String dashboardTitle,String reportTypeValue,String wfName1,String PageSize,
+			String NewReportTitle) throws Exception{
+		makeReportUsingWF(dashboardTitle,reportTypeValue,wfName1);
+		Thread.sleep(2000);
+		Select pageSize_dropdown=new Select(pageSize);
+		pageSize_dropdown.selectByVisibleText(PageSize);
+		Thread.sleep(4000);
+		generateBtn.click();
+		Reporter.log("Generate button selected successfully",true);
+		//driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		AddAs.click();
+		Thread.sleep(3000);
+		addAsTable.click();
+		Reporter.log("Report added as a chart",true);
+		createdReportValidation(NewReportTitle);
+	}
+	public void validateEditDashboardRelativeDurationHour(String dashboardTitle,String dashboardDescp,String timeUnit,String refreshTime,
+			String dashboardDuration,String LastTime,String RangeType,String editLastTime,String editRangeType) throws Exception{
+		validateDashboardRelative(dashboardTitle,dashboardDescp,timeUnit,refreshTime,dashboardDuration,LastTime,RangeType);
+		editRelativeDashboard(dashboardTitle,editLastTime,editRangeType);
+		informationpageta.validateSignOut();
+	}
+	public void validateRelativeReportDurationHour(String dashboardTitle,String reportTypeValue,String wfName1,String PageSize,
+			String NewReportTitle) throws Exception{
+		addRelativeReport(dashboardTitle,reportTypeValue,wfName1,PageSize,NewReportTitle);
+	}
+	public void validateEditDashboardRelativeDurationDay(String dashboardTitle,String editLastTime,String editRangeType) throws Exception{
+		editRelativeDashboard(dashboardTitle,editLastTime,editRangeType);
+		informationpageta.validateSignOut();
+	}
+	public void validateRelativeReportDurationDay(String dashboardTitle,String reportTypeValue,String wfName1,String PageSize,
+			String NewReportTitle) throws Exception{
+		addRelativeReport(dashboardTitle,reportTypeValue,wfName1,PageSize,NewReportTitle);
+	}
+	public void validateEditDashboardRelativeDurationMonth(String dashboardTitle,String editLastTime,String editRangeType) throws Exception{
+		editRelativeDashboard(dashboardTitle,editLastTime,editRangeType);
+		informationpageta.validateSignOut();
+	}
+	public void validateRelativeReportDurationMonth(String dashboardTitle,String reportTypeValue,String wfName1,String PageSize,
+			String NewReportTitle) throws Exception{
+		addRelativeReport(dashboardTitle,reportTypeValue,wfName1,PageSize,NewReportTitle);
+	}
+	public void validateEditDashboardRelativeDurationYear(String dashboardTitle,String editLastTime,String editRangeType) throws Exception{
+		editRelativeDashboard(dashboardTitle,editLastTime,editRangeType);
+		informationpageta.validateSignOut();
+	}
+	public void validateRelativeReportDurationYear(String dashboardTitle,String reportTypeValue,String wfName1,String PageSize,
+			String NewReportTitle) throws Exception{
+		addRelativeReport(dashboardTitle,reportTypeValue,wfName1,PageSize,NewReportTitle);
+	}
 	//common method while creating report till user choose one wf
 	public void makeReportUsingWF(String dashboardTitle,String reportTypeValue,String wfName1) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
@@ -275,6 +366,42 @@ public class DashboardsPageTA extends TestBase {
 		wfCheckbox.click();
 		Reporter.log("one workflow is selected",true);	
 	}
+	//New Comman Method for Creating Report Using Category
+	public void makeReportUsingCategory(String dashboardTitle,String reportTypeValue,String CategoryName1) throws Exception {
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Reporter.log("User logged in successfully", true);
+		//wait.until(ExpectedConditions.visibilityOf(reportsTab));
+		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",reportsTab);
+		Reporter.log("Reports Tab is clicked", true);
+		Thread.sleep(4000);
+		Select chooseDashboard_dropdown=new Select(chooseDashboard);
+		chooseDashboard_dropdown.selectByVisibleText(dashboardTitle);
+		Reporter.log("Dashboard chosed successfully",true);
+		Thread.sleep(4000);
+		newDashboardDropdown.click();
+		Thread.sleep(4000);
+		addReportOption.click();
+		Reporter.log("Add report is clicked",true);
+		Thread.sleep(8000);
+		Select reportType_dropdown=new Select(reportTypedrpdown);
+		reportType_dropdown.selectByValue(reportTypeValue);//Workflow Execution Summary 
+		Reporter.log("Report Type selected successfully",true);
+		if(generateOnWF.isSelected()) {
+			generateOnCategory.click();
+			Reporter.log("Generate on Category radio button is selected",true);
+		} else {
+			Reporter.log("Generate on Category radio button is already selected",true);
+		}
+		Thread.sleep(4000);
+		selectWFs.click();
+		Thread.sleep(4000);
+		searchBar.sendKeys(CategoryName1);
+		Thread.sleep(5000);
+		wfCheckbox.click();
+		Reporter.log("One Category is selected",true);	
+	}
 	public void validateReportNoneMultipleWF(String dashboardTitle,String reportTypeValue,String wfName1,String wfName2,String PageSize,
 			String NewReportTitle) throws Exception {
 		makeReportUsingWF(dashboardTitle,reportTypeValue,wfName1);
@@ -285,6 +412,75 @@ public class DashboardsPageTA extends TestBase {
 		Thread.sleep(4000);
 		wfCheckbox.click();
 		Reporter.log("Second workflow is selected",true);
+		Select pageSize_dropdown=new Select(pageSize);
+		pageSize_dropdown.selectByVisibleText(PageSize);
+		Thread.sleep(4000);
+		generateBtn.click();
+		Reporter.log("Generate button selected successfully",true);
+		//driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		AddAs.click();
+		Thread.sleep(3000);
+		addAsTable.click();
+		Reporter.log("Report added as a chart",true);
+		createdReportValidation(NewReportTitle);
+	}
+	public void validateReportNoneSingleWF(String dashboardTitle,String reportTypeValue,String wfName1,String PageSize,
+			String NewReportTitle) throws Exception{
+		makeReportUsingWF(dashboardTitle,reportTypeValue,wfName1);
+		for(int i=0;i<20;i++) {
+			searchBar.sendKeys(Keys.BACK_SPACE);
+		}
+		Select pageSize_dropdown=new Select(pageSize);
+		pageSize_dropdown.selectByVisibleText(PageSize);
+		Thread.sleep(4000);
+		generateBtn.click();
+		Reporter.log("Generate button selected successfully",true);
+		//driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		AddAs.click();
+		Thread.sleep(3000);
+		addAsTable.click();
+		Reporter.log("Report added as a chart",true);
+		createdReportValidation(NewReportTitle);
+	}
+	public void validateReportNoneSingleCategory(String dashboardTitle,String reportTypeValue,String CategoryName1,String PageSize,
+			String NewReportTitle) throws Exception{
+		makeReportUsingCategory(dashboardTitle,reportTypeValue,CategoryName1);
+		for(int i=0;i<20;i++) {
+			searchBar.sendKeys(Keys.BACK_SPACE);
+		}
+		Select pageSize_dropdown=new Select(pageSize);
+		pageSize_dropdown.selectByVisibleText(PageSize);
+		Thread.sleep(4000);
+		generateBtn.click();
+		Reporter.log("Generate button selected successfully",true);
+		//driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		AddAs.click();
+		Thread.sleep(3000);
+		addAsTable.click();
+		Reporter.log("Report added as a chart",true);
+		createdReportValidation(NewReportTitle);
+	}
+	//Facing an issue to select second category so currently selecting the select all option
+	public void validateReportNoneMultipleCategory(String dashboardTitle,String reportTypeValue,String CategoryName1,String CategoryName2,
+			String PageSize,String NewReportTitle) throws Exception{
+		CategoriesPageTA categorypage = new CategoriesPageTA();
+	    categorypage.ValidateCreateCategory(CategoryName2);
+		makeReportUsingCategory(dashboardTitle,reportTypeValue,CategoryName1);
+		Thread.sleep(2000);
+		/*for(int i=0;i<20;i++) {
+			searchBar.sendKeys(Keys.BACK_SPACE);
+		}
+		Thread.sleep(2000);
+		searchBar.sendKeys(CategoryName2);
+		wfCheckbox.click();*/
+		selectAll.click();
+		Reporter.log("Second Category is selected",true);
+		for(int i=0;i<20;i++) {
+			searchBar.sendKeys(Keys.BACK_SPACE);
+		}
 		Select pageSize_dropdown=new Select(pageSize);
 		pageSize_dropdown.selectByVisibleText(PageSize);
 		Thread.sleep(4000);
@@ -314,7 +510,7 @@ public class DashboardsPageTA extends TestBase {
 		Reporter.log("Report saved on screen",true);
 		//validation of name
 		Thread.sleep(3000);
-		String Actual_reportName=savedReportTitle.getText();
+		String Actual_reportName= driver.findElement(By.xpath("//div[@class='report-card-grid']/div/p[text()='"+NewReportTitle+"']")).getText();
 		String Expected_reportName=NewReportTitle;
 		Assert.assertEquals(Actual_reportName,Expected_reportName,"Report doesn't displayed on screen successfully");
 		Reporter.log("Report " +NewReportTitle+" displayed on screen successfully",true);
@@ -576,7 +772,7 @@ public class DashboardsPageTA extends TestBase {
 		Reporter.log("Dashboard with report deleted successfully",true);
 		informationpageta.validateSignOut();
 	}
-	public void validateLabelChangeInReport(String reportName,String changedColumnName) throws Exception{
+	public void validateLabelChangeInReport(String dashboardTitle,String reportName,String changedColumnName) throws Exception{
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully",true);
 		//First search for tab and click on it
@@ -585,7 +781,10 @@ public class DashboardsPageTA extends TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", reportsTab);
 		js.executeScript("arguments[0].click();", dashboardsTab);
-		Thread.sleep(2000);
+		Select chooseDashboard_dropdown=new Select(chooseDashboard);
+		chooseDashboard_dropdown.selectByVisibleText(dashboardTitle);
+		Reporter.log("Dashboard chosed successfully",true);
+		Thread.sleep(3000);
 		WebElement reportTitle=driver.findElement(By.xpath("//div/p[contains(text(),'"+reportName+"')]"));
 		Actions action = new Actions(driver);
 		action.moveToElement(reportTitle).perform();
@@ -614,7 +813,7 @@ public class DashboardsPageTA extends TestBase {
 		Reporter.log("Report Column Label changed successfully",true);
 		informationpageta.validateSignOut();
 	}
-	public void validateDownloadReportPdf(String reportName) throws Exception{
+	public void validateDownloadReportPdf(String dashboardTitle,String reportName) throws Exception{
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully",true);
 		//First search for tab and click on it
@@ -623,7 +822,11 @@ public class DashboardsPageTA extends TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", reportsTab);
 		js.executeScript("arguments[0].click();", dashboardsTab);
-		Thread.sleep(2000);
+		Select chooseDashboard_dropdown=new Select(chooseDashboard);
+		chooseDashboard_dropdown.selectByVisibleText(dashboardTitle);
+		Reporter.log("Dashboard chosed successfully",true);
+		Thread.sleep(3000);
+	
 		WebElement reportTitle=driver.findElement(By.xpath("//div/p[contains(text(),'"+reportName+"')]"));
 		Actions action = new Actions(driver);
 		action.moveToElement(reportTitle).perform();
@@ -638,51 +841,6 @@ public class DashboardsPageTA extends TestBase {
 		Assert.assertEquals(actualsuccess_Msg,expectedsuccess_Msg,"Report download not started");
 		Reporter.log("Report is downloaded as PDF successfully",true);
 		informationpageta.validateSignOut();
-	}
-	public void validateReportNoneMultipleCategory(String dashboardTitle,String reportTypeValue,String PageSize,String reportTypeName) throws Exception{
-		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
-		Reporter.log("User log in Successfully",true);
-		//First search for tab and click on it
-		//wait.until(ExpectedConditions.visibilityOf(reportsTab));
-		Thread.sleep(5000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", reportsTab);
-		js.executeScript("arguments[0].click();", dashboardsTab);
-		Thread.sleep(2000);		
-		Select chooseDashboard_dropdown=new Select(chooseDashboard);
-		chooseDashboard_dropdown.selectByVisibleText(dashboardTitle);
-		Reporter.log("Dashboard chosed successfully",true);
-		Thread.sleep(4000);
-		newDashboardDropdown.click();
-		Thread.sleep(4000);
-		addReportOption.click();
-		Reporter.log("Add report is clicked",true);
-		Thread.sleep(2000);
-		Select reportType_dropdown=new Select(reportTypedrpdown);
-		reportType_dropdown.selectByValue(reportTypeValue);
-		Reporter.log("Report Type selected successfully",true);
-		categoryRadioButton.click();
-		if(categoryRadioButton.isSelected()){
-			Reporter.log("Select Categories Radio Button is Selected");
-			selectWFs.click();
-			selectAll.click();
-		}else {
-			Reporter.log("Select Categories Radio Button is not Selected");
-		}
-		Select pageSize_dropdown=new Select(pageSize);
-		pageSize_dropdown.selectByVisibleText(PageSize);
-		Thread.sleep(4000);
-		generateBtn.click();
-		Reporter.log("Generate button selected successfully",true);
-		Thread.sleep(3000);
-		String Actual_reportName=reportTitle.getText();
-		System.out.println("Actual Report Name:- "+Actual_reportName);
-		String Expected_reportName=reportTypeName;
-		System.out.println("Expected Report Name:- "+Expected_reportName);
-		Assert.assertEquals(Actual_reportName,Expected_reportName,"Report doesn't displayed on screen successfully");
-		Reporter.log("Report " +reportTypeName+" displayed on screen successfully",true);
-		informationpageta.validateSignOut();
-
 	}
 	public void validateFullScreenMode() throws Exception{
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));

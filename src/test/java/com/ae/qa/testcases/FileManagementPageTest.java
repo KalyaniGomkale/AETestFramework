@@ -58,112 +58,107 @@ public class FileManagementPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "File Managment page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-/*	//For File Name
-	@Test
-	public void validateAdvSearchForFileNameEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForFileNameEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	//For File Name
+	/*@Test(priority = 3088)
+	public void validateAdvSearchForFileNameEqualToFileManagementPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForFileNameEqualToFileManagementPageTest", "TC_009: To Verfiy Advance search for file name with equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		filemanagementpage= new FileManagementPage();
-		filemanagementpage.validateAdvSearchForFileNameEqualTo("File Name", "equal to","CHROME92.zip","50");
+		filemanagementpage.validateAdvSearchForFileNameEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for File Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForFileNameNotEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForFileNameNotEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3089)
+	public void validateAdvSearchForFileNameNotEqualToFileManagementPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForFileNameNotEqualToFileManagementPageTest", "TC_009: To Verfiy Advance search for file name with not equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		filemanagementpage= new FileManagementPage();
-		filemanagementpage.validateAdvSearchForFileNameNotEqualTo("File Name", "not equal to","CHROME921.zip","50");
+		filemanagementpage.validateAdvSearchForFileNameNotEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for File Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForFileNameIsLikeTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForFileNameIsLikeTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3090)
+	public void validateAdvSearchForFileNameIsLikeFileManagementPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForFileNameIsLikeFileManagementPageTest", "TC_009: To Verfiy Advance search for file name with Is like criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		filemanagementpage= new FileManagementPage();
-		filemanagementpage.validateAdvSearchForFileNameIsLike("File Name", "is like","ROME","50");
+		filemanagementpage.validateAdvSearchForFileNameIsLike(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for File Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForFileNameBeginsWithTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForFileNameBeginsWithTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3091)
+	public void validateAdvSearchForFileNameBeginsWithFileManagementPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForFileNameBeginsWithFileManagementPageTest", "TC_009: To Verfiy Advance search for file name with begins with criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		filemanagementpage= new FileManagementPage();
-		filemanagementpage.validateAdvSearchForFileNameBeginsWith("File Name","begins with","ch","50");
+		filemanagementpage.validateAdvSearchForFileNameBeginsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for File Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateAdvSearchForFileNameEndsWithTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvSearchForFileNameEndsWithTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3092)
+	public void validateAdvSearchForFileNameEndsWithFileManagementPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForFileNameEndsWithFileManagementPageTest", "TC_009: To Verfiy Advance search for file name with ends with criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		filemanagementpage= new FileManagementPage();
-		filemanagementpage.validateAdvSearchForFileNameEndsWith("File Name", "ends with","zip","50");
+		filemanagementpage.validateAdvSearchForFileNameEndsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for File Name is validated successfully");
-		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	//For Uploaded [Calender]
-	@Test
-	public void validateUploadedEqualToTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateUploadedEqualToTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3093)
+	public void validateUploadedEqualToFileManagementPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateUploadedEqualToFileManagementPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		filemanagementpage= new FileManagementPage();
-		filemanagementpage.validateUploadedEqualTo("exact date","2022","Aug","5","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		filemanagementpage.validateUploadedEqualTo(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateUploadedBeforeTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateUploadedBeforeTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3094)
+	public void validateUploadedBeforeFileManagementPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateUploadedBeforeFileManagementPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		filemanagementpage= new FileManagementPage();
-		filemanagementpage.validateUploadedBefore("before","2022","Aug","8","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		filemanagementpage.validateUploadedBefore(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateUploadedAfterTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateUploadedAfterTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3095)
+	public void validateUploadedAfterFileManagementPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateUploadedAfterFileManagementPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		filemanagementpage= new FileManagementPage();
-		filemanagementpage.validateUploadedAfter("after","2022","Jul","6","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		filemanagementpage.validateUploadedAfter(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateUploadedInBetweenTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateUploadedInBetweenTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3096)
+	public void validateUploadedInBetweenFileManagementPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateUploadedInBetweenFileManagementPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		filemanagementpage= new FileManagementPage();
-		filemanagementpage.validateUploadedInBetween("in between","2022","Jul","6","2022","Aug","8","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		filemanagementpage.validateUploadedInBetween(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-	@Test
-	public void validateUploadedNotInBetweenTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateUploadedNotInBetweenTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
-		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 3097)
+	public void validateUploadedNotInBetweenFileManagementPageTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateUploadedNotInBetweenFileManagementPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		filemanagementpage= new FileManagementPage();
-		filemanagementpage.validateUploadedNotInBetween("not in between","2022","Jul","30","2022","Aug","1","50");
-		//	tenantspage.validateAdvSearchOrgEndsWithCreatedNotBetween(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-		//	TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
-		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
+		filemanagementpage.validateUploadedNotInBetween(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
+				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}*/
 
 }

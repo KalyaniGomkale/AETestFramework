@@ -67,13 +67,14 @@ public class AgentLogsPageTA extends TestBase {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully", true);
 		//wait.until(ExpectedConditions.visibilityOf(logsTab));
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", logsTab);
 		//wait.until(ExpectedConditions.visibilityOf(agentLogsTab));
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", agentLogsTab);
 		Reporter.log("Agent Logs Tab is clicked", true);
+		Thread.sleep(2000);
 		newRequestBtn.click();
 		Reporter.log("New Request button is clicked",true);
 		Thread.sleep(3000);

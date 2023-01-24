@@ -32,7 +32,6 @@ public class AgentListPageTA extends TestBase{
 	public LoginPageTA loginpage = new LoginPageTA();
 	public static WebDriverWait wait = new WebDriverWait(driver, 300);
 	public InformationPageTA informationpageta=new InformationPageTA();
-	public CataloguePageTA catalogueta=new CataloguePageTA();
 	public CommonWebElements wb = new CommonWebElements();
 
 	@FindBy(xpath="//span[text()='Agents']")

@@ -57,7 +57,7 @@ public class CategoriesPageTA extends TestBase {
   	  loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		  Reporter.log("User LogIn Succesfully",true);
 		  //wait.until(ExpectedConditions.visibilityOf(workflowTab));
-		  Thread.sleep(5000);
+		  Thread.sleep(8000);
 		  JavascriptExecutor js=(JavascriptExecutor)driver;
 		  js.executeScript("arguments[0].click();", workflowTab);
 		  System.out.println("workflowTab clicked");

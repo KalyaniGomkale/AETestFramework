@@ -82,7 +82,7 @@ public class CredentialsPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 	//closure activities
-	/*@Test(priority=551)
+	@Test(priority=551)
 	public void ValidateDeleteCredentialPoolTest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateDeleteCredentialPoolTest", "TC_226: To verify user can delete credential pool");
@@ -101,7 +101,7 @@ public class CredentialsPageTestTA extends TestBase {
 		credentialspageta.ValidateDeleteCredential(TestDataInMap.get("CredName"));
 		extentTest.log(extentTest.getStatus(), "Credential deleted Successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
-	}*/
+	}
 	@Test(priority=176)
 	public void validateCredentialsPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCredentialsPageTATest", "TC_Additional:Verify Clicking Credentials tab and checking that appropiate page is loaded");

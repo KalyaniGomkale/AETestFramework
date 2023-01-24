@@ -1,6 +1,8 @@
 package com.ae.qa.pagesTenantAdmin;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -16,6 +18,7 @@ import org.testng.Reporter;
 
 import com.ae.qa.base.TestBase;
 import com.ae.qa.pages.WebElements;
+import com.ae.qa.util.CommonWebElements;
 import com.ae.qa.util.Messages;
 
 public class RequestsPageTA extends TestBase {
@@ -25,7 +28,8 @@ public class RequestsPageTA extends TestBase {
 	public InformationPageTA informationpageta = new InformationPageTA();
 	public WorkflowListPageTA workflowlistpageta = new WorkflowListPageTA();
 	public WorkflowAssignmentPageTA workflowassignmentta=new WorkflowAssignmentPageTA();
-//	public AdvanceSearchPage advancesearchpage = new AdvanceSearchPage();
+	public CommonWebElements wb = new CommonWebElements();
+	//	public AdvanceSearchPage advancesearchpage = new AdvanceSearchPage();
 
 	@FindBy(xpath = "//span[text()='Requests']")
 	WebElement requestsTab;
@@ -250,7 +254,7 @@ public class RequestsPageTA extends TestBase {
 		}
 		informationpageta.validateSignOut();
 	}
-	
+
 	public void validateDownloadRequest() throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully", true);
@@ -290,11 +294,11 @@ public class RequestsPageTA extends TestBase {
 		js.executeScript("arguments[0].click();", requestsTab);
 		Thread.sleep(5000);
 		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-				//Now validate page title is same as expected
+		//Now validate page title is same as expected
 		String actual_title=pageTitle.getText();
 		String expected_title=PageTitle;
 		Reporter.log("Actual page title displayed on screen is: "+actual_title+ " and Expected "
-						+ "page title is: "+expected_title,true);
+				+ "page title is: "+expected_title,true);
 		Assert.assertEquals(actual_title, expected_title,"Appropriate page didn't loaded properly");
 		Reporter.log("Respective Page is clicked and appropriate page is loaded properly",true);
 		informationpageta.validateSignOut();
@@ -336,7 +340,7 @@ public class RequestsPageTA extends TestBase {
 		//advancesearchpage.validateAdvanceSearchField(colunmValue,comparatorType,searchValue);
 		//advancesearchpage.validateAdvanceSearchDropDown(colunmValue1,comparatorType1,searchValue1);
 		//advancesearchpage.validateAdvanceSearchForCalender(colunmValue2,comparatorType2,
-				//startYear,startMonth,startdate);
+		//startYear,startMonth,startdate);
 		informationpageta.validateSignOut();
 	}
 	public void validateRequestFailureReason(String wfName, String wfdes, String category, String WFImportPath,String priority,
@@ -524,4 +528,807 @@ public class RequestsPageTA extends TestBase {
 		Reporter.log("Request ["+requestID+"] termination has been initiated",true);
 		informationpageta.validateSignOut();
 	}
- }
+	public void validateAdvSearch() throws Exception {
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Reporter.log("User log in Successfully", true);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", requestsTab);
+		wb.validateClickOnAdvanceSearch();
+	}
+	public void HandleEnterFieldValue(String SearchColumn,String SearchCriteria,String SearchFor,String PageSize)
+			throws Exception {
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,SearchFor);
+		Thread.sleep(3000);
+		wb.changePageSize(PageSize);
+		System.out.println("Page size changed to 50");
+		Thread.sleep(3000);
+	}
+	public void validateAdvSearchForIDEqualTo(String SearchColumn, String SearchCriteria, String AdvSearchFor,
+			String PageSize) throws Exception {
+		validateAdvSearch();
+		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate ID : " + AdvSearchFor + " record for " + SearchCriteria
+				+ " criteria is visible in webtable", true);
+		List<WebElement> op = driver
+				.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[1]"));
+		for (int i = 0; i < op.size(); i++) {
+			System.out.println("Total Matching record present in table are :" + op.size());
+			Thread.sleep(1000);
+			String actual_ID = op.get(i).getText();
+			Reporter.log("actual_ID present in table are: " + actual_ID + " expected ID is " + AdvSearchFor, true);
+			Assert.assertEquals(actual_ID, AdvSearchFor,
+					"Mismatch in actual and expected ID of advance search of request page");
+		}
+		informationpageta.validateSignOut();
+	}
+	public void validateAdvSearchForIDNotEqualTo(String SearchColumn, String SearchCriteria, String AdvSearchFor,
+			String PageSize) throws Exception {
+		validateAdvSearch();
+		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate ID : " + AdvSearchFor + " record for " + SearchCriteria
+				+ " criteria is visible in webtable", true);
+		List<WebElement> op = driver
+				.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[1]"));
+		for (int i = 0; i < op.size(); i++) {
+			System.out.println("Total Matching record present in table are :" + op.size());
+			Thread.sleep(1000);
+			String actual_ID = op.get(i).getText();
+			Reporter.log("actual_ID present in table are: " + actual_ID + " expected ID is " + AdvSearchFor, true);
+			Assert.assertFalse(actual_ID.equals(AdvSearchFor));
+		}
+		informationpageta.validateSignOut();
+	}
+	public void validateAdvSearchForIDLessThan(String SearchColumn, String SearchCriteria, String AdvSearchFor,
+			String PageSize) throws Exception {
+		validateAdvSearch();
+		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate ID : " + AdvSearchFor + " record for " + SearchCriteria
+				+ " criteria is visible in webtable", true);
+		List<WebElement> op = driver
+				.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[1]"));
+		for (int i = 0; i < op.size(); i++) {
+			System.out.println("Total Matching record present in table are :" + op.size());
+			Thread.sleep(1000);
+			String actual_ID = op.get(i).getText();
+			int actualID= Integer. parseInt(actual_ID);
+			int expectedID= Integer. parseInt(AdvSearchFor);
+			Reporter.log("actual_ID present in table are: " + actual_ID + " expected ID is " + AdvSearchFor, true);
+			Assert.assertTrue(actualID < expectedID);
+		}
+		informationpageta.validateSignOut();
+	}
+	public void validateAdvSearchForIDGreaterThan(String SearchColumn, String SearchCriteria, String AdvSearchFor,
+			String PageSize) throws Exception {
+		validateAdvSearch();
+		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate ID : " + AdvSearchFor + " record for " + SearchCriteria
+				+ " criteria is visible in webtable", true);
+		List<WebElement> op = driver
+				.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[1]"));
+		for (int i = 0; i < op.size(); i++) {
+			System.out.println("Total Matching record present in table are :" + op.size());
+			Thread.sleep(1000);
+			String actual_ID = op.get(i).getText();
+			int actualID= Integer. parseInt(actual_ID);
+			int expectedID= Integer. parseInt(AdvSearchFor);
+			Reporter.log("actual_ID present in table are: " + actual_ID + " expected ID is " + AdvSearchFor, true);
+			Assert.assertTrue(actualID > expectedID);
+		}
+		informationpageta.validateSignOut();
+	}
+	public void validateAdvSearchForIDInRange(String SearchColumn, String SearchCriteria, String SearchField1,
+			String SearchField2,String PageSize) throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchFieldForRange(SearchColumn, SearchCriteria,SearchField1,SearchField2);
+		Thread.sleep(3000);
+		wb.changePageSize(PageSize);
+		System.out.println("Page size changed to 50");
+		Thread.sleep(3000);
+		// Verify data in table now//2-4
+		Reporter.log("Below validation is to validate ID : " + SearchCriteria
+				+ " of "+SearchField1+"-"+SearchField2+" is visible in webtable or not", true);
+		List<WebElement> op = driver
+				.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[1]"));
+		for (int i = 0; i < op.size(); i++) {
+			System.out.println("Total Matching record present in table are :" + op.size());
+			Thread.sleep(1000);
+			String actual_ID = op.get(i).getText();//2,3,4
+			int actualID= Integer. parseInt(actual_ID);
+			int expected_SearchFiledIDRange1= Integer. parseInt(SearchField1);
+			int expected_SearchFiledIDRange2= Integer. parseInt(SearchField2);
+			Reporter.log("actual_ID present in table are: " + actual_ID + " expected ID is in range of " + expected_SearchFiledIDRange1+"-"+expected_SearchFiledIDRange2, true);
+			Assert.assertTrue(actualID >= expected_SearchFiledIDRange1 && actualID <= expected_SearchFiledIDRange2 );
+		} 
+		informationpageta.validateSignOut();
+	}
+	public void validateAdvSearchForIDNotInRange(String SearchColumn, String SearchCriteria, String SearchField1,
+			String SearchField2, String PageSize) throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchFieldForRange(SearchColumn, SearchCriteria,SearchField1,SearchField2);
+		Thread.sleep(3000);
+		wb.changePageSize(PageSize);
+		System.out.println("Page size changed to 50");
+		Thread.sleep(3000);
+		// Verify data in table now//2-4
+		Reporter.log("Below validation is to validate ID : " + SearchCriteria
+				+ " of "+SearchField1+"-"+SearchField2+" is visible in webtable or not", true);
+		List<WebElement> op = driver
+				.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[1]"));
+		for (int i = 0; i < op.size(); i++) {
+			System.out.println("Total Matching record present in table are :" + op.size());
+			Thread.sleep(1000);
+			String actual_ID = op.get(i).getText();//1,5,6,7
+			int actualID= Integer. parseInt(actual_ID);
+			int expected_SearchFiledIDRange1= Integer. parseInt(SearchField1);
+			int expected_SearchFiledIDRange2= Integer. parseInt(SearchField2);
+			Reporter.log("actual_ID present in table are: " + actual_ID + " expected ID is in range of " + expected_SearchFiledIDRange1+"-"+expected_SearchFiledIDRange2, true);
+			Assert.assertTrue(actualID < expected_SearchFiledIDRange1 || actualID > expected_SearchFiledIDRange2 );
+		} 
+		informationpageta.validateSignOut();
+	}
+	//For Workflow Name
+	public void validateAdvSearchForWFNameEqualTo(String SearchColumn,String SearchCriteria,
+			String wfName,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, wfName);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Workflow name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[2]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total workflow record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_WFName=op.get(i).getText();
+			System.out.println("actual_Workflow name present in table are: "+actual_WFName);
+			Assert.assertTrue(actual_WFName.equals(wfName));
+		}
+	}
+	public void validateAdvSearchForWFNameNotEqualTo(String SearchColumn,String SearchCriteria,
+			String wfName,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, wfName);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Workflow name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[2]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total workflow record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_WFName=op.get(i).getText();
+			System.out.println("actual_Workflow name present in table are: "+actual_WFName);
+			Assert.assertFalse(actual_WFName.equals(wfName));
+		}
+	}
+	public void validateAdvSearchForWFNameIsLike(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Workflow name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[2]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total workflow record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_WFName=op.get(i).getText();
+			System.out.println("actual_Workflow name present in table are: "+actual_WFName);
+			Assert.assertTrue(actual_WFName.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForWFNameBeginsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Workflow name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[2]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total workflow record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_WFName=op.get(i).getText();
+			//String lowercase_UserName = actual_UserName.toLowerCase();
+			System.out.println("actual_Workflow name present in table are: "+actual_WFName);
+			Thread.sleep(3000);
+			Assert.assertTrue(actual_WFName.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForWFNameEndsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Workflow name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[2]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total workflow record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_WFName=op.get(i).getText();
+			System.out.println("actual_Workflow name present in table are: "+actual_WFName);
+			Assert.assertTrue(actual_WFName.contains(advSearchFor));
+		}
+	}
+	//For priority
+	public void validatePriorityDropdownEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Priority record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[3]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Priority record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Priority=op.get(i).getText();
+			System.out.println("actual_Priority present in table are: "+actual_Priority);
+			Assert.assertTrue(actual_Priority.equalsIgnoreCase(searchValue));
+		}
+	}
+	public void validatePriorityDropdownNotEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Priority record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[3]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Priority record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Priority=op.get(i).getText();
+			System.out.println("actual_Priority present in table are: "+actual_Priority);
+			Assert.assertFalse(actual_Priority.equalsIgnoreCase(searchValue));
+		}
+	}
+	//For Status
+	public void validateStatusDropdownEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Status record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[4]/span[1]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Status record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Status=op.get(i).getText();
+			System.out.println("actual_Status present in table are: "+actual_Status);
+			Assert.assertTrue(actual_Status.equalsIgnoreCase(searchValue));
+		}
+	}
+	public void validateStatusDropdownNotEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Status record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[4]/span[1]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Status record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Status=op.get(i).getText();
+			System.out.println("actual_Status present in table are: "+actual_Status);
+			Assert.assertTrue(actual_Status.equalsIgnoreCase(searchValue));
+		}
+	}
+	//For Source
+	public void validateAdvSearchForSourceEqualTo(String SearchColumn,String SearchCriteria,
+			String source,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, source);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Source record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[7]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Source record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Source=op.get(i).getText();
+			System.out.println("actual_Source present in table are: "+actual_Source);
+			Assert.assertTrue(actual_Source.equals(source));
+		}
+	}
+	public void validateAdvSearchForSourceNotEqualTo(String SearchColumn,String SearchCriteria,
+			String source,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, source);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Source record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[7]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Source record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Source=op.get(i).getText();
+			System.out.println("actual_Source present in table are: "+actual_Source);
+			Assert.assertFalse(actual_Source.equals(source));
+		}
+	}
+	public void validateAdvSearchForSourceIsLike(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Source record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[7]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Source record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Source=op.get(i).getText();
+			System.out.println("actual_Source present in table are: "+actual_Source);
+			Assert.assertTrue(actual_Source.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForSourceBeginsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Source record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[7]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Source record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Source=op.get(i).getText();
+			//String lowercase_UserName = actual_UserName.toLowerCase();
+			System.out.println("actual_Source present in table are: "+actual_Source);
+			Thread.sleep(3000);
+			Assert.assertTrue(actual_Source.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForSourceEndsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Source record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[7]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Source record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_Source=op.get(i).getText();
+			System.out.println("actual_Source present in table are: "+actual_Source);
+			Assert.assertTrue(actual_Source.contains(advSearchFor));
+		}
+	}
+	//For Source ID
+	public void validateAdvSearchForSourceIDEqualTo(String SearchColumn,String SearchCriteria,
+			String sourceID,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, sourceID);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Source ID record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[8]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Source ID record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_SourceID=op.get(i).getText();
+			System.out.println("actual_Source ID present in table are: "+actual_SourceID);
+			Assert.assertTrue(actual_SourceID.equals(sourceID));
+		}
+	}
+	public void validateAdvSearchForSourceIDNotEqualTo(String SearchColumn,String SearchCriteria,
+			String sourceID,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, sourceID);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Source ID record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[8]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Source ID record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_SourceID=op.get(i).getText();
+			System.out.println("actual_Source ID present in table are: "+actual_SourceID);
+			Assert.assertFalse(actual_SourceID.equals(sourceID));
+		}
+	}
+	public void validateAdvSearchForSourceIDIsLike(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Source ID record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[8]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Source ID record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_SourceID=op.get(i).getText();
+			System.out.println("actual_Source ID present in table are: "+actual_SourceID);
+			Assert.assertTrue(actual_SourceID.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForSourceIDBeginsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Source ID record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[8]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Source ID record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_SourceID=op.get(i).getText();
+			//String lowercase_UserName = actual_UserName.toLowerCase();
+			System.out.println("actual_Source ID present in table are: "+actual_SourceID);
+			Thread.sleep(3000);
+			Assert.assertTrue(actual_SourceID.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForSourceIDEndsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Source ID record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[8]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Source ID record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_SourceID=op.get(i).getText();
+			System.out.println("actual_Source ID present in table are: "+actual_SourceID);
+			Assert.assertTrue(actual_SourceID.contains(advSearchFor));
+		}
+	}
+	//For Agent Name
+	public void validateAdvSearchForAgentNameEqualTo(String SearchColumn,String SearchCriteria,
+			String agentName,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, agentName);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Agent Name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[6]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Agent Name record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_AgentName=op.get(i).getText();
+			System.out.println("actual_Agent Name present in table are: "+actual_AgentName);
+			Assert.assertTrue(actual_AgentName.equals(agentName));
+		}
+	}
+	public void validateAdvSearchForAgentNameNotEqualTo(String SearchColumn,String SearchCriteria,
+			String agentName,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, agentName);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Agent Name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[6]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Agent Name record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_AgentName=op.get(i).getText();
+			System.out.println("actual_Agent Name present in table are: "+actual_AgentName);
+			Assert.assertFalse(actual_AgentName.equals(agentName));
+		}
+	}
+	public void validateAdvSearchForAgentNameIsLike(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Agent Name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[6]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Agent Name record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_AgentName=op.get(i).getText();
+			System.out.println("actual_Agent Name present in table are: "+actual_AgentName);
+			Assert.assertTrue(actual_AgentName.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForAgentNameBeginsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Agent Name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[6]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Agent Name record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_AgentName=op.get(i).getText();
+			//String lowercase_UserName = actual_UserName.toLowerCase();
+			System.out.println("actual_Agent Name present in table are: "+actual_AgentName);
+			Thread.sleep(3000);
+			Assert.assertTrue(actual_AgentName.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForAgentNameEndsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Agent Name record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[6]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Agent Name record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_AgentName=op.get(i).getText();
+			System.out.println("actual_Agent Name present in table are: "+actual_AgentName);
+			Assert.assertTrue(actual_AgentName.contains(advSearchFor));
+		}
+	}
+	//For Submitted By
+	public void validateAdvSearchForSubmittedByEqualTo(String SearchColumn,String SearchCriteria,
+			String tname,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, tname);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Submitted By record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[9]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Submitted By record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_SubmittedBy=op.get(i).getText();
+			System.out.println("actual_Submitted By present in table are: "+actual_SubmittedBy);
+			Assert.assertTrue(actual_SubmittedBy.equals(tname));
+		}
+	}
+	public void validateAdvSearchForSubmittedByNotEqualTo(String SearchColumn,String SearchCriteria,
+			String tname,String PageSize)throws Exception {
+		validateAdvSearch();
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, tname);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Submitted By record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[9]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Submitted By record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_SubmittedBy=op.get(i).getText();
+			System.out.println("actual_Submitted By present in table are: "+actual_SubmittedBy);
+			Assert.assertFalse(actual_SubmittedBy.equals(tname));
+		}
+	}
+	public void validateAdvSearchForSubmittedByIsLike(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Submitted By record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[9]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Submitted By record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_SubmittedBy=op.get(i).getText();
+			System.out.println("actual_Submitted By present in table are: "+actual_SubmittedBy);
+			Assert.assertTrue(actual_SubmittedBy.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForSubmittedByBeginsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Submitted By record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[9]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Submitted By record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_SubmittedBy=op.get(i).getText();
+			//String lowercase_UserName = actual_UserName.toLowerCase();
+			System.out.println("actual_Submitted By present in table are: "+actual_SubmittedBy);
+			Thread.sleep(3000);
+			Assert.assertTrue(actual_SubmittedBy.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForSubmittedByEndsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(5000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new Submitted By record is visible in webtable", true);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[9]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Submitted By record present in table are :"+op.size());
+			Thread.sleep(3000);
+			String actual_SubmittedBy=op.get(i).getText();
+			System.out.println("actual_Submitted By present in table are: "+actual_SubmittedBy);
+			Assert.assertTrue(actual_SubmittedBy.contains(advSearchFor));
+		}
+	}
+	//For Created
+	public void validateHandleCalender(String CreatedCriteria,String startYear,String startMonth,String startDate) throws Exception {
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", requestsTab);
+		wb.validateClickOnAdvanceSearch();
+		Thread.sleep(2000);
+		wb.validateAdvanceSearchForCalender("Created",CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
+	}
+	public void validateCreatedEqualTo(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
+		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		wb.changePageSize(PageSize);
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[10]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total records found are: "+op.size());
+			Thread.sleep(3000);
+			String actual_Date=op.get(i).getText();
+			String str_actual_Date = actual_Date.split(" ")[0];
+			System.out.println("actual_date present in table are: "+str_actual_Date);
+			SimpleDateFormat sdformat = new SimpleDateFormat("dd-MMM-yyyy");
+			String expected_date=startDate+"-"+startMonth+"-"+startYear;
+			System.out.println("Expected date:"+expected_date);
+			Date d1 = sdformat.parse(str_actual_Date);//27
+			Date d2=sdformat.parse(expected_date);//27
+			Assert.assertTrue(d1.compareTo(d2) == 0);	
+			Reporter.log("User is getting correct records for created on date with equal to criteria",true);
+		}
+	}
+   public void validateCreatedBefore(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
+		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		wb.changePageSize(PageSize);
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[10]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total records found are: "+op.size());
+			Thread.sleep(3000);
+			String actual_Date=op.get(i).getText();
+			String str_actual_Date = actual_Date.split(" ")[0];
+			System.out.println("actual_date present in table are: "+str_actual_Date);
+			SimpleDateFormat sdformat = new SimpleDateFormat("dd-MMM-yyyy");
+			String expected_date=startDate+"-"+startMonth+"-"+startYear;
+			System.out.println("Expected date:"+expected_date);
+			Date d1 = sdformat.parse(str_actual_Date);//19,20,21
+			Date d2=sdformat.parse(expected_date);//27
+			System.out.println(d1.compareTo(d2) < 0);//it will return negative value//true
+			//  System.out.println(d1.compareTo(d2) > 0);
+			Assert.assertTrue(d1.compareTo(d2) < 0);	
+			Reporter.log("User is getting correct records for created on date with before criteria",true);
+		}
+	}
+	public void validateCreatedAfter(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
+		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		wb.changePageSize(PageSize);
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[10]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total records found are: "+op.size());
+			Thread.sleep(3000);
+			String actual_Date=op.get(i).getText();
+			String str_actual_Date = actual_Date.split(" ")[0];
+			System.out.println("actual_date present in table are: "+str_actual_Date);
+			SimpleDateFormat sdformat = new SimpleDateFormat("dd-MMM-yyyy");
+			String expected_date=startDate+"-"+startMonth+"-"+startYear;
+			System.out.println("Expected date:"+expected_date);
+			Date d1 = sdformat.parse(str_actual_Date);//22,23,24,26,27
+			Date d2=sdformat.parse(expected_date);//21
+			System.out.println(d1.compareTo(d2) > 0);//it will return positive value//true
+			Assert.assertTrue(d1.compareTo(d2) > 0);	
+			Reporter.log("User is getting correct records for created on date with after criteria",true);
+		}
+	}
+	public void validateCreatedInBetween(String CreatedCriteria,String startYear,String startMonth,String startDate,
+			String endYear,String endMonth,String endDate,String PageSize) throws Exception {
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", requestsTab);
+		wb.validateClickOnAdvanceSearch();
+		Thread.sleep(2000);
+		wb.validateExtraAdvanceSearchForCalender("Created",CreatedCriteria,startYear,startMonth,startDate,endYear,endMonth,endDate);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[10]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total records found are: "+op.size());
+			Thread.sleep(3000);
+			String actual_Date=op.get(i).getText();
+			String str_actual_Date = actual_Date.split(" ")[0];
+			System.out.println("actual_date present in table are: "+str_actual_Date);
+			SimpleDateFormat sdformat = new SimpleDateFormat("dd-MMM-yyyy");
+			String expected_startdate=startDate+"-"+startMonth+"-"+startYear;
+			String expected_enddate=endDate+"-"+endMonth+"-"+endYear;
+			System.out.println("Expected start date:"+expected_startdate);
+			System.out.println("Expected end date:"+expected_enddate);
+			Date d1 = sdformat.parse(str_actual_Date);//22,23,24,26,27
+			Date d2=sdformat.parse(expected_startdate);//21
+			Date d3=sdformat.parse(expected_enddate);//28
+			System.out.println(d1.compareTo(d2) > 0);//it will return positive value//true
+			System.out.println(d1.compareTo(d3) < 0);
+			Assert.assertTrue(d1.compareTo(d2) >= 0 & d1.compareTo(d3) <= 0);	
+			Reporter.log("User is getting correct records for created on date with after criteria",true);
+		}
+	}
+	public void validateCreatedNotInBetween(String CreatedCriteria,String startYear,String startMonth,String startDate,
+			String endYear,String endMonth,String endDate,String PageSize) throws Exception {
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", requestsTab);
+		wb.validateClickOnAdvanceSearch();
+		Thread.sleep(2000);
+		wb.validateExtraAdvanceSearchForCalender("Created",CreatedCriteria,startYear,startMonth,startDate,endYear,endMonth,endDate);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[10]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total records found are: "+op.size());
+			Thread.sleep(3000);
+			String actual_Date=op.get(i).getText();
+			String str_actual_Date = actual_Date.split(" ")[0];
+			System.out.println("actual_date present in table are: "+str_actual_Date);
+			SimpleDateFormat sdformat = new SimpleDateFormat("dd-MMM-yyyy");
+			String expected_startdate=startDate+"-"+startMonth+"-"+startYear;
+			String expected_enddate=endDate+"-"+endMonth+"-"+endYear;
+			System.out.println("Expected start date:"+expected_startdate);
+			System.out.println("Expected end date:"+expected_enddate);
+			Date d1 = sdformat.parse(str_actual_Date);//19,20,29,30
+			Date d2=sdformat.parse(expected_startdate);//21
+			Date d3=sdformat.parse(expected_enddate);//28
+			System.out.println(d1.compareTo(d2) < 0);//it will return positive value//true
+			System.out.println(d1.compareTo(d3) > 0);
+			Assert.assertTrue((d1.compareTo(d2) < 0 & d1.compareTo(d3) < 0) ||(d1.compareTo(d2) > 0 & d1.compareTo(d3) > 0));	
+			Reporter.log("User is getting correct records for created on date with after criteria",true);
+		}
+	}
+}

@@ -25,6 +25,7 @@ public class TenantPolicyPageTA extends TestBase{
 	public LoginPageTA loginpageta = new LoginPageTA();
 	public static WebDriverWait wait = new WebDriverWait(driver, 600);
 	public InformationPageTA informationpageta=new InformationPageTA();
+	
 	@FindBy(xpath = "//span[(text()='Settings')]")
 	WebElement settingsTab;
 	@FindBy(xpath = "//a[text()='Tenant Policy']")

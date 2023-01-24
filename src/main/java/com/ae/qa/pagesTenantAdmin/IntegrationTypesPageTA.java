@@ -38,6 +38,8 @@ public class IntegrationTypesPageTA extends TestBase {
 	WebElement selectJar ;
 	@FindBy(xpath="//button[@id='submitBtn']")
 	WebElement submitBtn;
+	@FindBy(xpath="//button[@id='popup-button-ok']")
+	WebElement confirmDeleteBtn;
 	@FindBy(xpath = "//p[@class='alert-message-text']")
 	WebElement alertMessage;
 	@FindBy(xpath="//div[@class='title-div']/h2")
@@ -86,7 +88,7 @@ public class IntegrationTypesPageTA extends TestBase {
 		js.executeScript("arguments[0].click();", integrationTab);
 		// click on Types Tab
 		js.executeScript("arguments[0].click();",typesTab);
-		WebElement editBtn=driver.findElement(By.xpath("//div/table/tr/td/a[text()='"+typeName+"']/../../td/span[@class='fa fa-edit']"));
+		WebElement editBtn=driver.findElement(By.xpath("//div/table/tr/td/span[text()='"+typeName+"']/../../td/span[@class='fa fa-edit']"));
 		editBtn.click();
 		Thread.sleep(3000);
 		Reporter.log("Edit button is clicked",true);
@@ -99,11 +101,32 @@ public class IntegrationTypesPageTA extends TestBase {
 		submitBtn.click();
 		Reporter.log("Submit Button is clicked",true);
 		String typename_lowerCase=typeName.toLowerCase();
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		Thread.sleep(2000);
 		String actual_Msg=alertMessage.getText();
 		String expected_Msg="Integration type jar for ["+typename_lowerCase+"] updated successfully";
 		Assert.assertEquals(actual_Msg,expected_Msg,"Integration type not updated.");
 		Reporter.log("Integration type updated successfully",true);
+		informationpageta.validateSignOut();
+	}
+	public void validateDeleteIntegrationTypeTA(String typeName) throws Exception{
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Reporter.log("User log in Successfully",true);
+		//First search for tab and click on it
+		//wait.until(ExpectedConditions.visibilityOf(integrationTab));
+		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",integrationTab);
+		js.executeScript("arguments[0].click();",typesTab);
+		WebElement deleteBtn = driver.findElement(By.xpath("//div/table/tr/td/span[text()='"+typeName+"']/../../td/span[@class='fa fa-trash danger email-left-margin']"));
+		deleteBtn.click();
+		Reporter.log("Delete button is clicked successfully",true);
+		confirmDeleteBtn.click();
+		Thread.sleep(2000);
+		String actual_Msg=alertMessage.getText();
+		String expected_Msg="Integration type ["+typeName+"] deleted successfully";
+		Assert.assertEquals(actual_Msg,expected_Msg,"Integration type is not deleted successfully.");
+		Reporter.log("Integration type is deleted successfully",true);
 		informationpageta.validateSignOut();
 	}
 	public void validateIntegrationTypesPageTA(String PageTitle) throws Exception {
