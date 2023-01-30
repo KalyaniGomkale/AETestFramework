@@ -638,6 +638,7 @@ public class TenantsPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js_tenant.executeScript("arguments[0].click();", tenantsTab);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
@@ -826,6 +827,7 @@ public class TenantsPage extends TestBase {
 	//exact date-done, before , after, in between ,not in between
 	public void validateHandleCalender(String CreatedCriteria,String startYear,String startMonth,String startDate) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		Thread.sleep(2000);
 		tenantsTab.click();
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
@@ -909,6 +911,7 @@ public class TenantsPage extends TestBase {
 	public void validateCreatedInBetween(String CreatedCriteria,String startYear,String startMonth,String startDate,
 			String endYear,String endMonth,String endDate,String PageSize) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		Thread.sleep(2000);
 		tenantsTab.click();
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
@@ -943,6 +946,7 @@ public class TenantsPage extends TestBase {
 	public void validateCreatedNotInBetween(String CreatedCriteria,String startYear,String startMonth,String startDate,
 			String endYear,String endMonth,String endDate,String PageSize) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		Thread.sleep(2000);
 		tenantsTab.click();
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);

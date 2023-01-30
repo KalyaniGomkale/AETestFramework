@@ -3,15 +3,27 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ae.qa.testcasesTenantAdmin.HolidayCalenderPageTestTA">
+      <class name="com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA">
         <methods>
+          <include name="validateAdvSearchForLastNameBeginsWithTenantuserPageTATest" invocation-numbers="0"/>
           <include name="endReport"/>
-          <include name="setExtent"/>
+          <include name="validateAdvSearchForUserNameBeginsWithTenantuserPageTATest" invocation-numbers="0"/>
+          <include name="validateStateDropdownNotEqualToTenantuserPageTATest" invocation-numbers="0"/>
+          <include name="validateAdvSearchForFirstNameBeginsWithTenantuserPageTATest" invocation-numbers="0"/>
+          <include name="validateAdvSearchForFirstNameIsLikeTenantuserPageTATest" invocation-numbers="0"/>
+          <include name="validateAdvSearchForLastNameNotEqualToTenantuserPageTATest" invocation-numbers="0"/>
+          <include name="validateAdvSearchForUserNameEqualToTenantuserPageTATest" invocation-numbers="0"/>
+          <include name="validateAdvSearchForUserNameNotEqualToTenantuserPageTATest" invocation-numbers="0"/>
+          <include name="validateStateDropdownEqualToTenantuserPageTATest" invocation-numbers="0"/>
           <include name="initialization"/>
+          <include name="validateAdvSearchForFirstNameEndsWithTenantuserPageTATest" invocation-numbers="0"/>
+          <include name="validateAdvSearchForUserNameEndsWithTenantuserPageTATest" invocation-numbers="0"/>
+          <include name="setExtent"/>
+          <include name="validateAdvSearchForLastNameIsLikeTenantuserPageTATest" invocation-numbers="0"/>
+          <include name="validateAdvSearchForLastNameEndsWithTAdminTenantuserPageTest" invocation-numbers="0"/>
           <include name="getResult"/>
-          <include name="validateAdvSearchForYearNotInRangeHolidayPageTATest"/>
         </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.HolidayCalenderPageTestTA -->
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

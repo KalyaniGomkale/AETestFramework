@@ -119,7 +119,7 @@ public class RequestsPageTestTA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
 	}*/
 	//For ID
-/*	@Test(priority = 3232)
+	@Test(priority = 3232)
 	public void validateAdvSearchForIDEqualToRequestPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForIDEqualToRequestPageTATest", "TC_355:Verify advance search for ID equal to criteria on request page");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -526,5 +526,5 @@ public class RequestsPageTestTA extends TestBase{
 				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 }

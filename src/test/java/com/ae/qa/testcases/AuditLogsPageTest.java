@@ -19,7 +19,7 @@ public class AuditLogsPageTest extends TestBase {
 	}
 
 	//No data required
-	@Test(priority = 10)
+    @Test(priority = 10)
 	public void validatedownloadingAuditLogs(Method method) throws Exception {
 		extentTest = extent.createTest("validatedownloadingAuditLogs", "TC_022: Verify download audit logs");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -78,7 +78,7 @@ public class AuditLogsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	// For Entity
-	/*@Test(priority = 3098)
+/*	@Test(priority = 3098)
 	public void validateEntityDropdownEqualToAuditLogsPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateStateDropdownEqualToAuditLogsPageTest", "TC_009: To Verfiy Advance search for Entity with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());

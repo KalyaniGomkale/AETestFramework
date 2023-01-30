@@ -328,6 +328,7 @@ public class SystemUsersPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js_tenant.executeScript("arguments[0].click();", usersTab);
 		js_tenant.executeScript("arguments[0].click();", systemUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -563,7 +564,7 @@ public class SystemUsersPage extends TestBase {
 			String actual_LastName = op.get(i).getText();
 			String str_LastName = actual_LastName.split(" ")[1];
 			System.out.println("actual_System User LastName present in table are: " + str_LastName);
-			Assert.assertFalse(str_LastName.equals(lastName));
+			Assert.assertFalse(str_LastName.equalsIgnoreCase(lastName));
 		}
 	}
 
@@ -626,8 +627,9 @@ public class SystemUsersPage extends TestBase {
 			Thread.sleep(3000);
 			String actual_LastName = op.get(i).getText();
 			String str_LastName = actual_LastName.split(" ")[1];
+			String lowercase_LastName = str_LastName.toLowerCase();
 			System.out.println("actual_System User LastName present in table are: " + str_LastName);
-			Assert.assertTrue(str_LastName.contains(advSearchFor));
+			Assert.assertTrue(lowercase_LastName.contains(advSearchFor));
 		}
 	}
 
@@ -635,6 +637,7 @@ public class SystemUsersPage extends TestBase {
 			throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", systemUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -647,6 +650,7 @@ public class SystemUsersPage extends TestBase {
 			String startDate) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", systemUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -728,6 +732,7 @@ public class SystemUsersPage extends TestBase {
 			String endYear, String endMonth, String endDate, String PageSize) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", systemUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -763,6 +768,7 @@ public class SystemUsersPage extends TestBase {
 			String startDate, String endYear, String endMonth, String endDate, String PageSize) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", systemUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -870,6 +876,7 @@ public class SystemUsersPage extends TestBase {
 			String startDate, String endYear, String endMonth, String endDate, String PageSize) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", systemUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -905,6 +912,7 @@ public class SystemUsersPage extends TestBase {
 			String startDate, String endYear, String endMonth, String endDate, String PageSize) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", systemUsersTab);
 		wb.validateClickOnAdvanceSearch();

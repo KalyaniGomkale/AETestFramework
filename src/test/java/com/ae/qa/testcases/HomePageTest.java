@@ -29,7 +29,7 @@ public class HomePageTest extends TestBase {
 	@Test(priority=700)
 	public void validateHomePageForConsumptionTabTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateHomePageForConsumptionTabTest", "TC_91:Verify able to view Home page");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		homepage = new HomePage();
 		homepage.validateHomePageForConsumptionTab();
 		extentTest.log(extentTest.getStatus(), "Home page is verified successfully");

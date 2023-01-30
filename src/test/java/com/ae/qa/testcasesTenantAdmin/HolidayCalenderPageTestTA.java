@@ -127,7 +127,7 @@ public class HolidayCalenderPageTestTA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
 	//For Holiday Calender Name
-/*	@Test(priority = 3272)
+	@Test(priority = 3272)
 	public void validateAdvSearchForNameEqualToHolidayPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForNameEqualToHolidayPageTATest", "TC_009: To Verfiy Advance search for Holiday Calender Name with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -258,5 +258,5 @@ public class HolidayCalenderPageTestTA extends TestBase{
 				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Time Zone is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 }

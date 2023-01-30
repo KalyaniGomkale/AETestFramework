@@ -56,11 +56,12 @@ public class SystemUsersPageTest extends TestBase {
 	@Test(priority = 703)
 	public void validateCreatingTenantLicenseAdminTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateCreatingTenantLicenseAdminTest", "TC_Additional: Verify create Tenant License Admin");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		systemuserspage = new SystemUsersPage();
-		systemuserspage.creatingTenantLicenseAdmin("SYSADMIN","Tenant","License Admin","TenantLicenseAdmin@gmail.com","TLAdmin01","Pune@123","Pune@123","Tenant License Admin");		
+		systemuserspage.creatingTenantLicenseAdmin(TestDataInMap.get("OrganizationCode"),TestDataInMap.get("FirstName"), TestDataInMap.get("LastName"),TestDataInMap.get("EmailId"),
+				TestDataInMap.get("UserName"), TestDataInMap.get("Password"),TestDataInMap.get("CnfPassword"),TestDataInMap.get("Role"));		
 		extentTest.log(extentTest.getStatus(), "Tenant License Admin created successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 462)
 	public void uploadLicenseForTenantLicenseAdminTest(Method method) throws Exception {
@@ -74,11 +75,11 @@ public class SystemUsersPageTest extends TestBase {
 	@Test(priority = 704)
 	public void validateEditTenantLicenseAdminTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditTenantLicenseAdminTest", "TC_Additional: Verify Edit tenant license admin user");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		systemuserspage = new SystemUsersPage();
-		systemuserspage.validateEditTenantLicenseAdmin("TLAdmin01","TLA01@gmail.com","Pune@123","Pune@1234");		
+		systemuserspage.validateEditTenantLicenseAdmin(TestDataInMap.get("UserName"),TestDataInMap.get("NewEmailID"),TestDataInMap.get("Password"),TestDataInMap.get("CnfPassword"));		
 		extentTest.log(extentTest.getStatus(), "Tenant License Admin edited successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	@Test(priority=153)
 	public void validateSystemUsersPageTest(Method method) throws Exception {
@@ -100,7 +101,7 @@ public class SystemUsersPageTest extends TestBase {
 	}*/
 	
     //For Username
-/*	@Test(priority = 3016)
+	@Test(priority = 3016)
 	public void validateAdvSearchForUserNameEqualToSystemUserPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForUserNameEqualToSystemUserPageTest", "TC_009: To Verfiy Advance search for username with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -225,32 +226,32 @@ public class SystemUsersPageTest extends TestBase {
 	@Test(priority = 3028)
 	public void validateAdvSearchForLastNameIsLikeSystemUserPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForLastNameIsLikeSystemUserPageTest", "TC_009: To Verfiy Advance search for lastname with Is like criteria");
-		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		systemuserspage = new SystemUsersPage();
 		systemuserspage.validateAdvSearchForLastNameIsLike(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
 				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3029)
 	public void validateAdvSearchForLastNameBeginsWithSystemUserPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForLastNameBeginsWithSystemUserPageTest", "TC_009: To Verfiy Advance search for lastname with begins with criteria");
-		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		systemuserspage = new SystemUsersPage();
 		systemuserspage.validateAdvSearchForLastNameBeginsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
 				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3030)
 	public void validateAdvSearchForLastNameEndsWithSystemUserPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForLastNameEndsWithSystemUserPageTest", "TC_009: To Verfiy Advance search for lastname with ends with criteria");
-		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		systemuserspage = new SystemUsersPage();
 		systemuserspage.validateAdvSearchForLastNameEndsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
 				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 
 //For Created [Calender]
@@ -355,5 +356,5 @@ public class SystemUsersPageTest extends TestBase {
 				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 }

@@ -1209,6 +1209,7 @@ public class WorkflowListPageTA extends TestBase {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js_tenant.executeScript("arguments[0].click();", workflowsTab);
 		wb.validateClickOnAdvanceSearch();
 	}
@@ -1392,6 +1393,7 @@ public class WorkflowListPageTA extends TestBase {
 	public void validateHandleCalender(String CreatedCriteria,String startYear,String startMonth,String startDate) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", workflowsTab);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
@@ -1467,6 +1469,7 @@ public class WorkflowListPageTA extends TestBase {
 			String endYear,String endMonth,String endDate,String PageSize) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", workflowsTab);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
@@ -1499,6 +1502,7 @@ public class WorkflowListPageTA extends TestBase {
 			String endYear,String endMonth,String endDate,String PageSize) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", workflowsTab);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);

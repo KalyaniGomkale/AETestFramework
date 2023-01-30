@@ -158,8 +158,8 @@ public class PluginsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}*/
 		//For Plugin Name
-	/*@Test(priority = 3073)
-	public void validateAdvSearchForPluginNameEqualTonPluginPageTest(Method method) throws Exception {
+	@Test(priority = 3073)
+	public void validateAdvSearchForPluginNameEqualToPluginPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForPluginNameEqualToPluginPageTest", "TC_009: To Verfiy Advance search for plugin name with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		pluginspage = new PluginsPage();
@@ -310,6 +310,6 @@ public class PluginsPageTest extends TestBase {
 				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 
 }

@@ -739,6 +739,7 @@ public class SchedulerPageTA extends TestBase {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js_tenant.executeScript("arguments[0].click();", workflowsTab);
 		js_tenant.executeScript("arguments[0].click();", schedulerTab);
 		wb.validateClickOnAdvanceSearch();

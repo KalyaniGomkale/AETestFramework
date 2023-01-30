@@ -122,10 +122,10 @@ public class TenantsPageTest extends TestBase {
 	@Test(priority=702)
 	public void validateCreateAllotmentBasedTenantTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCreateAllotmentBasedTenantTest", "TC_95: Verify create tenant with  sysadmin user with  licnese catgory - consumption based");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateCreateAllotmentBasedTenant("UBL01","Usage Based Licensing","UBL01","Consumption Based","Kalyani",
-				"Rohil","1234567890","UBL01@gmail.com");
+		tenantspage.validateCreateAllotmentBasedTenant(TestDataInMap.get("TenantName"),TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
+				TestDataInMap.get("Category"),TestDataInMap.get("CustomerName"),TestDataInMap.get("ContactPerson"),TestDataInMap.get("ContactNumber"),TestDataInMap.get("EmailId"));
 		extentTest.log(extentTest.getStatus(), "Tenant with license category-Consumption based is created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
@@ -133,22 +133,25 @@ public class TenantsPageTest extends TestBase {
 	@Test(priority=705)
 	public void validateAllocateConsumptionBasedTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAllocateConsumptionBasedTest", "TC_99: Verify amend above T.admin license");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAllocateConsumptionBased("UBL01","2023","Jan","20","1","1","1","1");		
+		tenantspage.validateAllocateConsumptionBased(TestDataInMap.get("OrganizationCode"),TestDataInMap.get("StartYear"),TestDataInMap.get("StartMonth"),TestDataInMap.get("StartDate"),
+				TestDataInMap.get("Validity"),TestDataInMap.get("ProcessStudioCount"),TestDataInMap.get("PremiumStepsCount"),TestDataInMap.get("BotTimeMinutes"));		
 		extentTest.log(extentTest.getStatus(), "Tenant Admin license is admend successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	//Test case for Amend License
 	//Need to add tenant org code
 	@Test(priority=706)
 	public void validateAmendLicenseTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAmendLicenseTest", "TC_97: Verify allocate consumption based");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAmendLicense("UBL01","1","2","3","UBL01","AmendLicense","User","alu@abc.com","AmendLU1","Pune@123","Pune@123","Tenant Admin","Pune@1234");		
+		tenantspage.validateAmendLicense(TestDataInMap.get("TenantName"),TestDataInMap.get("ProcessStudioCount"),TestDataInMap.get("PremiumStepsCount"),TestDataInMap.get("BotTimeMinutes"),
+				TestDataInMap.get("OrganizationCode"),TestDataInMap.get("FirstName"),TestDataInMap.get("LastName"),TestDataInMap.get("EmailId"),TestDataInMap.get("UserName"),
+				TestDataInMap.get("Password"),TestDataInMap.get("CnfPassword"),TestDataInMap.get("Role"),TestDataInMap.get("NewPswd"));		
 		extentTest.log(extentTest.getStatus(), "Consumption Based Allocation is verified successfully");
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 900)
 	public void validateDisableAllomentBasedTenantTest(Method method) throws Exception {
@@ -169,7 +172,7 @@ public class TenantsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	//About orgcode
-/*	@Test(priority = 3001)
+	@Test(priority = 3001)
 	public void validateAdvSearchForOrgCodeEqualToTenantPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForOrgCodeEqualToTenantPageTest", "TC_003: To Verfiy Advance search for Org Code and created date with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -320,6 +323,6 @@ public class TenantsPageTest extends TestBase {
 				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 
 }

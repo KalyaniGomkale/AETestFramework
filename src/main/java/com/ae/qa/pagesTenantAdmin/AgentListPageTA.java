@@ -659,6 +659,7 @@ public class AgentListPageTA extends TestBase{
 		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", AgentsTab);
 		js.executeScript("arguments[0].click();", AgentListTab);
 		wb.validateClickOnAdvanceSearch();

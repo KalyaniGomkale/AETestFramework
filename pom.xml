@@ -138,7 +138,7 @@
 					<testFailureIgnore>true</testFailureIgnore>
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
-						<suiteXmlFile>Shrut.xml</suiteXmlFile>
+						<suiteXmlFile>Demo.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

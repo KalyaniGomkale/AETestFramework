@@ -142,7 +142,7 @@ public class SchedulerPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}*/
 		//For Schedule Name
-	/*@Test(priority = 3172)
+	@Test(priority = 3172)
 	public void validateAdvSearchForScheduleNameEqualToSchedulerPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForScheduleNameEqualToSchedulerPageTATest", "TC_009: To Verfiy Advance search for schedule name with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -210,5 +210,5 @@ public class SchedulerPageTestTA extends TestBase {
 		schedulerpageta.validateStatusDropdownNotEqualTo("Status", "not equal to","Active","50");
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 }

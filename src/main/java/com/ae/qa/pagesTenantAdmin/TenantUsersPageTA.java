@@ -855,6 +855,7 @@ public class TenantUsersPageTA extends TestBase {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js_tenant.executeScript("arguments[0].click();", usersTab);
 		js_tenant.executeScript("arguments[0].click();", tenantUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -874,6 +875,7 @@ public class TenantUsersPageTA extends TestBase {
 			Thread.sleep(3000);
 			String actual_UserName=op.get(i).getText();
 			System.out.println("actual_Tenant User Name present in table are: "+actual_UserName);
+			Thread.sleep(2000);
 			Assert.assertTrue(actual_UserName.equals(userName));
 		}
 	}
@@ -891,6 +893,7 @@ public class TenantUsersPageTA extends TestBase {
 			Thread.sleep(3000);
 			String actual_UserName=op.get(i).getText();
 			System.out.println("actual_Tenant User Name present in table are: "+actual_UserName);
+			Thread.sleep(2000);
 			Assert.assertFalse(actual_UserName.equals(userName));
 		}
 	}
@@ -909,6 +912,7 @@ public class TenantUsersPageTA extends TestBase {
 			Thread.sleep(3000);
 			String actual_UserName=op.get(i).getText();
 			System.out.println("actual_Tenant User Name present in table are: "+actual_UserName);
+			Thread.sleep(2000);
 			Assert.assertTrue(actual_UserName.contains(advSearchFor));
 		}
 	}
@@ -928,7 +932,7 @@ public class TenantUsersPageTA extends TestBase {
 			String actual_UserName=op.get(i).getText();
 			String lowercase_UserName = actual_UserName.toLowerCase();
 			System.out.println("actual_Tenant User Name present in table are: "+actual_UserName);
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			Assert.assertTrue(lowercase_UserName.contains(advSearchFor));
 		}
 	}
@@ -947,6 +951,7 @@ public class TenantUsersPageTA extends TestBase {
 			Thread.sleep(3000);
 			String actual_UserName=op.get(i).getText();
 			System.out.println("actual_Tenant User Name present in table are: "+actual_UserName);
+			Thread.sleep(2000);
 			Assert.assertTrue(actual_UserName.contains(advSearchFor));
 		}
 	}
@@ -984,6 +989,7 @@ public class TenantUsersPageTA extends TestBase {
 			String actual_FirstName=op.get(i).getText();
 			String str_FirstName = actual_FirstName.split(" ")[0];
 			System.out.println("actual_System User LastName present in table are: "+str_FirstName);
+			Thread.sleep(2000);
 			Assert.assertFalse(str_FirstName.equals(firstName));
 		}
 	}
@@ -1003,6 +1009,7 @@ public class TenantUsersPageTA extends TestBase {
 			String actual_FirstName=op.get(i).getText();
 			String str_FirstName = actual_FirstName.split(" ")[0];
 			System.out.println("actual_System User FirstName present in table are: "+str_FirstName);
+			Thread.sleep(2000);
 			Assert.assertTrue(str_FirstName.contains(advSearchFor));
 		}
 	}
@@ -1045,6 +1052,7 @@ public class TenantUsersPageTA extends TestBase {
 			String actual_FirstName=op.get(i).getText();
 			String str_FirstName = actual_FirstName.split(" ")[0];
 			System.out.println("actual_System User FirstName present in table are: "+str_FirstName);
+			Thread.sleep(2000);
 			Assert.assertTrue(str_FirstName.contains(advSearchFor));
 		}
 	}
@@ -1062,6 +1070,7 @@ public class TenantUsersPageTA extends TestBase {
 			String actual_LastName=op.get(i).getText();
 			String str_LastName = actual_LastName.split(" ")[1];
 			System.out.println("actual_System User LastName present in table are: "+str_LastName);
+			Thread.sleep(2000);
 			Assert.assertTrue(str_LastName.equalsIgnoreCase(lastName));
 		}
 	}
@@ -1080,6 +1089,7 @@ public class TenantUsersPageTA extends TestBase {
 			String actual_LastName=op.get(i).getText();
 			String str_LastName = actual_LastName.split(" ")[1];
 			System.out.println("actual_System User LastName present in table are: "+str_LastName);
+			Thread.sleep(2000);
 			Assert.assertFalse(str_LastName.equals(lastName));
 		}
 	}
@@ -1099,6 +1109,7 @@ public class TenantUsersPageTA extends TestBase {
 			String actual_LastName=op.get(i).getText();
 			String str_LastName = actual_LastName.split(" ")[1];
 			System.out.println("actual_System User LastName present in table are: "+str_LastName);
+			Thread.sleep(2000);
 			Assert.assertTrue(str_LastName.contains(advSearchFor));
 		}
 	}
@@ -1119,6 +1130,7 @@ public class TenantUsersPageTA extends TestBase {
 			String str_LastName = actual_LastName.split(" ")[1];
 			String lowercase_LastName = str_LastName.toLowerCase();
 			System.out.println("actual_System User LastName present in table are: "+str_LastName);
+			Thread.sleep(2000);
 			Assert.assertTrue(lowercase_LastName.contains(advSearchFor));
 
 		}
@@ -1139,12 +1151,14 @@ public class TenantUsersPageTA extends TestBase {
 			String actual_LastName=op.get(i).getText();
 			String str_LastName = actual_LastName.split(" ")[1];
 			System.out.println("actual_System User LastName present in table are: "+str_LastName);
+			Thread.sleep(2000);
 			Assert.assertTrue(str_LastName.contains(advSearchFor));
 		}
 	}
 	public void validateHandleCalender(String CreatedCriteria,String startYear,String startMonth,String startDate) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", tenantUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -1155,6 +1169,7 @@ public class TenantUsersPageTA extends TestBase {
 	public void validateHandleCalenderForLastUpdated(String CreatedCriteria,String startYear,String startMonth,String startDate) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", tenantUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -1231,6 +1246,7 @@ public class TenantUsersPageTA extends TestBase {
 			String endYear,String endMonth,String endDate,String PageSize) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", tenantUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -1264,6 +1280,7 @@ public class TenantUsersPageTA extends TestBase {
 			String endYear,String endMonth,String endDate,String PageSize) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", tenantUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -1361,6 +1378,7 @@ public class TenantUsersPageTA extends TestBase {
 			String endYear,String endMonth,String endDate,String PageSize) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", tenantUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -1394,6 +1412,7 @@ public class TenantUsersPageTA extends TestBase {
 			String endYear,String endMonth,String endDate,String PageSize) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", tenantUsersTab);
 		wb.validateClickOnAdvanceSearch();

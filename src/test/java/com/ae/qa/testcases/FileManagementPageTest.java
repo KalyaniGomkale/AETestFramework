@@ -59,7 +59,7 @@ public class FileManagementPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	//For File Name
-	/*@Test(priority = 3088)
+	@Test(priority = 3088)
 	public void validateAdvSearchForFileNameEqualToFileManagementPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForFileNameEqualToFileManagementPageTest", "TC_009: To Verfiy Advance search for file name with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -92,12 +92,12 @@ public class FileManagementPageTest extends TestBase {
 	@Test(priority = 3091)
 	public void validateAdvSearchForFileNameBeginsWithFileManagementPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForFileNameBeginsWithFileManagementPageTest", "TC_009: To Verfiy Advance search for file name with begins with criteria");
-		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		filemanagementpage= new FileManagementPage();
 		filemanagementpage.validateAdvSearchForFileNameBeginsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
 				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for File Name is validated successfully");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3092)
 	public void validateAdvSearchForFileNameEndsWithFileManagementPageTest(Method method) throws Exception {
@@ -159,6 +159,6 @@ public class FileManagementPageTest extends TestBase {
 				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 
 }

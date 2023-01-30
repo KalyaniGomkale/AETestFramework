@@ -185,7 +185,7 @@ public class AgentListPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}*/
 	//For Agent Name
-/*	@Test(priority = 3179)
+	@Test(priority = 3179)
 	public void validateAdvSearchForAgentNameEqualToAgentsPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForAgentNameEqualToAgentsPageTATest", "TC_009: To Verfiy Advance search for Agent name with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -316,6 +316,6 @@ public class AgentListPageTestTA extends TestBase {
 				TestDataInMap.get("SearchData"),TestDataInMap.get("SearchData1"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Execution Thread with not in range criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 }
 

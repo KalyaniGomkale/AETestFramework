@@ -239,6 +239,7 @@ public class AuditLogsPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", logsTab);
 		js.executeScript("arguments[0].click();", auditLogsTab);
 		wb.validateClickOnAdvanceSearch();
@@ -252,12 +253,13 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[2]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[3]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
 			String actual_Entity=op.get(i).getText();
 			System.out.println("actual_Entity present in table are: "+actual_Entity);
+			Thread.sleep(1000);
 			Assert.assertTrue(actual_Entity.equalsIgnoreCase(searchValue));
 		}
 	}
@@ -268,12 +270,13 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[2]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[3]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
 			String actual_Entity=op.get(i).getText();
 			System.out.println("actual_Entity present in table are: "+actual_Entity);
+			Thread.sleep(1000);
 			Assert.assertFalse(actual_Entity.equalsIgnoreCase(searchValue));
 		}
 	}
@@ -285,13 +288,13 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[5]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[6]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
 			String actual_Source=op.get(i).getText();
 			System.out.println("actual_Source present in table are: "+actual_Source);
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			Assert.assertTrue(actual_Source.equalsIgnoreCase(searchValue));
 		}
 	}
@@ -303,12 +306,13 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[5]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[6]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
 			String actual_Source=op.get(i).getText();
 			System.out.println("actual_Source present in table are: "+actual_Source);
+			Thread.sleep(1000);
 			Assert.assertFalse(actual_Source.equalsIgnoreCase(searchValue));
 		}
 	}
@@ -320,7 +324,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[1]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -337,7 +341,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[1]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -355,7 +359,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[1]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -373,7 +377,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[1]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -393,7 +397,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[1]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -410,7 +414,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[6]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[7]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -427,7 +431,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[6]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[7]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -445,7 +449,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[6]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[7]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -463,7 +467,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[6]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[7]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -483,7 +487,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[6]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[7]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -500,7 +504,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[3]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[4]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -518,7 +522,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[3]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[4]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -530,6 +534,7 @@ public class AuditLogsPage extends TestBase {
 	public void validateHandleCalender(String CreatedCriteria,String startYear,String startMonth,String startDate) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", logsTab);
 		js.executeScript("arguments[0].click();", auditLogsTab);
 		wb.validateClickOnAdvanceSearch();
@@ -541,7 +546,7 @@ public class AuditLogsPage extends TestBase {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[8]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[9]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total records found are: "+op.size());
 			Thread.sleep(3000);
@@ -562,7 +567,7 @@ public class AuditLogsPage extends TestBase {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[8]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[9]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total records found are: "+op.size());
 			Thread.sleep(3000);
@@ -584,7 +589,7 @@ public class AuditLogsPage extends TestBase {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[8]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[9]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total records found are: "+op.size());
 			Thread.sleep(3000);
@@ -605,6 +610,7 @@ public class AuditLogsPage extends TestBase {
 			String endYear,String endMonth,String endDate,String PageSize) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", logsTab);
 		js.executeScript("arguments[0].click();", auditLogsTab);
 		wb.validateClickOnAdvanceSearch();
@@ -613,7 +619,7 @@ public class AuditLogsPage extends TestBase {
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[8]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[9]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total records found are: "+op.size());
 			Thread.sleep(3000);
@@ -638,6 +644,7 @@ public class AuditLogsPage extends TestBase {
 			String endYear,String endMonth,String endDate,String PageSize) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", logsTab);
 		js.executeScript("arguments[0].click();", auditLogsTab);;
 		wb.validateClickOnAdvanceSearch();
@@ -646,7 +653,7 @@ public class AuditLogsPage extends TestBase {
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[8]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[9]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total records found are: "+op.size());
 			Thread.sleep(3000);
@@ -675,7 +682,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[7]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[8]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -693,7 +700,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[7]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[8]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -715,7 +722,7 @@ public class AuditLogsPage extends TestBase {
 		Thread.sleep(2000);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[8]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[9]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -736,7 +743,7 @@ public class AuditLogsPage extends TestBase {
 		showColumnDrpdown.click();
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[8]"));
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[9]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
