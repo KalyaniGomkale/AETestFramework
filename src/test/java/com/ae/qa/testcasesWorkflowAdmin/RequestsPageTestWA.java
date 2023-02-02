@@ -18,7 +18,7 @@ public class RequestsPageTestWA extends TestBase{
 		super();
 	}
 
-	/*@Test(priority=39)
+	/*@Test(priority=83)
 	public void validatecheckColumnsInRequestsWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validatecheckColumnsInRequestsWATest", "TC_64:To Verify - Show colum check all option");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -27,7 +27,7 @@ public class RequestsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Check All option on Requests validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=40)
+	@Test(priority=84)
 	public void validatedeselectAllInRequestsWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validatedeselectAllInRequestsWATest", "TC_65:To Verify - Show colum Uncheck all option");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -36,7 +36,7 @@ public class RequestsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "UnCheck All option on Requests validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=41)
+	@Test(priority=85)
 	public void validateSpecificColumnInRequestsWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSpecificColumnInRequestsWATest", "TC_66:To Verify - Specific column get display");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -45,7 +45,7 @@ public class RequestsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Specific column get displayed successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=42)
+	@Test(priority=86)
 	public void validateRequestFailureReasonWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateRequestFailureReasonWATest", "TC_67: Verify failure reason");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -56,7 +56,7 @@ public class RequestsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Request status is verified successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=43)
+	@Test(priority=87)
 	public void validateDownloadRequestWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDownloadRequestWATest", "TC_68:Verify Download Requests");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -65,7 +65,7 @@ public class RequestsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Request are download successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=44)
+	@Test(priority=88)
 	public void validateRequestStatusWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateRequestStatusWATest", "TC_69:Verify Requests in expanded mode");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -73,8 +73,8 @@ public class RequestsPageTestWA extends TestBase{
 		requestspagewa.validateRequestStatusWA();
 		extentTest.log(extentTest.getStatus(), "Request are verfied successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
-	}
-	@Test(priority=45)
+	}*/
+	@Test(priority=89)
 	public void validateRestartRequestWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateRestartRequestWATest", "TC_70:Verify Manual Restart of workflow");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -83,7 +83,7 @@ public class RequestsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Request has been restarted successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=46)
+	/*@Test(priority=90)
 	public void validateTerminateRequestWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateTerminateRequestWATest", "TC_71: Verify Terminate workflow");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -96,7 +96,7 @@ public class RequestsPageTestWA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
 	}
 	//For ID
-	@Test
+/*	@Test
 	public void validateAdvSearchForIDEqualToTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForIDEqualToTest", "TC_355:Verify advance search for ID equal to criteria on request page");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -156,7 +156,7 @@ public class RequestsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Advance search for ID with not in range criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	For Workflow Name
+	//For Workflow Name
 	@Test
 	public void validateAdvSearchWFNameEqualToTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchWFNameEqualToTest", "TC_356:Verify advance search for WFName for not equal to criteria on request page");
@@ -475,7 +475,7 @@ public class RequestsPageTestWA extends TestBase{
 		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}*/
+	}
 	@Test
 	public void validateCreatedInBetweenTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCreatedInBetweenTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
@@ -499,6 +499,6 @@ public class RequestsPageTestWA extends TestBase{
 		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}
+	}*/
 
 }

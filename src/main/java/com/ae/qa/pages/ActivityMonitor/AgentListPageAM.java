@@ -48,11 +48,12 @@ public class AgentListPageAM extends TestBase{
 		//agentlistpageta.downloadAgent();
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
 		JavascriptExecutor js=(JavascriptExecutor)driver;
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		String Actual_AgentName = driver.findElement(By.xpath("//table/tr/td/span[text()='" +AgentName + "']")).getText();
 		System.out.println("Actual Agent Name:- "+Actual_AgentName);
 		String Expected_AgentName=prop.getProperty("AgentName");
@@ -69,7 +70,8 @@ public class AgentListPageAM extends TestBase{
 	public void checkColumnsInAgentListAM() throws Exception {
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to AgentList tab",true);
@@ -93,7 +95,8 @@ public class AgentListPageAM extends TestBase{
 		// Click Logs Tab
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to AgentList tab",true);
@@ -132,7 +135,8 @@ public class AgentListPageAM extends TestBase{
 	public void SpecificColumnInAgentListAM() throws Exception {
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to AgentList tab",true);
@@ -177,14 +181,14 @@ public class AgentListPageAM extends TestBase{
 		informationpageta.validateSignOut();
 	}
 	public void validateAssistedAgentDetailsAM(String AgentName) throws Exception{
-		//agentlistpageta.validateDeleteAgent(AgentName);
-		//agentlistpageta.downloadAssistedAgent();
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", AssistedAgentTab);
 		Reporter.log("User navigated to Assisted Agents Tab",true);
 		Thread.sleep(5000);

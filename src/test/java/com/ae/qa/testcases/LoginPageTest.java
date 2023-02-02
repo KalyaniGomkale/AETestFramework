@@ -1,5 +1,7 @@
 package com.ae.qa.testcases;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.lang.reflect.Method;
 import java.util.Map;
 
@@ -51,11 +53,11 @@ public class LoginPageTest extends TestBase {
 		loginpage = new LoginPage();
 		boolean flag = loginpage.ValidateForgotPswdLink();
 		if (flag == true) {
-			Assert.assertTrue(true);
+			AssertJUnit.assertTrue(true);
 			Reporter.log("Forgotten password link is Present",true);
 			//extentTest.log(Status.PASS, "passed");
 		} else {
-			Assert.assertTrue(false);
+			AssertJUnit.assertTrue(false);
 			Reporter.log("Forgotten password link is not Present",true);
 			//extentTest.log(Status.FAIL, "failed");
 		}

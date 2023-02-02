@@ -16,7 +16,7 @@ public class AgentListPageTestWA extends TestBase{
 		super();
 	}
 
-	@Test(priority=88)
+	@Test(priority=103)
 	public void validateAssistedAgentDownloadWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAssistedAgentDownloadWATest", "TC_5: To verify can download and register Assisted Agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -25,7 +25,7 @@ public class AgentListPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Assisted Agent registered successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=89)
+	@Test(priority=104)
 	public void validateCheckAgentStatusWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCheckAgentStatusWATest", "TC_Additional: To verify check status of assisted Agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());

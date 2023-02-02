@@ -1,6 +1,7 @@
 package com.ae.qa.pages.UserAdmin;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -102,15 +103,17 @@ public class TenantUsersPageUA extends TestBase{
 		// Click Users Tab
 		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
 		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", usersTab);
 		// Click TenantUsers Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		//wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", tenantUsersTab);
 		// click add new
-		wait.until(ExpectedConditions.visibilityOf(addBtn));
+		//wait.until(ExpectedConditions.visibilityOf(addBtn));
 		JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		js2.executeScript("arguments[0].click();", addBtn);
 		Reporter.log("started creating new " +RoleName,true);
@@ -136,7 +139,8 @@ public class TenantUsersPageUA extends TestBase{
 		JavascriptExecutor js5 = (JavascriptExecutor) driver;
 		js5.executeScript("arguments[0].click();", createBtn);
 		Reporter.log(RoleName + " is created successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(alertMessage));
+		//wait.until(ExpectedConditions.visibilityOf(alertMessage));
+		Thread.sleep(2000);
 		String actual_successMsg = alertMessage.getText();
 		String expected_successMsg = Messages.createUser;
 		System.out.println("Actual message:" + actual_successMsg);
@@ -149,15 +153,18 @@ public class TenantUsersPageUA extends TestBase{
 		// Click Users Tab
 		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
 		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", usersTab);
 		// Click TenantUsers Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		//wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", tenantUsersTab);
 		// click add new
-		wait.until(ExpectedConditions.visibilityOf(addBtn));
+		//wait.until(ExpectedConditions.visibilityOf(addBtn));
+		Thread.sleep(2000);
 		JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		js2.executeScript("arguments[0].click();", addBtn);
 		Reporter.log("started creating new " +RoleName,true);
@@ -181,7 +188,8 @@ public class TenantUsersPageUA extends TestBase{
 		JavascriptExecutor js5 = (JavascriptExecutor) driver;
 		js5.executeScript("arguments[0].click();", createBtn);
 		Reporter.log(RoleName + " is created successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(alertMessage));
+		//wait.until(ExpectedConditions.visibilityOf(alertMessage));
+		Thread.sleep(2000);
 		String actual_successMsg = alertMessage.getText();
 		String expected_successMsg = Messages.createUser;
 		System.out.println("Actual message:" + actual_successMsg);
@@ -223,13 +231,15 @@ public class TenantUsersPageUA extends TestBase{
 	public void validateCreateLdapUserUA(String RoleName,String userType,String uName) throws Exception{
 		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
 		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", usersTab);
 		// Click TenantUsers Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		//wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
 		//click add new
-		wait.until(ExpectedConditions.visibilityOf(addBtn));
+		//wait.until(ExpectedConditions.visibilityOf(addBtn));
+		Thread.sleep(2000);
 		JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		js2.executeScript("arguments[0].click();", addBtn);
 		Reporter.log("started creating new " +RoleName,true);
@@ -246,7 +256,8 @@ public class TenantUsersPageUA extends TestBase{
 		JavascriptExecutor js5 = (JavascriptExecutor) driver;
 		js5.executeScript("arguments[0].click();", createBtn);
 		Reporter.log(RoleName + " is created successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(alertMessage));
+		//wait.until(ExpectedConditions.visibilityOf(alertMessage));
+		Thread.sleep(2000);
 		String actual_successMsg = alertMessage.getText();
 		String expected_successMsg = Messages.createUser;
 		System.out.println("Actual message:" + actual_successMsg);
@@ -254,116 +265,89 @@ public class TenantUsersPageUA extends TestBase{
 		Reporter.log(RoleName + " created successfully",true);
 		informationpageta.validateSignOut();
 	}
-	public void validateBulkUserUploadEmail(String userType,String tName) throws Exception {
+	public void validateBulkUpload(String userType, String filePath,String tName) throws Exception {
 		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
-		Reporter.log("User Admin signed in successfully",true);
+		Reporter.log("Tenant Admin signed in successfully",true);
 		Thread.sleep(5000);
 		//Click Users Tab
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
+		Thread.sleep(5000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", usersTab);
 		Reporter.log("Users tab is clicked",true);
 		// Click TenantUsers Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		//wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", tenantUsersTab);
 		Reporter.log("Tenant Users tab is clicked",true);
 		//Click Dropdown Selector of Add New Button
-		wait.until(ExpectedConditions.visibilityOf(dropdownSelector));
+		//wait.until(ExpectedConditions.visibilityOf(dropdownSelector));
+		Thread.sleep(2000);
 		dropdownSelector.click();
 		Reporter.log("Dropdown Selector button is selected",true);
 		Thread.sleep(5000);
 		//Clicking on Upload Users from the Dropdown list
-		wait.until(ExpectedConditions.visibilityOf(uploadUsers));
+		//wait.until(ExpectedConditions.visibilityOf(uploadUsers));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", uploadUsers);
 		//Selecting the Native type users
-		Select userType_dropDown=new Select(userTypeField);
-		userType_dropDown.selectByValue(userType);
+		Select userTypr_dropDown=new Select(userTypeField);
+		userTypr_dropDown.selectByVisibleText(userType);
 		Reporter.log("Native Users is Selected",true);
 		Thread.sleep(5000);
 		//Clicking on Choose File Button and uploading the file
-		chooseFileBtn.sendKeys(prop.getProperty("BulkUserUploadWithEmail"));
+		chooseFileBtn.sendKeys(filePath);
 		Reporter.log("Bulk User file is uploaded",true);
 		Thread.sleep(5000);
+		List<WebElement> bulkUser_Table = driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-striped top-margin-lg']/tbody/tr/td[1]"));
+		Thread.sleep(2000);
+		ArrayList<String> actual_BulkUserUploaded = new ArrayList<String>();
+		for (WebElement element : bulkUser_Table){
+			String element_value = element.getText();
+			Reporter.log(element_value);
+			actual_BulkUserUploaded.add(element_value);
+			Thread.sleep(4000);
+			}
+		int actul_BulkuserCount = actual_BulkUserUploaded.size();
+		System.out.println("Actual User Count:- "+actul_BulkuserCount);
 		//Click on Upload Users Button
 		uploadUsersBtn.click();
 		Reporter.log("Bulk User file is uploaded",true);
+		String BulkuserCount = driver.findElement(By.xpath("//table[@class='ae-table table']/tbody/tr/th/font[@color='green']")).getText();
+		String expected_BulkuserCount = BulkuserCount.split("- ")[1];
+		System.out.println("Expected User Count:- "+expected_BulkuserCount);
 		Thread.sleep(5000);
+		Assert.assertEquals(Integer.toString(actul_BulkuserCount), expected_BulkuserCount,"Uploaded User Count Mismatches");
 		//Again Clicking on Users Tab
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
 		js.executeScript("arguments[0].click();", usersTab);
 		Reporter.log("Users tab is clicked",true);
-		Thread.sleep(5000);
-		webelements.AdvanceSearchField("userName", "eq", tName);
-		js.executeScript("arguments[0].click();", addFilterBtn);
-		addFilterBtn.click();
-		Reporter.log("Add filter button is clicked successfully",true);
-		js.executeScript("arguments[0].click();", searchBtn);
-		searchBtn.click();
-		Reporter.log("Search button is clicked",true);
-		Reporter.log("Below validation is to validate new tenant record is visible in webtable",true);
-		Thread.sleep(2000);		
-		String actual_TenantName = driver.findElement(By.xpath("//table/tr/td/div[text()='" + tName + "']")).getText();
-		String expected_TenantName = tName;
-		System.out.println("Actual:"+actual_TenantName+"Expected:"+expected_TenantName);
-		Assert.assertEquals(actual_TenantName, expected_TenantName, "Tenant not added in list");
-		Reporter.log("New Tenant User is present in the table-Validated successfully",true);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		informationpageta.validateSignOut();
 	}
-	public void validateBulkUserUploadWithoutEmail(String userType,String tName) throws Exception {
-		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
-		Reporter.log("User Admin signed in successfully",true);
+	public void validateBulkUserUploadEmail(String userType,String filePath,String tName,String ftpassword,String password) throws Exception {
+		validateBulkUpload(userType,filePath,tName);
+		loginpageta.ValidateFirstTimeLogin(tName,ftpassword,password);
 		Thread.sleep(5000);
-		//Click Users Tab
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", usersTab);
-		Reporter.log("Users tab is clicked",true);
-		// Click TenantUsers Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
-		js.executeScript("arguments[0].click();", tenantUsersTab);
-		Reporter.log("Tenant Users tab is clicked",true);
-		//Click Dropdown Selector of Add New Button
-		wait.until(ExpectedConditions.visibilityOf(dropdownSelector));
-		dropdownSelector.click();
-		Reporter.log("Dropdown Selector button is selected",true);
+		loginpageta.login(tName,password);
 		Thread.sleep(5000);
-		//Clicking on Upload Users from the Dropdown list
-		wait.until(ExpectedConditions.visibilityOf(uploadUsers));
-		js.executeScript("arguments[0].click();", uploadUsers);
-		//Selecting the Native type users
-		Select userType_dropDown=new Select(userTypeField);
-		userType_dropDown.selectByValue(userType);
-		Reporter.log("Native Users is Selected",true);
+		String actual_tenantName = driver.findElement(By.xpath("//div/span[1][text()='"+ tName +"']")).getText();	
+		String expected_tenantName = tName;
+		System.out.println("Actual Name of the Tenant User:-" +actual_tenantName);
+		System.out.println("Expected Name of the Tenant User:-"+expected_tenantName);
+		Assert.assertEquals(actual_tenantName, expected_tenantName,"Username does not match");
+		informationpageta.validateSignOut();
+	}
+	public void validateBulkUserUploadWithoutEmail(String userType,String filePath,String tName,String ftpassword,String password) throws Exception {
+		validateBulkUpload(userType,filePath,tName);
+		loginpageta.ValidateFirstTimeLogin(tName,ftpassword,password);
 		Thread.sleep(5000);
-		//Clicking on Choose File Button and uploading the file
-		chooseFileBtn.sendKeys(prop.getProperty("BulkUserUploadWithoutEmail"));
-		Reporter.log("Bulk User file is uploaded",true);
+		loginpageta.login(tName,password);
 		Thread.sleep(5000);
-		//Click on Upload Users Button
-		uploadUsersBtn.click();
-		Reporter.log("Bulk User file is uploaded",true);
-		Thread.sleep(5000);
-		//Again Clicking on Users Tab
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
-		js.executeScript("arguments[0].click();", usersTab);
-		Reporter.log("Users tab is clicked",true);
-		Thread.sleep(5000);
-		webelements.AdvanceSearchField("userName", "eq", tName);
-		js.executeScript("arguments[0].click();", addFilterBtn);
-		addFilterBtn.click();
-		Reporter.log("Add filter button is clicked successfully",true);
-		js.executeScript("arguments[0].click();", searchBtn);
-		searchBtn.click();
-		Reporter.log("Search button is clicked",true);
-		Reporter.log("Below validation is to validate new tenant record is visible in webtable",true);
-		Thread.sleep(2000);		
-		String actual_TenantName = driver.findElement(By.xpath("//table/tr/td/div[text()='" + tName + "']")).getText();
-		String expected_TenantName = tName;
-		System.out.println("Actual:"+actual_TenantName+"Expected:"+expected_TenantName);
-		Assert.assertEquals(actual_TenantName, expected_TenantName, "Tenant not added in list");
-		Reporter.log("New Tenant User is present in the table-Validated successfully",true);
-		Thread.sleep(5000);
+		String actual_tenantName = driver.findElement(By.xpath("//div/span[1][text()='"+ tName +"']")).getText();	
+		String expected_tenantName = tName;
+		System.out.println("Actual Name of the Tenant User:-" +actual_tenantName);
+		System.out.println("Expected Name of the Tenant User:-"+expected_tenantName);
+		Assert.assertEquals(actual_tenantName, expected_tenantName,"Username does not match");
 		informationpageta.validateSignOut();
 	}
 	public void validateBulkLDAPUserUpload(String userType,String tName) throws Exception {
@@ -371,21 +355,23 @@ public class TenantUsersPageUA extends TestBase{
 		Reporter.log("User Admin signed in successfully",true);
 		Thread.sleep(5000);
 		//Click Users Tab
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", usersTab);
 		Reporter.log("Users tab is clicked",true);
 		// Click TenantUsers Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		//wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", tenantUsersTab);
 		Reporter.log("Tenant Users tab is clicked",true);
 		//Click Dropdown Selector of Add New Button
-		wait.until(ExpectedConditions.visibilityOf(dropdownSelector));
+		//wait.until(ExpectedConditions.visibilityOf(dropdownSelector));
 		dropdownSelector.click();
 		Reporter.log("Dropdown Selector button is selected",true);
 		Thread.sleep(5000);
 		//Clicking on Upload Users from the Dropdown list
-		wait.until(ExpectedConditions.visibilityOf(uploadUsers));
+		//wait.until(ExpectedConditions.visibilityOf(uploadUsers));
 		js.executeScript("arguments[0].click();", uploadUsers);
 		//Selecting the Native type users
 		Select userType_dropDown=new Select(userTypeField);
@@ -401,7 +387,7 @@ public class TenantUsersPageUA extends TestBase{
 		Reporter.log("Bulk User file is uploaded",true);
 		Thread.sleep(5000);
 		//Again Clicking on Users Tab
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
 		js.executeScript("arguments[0].click();", usersTab);
 		Reporter.log("Users tab is clicked",true);
 		Thread.sleep(5000);
@@ -423,33 +409,6 @@ public class TenantUsersPageUA extends TestBase{
 		informationpageta.validateSignOut();
 	}
 
-	public void validateBulkUserUploadWithEmailUA(String userType,String tName,String ft_password,String password) throws Exception
-	{
-		validateBulkUserUploadEmail(userType,tName);
-		loginpageta.ValidateFirstTimeLogin(tName,ft_password,password);
-		Thread.sleep(5000);
-		loginpageta.login(tName,password);
-		Thread.sleep(5000);
-		String actual_successMsg = driver.findElement(By.xpath("//div/span[1][text()='"+tName+"']")).getText();	
-		String expected_successMsg = tName;
-		System.out.println("Actual Name of the Tenant User:-" +actual_successMsg);
-		System.out.println("Expected Name of the Tenant User:-"+expected_successMsg);
-		Assert.assertEquals(actual_successMsg, expected_successMsg,"Username does not match");
-		informationpageta.validateSignOut();
-	}
-	public void validateBulkUserUploadWithoutEmailUA(String userType,String tName,String ft_password,String password) throws Exception{
-		validateBulkUserUploadWithoutEmail(userType,tName);
-		loginpageta.ValidateFirstTimeLogin(tName,ft_password,password);
-		Thread.sleep(5000);
-		loginpageta.login(tName,password);
-		Thread.sleep(5000);
-		String actual_successMsg = driver.findElement(By.xpath("//div/span[1][text()='"+tName+"']")).getText();	
-		String expected_successMsg = tName;
-		System.out.println("Actual Name of the Tenant User:-" +actual_successMsg);
-		System.out.println("Expected Name of the Tenant User:-"+expected_successMsg);
-		Assert.assertEquals(actual_successMsg, expected_successMsg,"Username does not match");
-		informationpageta.validateSignOut();
-	}
 	public void validateBulkLdapUserUploadUA(String userType,String tName) throws Exception{
 		validateBulkLDAPUserUpload(userType,tName);
 		//Need to update the script because ldap configuration not done 
@@ -459,12 +418,13 @@ public class TenantUsersPageUA extends TestBase{
 		Reporter.log("User Admin signed in successfully",true);
 		Thread.sleep(5000);
 		//Click Users Tab
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", usersTab);
 		Reporter.log("Users tab is clicked",true);
 		// Click TenantUsers Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		//wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
 		js.executeScript("arguments[0].click();", tenantUsersTab);
 		Reporter.log("Tenant Users tab is clicked",true);
 		WebElement editBtn=driver.findElement(By.xpath("//div[@class='table-responsive']/table/tr/td/div[@title='"+UserName+"']/../../td/span[@title='Edit User']"));

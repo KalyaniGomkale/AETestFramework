@@ -68,10 +68,12 @@ public class AgentLogsPageWA extends TestBase{
 			startdate,String endYear,String endMonth,String EndDate ) throws Exception {
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(logsTab));
+		//wait.until(ExpectedConditions.visibilityOf(logsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", logsTab);
-		wait.until(ExpectedConditions.visibilityOf(agentLogsTab));
+		//wait.until(ExpectedConditions.visibilityOf(agentLogsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", agentLogsTab);
 		Reporter.log("Agent Logs Tab is clicked", true);
 		newRequestBtn.click();

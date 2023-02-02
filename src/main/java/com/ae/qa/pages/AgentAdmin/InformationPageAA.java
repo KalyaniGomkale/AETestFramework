@@ -65,8 +65,8 @@ public class InformationPageAA extends TestBase{
 		loginpageta.ValidateFirstTimeLogin(UserName, Pswd, password);
 		loginpageta.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
 		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(UserNameTab));
-		// UserNameTab.click();
+		//wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", UserNameTab);
 		Thread.sleep(2000);
@@ -90,7 +90,8 @@ public class InformationPageAA extends TestBase{
 		loginpageta.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
 		Reporter.log("User logged in successfully",true);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		//wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", UserNameTab);
 		Thread.sleep(2000);
@@ -131,7 +132,8 @@ public class InformationPageAA extends TestBase{
 		loginpageta.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
 		Reporter.log("User log in successfully",true);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		//wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", UserNameTab);
 		Thread.sleep(2000);
@@ -155,7 +157,8 @@ public class InformationPageAA extends TestBase{
 		loginpageta.login(AAUser,OldPswd);
 		Reporter.log("User log in successfully",true);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		//wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", UserNameTab);
 		Thread.sleep(5000);

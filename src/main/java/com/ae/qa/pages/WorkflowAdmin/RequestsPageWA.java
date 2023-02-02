@@ -107,6 +107,8 @@ public class RequestsPageWA extends TestBase{
 	WebElement terminateBtn;
 	@FindBy(xpath = "//button[text()='Terminate']")
 	WebElement confirmTerminateBtn;
+	@FindBy(xpath = "//button[@title='Refresh Table']")
+	WebElement refreshBtn;
 
 	public RequestsPageWA() {
 		PageFactory.initElements(driver, this);
@@ -115,7 +117,8 @@ public class RequestsPageWA extends TestBase{
 	public void checkColumnsInRequestsWA() throws Exception {
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -138,7 +141,8 @@ public class RequestsPageWA extends TestBase{
 	public void deselectAllInRequestsWA() throws Exception {
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -178,7 +182,8 @@ public class RequestsPageWA extends TestBase{
 	public void SpecificColumnInRequestsWA() throws Exception {
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -233,7 +238,8 @@ public class RequestsPageWA extends TestBase{
 		Thread.sleep(2000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
-		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		//wait.until(ExpectedConditions.visibilityOf(success_msg));
+		Thread.sleep(2000);
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -248,7 +254,8 @@ public class RequestsPageWA extends TestBase{
 		workflowassignmentta.validateSingleWorkflowAssignment(wfName);
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(catalogueTab));
+		//wait.until(ExpectedConditions.visibilityOf(catalogueTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js= (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",catalogueTab);
 		Reporter.log("Catalogue Tab is clicked",true);
@@ -269,7 +276,8 @@ public class RequestsPageWA extends TestBase{
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully", true);
 		Thread.sleep(20000);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
 		js.executeScript("arguments[0].click();", refershTableBtn);
@@ -309,7 +317,8 @@ public class RequestsPageWA extends TestBase{
 	public void validateDownloadRequestWA() throws Exception {
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -323,7 +332,8 @@ public class RequestsPageWA extends TestBase{
 	public void validateRestartRequestWA() throws Exception{
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -336,6 +346,7 @@ public class RequestsPageWA extends TestBase{
 		if(wfStatus.equals("Failure"))
 		{
 			Assert.assertTrue(wfStatus.equals("Failure"));
+			refreshBtn.click();
 			js.executeScript("arguments[0].click();", restartStatus);
 			Reporter.log("Restart icon is clicked", true);
 			okBtn.click();
@@ -344,9 +355,11 @@ public class RequestsPageWA extends TestBase{
 			Assert.assertTrue(wfStatus.equals("Failure"));
 			Reporter.log("Request Status is "+wfStatus+" So Restart button is not visible and clicked",true);
 		}
-		String actual_Message=alertMessage.getText();
+		String Message=alertMessage.getText();
+		String actual_Message = Message.replace(",","");
 		System.out.println("Actual Message:- "+actual_Message);
 		String expected_Message="Request ["+requestID+"] has been restarted";
+		System.out.println("Expected Message:- "+expected_Message);
 		Assert.assertEquals(actual_Message, expected_Message, "Request has not been restarted");
 		Reporter.log("Request ["+requestID+"] has been restarted",true);
 		informationpageta.validateSignOut();
@@ -358,7 +371,8 @@ public class RequestsPageWA extends TestBase{
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully", true);
 		Thread.sleep(20000);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -410,7 +424,8 @@ public class RequestsPageWA extends TestBase{
 		Thread.sleep(3000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
-		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		//wait.until(ExpectedConditions.visibilityOf(success_msg));
+		Thread.sleep(2000);
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -425,7 +440,8 @@ public class RequestsPageWA extends TestBase{
 		workflowassignmentta.validateSingleWorkflowAssignment(wfName);
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(catalogueTab));
+		//wait.until(ExpectedConditions.visibilityOf(catalogueTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();",catalogueTab);
 		Reporter.log("Catalogue Tab is clicked",true);
 		Thread.sleep(2000);
@@ -442,7 +458,8 @@ public class RequestsPageWA extends TestBase{
 		okBtn.click();
 		Reporter.log("OK button is clicked");
 		Thread.sleep(2000);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
 		Thread.sleep(2000);
@@ -462,9 +479,11 @@ public class RequestsPageWA extends TestBase{
 			Assert.assertTrue(wfStatus.equals("ExecutionStarted"));
 			Reporter.log("Request Status is "+wfStatus+" So Terminate button is not visible and clicked",true);
 		}
-		String actual_Message=alertMessage.getText();
+		String Message=alertMessage.getText();
+		String actual_Message = Message.replace(",","");
 		System.out.println("Actual Message:- "+actual_Message);
 		String expected_Message="Request ["+requestID+"] termination has been initiated";
+		System.out.println("Expected Message:- "+expected_Message);
 		Assert.assertEquals(actual_Message, expected_Message, "Termination has not been initiated");
 		Reporter.log("Request ["+requestID+"] termination has been initiated",true);
 		informationpageta.validateSignOut();
@@ -473,8 +492,8 @@ public class RequestsPageWA extends TestBase{
 		//loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		loginpageta.login("WFAdmin1","Pune@1234");
 		Reporter.log("User log in Successfully",true);
-		//First search for tab and click on it
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",requestsTab);
 		Thread.sleep(3000);

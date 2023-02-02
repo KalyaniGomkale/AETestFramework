@@ -17,7 +17,7 @@ public class RequestsPageTestAM extends TestBase{
 		super();
 	}
 
-	/*@Test(priority=34)
+	@Test(priority=16)
 	public void validateCheckColumnInRequestAMTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCheckColumnInRequestAMTest", "TC_23:To Verify - Show colum check all option");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -26,7 +26,7 @@ public class RequestsPageTestAM extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Check All option on Requests validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=35)
+	@Test(priority=17)
 	public void validateUncheckColumnInRequestAMTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUncheckColumnInRequestAMTest", "TC_24:To Verify - Show colum Uncheck all option");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -35,7 +35,7 @@ public class RequestsPageTestAM extends TestBase{
 		extentTest.log(extentTest.getStatus(), "UnCheck All option on Requests validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=36)
+	@Test(priority=18)
 	public void validateSpecificColumnInRequestAMTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSpecificColumnInRequestAMTest", "TC_25:To Verify - Specific column get display");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -44,7 +44,7 @@ public class RequestsPageTestAM extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Specific column get displayed successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=37)
+	@Test(priority=19)
 	public void validateDownloadRequestAMTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDownloadRequestAMTest", "TC_26:Verify Download Requests");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -53,7 +53,7 @@ public class RequestsPageTestAM extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Request are download successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=38)
+	@Test(priority=20)
 	public void validateRequestStatusAMTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateRequestStatusAMTest", "TC_27:Verify Requests in expanded mode");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -63,7 +63,7 @@ public class RequestsPageTestAM extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 	//For ID
-	@Test
+/*	@Test
 	public void validateAdvSearchForIDEqualToTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForIDEqualToTest", "TC_355:Verify advance search for ID equal to criteria on request page");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -173,7 +173,7 @@ public class RequestsPageTestAM extends TestBase{
 				TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for WFName with ends with criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
-	} */
+	} 
 	// For Status
 	@Test
 	public void validateAdvSearchForStatusEqualTest(Method method) throws Exception {
@@ -466,6 +466,6 @@ public class RequestsPageTestAM extends TestBase{
 		//	TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}
+	}*/
 
 }

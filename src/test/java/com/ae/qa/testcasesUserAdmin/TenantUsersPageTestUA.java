@@ -18,7 +18,7 @@ public class TenantUsersPageTestUA extends TestBase{
 		super();
 	}
 
-	/*@Test(priority=9)
+	@Test(priority=30)
 	public void validateCreateUserWithoutEmailUATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCreateUserWithoutEmailUATest", "TC_1: To verify can add Native user withput Email Id");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("UAsheetname"),method.getName());
@@ -29,7 +29,7 @@ public class TenantUsersPageTestUA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("UAsheetname"), "Pass", method.getName());
 
 	}
-	@Test(priority=88)
+	@Test(priority=31)
 	public void validateCreateUserWithEmailUATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCreateUserWithEmailUATest", "TC_3: To verify can create user with email id");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("UAsheetname"),method.getName());
@@ -40,7 +40,7 @@ public class TenantUsersPageTestUA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("UAsheetname"), "Pass", method.getName());
 
 	}
-	@Test(priority=93)
+	@Test(priority=32)
 	public void validateEditUserUATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditUserUATest", "TC_2: To verify can edit created user");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("UAsheetname"),method.getName());
@@ -51,7 +51,7 @@ public class TenantUsersPageTestUA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("UAsheetname"), "Pass", method.getName());
 
 	}
-	@Test(priority=89)
+	/*@Test(priority=33)
 	public void validateCreateLdapUserUATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCreateLdapUserUATest", "TC_4: To verify LDAP user can be created");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("UAsheetname"),method.getName());
@@ -61,29 +61,32 @@ public class TenantUsersPageTestUA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "LDAP user is created successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("UAsheetname"), "Pass", method.getName());
 
-	}
-	@Test(priority=90)
+	}*/
+	//Need to add one more validation for Bulk user upload test scripts
+	@Test(priority=33)
 	public void validateBulkUserUploadWithEmailUATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateBulkUserUploadWithEmailUATest", "TC_016 & TC_017: To verify can we upload Native Users with email id"
 				+ "                                                                               To verify can login with uploaded user");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("UAsheetname"),method.getName());
 		tenantuserspageua = new TenantUsersPageUA();
-		tenantuserspageua.validateBulkUserUploadWithEmailUA(TestDataInMap.get("userType"),TestDataInMap.get("TUser1"),TestDataInMap.get("Pswd"),TestDataInMap.get("NewPswd"));
-		extentTest.log(extentTest.getStatus(), "User is able to upload Bulk Native Users with Email ID and also login with the uploaded user");  
+		tenantuserspageua.validateBulkUserUploadEmail(TestDataInMap.get("userType"),prop.getProperty("BulkUserUploadWithEmailUA"),TestDataInMap.get("TUser1"),
+				TestDataInMap.get("Pswd"),TestDataInMap.get("NewPswd"));		
+	    extentTest.log(extentTest.getStatus(), "User is able to upload Bulk Native Users with Email ID and also login with the uploaded user");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("UAsheetname"), "Pass", method.getName());
 	}
 	//This test cases is in Regression sheet so currently skipped
-	/*@Test(priority=91)
+	@Test(priority=34)
 	public void validateBulkUserUploadWithoutEmailUATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateBulkUserUploadWithoutEmailUATest", "TC_014: To verify can we upload Native Users without email id");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("UAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("UAsheetname"),method.getName());
 		tenantuserspageua = new TenantUsersPageUA();
-		tenantuserspageua.validateBulkUserUploadWithoutEmailUA("NATIVE","F:\\Automation Edge Project\\Bulk Users\\Bulk User UA_1.csv","Agra");
+		tenantuserspageua.validateBulkUserUploadWithoutEmail(TestDataInMap.get("userType"),prop.getProperty("BulkUserUploadWithoutEmailUA"),TestDataInMap.get("TUser1"),
+				TestDataInMap.get("Pswd"),TestDataInMap.get("NewPswd"));
 		extentTest.log(extentTest.getStatus(), "User is able to upload Bulk Native Users without Email ID");  
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("UAsheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("UAsheetname"), "Pass", method.getName());
 	}
 	//Need to update the script for this test case
-	@Test(priority=92)
+	/*@Test(priority=92)
 	public void validateBulkLdapUserUploadUATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateBulkLdapUserUploadUATest", "TC_018: To verify can we upload LDAP users");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("UAsheetname"),method.getName());
@@ -93,7 +96,7 @@ public class TenantUsersPageTestUA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("UAsheetname"), "Pass", method.getName());
 	}*/
 		//For Username
-	@Test
+	/*@Test
 	public void validateAdvSearchForUserNameEqualToTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForUserNameEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
 		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -371,6 +374,6 @@ public class TenantUsersPageTestUA extends TestBase{
 		tenantuserspageua.validateStateDropdownNotEqualTo("State", "not equal to","ACTIVE","50");
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
 		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}
+	}*/
 
 }

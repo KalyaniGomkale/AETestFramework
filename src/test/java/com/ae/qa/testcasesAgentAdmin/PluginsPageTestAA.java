@@ -16,7 +16,8 @@ public class PluginsPageTestAA extends TestBase{
 	public PluginsPageTestAA() {
 		super();
 	}
-	/*@Test(priority = 16)
+	//Need to add more validation for these test scripts
+	@Test(priority = 28)
 	public void validatePluginStepsAATest(Method method) throws Exception {
 		extentTest = extent.createTest("validatePluginStepsAATest", "TC_20: Verify plugins steps");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AAsheetname"),method.getName());
@@ -25,7 +26,7 @@ public class PluginsPageTestAA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Plugins steps is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 17)
+	@Test(priority = 29)
 	public void validateWFPluginUtilizationAATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateWFPluginUtilizationAATest", "TC_21: Verify can view all workflows of particular plugin");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AAsheetname"),method.getName());
@@ -33,9 +34,9 @@ public class PluginsPageTestAA extends TestBase{
 		pluginspageaa.validateWFPluginUtilizationAA(TestDataInMap.get("ColumnName"),TestDataInMap.get("Comparator"),TestDataInMap.get("PluginName"));
 		extentTest.log(extentTest.getStatus(), "Plugin Utilization is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AAsheetname"), "Pass", method.getName());
-	}*/
+	}
 	//For Plugin Name
-	@Test
+/*	@Test
 	public void validateAdvSearchForPluginNameEqualToTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForPluginNameEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
 		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -212,6 +213,6 @@ public class PluginsPageTestAA extends TestBase{
 		pluginspageaa.validateSearchFunctionalityPluginAA("50","PS_NATIVE");
 		extentTest.log(extentTest.getStatus(), "Search field is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}
+	}*/
 
 }

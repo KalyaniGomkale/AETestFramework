@@ -17,7 +17,7 @@ public class DashboardsPageTestWA extends TestBase{
 		super();
 	}
 
-	@Test(priority = 76)  
+	@Test(priority = 49)  
 	public void  validateDashboardNoneWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDashboardNoneWATest", "TC_94: Verify create Dashboard None level");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -27,7 +27,7 @@ public class DashboardsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Dashboard at none level created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 77,dependsOnMethods="validateDashboardNoneWATest",alwaysRun=true)
+	@Test(priority = 50,dependsOnMethods="validateDashboardNoneWATest",alwaysRun=true)
 	public void validateReportNoneMultipleWFWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateReportNoneMultipleWFWA", "TC_95: Verify create Dashboard None level and of multiple workflows");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -37,7 +37,7 @@ public class DashboardsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Dashboard at none level with multiple workflows created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 78)
+	@Test(priority = 51)
 	public void  validateDashboardRelativeWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDashboardRelativeWATest", "TC_Additional: To create relative type report");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -48,7 +48,7 @@ public class DashboardsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Realtive type report is created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 79,dependsOnMethods="validateDashboardRelativeWATest",alwaysRun=true)
+	@Test(priority = 52,dependsOnMethods="validateDashboardRelativeWATest",alwaysRun=true)
 	public void validateEditDashboardToCustomWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditDashboardToCustomWATest", "TC_96 : To verify Edit Dashboard");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -59,7 +59,7 @@ public class DashboardsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Dashboard is edited successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 80)
+	@Test(priority = 53)
 	public void  validateSetAsDefaultReportWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSetAsDefaultReportWATest", "TC_97: To create relative type report");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -68,7 +68,7 @@ public class DashboardsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Realtive type report is created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 81)
+	@Test(priority = 54)
 	public void  validateDashboardTodayWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDashboardTodayWATest", "TC_Additional: To verify create today dashboard");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -80,7 +80,7 @@ public class DashboardsPageTestWA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 82,dependsOnMethods="validateDashboardTodayWATest",alwaysRun=true)
+	@Test(priority = 55,dependsOnMethods="validateDashboardTodayWATest",alwaysRun=true)
 	public void  validateDeleteDashboardWithReportWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeleteDashboardWithReportWATest", "TC_98: To verify delete dashboard");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());

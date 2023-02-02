@@ -63,8 +63,8 @@ public class InformationPageWA extends TestBase{
 		loginpageta.ValidateFirstTimeLogin(UserName, Pswd, password);
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(UserNameTab));
-		// UserNameTab.click();
+		//wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", UserNameTab);
 		Thread.sleep(2000);
@@ -88,13 +88,15 @@ public class InformationPageWA extends TestBase{
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully",true);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		//wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", UserNameTab);
 		Thread.sleep(2000);
 		js1.executeScript("arguments[0].click();", profileTab);
 		List<WebElement> Table_content = driver.findElements(By.xpath("//table[@class='profile-table']/tbody/tr/td[1]"));
-		wait.until(ExpectedConditions.visibilityOfAllElements(Table_content));
+		//wait.until(ExpectedConditions.visibilityOfAllElements(Table_content));
+		Thread.sleep(3000);
 		//List<WebElement> Table_content = driver.findElements(By.xpath("//table[@class='profile-table']/tbody/tr/td[1]"));
 		ArrayList<String> actual_content = new ArrayList<String>();
 		for (WebElement element : Table_content) {
@@ -129,7 +131,8 @@ public class InformationPageWA extends TestBase{
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User log in successfully",true);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		//wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", UserNameTab);
 		Thread.sleep(2000);
@@ -153,7 +156,8 @@ public class InformationPageWA extends TestBase{
 		loginpageta.login(WAAdmin,OldPswd);
 		Reporter.log("User log in successfully",true);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		//wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", UserNameTab);
 		Thread.sleep(5000);

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite" thread-count="1" parallel="methods">
+	<test name="AESanity">
+		<classes>
+			<class name="com.ae.qa.testcasesActivityMonitor.InformationPageTestAM">
+				<methods>
+					<include name="validateLastLoginAMTest" />
+					<include name="validateViewProfileAMTest" />
+					<include name="validateAboutTabAMTest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesAgentAdmin.InformationPageTestAA">
+				<methods>
+					<include name="validateLastLoginAATest" />
+					<include name="validateViewProfileAATest" />
+					<include name="validateAboutTabAATest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesTenantUser.InformationPageTestTU">
+				<methods>
+					<include name="validateLastLoginTUTest" />
+					<include name="validateViewProfileTUTest" />
+					<include name="validateAboutTabTUTest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesUserAdmin.InformationPageTestUA">
+				<methods>
+					<include name="validateLastLoginUATest" />
+					<include name="validateViewProfileUATest" />
+					<include name="validateAboutTabUATest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesWorkflowAdmin.InformationPageTestWA">
+				<methods>
+					<include name="validateLastLoginWATest" />
+					<include name="validateViewProfileWATest" />
+					<include name="validateAboutTabWATest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesActivityMonitor.RequestsPageTestAM">
+				<methods>
+					<include name="validateCheckColumnInRequestAMTest" />
+					<include name="validateUncheckColumnInRequestAMTest" />
+					<include name="validateSpecificColumnInRequestAMTest" />
+					<include name="validateDownloadRequestAMTest" />
+					<include name="validateRequestStatusAMTest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM">
+				<methods>
+					<include name="validateDashboardNoneAMTest" />
+					<include name="validateReportNoneMultipleWFAMTest" />
+					<include name="validateDashboardRelativeAMTest" />
+					<include name="validateEditDashboardToCustomAMTest" />
+					<include name="validateSetAsDefaultReportAMTest" />
+					<include name="validateDashboardTodayAMTest" />
+					<include name="validateDeleteDashboardAMTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesAgentAdmin.PluginsPageTestAA">
+				<methods>
+					<include name="validatePluginStepsAATest" />
+					<include name="validateWFPluginUtilizationAATest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesUserAdmin.TenantUsersPageTestUA">
+				<methods>
+					<include name="validateCreateUserWithoutEmailUATest" />
+					<include name="validateCreateUserWithEmailUATest" />
+					<include name="validateEditUserUATest" />
+					<include name="validateCreateLdapUserUATest" />
+					<include name="validateBulkUserUploadWithEmailUATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesUserAdmin.UserGroupsPageTestUA">
+				<methods>
+					<include name="validateCreateUserGroupUATest" />
+					<include name="validateEditUserGroupUATest" />
+					<include name="validateAddUserToGroupUATest" />
+					<include name="validateRemoveUserFromGroupUATest" />
+					<include name="addMultipleUserToGroupUATest" />
+					<include name="validateDeleteUserGroupUATest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesWorkflowAdmin.PluginsPageTestWA">
+				<methods>
+					<include name="validatePluginStepsWATest" />
+					<include name="validateWFPluginUtilizationWATest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesWorkflowAdmin.CategoriesPageTestWA">
+				<methods>
+					<include name="ValidateCreateCategoryWATest" />
+					<include name="ValidateEditCategoryWATest" />
+					<include name="ValidateAssignWFToCategoryWATest" />
+					<include name="ValidateRemoveWFFromCategoryWATest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesWorkflowAdmin.CredentialsPageTestWA">
+				<methods>
+					<include name="ValidateCreateCredentialsWATest" />
+					<include name="ValidateEditCredentialsWATest" />
+					<include name="ValidateMoveCredentialToPoolWATest" />
+					<include name="ValidateDeleteCredentialPoolWATest" />
+					<include name="ValidateDeleteCredentialWATest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA">
+				<methods>
+					<include name="validateDashboardNoneWATest" />
+					<include name="validateReportNoneMultipleWFWATest" />
+					<include name="validateDashboardRelativeWATest" />
+					<include name="validateEditDashboardToCustomWATest" />
+					<include name="validateSetAsDefaultReportWATest" />
+					<include name="validateDashboardTodayWATest" />
+					<include name="validateDeleteDashboardWithReportWATest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesActivityMonitor.AgentListPageTestAM">
+				<methods>
+					<include name="validateAgentDetailsAMTest" />
+					<include name="checkColumnsInAgentListAMTest" />
+					<include name="deselectAllInAgentListAMTest" />
+					<include name="SpecificColumnInAgentListAMTest" />
+					<include name="validateAssistedAgentDetailsAMTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesAgentAdmin.AgentListPageTestAA">
+				<methods>
+					<include name="validateEditAssistedAgentNameAATest" />
+					<include name="validateDeleteAssistedAgentAATest" />
+					<include name="downloadAgentAATest" />
+					<include name="checkStatusOfAgentAATest" />
+					<include name="validateEditAgentNameAATest" />
+					<include name="validateEditIPAddressTest" />
+					<include name="validateStopAgentAATest" />
+					<include name="validateDeleteAgentAATest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesTenantUser.WorkflowListPageTestTU">
+				<methods>
+					<include name="validateEditWorkflowTUTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantUser.SchedulerPageTestTU">
+				<methods>
+					<include name="validateDailyScheduleTUTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantUser.AgentListPageTestTU">
+				<methods>
+					<include name="validateAssistedAgentDownloadTUTest" />
+					<include name="validateCheckAgentStatusTUTest" />
+					<include name="validateEditAssistedAgentNameTUTest" />
+					<include name="validateAssistedAgentDeleteTUTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantUser.CataloguePageTestTU">
+				<methods>
+					<include name="validateSubmitReqDefaultCategoryTest" />
+					<include name="validateSubmitReqCustomCategoryTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantUser.RequestPageTestTU">
+				<methods>
+					<include name="validateCheckColumnInRequestTUTest" />
+					<include name="validateUncheckColumnInRequestTUTest" />
+					<include name="validateSpecificColumnInRequestTUTest" />
+					<include name="validateDownloadRequestTUTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesWorkflowAdmin.AgentListPageTestWA">
+				<methods>
+					<include name="validateAssistedAgentDownloadWATest" />
+					<include name="validateCheckAgentStatusWATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA">
+				<methods>
+					<include name="validateSubmitReqDefaultCategoryWATest" />
+					<include name="validateSubmitReqDefaultCustomWATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA">
+				<methods>
+					<include name="validateSubmitReqDefaultCategoryWATest" />
+					<include name="validateSubmitReqDefaultCustomWATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesWorkflowAdmin.RequestsPageTestWA">
+				<methods>
+					<include name="validatecheckColumnsInRequestsWATest" />
+					<include name="validatedeselectAllInRequestsWATest" />
+					<include name="validateSpecificColumnInRequestsWATest" />
+					<include name="validateRequestFailureReasonWATest" />
+					<include name="validateDownloadRequestWATest" />
+					<include name="validateRequestStatusWATest" />
+					<include name="validateRestartRequestWATest" />
+					<include name="validateTerminateRequestWATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesWorkflowAdmin.SchedulerPageTestWA">
+				<methods>
+					<include name="validateDailyScheduleWATest" />
+					<include name="validateEditDailyScheduleWATest" />
+					<include name="validateWeeklyScheduleWATest" />
+					<include name="validateEditWeeklyScheduleWATest" />
+					<include name="validateMonthlyScheduleWATest" />
+					<include name="validateEditMonthlyScheduleWATest" />
+					<include name="validateInfineScheduleWATest" />
+					<include name="validateDeleteScheduleWATest" />
+					<include name="validateEditScheduleCreateTATest" />
+					<include name="validateInactiveScheduleCreateTATest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesWorkflowAdmin.WorkflowListPageTestWA">
+				<methods>
+					<include name="validateImportWFConfigParamWATest" />
+					<include name="validateUpdateWFConfigParamCreatedByTAdminWATest" />
+					<include name="validateExportWFVerifiedWATest" />
+					<include name="validateEditWFWATest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<listeners>
+		<listener
+			class-name="com.ae.qa.Listeners.ITestListenerImplementation"></listener>
+	</listeners>
+</suite>

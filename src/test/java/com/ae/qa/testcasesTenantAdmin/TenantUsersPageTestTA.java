@@ -22,7 +22,7 @@ public class TenantUsersPageTestTA extends TestBase {
 		super();
 	}
 
-/*	@Test(priority=44)
+	@Test(priority=44)
 	public void ValidateCreatingWorkflowAdminTest(Method method) throws Exception { 
 		extentTest = extent.createTest("ValidateCreatingWorkflowAdminTest","TC_023: To verify create WF Admin");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

@@ -1,6 +1,7 @@
 package com.ae.qa.testcases;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 
 import com.ae.qa.base.TestBase;
 import com.ae.qa.pages.IntegrationServicesPage;

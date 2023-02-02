@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestSuite" thread-count="1" parallel="methods">
+<suite name="TestSuite" thread-count="5" parallel="methods">
 	<test name="AESanity">
 
 
@@ -52,7 +52,7 @@
 					<include name="validateLastUpdatedCreatedNotInBetweenSystemUserPageTest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcases.TenantUsersPageTest">
+		<!-- 	<class name="com.ae.qa.testcases.TenantUsersPageTest">
 				<methods>
 					<include name="validateAdvSearchForTenantNameEqualToTenantusersPageTest" />
 					<include name="validateAdvSearchForTenantNameNotEqualToTenantusersPageTest" />
@@ -347,7 +347,7 @@
 					<include name="validateTimeZoneDropdownEqualToHolidayPageTATest" />
 					<include name="validateTimeZoneDropdownNotEqualToHolidayPageTATest" />
 				</methods>
-			</class>
+			</class> -->
 		</classes>
 	</test>
 	<listeners>

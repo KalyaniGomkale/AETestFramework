@@ -16,7 +16,7 @@ public class AgentListPageTestAM extends TestBase{
 	public AgentListPageTestAM() {
 		super();
 	}
-	/*@Test(priority=102)
+	@Test(priority=63)//8
 	public void validateAgentDetailsAMTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAgentDetailsAMTest", "TC_14: To verify able to view Agent details");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AMsheetname"),method.getName());
@@ -25,7 +25,7 @@ public class AgentListPageTestAM extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Agent Details are verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AMsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=103)
+	@Test(priority=64)//9
 	public void checkColumnsInAgentListAMTest(Method method) throws Exception {
 		extentTest = extent.createTest("checkColumnsInAgentListAMTest", "TC_17: To verify show column Check all Option");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AMsheetname"),method.getName());
@@ -34,7 +34,7 @@ public class AgentListPageTestAM extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Show column check all option is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AMsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=104)
+	@Test(priority=65)//10
 	public void deselectAllInAgentListAMTest(Method method) throws Exception {
 		extentTest = extent.createTest("deselectAllInAgentListAMTest", "TC_18: To verify show column UnCheck all Option");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AMsheetname"),method.getName());
@@ -43,7 +43,7 @@ public class AgentListPageTestAM extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Show column Uncheck all option is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AMsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=105)
+	@Test(priority=66)//11
 	public void SpecificColumnInAgentListAMTest(Method method) throws Exception {
 		extentTest = extent.createTest("SpecificColumnInAgentListAMTest", "TC_19: To verify show column specific column get display");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AMsheetname"),method.getName());
@@ -52,7 +52,7 @@ public class AgentListPageTestAM extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Show column specific column get display is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AMsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=91)
+	@Test(priority=56)//1
 	public void  validateAssistedAgentDetailsAMTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAssistedAgentDetailsAMTest", "TC_20: To verify able to view Assisted Agent details");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AMsheetname"),method.getName());
@@ -60,9 +60,9 @@ public class AgentListPageTestAM extends TestBase{
 		agentlistpageam.validateAssistedAgentDetailsAM(TestDataInMap.get("AgentName"));
 		extentTest.log(extentTest.getStatus(), "Assisted Agent Details are verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty(""), "Pass", method.getName());
-	}*/
+	}
 	//For Agent Name
-	@Test
+/*	@Test
 	public void validateAdvSearchForAgentNameEqualToTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForAgentNameEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
 		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -186,5 +186,5 @@ public class AgentListPageTestAM extends TestBase{
 				TestDataInMap.get("AdvSearchFor"),TestDataInMap.get("AdvSearchFor2"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Execution Thread with not in range criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
-	}
+	}*/
 }

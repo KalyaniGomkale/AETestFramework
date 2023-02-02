@@ -18,7 +18,7 @@ public class SchedulerPageTestTU extends TestBase{
 		super();
 	}
 	
-	@Test(priority=61)
+	@Test(priority=68)//13
 	public void validateDailyScheduleTUTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDailyScheduleTUTest", "TC_3: To Verify create schedule");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());

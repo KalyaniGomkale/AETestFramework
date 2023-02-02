@@ -44,11 +44,12 @@ public class AgentListPageWA extends TestBase{
 
 	public void validateAssistedAgentDownloadWA(String Username,String agentName) throws Exception{
 		//firstly deleting the normal agent and then downloading the assisted agent
-		agentlistpageta.validateDeleteAgent(agentName);;
+		//agentlistpageta.validateDeleteAgent(agentName);;
 		agentlistpageta.assignAssistedAgentToUser(Username);
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		js.executeScript("arguments[0].click();", AgentListTab);
@@ -70,7 +71,8 @@ public class AgentListPageWA extends TestBase{
 	public void validateCheckAgentStatusWA() throws Exception{
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);

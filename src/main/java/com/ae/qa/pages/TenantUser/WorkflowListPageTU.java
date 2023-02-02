@@ -80,11 +80,13 @@ public class WorkflowListPageTU extends TestBase{
 	public void assignPermissionsUserWF(String Username,String wfName) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(permissionsTab));
+		//wait.until(ExpectedConditions.visibilityOf(permissionsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", permissionsTab);
 		Reporter.log("Permissions tab clicked",true);
 		Thread.sleep(4000);
@@ -121,10 +123,12 @@ public class WorkflowListPageTU extends TestBase{
 		//For workflow permissions
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(permissionsTab));
+		//wait.until(ExpectedConditions.visibilityOf(permissionsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", permissionsTab);
 		Reporter.log("Categories tab clicked",true);
 		Thread.sleep(4000);
@@ -165,8 +169,7 @@ public class WorkflowListPageTU extends TestBase{
 		informationpageta.validateSignOut();	
 	}
 
-
-	public void validateEditWorkflowTU(String wfName, String wfdes, String category, String WFImportPath, String priority,
+       public void validateEditWorkflowTU(String wfName, String wfdes, String category, String WFImportPath, String priority,
 			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit,String ConfigParamString,
 			String EditConfigParamString,String Username) throws Exception{
 		workflowpageta.ImportForm(wfName, wfdes, category, WFImportPath, priority, expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
@@ -193,7 +196,8 @@ public class WorkflowListPageTU extends TestBase{
 		assignPermissionsUserWF(Username,wfName);
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		Reporter.log("Workflow tab is clicked", true);
@@ -217,7 +221,8 @@ public class WorkflowListPageTU extends TestBase{
 		Thread.sleep(3000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
-		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		//wait.until(ExpectedConditions.visibilityOf(success_msg));
+		Thread.sleep(2000);
 		String Actual_WFEditSuccessMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_WFEditSuccessMsg);
 		String Expected_WFEditSuccessMsg = Messages.updateWorkflow;

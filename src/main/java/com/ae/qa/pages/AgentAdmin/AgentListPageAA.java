@@ -67,13 +67,12 @@ public class AgentListPageAA extends TestBase{
 
 	public void validateEditAssistedAgentNameAA(String ChangeAgentName) throws Exception{
 		loginpage.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);
-		js.executeScript("arguments[0].click();", AgentListTab);
-		Reporter.log("User navigated to Agentslist Tab",true);
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", AssistedAgentTab);
 		Reporter.log("User navigated to Assisted Agents Tab",true);
 		js.executeScript("arguments[0].click();", editBtn);
@@ -105,11 +104,12 @@ public class AgentListPageAA extends TestBase{
 	public void validateDeleteAssistedAgentAA(String agentName) throws Exception {
 		loginpage.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", AssistedAgentTab);
 		Reporter.log("User navigated to Assisted Agents Tab",true);
 		Thread.sleep(2000);
@@ -165,10 +165,12 @@ public class AgentListPageAA extends TestBase{
 	{
 		loginpage.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", AgentListTab);
 		Reporter.log("User navigated to Agent List Tab",true);
 		downloadAgentBtn.click();
@@ -199,7 +201,8 @@ public class AgentListPageAA extends TestBase{
 	public void checkStatusOfAgent() throws Exception {
 		loginpage.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);
@@ -219,7 +222,8 @@ public class AgentListPageAA extends TestBase{
 	}
 	public void validateEditAgentNameAA(String ChangeAgentName) throws Exception{
 		loginpage.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);
@@ -255,7 +259,8 @@ public class AgentListPageAA extends TestBase{
 	public void validateStopAgentAA() throws Exception{
 		loginpage.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);
@@ -297,7 +302,8 @@ public class AgentListPageAA extends TestBase{
 	public void validateDeleteAgentAA() throws Exception{
 		loginpage.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);
@@ -331,7 +337,8 @@ public class AgentListPageAA extends TestBase{
 	}
 	public void validateEditIPAddress(String ChangeIPAdress) throws Exception{
 		loginpage.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);

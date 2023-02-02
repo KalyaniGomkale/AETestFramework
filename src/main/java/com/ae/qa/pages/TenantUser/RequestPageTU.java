@@ -59,11 +59,11 @@ public class RequestPageTU extends TestBase{
 		PageFactory.initElements(driver, this);
 	}
 
-	public void validateCheckColumnInRequestTU(String Username,String wfName) throws Exception{
-		workflowpagetu.assignPermissionsUserWF(Username,wfName);
+	public void validateCheckColumnInRequestTU() throws Exception{
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -86,7 +86,8 @@ public class RequestPageTU extends TestBase{
 	public void validateUncheckColumnInRequestTU() throws Exception{
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -126,7 +127,8 @@ public class RequestPageTU extends TestBase{
 	public void validateSpecificColumnInRequestTU() throws Exception{
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -174,7 +176,8 @@ public class RequestPageTU extends TestBase{
 	public void validateDownloadRequestTU() throws Exception{
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);

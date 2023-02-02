@@ -143,7 +143,8 @@ public class WorkflowListPageWA extends TestBase{
 			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit) throws Exception {
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js= (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
@@ -217,7 +218,8 @@ public class WorkflowListPageWA extends TestBase{
 		Thread.sleep(3000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
-		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		//wait.until(ExpectedConditions.visibilityOf(success_msg));
+		Thread.sleep(2000);
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -239,7 +241,8 @@ public class WorkflowListPageWA extends TestBase{
 		js.executeScript("arguments[0].click();", saveBtn);
 		//saveBtn.click();
 		Reporter.log("Save button is clicked",true);
-		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		//wait.until(ExpectedConditions.visibilityOf(success_msg));
+		Thread.sleep(2000);
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -252,7 +255,8 @@ public class WorkflowListPageWA extends TestBase{
 		Thread.sleep(3000);
 		informationpageta.validateSignOut();
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
 		Thread.sleep(2000);
@@ -294,7 +298,8 @@ public class WorkflowListPageWA extends TestBase{
 		informationpageta.validateSignOut();
 		workflowassignmentpageta.validateSingleWorkflowAssignment(wfName);
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
-		wait.until(ExpectedConditions.visibilityOf(catalogueTab));
+		//wait.until(ExpectedConditions.visibilityOf(catalogueTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();",catalogueTab);
 		Reporter.log("Catalogue Tab is clicked",true);
 		Thread.sleep(2000);
@@ -317,11 +322,13 @@ public class WorkflowListPageWA extends TestBase{
 	public void validateExportWFVerifiedWA() throws Exception{
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowsTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(workflowListTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowListTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", workflowListTab);
 		Reporter.log("workflowList  tab clicked",true);
 		importDrpDwn.click();
@@ -360,11 +367,13 @@ public class WorkflowListPageWA extends TestBase{
 	public void validateEditWFWA(String wfname,String IconPath,String priority,String cleanUpHrs) throws Exception{
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowsTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(workflowListTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowListTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", workflowListTab);
 		Reporter.log("workflowList  tab clicked",true);
 		Thread.sleep(3000);
@@ -389,7 +398,8 @@ public class WorkflowListPageWA extends TestBase{
 		Reporter.log("Cleanup Requests older than Hours fields is set",true);
 		js.executeScript("arguments[0].click();", saveBtn);
 		Reporter.log("Save button is clicked",true);
-		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		//wait.until(ExpectedConditions.visibilityOf(success_msg));
+		Thread.sleep(2000);
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -454,7 +464,8 @@ public class WorkflowListPageWA extends TestBase{
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();",saveBtn);
 		Reporter.log("Save button is clicked",true);
-		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		//wait.until(ExpectedConditions.visibilityOf(success_msg));
+		Thread.sleep(2000);
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;

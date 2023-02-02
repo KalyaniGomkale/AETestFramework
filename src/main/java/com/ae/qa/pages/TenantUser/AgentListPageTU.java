@@ -61,7 +61,8 @@ public class AgentListPageTU extends TestBase{
 		agentlistpageta.assignAssistedAgentToUser(Username);
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		js.executeScript("arguments[0].click();", AgentListTab);
@@ -83,7 +84,8 @@ public class AgentListPageTU extends TestBase{
 	public void validateCheckAgentStatusTU() throws Exception{
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);
@@ -106,7 +108,8 @@ public class AgentListPageTU extends TestBase{
 	}
 	public void validateEditAssistedAgentNameTU(String ChangeAgentName) throws Exception{
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);
@@ -131,7 +134,8 @@ public class AgentListPageTU extends TestBase{
 	public void validateAssistedAgentDeleteTU() throws Exception{
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);

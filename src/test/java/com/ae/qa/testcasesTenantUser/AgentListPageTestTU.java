@@ -17,7 +17,7 @@ public class AgentListPageTestTU extends TestBase {
 		super();
 	}
 
-	@Test(priority=94)
+	@Test(priority=93)//26
 	public void validateAssistedAgentDownloadTUTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAssistedAgentDownloadTUTest", "TC_5: To verify can download and register Assisted Agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());
@@ -26,7 +26,7 @@ public class AgentListPageTestTU extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Assisted Agent registered successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TUsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=95)
+	@Test(priority=94)//27
 	public void validateCheckAgentStatusTUTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCheckAgentStatusTUTest", "TC_Additional: To verify check status of assisted Agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());
@@ -35,7 +35,7 @@ public class AgentListPageTestTU extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Assisted Agent status checked successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TUsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=96)
+	@Test(priority=95)//28
 	public void validateEditAssistedAgentNameTUTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditAssistedAgentNameTU", "TC_6: To verify edit assisted agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());
@@ -44,7 +44,7 @@ public class AgentListPageTestTU extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Assisted Agent name not changed successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TUsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=97)
+	@Test(priority=102)//25
 	public void validateAssistedAgentDeleteTUTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAssistedAgentDeleteTU", "TC_7: To verify delete assisted agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());

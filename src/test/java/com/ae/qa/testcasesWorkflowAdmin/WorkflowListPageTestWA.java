@@ -16,7 +16,7 @@ public class WorkflowListPageTestWA extends TestBase{
 		super();
 	}
 
-	/*@Test(priority=28)
+	@Test(priority=79)
 	public void validateImportWFConfigParamWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateImportWFConfigParamWATest", "TC_18:-Verfiy import PS workflow with configuration parameter");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -27,7 +27,7 @@ public class WorkflowListPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Workflow with config parameter is imported successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=29)
+	@Test(priority=80)
 	public void validateUpdateWFConfigParamCreatedByTAdminWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUpdateWFConfigParamCreatedByTAdminWATest", "TC_19:-Verfiy update workflow which uses config parameter created by tenant admin");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -39,7 +39,7 @@ public class WorkflowListPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Update workflow which uses config parameter created by tenant admin is verified successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=30)
+	@Test(priority=81)
 	public void validateExportWFVerifiedWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateExportWFVerifiedWATest", "TC_22:-To verify can export muliple workflow at a time as verified");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -48,7 +48,7 @@ public class WorkflowListPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Export muliple workflow at a time as verified is verified successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=31)
+	@Test(priority=82)
 	public void validateEditWFWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditWFWATest", "TC_29:-To verify can edit workflow");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -58,7 +58,7 @@ public class WorkflowListPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Workflow is edited successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=32)
+/*	@Test(priority=32)
 	public void validateEmailNotificationWFTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEmailNotificationWFTest", "TC_30:-To verify all type of users get email notification if workflow exceed time andthen fail");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());

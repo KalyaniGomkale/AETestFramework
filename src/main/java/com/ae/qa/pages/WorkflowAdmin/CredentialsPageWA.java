@@ -84,11 +84,13 @@ public class CredentialsPageWA extends TestBase{
 	{
 		loginpage.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(credentialsTab));
+		//wait.until(ExpectedConditions.visibilityOf(credentialsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", credentialsTab);
 		Reporter.log("Credentials tab clicked",true);
 		Thread.sleep(4000);
@@ -119,11 +121,13 @@ public class CredentialsPageWA extends TestBase{
 	{
 		loginpage.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(credentialsTab));
+		//wait.until(ExpectedConditions.visibilityOf(credentialsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", credentialsTab);
 		Reporter.log("Credentials tab clicked",true);
 		Thread.sleep(4000);
@@ -167,11 +171,13 @@ public class CredentialsPageWA extends TestBase{
 	{
 		loginpage.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(credentialsTab));
+		//wait.until(ExpectedConditions.visibilityOf(credentialsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", credentialsTab);
 		Reporter.log("Credentials tab clicked",true);
 		Thread.sleep(4000);
@@ -199,11 +205,13 @@ public class CredentialsPageWA extends TestBase{
 		ValidateCreateCredentialPoolWA(CredPoolName,CredPoolDescp);
 		loginpage.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(credentialsTab));
+		//wait.until(ExpectedConditions.visibilityOf(credentialsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", credentialsTab);
 		Reporter.log("Credentials tab clicked",true);
 		Thread.sleep(4000);
@@ -229,15 +237,17 @@ public class CredentialsPageWA extends TestBase{
 	public void ValidateDeleteCredentialPoolWA(String CredPoolName) throws Exception{
 		loginpage.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(credentialsTab));
+		//wait.until(ExpectedConditions.visibilityOf(credentialsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", credentialsTab);
 		Reporter.log("Credentials tab clicked",true);
 		Thread.sleep(4000);
-		WebElement deletePool_btn=driver.findElement(By.xpath("//div[@class='cat-box wf-box']/div[3]/div/b[contains(text(),'"+CredPoolName+"')]/../div/span[@title='Delete Credential Pool']"));
+		WebElement deletePool_btn=driver.findElement(By.xpath("//div/div/b[contains(text(),'"+CredPoolName+"')]/../div/span[@title='Delete Credential Pool']"));
 		//js.executeScript("arguments[0].click();", deletePool_btn);
 		deletePool_btn.click();
 		Thread.sleep(3000);
@@ -256,15 +266,17 @@ public class CredentialsPageWA extends TestBase{
 	public void ValidateDeleteCredentialWA(String CredName) throws Exception{
 		loginpage.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(credentialsTab));
+		//wait.until(ExpectedConditions.visibilityOf(credentialsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", credentialsTab);
 		Reporter.log("Credentials tab clicked",true);
 		Thread.sleep(4000);
-		WebElement delete_btn=driver.findElement(By.xpath("//div[@class='togglable-actions d-flex']/../a/span[@title='"+CredName+"']/../../div/span[@title='Delete credential']"));
+		WebElement delete_btn=driver.findElement(By.xpath("//div/a/span[contains(text(),'"+CredName+"')]/../../div/span[@title='Delete credential']"));
 		delete_btn.click();
 		Thread.sleep(3000);
 		delete_popup.click();

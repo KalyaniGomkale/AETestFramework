@@ -57,7 +57,8 @@ public class PluginsPageAA extends TestBase{
 		loginpageta.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
 		Reporter.log("User log in Successfully",true);
 		// click Plugins Tab
-		wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", pluginsTab);
 		Reporter.log("Plugins Tab is selected",true);
@@ -91,7 +92,8 @@ public class PluginsPageAA extends TestBase{
 		loginpageta.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
 		Reporter.log("User log in Successfully",true);
 		// click Plugins Tab
-		wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", pluginsTab);
 		Reporter.log("Plugins Tab is selected",true);

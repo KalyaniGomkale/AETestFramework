@@ -48,7 +48,8 @@ public class CategoriesPageUA extends TestBase{
 	public void validateReadPermissionUser(String CategoryName,String TypeName,String MemberName) throws Exception{
 		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
 		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
@@ -98,7 +99,8 @@ public class CategoriesPageUA extends TestBase{
 	public void validateWritePermissionUser(String CategoryName,String TypeName,String MemberName) throws Exception{
 		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
 		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
@@ -149,11 +151,13 @@ public class CategoriesPageUA extends TestBase{
 	public void validateExecutePermissionUser(String CategoryName,String TypeName,String MemberName) throws Exception{
 		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
 		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(permissionsTab));
+		//wait.until(ExpectedConditions.visibilityOf(permissionsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", permissionsTab);
 		Reporter.log("Permissions tab clicked",true);
 		Thread.sleep(4000);

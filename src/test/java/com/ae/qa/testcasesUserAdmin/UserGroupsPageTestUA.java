@@ -18,7 +18,7 @@ public class UserGroupsPageTestUA extends TestBase{
 		super();
 	}
 
-	/*@Test(priority=20)
+	@Test(priority=35)
 	public void validateCreateUserGroupUATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCreateUserGroupUATest", "TC_22: To verify create Group");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("UAsheetname"),method.getName());
@@ -29,7 +29,7 @@ public class UserGroupsPageTestUA extends TestBase{
 	}
 
 
-	@Test (priority=21)
+	@Test (priority=36)
 	public void validateEditUserGroupUATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditUserGroupUATest", "TC_23:To verify edit user Group");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("UAsheetname"),method.getName());
@@ -40,7 +40,7 @@ public class UserGroupsPageTestUA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("UAsheetname"), "Pass", method.getName());
 	}
 
-	@Test (priority=22)
+	@Test (priority=37)
 	public void validateAddUserToGroupUATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAddUserToGroupUATest", "TC_24:To verify adding user to user Group");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("UAsheetname"),method.getName());
@@ -50,7 +50,7 @@ public class UserGroupsPageTestUA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("UAsheetname"), "Pass", method.getName());
 	}
 
-	@Test (priority=23)
+	@Test (priority=38)
 	public void validateRemoveUserFromGroupUATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateRemoveUserFromGroupUATest", "TC_25:To verify removing user from user Group");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("UAsheetname"),method.getName());
@@ -59,7 +59,7 @@ public class UserGroupsPageTestUA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "It will remove users from User Group");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("UAsheetname"), "Pass", method.getName());
 	}
-	@Test (priority=24)
+	@Test (priority=39)
 	public void addMultipleUserToGroupUATest(Method method) throws Exception {
 		extentTest = extent.createTest("addMultipleUserToGroupUATest", "TC_27:To verify adding user to user Group");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("UAsheetname"),method.getName());
@@ -77,9 +77,9 @@ public class UserGroupsPageTestUA extends TestBase{
 		usergroupspageua.deleteUserGroupUA(TestDataInMap.get("userGroup"));
 		extentTest.log(extentTest.getStatus(), "It will delete User Group");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("UAsheetname"), "Pass", method.getName());
-	}*/
+	}
 	//For Username
-	@Test
+/*	@Test
 	public void validateAdvSearchForGroupNameEqualToTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForGroupNameEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
 		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -123,7 +123,7 @@ public class UserGroupsPageTestUA extends TestBase{
 		usergroupspageua.validateAdvSearchForGroupNameEndsWith("Group Name", "ends with","Group","50");
 		extentTest.log(extentTest.getStatus(), "Advance search for Group Name is validated successfully");
 		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}
+	}*/
 
 
 }

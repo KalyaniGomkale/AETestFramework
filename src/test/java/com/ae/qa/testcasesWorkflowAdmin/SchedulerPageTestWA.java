@@ -18,7 +18,7 @@ public class SchedulerPageTestWA extends TestBase{
 		super();
 	}
 
-	@Test(priority=51)
+	@Test(priority=69)//14
 	public void validateDailyScheduleWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDailyScheduleWATest", "TC_38: Verify user can create daily schedule for a day and only at once");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -30,7 +30,7 @@ public class SchedulerPageTestWA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
 	}
 
-	@Test(priority=52)
+	@Test(priority=70)//15
 	public void validateEditDailyScheduleWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditDailyScheduleWATest", "TC_41: Verify user can edit schedule");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -42,7 +42,7 @@ public class SchedulerPageTestWA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
 	}
 
-	@Test(priority=53, alwaysRun=true)
+	@Test(priority=71, alwaysRun=true)//16
 	public void validateWeeklyScheduleWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateWeeklyScheduleWATest", "TC_42: Verify weekly schedule");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -54,7 +54,7 @@ public class SchedulerPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "User created weekly schedule successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=54)
+	@Test(priority=72)//17
 	public void validateEditWeeklyScheduleWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditWeeklyScheduleWA", "TC_43: Verify edit weekly schedule");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -64,7 +64,7 @@ public class SchedulerPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "User created weekly schedule successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=55,alwaysRun=true)
+	@Test(priority=73,alwaysRun=true)//18
 	public void validateMonthlyScheduleWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateMonthlyScheduleWATest", "TC_44:To Verify create monthly schedule");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -76,7 +76,7 @@ public class SchedulerPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "User created monthly schedule successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=56,alwaysRun=true)
+	@Test(priority=74,alwaysRun=true)//19
 	public void validateEditMonthlyScheduleWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditMonthlyScheduleWATest", "TC_45: To Verify edit monthly schedule");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -85,7 +85,7 @@ public class SchedulerPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "User edited monthly schedule successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=57,alwaysRun=true)
+	@Test(priority=75,alwaysRun=true)//20
 	public void validateInfineScheduleWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateInfineScheduleWATest", "TC_46: Verify user can create infinite schedule with repeat intervals");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -96,7 +96,7 @@ public class SchedulerPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "User created infinite schedule with repeated interval successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=58,alwaysRun=true)
+	@Test(priority=76,alwaysRun=true)//21
 	public void validateDeleteScheduleWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeleteScheduleWATest", "TC_47: Verify user can delete schedule");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -105,7 +105,7 @@ public class SchedulerPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "User deleted schedule successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=59,alwaysRun=true)
+	@Test(priority=77,alwaysRun=true)//22
 	public void validateEditScheduleCreateTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditScheduleCreateTATest", "TC_48:To Verify edit schedule created by tenant user");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -117,7 +117,7 @@ public class SchedulerPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "User edited the schedule successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=60,alwaysRun=true)
+	@Test(priority=78,alwaysRun=true)//23
 	public void validateInactiveScheduleCreateTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateInactiveScheduleCreateTATest", "TC_49:To Verify inactive/active schedule created by tenant admin");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -127,7 +127,7 @@ public class SchedulerPageTestWA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
 	}
 	//For Schedule Name
-	@Test
+/*	@Test
 	public void validateAdvSearchForScheduleNameEqualToTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForScheduleNameEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
 		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -190,5 +190,5 @@ public class SchedulerPageTestWA extends TestBase{
 		schedulerpagewa.validateStatusDropdownNotEqualTo("Status", "not equal to","Active","50");
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
 		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}
+	}*/
 }

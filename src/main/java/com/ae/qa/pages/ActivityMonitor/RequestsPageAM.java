@@ -64,7 +64,8 @@ public class RequestsPageAM extends TestBase{
 	public void validateCheckColumnInRequestAM() throws Exception{
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -87,7 +88,8 @@ public class RequestsPageAM extends TestBase{
 	public void validateUncheckColumnInRequestAM() throws Exception{
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -127,7 +129,8 @@ public class RequestsPageAM extends TestBase{
 	public void validateSpecificColumnInRequestAM() throws Exception{
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -175,7 +178,8 @@ public class RequestsPageAM extends TestBase{
 	public void validateDownloadRequestAM() throws Exception{
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -193,7 +197,8 @@ public class RequestsPageAM extends TestBase{
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User logged in successfully", true);
 		Thread.sleep(20000);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -236,7 +241,8 @@ public class RequestsPageAM extends TestBase{
 		loginpageta.login("AMRani1","Pune@1234");
 		Reporter.log("User log in Successfully",true);
 		//First search for tab and click on it
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",requestsTab);
 		Thread.sleep(3000);

@@ -21,6 +21,7 @@ import com.ae.qa.pagesTenantAdmin.InformationPageTA;
 import com.ae.qa.pagesTenantAdmin.LoginPageTA;
 import com.ae.qa.pagesTenantAdmin.RequestsPageTA;
 import com.ae.qa.pagesTenantAdmin.SchedulerPageTA;
+import com.ae.qa.pagesTenantAdmin.WorkflowAssignmentPageTA;
 import com.ae.qa.util.CommonWebElements;
 import com.ae.qa.util.Messages;
 
@@ -98,6 +99,8 @@ public class SchedulerPageWA extends TestBase{
 	WebElement inf_startMin;
 	@FindBy(xpath="//button[text()='Delete']")
 	WebElement deletePopupBtn;
+	@FindBy(xpath="//button[@title='Refresh Table']")
+	WebElement refreshBtn;
 
 	public SchedulerPageWA() {
 		PageFactory.initElements(driver, this);
@@ -107,13 +110,17 @@ public class SchedulerPageWA extends TestBase{
 			String endMonth,String endYear,String enddate,String scheduleType,String timezone,String Hrs,String Mins) throws Exception {
 		// Remaining is how to fetch time and then apply to scheduler
 		//(String wfName,String wfdes,String category,String wfPath,String priority,String expTime,String maxTime, String cleanUpHrs,String manExeTime,String tUnit
+		WorkflowAssignmentPageTA wfassignmentpageta = new WorkflowAssignmentPageTA();
+		wfassignmentpageta.validateSingleWorkflowAssignment(wfName);
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
-		wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		//wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", schedulerTab);
 		Reporter.log("Scheduler tab clicked",true);
 		js.executeScript("arguments[0].click();", addNewBtn);
@@ -176,11 +183,13 @@ public class SchedulerPageWA extends TestBase{
 			String RepeatAfter,String RepeatPeriod,String endTimeHour,String endTimeMinute) throws Exception {
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
 		js_tenant.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
-		wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		//wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", schedulerTab);
 		Reporter.log("Scheduler tab clicked",true);
@@ -231,7 +240,8 @@ public class SchedulerPageWA extends TestBase{
 			String RepeatAfter,String RepeatPeriod,String endTimeHour, String endTimeMinute) throws Exception {
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
@@ -322,11 +332,13 @@ public class SchedulerPageWA extends TestBase{
 			String RepeatAfter,String RepeatPeriod) throws Exception {
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
 		js_tenant.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
-		wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		//wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", schedulerTab);
 		Reporter.log("Scheduler tab clicked",true);
@@ -365,11 +377,13 @@ public class SchedulerPageWA extends TestBase{
 			String Day,String RepeatAfter, String RepeatPeriod,String EndTime) throws Exception {
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
 		js_tenant.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
-		wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		//wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", schedulerTab);
 		Reporter.log("Scheduler tab clicked",true);
@@ -456,11 +470,13 @@ public class SchedulerPageWA extends TestBase{
 	public void validateEditMonthlyScheduleWA(String schedulename,String StartTime,String ScheduleMonth) throws Exception {
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
 		js_tenant.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
-		wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		//wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", schedulerTab);
 		Reporter.log("Scheduler tab clicked",true);
@@ -495,11 +511,13 @@ public class SchedulerPageWA extends TestBase{
 			String endTimeHour, String endTimeMinute) throws Exception {
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
 		js_tenant.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
-		wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		//wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", schedulerTab);
 		Reporter.log("Scheduler tab clicked",true);
@@ -574,11 +592,13 @@ public class SchedulerPageWA extends TestBase{
 	public void validateDeleteScheduleWA(String schedulename,String scheduleDescrip) throws Exception {
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
 		js_tenant.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
-		wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		//wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", schedulerTab);
 		Reporter.log("Scheduler tab clicked",true);
@@ -611,27 +631,26 @@ public class SchedulerPageWA extends TestBase{
 	public void validateInactiveScheduleCreateTA(String schedulename) throws Exception{
 		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
 		js_tenant.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
-		wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		//wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", schedulerTab);
 		Reporter.log("Scheduler tab clicked",true);
-		WebElement slideBar=driver.findElement(By.xpath("//table/tr/td[text()='"+schedulename+"']/../td/label"));
+		WebElement slideBar=driver.findElement(By.xpath("//table/tr/td[text()='"+schedulename+"']/../td/label/span"));
 		slideBar.click();
 		Reporter.log("Status Slider bar is clicked",true);
-		Thread.sleep(3000);
-		/*Boolean triggerTimeline=driver.findElement(By.xpath("//table/tr/td[text()='"+schedulename+"']/../td/span[@id='trigger-timeline']")).isDisplayed();
-		System.out.println(triggerTimeline);
-		if(triggerTimeline){
-			Reporter.log("Schedule is in Active state",true);
-			Assert.assertTrue(triggerTimeline);
-		} else {
-			Reporter.log("Schedule is in Inactive state",true);	
-			Assert.assertFalse(triggerTimeline);
-		}*/
+		Thread.sleep(2000);
+		/*WebElement SliderBarColor = driver.findElement(By.xpath("//table/tr/td[text()='"+schedulename+"']/../td/label/span"));
+		String actual_SliderBarColor = SliderBarColor.getCssValue("background-color");
+		Reporter.log("Actual Slider Bar Color:-"+actual_SliderBarColor);
+		String expected_SliderBarColor = prop.getProperty("GreySlider");
+		Reporter.log("Expected Slider Bar Color:-"+expected_SliderBarColor);
+		Assert.assertEquals(actual_SliderBarColor,expected_SliderBarColor, "Slider Color did not match");*/
 		Reporter.log("Schedule created by Tenant admin is made Inactive successfully",true);
 		informationpageta.validateSignOut();
 	}

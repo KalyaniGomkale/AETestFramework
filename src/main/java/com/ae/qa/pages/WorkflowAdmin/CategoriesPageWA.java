@@ -58,11 +58,13 @@ public class CategoriesPageWA extends TestBase{
 	{
 		loginpage.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(categories));
+		//wait.until(ExpectedConditions.visibilityOf(categories));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", categories);
 		Reporter.log("Categories tab clicked",true);
 		Thread.sleep(4000);
@@ -88,11 +90,13 @@ public class CategoriesPageWA extends TestBase{
 	{
 		loginpage.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(categories));
+		//wait.until(ExpectedConditions.visibilityOf(categories));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", categories);
 		Reporter.log("Categories tab clicked",true);
 		Thread.sleep(4000);
@@ -124,11 +128,13 @@ public class CategoriesPageWA extends TestBase{
 	{
 		loginpage.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(categories));
+		//wait.until(ExpectedConditions.visibilityOf(categories));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", categories);
 		Reporter.log("Categories tab clicked",true);
 		Thread.sleep(4000);
@@ -155,11 +161,13 @@ public class CategoriesPageWA extends TestBase{
 	{
 		loginpage.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
 		Reporter.log("User LogIn Succesfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		System.out.println("workflowTab clicked");
-		wait.until(ExpectedConditions.visibilityOf(categories));
+		//wait.until(ExpectedConditions.visibilityOf(categories));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", categories);
 		Reporter.log("Categories tab clicked",true);
 		Thread.sleep(4000);

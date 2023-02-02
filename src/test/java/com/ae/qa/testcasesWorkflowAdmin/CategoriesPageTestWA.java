@@ -19,7 +19,7 @@ CategoriesPageWA categoriespagewa;
 		super();
 	}
 	
-	 @Test(priority=97)
+	 @Test(priority=42)
 	   public void ValidateCreateCategoryWATest(Method method) throws Exception
 	   {
 		   extentTest = extent.createTest("ValidateCreateCategoryWATest", "TC_52: To verify can create catagory with mandotary field only");
@@ -30,7 +30,7 @@ CategoriesPageWA categoriespagewa;
 		   ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	   }
 	 
-	   @Test(priority=98)
+	   @Test(priority=43)
 	   public void ValidateEditCategoryWATest(Method method) throws Exception
 	   {
 		   extentTest = extent.createTest("ValidateEditCategoryWATest", "TC_53: To verify edit category");
@@ -40,7 +40,7 @@ CategoriesPageWA categoriespagewa;
 		   extentTest.log(extentTest.getStatus(), "Category edited successfully");  
 		   ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	   }
-	   @Test(priority=99)
+	   @Test(priority=44)
 	   public void ValidateAssignWFToCategoryWATest(Method method) throws Exception
 	   {
 		   extentTest = extent.createTest("ValidateAssignWFToCategoryWATest", "TC_54: To verify user can assign workflow to category");
@@ -50,7 +50,7 @@ CategoriesPageWA categoriespagewa;
 		   extentTest.log(extentTest.getStatus(), "Workflow assigned to categories successfully");  
 		   ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	   }
-	   @Test(priority=100)
+	   @Test(priority=45)
 	      public void ValidateRemoveWFFromCategoryWATest(Method method) throws Exception
 	      {
 	   	   extentTest = extent.createTest("ValidateRemoveWFFromCategoryWATest", "TC_55: To verify user can remove workflow from category");

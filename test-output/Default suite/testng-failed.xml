@@ -3,27 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA">
+      <class name="com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA">
         <methods>
-          <include name="validateAdvSearchForLastNameBeginsWithTenantuserPageTATest" invocation-numbers="0"/>
           <include name="endReport"/>
-          <include name="validateAdvSearchForUserNameBeginsWithTenantuserPageTATest" invocation-numbers="0"/>
-          <include name="validateStateDropdownNotEqualToTenantuserPageTATest" invocation-numbers="0"/>
-          <include name="validateAdvSearchForFirstNameBeginsWithTenantuserPageTATest" invocation-numbers="0"/>
-          <include name="validateAdvSearchForFirstNameIsLikeTenantuserPageTATest" invocation-numbers="0"/>
-          <include name="validateAdvSearchForLastNameNotEqualToTenantuserPageTATest" invocation-numbers="0"/>
-          <include name="validateAdvSearchForUserNameEqualToTenantuserPageTATest" invocation-numbers="0"/>
-          <include name="validateAdvSearchForUserNameNotEqualToTenantuserPageTATest" invocation-numbers="0"/>
-          <include name="validateStateDropdownEqualToTenantuserPageTATest" invocation-numbers="0"/>
-          <include name="initialization"/>
-          <include name="validateAdvSearchForFirstNameEndsWithTenantuserPageTATest" invocation-numbers="0"/>
-          <include name="validateAdvSearchForUserNameEndsWithTenantuserPageTATest" invocation-numbers="0"/>
           <include name="setExtent"/>
-          <include name="validateAdvSearchForLastNameIsLikeTenantuserPageTATest" invocation-numbers="0"/>
-          <include name="validateAdvSearchForLastNameEndsWithTAdminTenantuserPageTest" invocation-numbers="0"/>
+          <include name="initialization"/>
           <include name="getResult"/>
+          <include name="validateSubmitReqCustomCategoryWATest" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA -->
+      </class> <!-- com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

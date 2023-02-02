@@ -74,15 +74,18 @@ public class SchedulerPageTU extends TestBase{
 		// Remaining is how to fetch time and then apply to scheduler
 		//(String wfName,String wfdes,String category,String wfPath,String priority,String expTime,String maxTime, String cleanUpHrs,String manExeTime,String tUnit
 		wfassignmentpageta.validateSingleWorkflowAssignment(wfName);
-		loginpageta.login(prop.getProperty("username_TU2"), prop.getProperty("password_TU2"));
+		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
-		wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		//wait.until(ExpectedConditions.elementToBeClickable(schedulerTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", schedulerTab);
 		Reporter.log("Scheduler tab clicked",true);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", addNewBtn);
 		Reporter.log("Add new Button clicked",true);
 		Thread.sleep(5000);

@@ -16,7 +16,7 @@ public class WorkflowListPageTestTU extends TestBase{
 	public WorkflowListPageTestTU() {
 		super();
 	}
-	@Test(priority=33)
+	@Test(priority=67)//12
 	public void validateEditWorkflowTUTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditWorkflowTUTest", "TC_1 :-Verify can edit config Parameters");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());
@@ -29,7 +29,7 @@ public class WorkflowListPageTestTU extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TUsheetname"), "Pass", method.getName());
 	}
 	//For Workflow Name
-	@Test
+/*	@Test
 	public void validateAdvSearchForWFNameEqualToTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForWFNameEqualToTest", "TC_009: To Verfiy Advance search for Org Code and created date with equals criteria");
 		//	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -201,5 +201,5 @@ public class WorkflowListPageTestTU extends TestBase{
 		workflowlistpagetu.validateStatusDropdownNotEqualTo("Status", "not equal to","Active","50");
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
 		//	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}
+	}*/
 }

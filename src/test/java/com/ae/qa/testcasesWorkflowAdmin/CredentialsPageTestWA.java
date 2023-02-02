@@ -20,7 +20,7 @@ public class CredentialsPageTestWA extends TestBase{
 
 	}
 	
-	@Test(priority=25)
+	@Test(priority=46)
 	public void ValidateCreateCredentialsWATest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateCreateCredentialsWATest", "TC_57: To verify user can create credentials");
@@ -31,7 +31,7 @@ public class CredentialsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Credentials Created successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=26)
+	@Test(priority=47)
 	public void ValidateEditCredentialsWATest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateEditCredentialsWATest", "TC_58: To verify user can edit credentials");
@@ -43,7 +43,7 @@ public class CredentialsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Credentials Edited successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=27)
+	@Test(priority=48)
 	public void ValidateMoveCredentialToPoolWATest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateMoveCredentialToPoolWATest", "TC_59: To verify user can move credential to credential pool");
@@ -54,7 +54,7 @@ public class CredentialsPageTestWA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
 	//closure activities
-	/*@Test(priority=560)
+	@Test(priority=560)
 	public void ValidateDeleteCredentialPoolWATest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateDeleteCredentialPoolWATest", "TC_60: To verify user can delete credential pool");
@@ -67,11 +67,11 @@ public class CredentialsPageTestWA extends TestBase{
 	@Test(priority=561)
 	public void ValidateDeleteCredentialWATest(Method method) throws Exception
 	{
-		extentTest = extent.createTest("ValidateDeleteCredentialTest", "TC_226: To verify user can delete credential");
+		extentTest = extent.createTest("ValidateDeleteCredentialTest", "TC_61: To verify user can delete credential");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
 		credentialspagewa = new CredentialsPageWA();
 		credentialspagewa.ValidateDeleteCredentialWA(TestDataInMap.get("CredName"));
 		extentTest.log(extentTest.getStatus(), "Credential deleted Successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
-	}*/
+	}
 }

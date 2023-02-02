@@ -66,7 +66,8 @@ public class InformationPageAM extends TestBase{
 		loginpageta.ValidateFirstTimeLogin(UserName, Pswd, Newpassword);
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		//wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		Thread.sleep(3000);
 		// UserNameTab.click();
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", UserNameTab);
@@ -91,7 +92,8 @@ public class InformationPageAM extends TestBase{
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User logged in successfully",true);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		//wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", UserNameTab);
 		Thread.sleep(2000);
@@ -132,7 +134,8 @@ public class InformationPageAM extends TestBase{
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User log in successfully",true);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		//wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", UserNameTab);
 		Thread.sleep(2000);
@@ -156,7 +159,8 @@ public class InformationPageAM extends TestBase{
 		loginpageta.login(AMUser,OldPswd);
 		Reporter.log("User log in successfully",true);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		//wait.until(ExpectedConditions.visibilityOf(UserNameTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("arguments[0].click();", UserNameTab);
 		Thread.sleep(5000);

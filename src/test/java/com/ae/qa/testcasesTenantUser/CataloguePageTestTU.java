@@ -15,23 +15,14 @@ public class CataloguePageTestTU extends TestBase{
 	public CataloguePageTestTU() {
 		super();
 	}
-	//Skipped due to UI Changes
-	/*@Test(priority=67)
-	public void validateSubmitReqDefaultCategoryTest(Method method) throws Exception {
-	   extentTest = extent.createTest("validateSubmitReqDefaultCategory", "TC_8: Verify can submit request for default category");
-	   //Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	@Test(priority=96)//29
+	public void validateSubmitReqDefaultCategoryTUTest(Method method) throws Exception {
+	   extentTest = extent.createTest("validateSubmitReqDefaultTUCategory", "TC_8: Verify can submit request for default category");
+	   Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());
 	   cataloguepagetu = new CataloguePageTU(); 
-	   cataloguepagetu.validateSubmitReqDefaultCategory("TenantUserWF1","Default");
+	   cataloguepagetu.validateSubmitReqDefaultCategory(TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),prop.getProperty("WFToImportPath"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),
+				TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"),TestDataInMap.get("TUser1"),TestDataInMap.get("TUser2"),TestDataInMap.get("Permission"));
 	   extentTest.log(extentTest.getStatus(), "Request from default category is submitted successfully");  
-	   ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+	   ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TUsheetname"), "Pass", method.getName());	
   }
-	@Test(priority=68)
-	public void validateSubmitReqCustomCategoryTest(Method method) throws Exception {
-	   extentTest = extent.createTest("validateSubmitReqCustomCategoryTest", "TC_9: Verify can submit request for custom category");
-	   //Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
-	   cataloguepagetu = new CataloguePageTU(); 
-	   cataloguepagetu.validateSubmitReqDefaultCategory("TenantUserWF","WebGUI");
-	   extentTest.log(extentTest.getStatus(), "Request from custom category is submitted successfully");  
-	   ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
-  }*/
 }

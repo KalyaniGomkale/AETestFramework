@@ -126,7 +126,8 @@ public class DashboardsPageTU extends TestBase{
 			dashboardDuration) throws Exception{
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(reportsTab));
+		//wait.until(ExpectedConditions.visibilityOf(reportsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",reportsTab);
 		Reporter.log("Reports Tab is clicked", true);
@@ -171,7 +172,8 @@ public class DashboardsPageTU extends TestBase{
 	public void makeReportUsingWFTU(String dashboardTitle,String reportTypeValue,String wfName1) throws Exception{
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(reportsTab));
+		//wait.until(ExpectedConditions.visibilityOf(reportsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",reportsTab);
 		Reporter.log("Reports Tab is clicked", true);
@@ -269,7 +271,8 @@ public class DashboardsPageTU extends TestBase{
 			String startdate,String startMonth,String startYear,String enddate,String endMonth,String endYear) throws Exception {
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(reportsTab));
+		//wait.until(ExpectedConditions.visibilityOf(reportsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",reportsTab);
 		Reporter.log("Reports Tab is clicked", true);
@@ -332,7 +335,8 @@ public class DashboardsPageTU extends TestBase{
 	public void validateSetAsDefaultReportTU(String dashboardTitle) throws Exception {
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(reportsTab));
+		//wait.until(ExpectedConditions.visibilityOf(reportsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",reportsTab);
 		Reporter.log("Reports Tab is clicked", true);
@@ -378,7 +382,8 @@ public class DashboardsPageTU extends TestBase{
 	public void validateDeleteDashboardWithReportTU(String dashboardTitle) throws Exception {
 		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(reportsTab));
+		//wait.until(ExpectedConditions.visibilityOf(reportsTab));
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",reportsTab);
 		Reporter.log("Reports Tab is clicked", true);

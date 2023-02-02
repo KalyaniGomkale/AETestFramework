@@ -69,14 +69,16 @@ public class UserGroupsPageUA extends TestBase{
 	public void createUserGroupUA(String groupName, String description) throws Exception {
 		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		///wait.until(ExpectedConditions.visibilityOf(usersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", usersTab);
 		// Click UserGroups Tab
-		wait.until(ExpectedConditions.visibilityOf(userGroupsTab));
+		//wait.until(ExpectedConditions.visibilityOf(userGroupsTab));
 		js.executeScript("arguments[0].click();", userGroupsTab);
 		// click add new
-		wait.until(ExpectedConditions.visibilityOf(addBtnUG));
+		//wait.until(ExpectedConditions.visibilityOf(addBtnUG));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", addBtnUG);
 		Reporter.log("started creating new User Group",true);
 		groupNameField.sendKeys(groupName);
@@ -96,11 +98,13 @@ public class UserGroupsPageUA extends TestBase{
 	public void editUserGroupUA(String groupName, String updateDescrp) throws Exception {
 		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", usersTab);
 		// Click UserGroups Tab
-		wait.until(ExpectedConditions.visibilityOf(userGroupsTab));
+		//wait.until(ExpectedConditions.visibilityOf(userGroupsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", userGroupsTab);
 		Thread.sleep(2000);		
 		WebElement editBtn=driver.findElement(By.xpath("//table/tr/td/div[contains(text(),'"+groupName+"')]/../../td/span[1]"));
@@ -125,11 +129,13 @@ public class UserGroupsPageUA extends TestBase{
 	public void addUserToGroupUA(String groupName,String user1) throws Exception {
 		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", usersTab);
 		Reporter.log("Users Tab clicked",true);
-		wait.until(ExpectedConditions.visibilityOf(userGroupsTab));
+		//wait.until(ExpectedConditions.visibilityOf(userGroupsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", userGroupsTab);
 		Reporter.log("UsersGroup Tab clicked",true);
 		Thread.sleep(2000);	
@@ -159,11 +165,13 @@ public class UserGroupsPageUA extends TestBase{
 	public void removeUserFromGroupUA(String groupName,String user1) throws Exception {
 		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", usersTab);
 		Reporter.log("Users tab clicked",true);
-		wait.until(ExpectedConditions.visibilityOf(userGroupsTab));
+		//wait.until(ExpectedConditions.visibilityOf(userGroupsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", userGroupsTab);
 		Reporter.log("Users group tab clicked",true);
 		Thread.sleep(2000);	
@@ -191,11 +199,13 @@ public class UserGroupsPageUA extends TestBase{
 	public void addMultipleUserToGroupUA(String groupName,String user1,String user2) throws Exception {
 		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", usersTab);
 		Reporter.log("Users Tab clicked",true);
-		wait.until(ExpectedConditions.visibilityOf(userGroupsTab));
+		//wait.until(ExpectedConditions.visibilityOf(userGroupsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", userGroupsTab);
 		Reporter.log("UsersGroup Tab clicked",true);
 		Thread.sleep(2000);	
@@ -236,11 +246,13 @@ public class UserGroupsPageUA extends TestBase{
 	public void deleteUserGroupUA(String groupName) throws Exception {
 		loginpageta.login(prop.getProperty("username_UA"), prop.getProperty("password_UA"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", usersTab);
 		Reporter.log("Users tab clicked",true);
-		wait.until(ExpectedConditions.visibilityOf(userGroupsTab));
+		//wait.until(ExpectedConditions.visibilityOf(userGroupsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", userGroupsTab);
 		Reporter.log("Users group tab clicked",true);
 		Thread.sleep(3000);
