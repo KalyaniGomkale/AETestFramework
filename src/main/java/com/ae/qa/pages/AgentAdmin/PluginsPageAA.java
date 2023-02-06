@@ -58,11 +58,12 @@ public class PluginsPageAA extends TestBase{
 		Reporter.log("User log in Successfully",true);
 		// click Plugins Tab
 		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", pluginsTab);
 		Reporter.log("Plugins Tab is selected",true);
-		advanceSearch.click();
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();", advanceSearch);
 		Reporter.log("Advanced Search is Clicked",true);
 		Thread.sleep(2000);
 		Select columnSelector_drpdown = new Select(columnSelector);
@@ -93,11 +94,12 @@ public class PluginsPageAA extends TestBase{
 		Reporter.log("User log in Successfully",true);
 		// click Plugins Tab
 		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", pluginsTab);
 		Reporter.log("Plugins Tab is selected",true);
-		advanceSearch.click();
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();", advanceSearch);
 		Reporter.log("Advanced Search is Clicked",true);
 		Thread.sleep(2000);
 		Select columnSelector_drpdown = new Select(columnSelector);
