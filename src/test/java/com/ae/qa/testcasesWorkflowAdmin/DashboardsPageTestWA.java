@@ -79,10 +79,19 @@ public class DashboardsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Today dashboard is created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-
-	@Test(priority = 55,dependsOnMethods="validateDashboardTodayWATest",alwaysRun=true)
+	@Test(priority = 604)
+	public void  validateReportCustomWATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateReportCustomWATest", "TC_Additional: To verify add report to custom dashboard");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
+		dashboardspagewa= new DashboardsPageWA();
+		dashboardspagewa.validateReportCustom(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),TestDataInMap.get("ReportWF1"),TestDataInMap.get("PageSize"),
+				TestDataInMap.get("reportTypeName"));
+		extentTest.log(extentTest.getStatus(), "Report is added successfully to custom dashboard");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
+	}
+    @Test(priority = 605,dependsOnMethods="validateReportCustomWATest",alwaysRun=true)
 	public void  validateDeleteDashboardWithReportWATest(Method method) throws Exception {
-		extentTest = extent.createTest("validateDeleteDashboardWithReportWATest", "TC_98: To verify delete dashboard");
+		extentTest = extent.createTest("validateDeleteDashboardWithReportWATest", "TC_98: To verify delete dashboard with report");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
 		dashboardspagewa= new DashboardsPageWA();
 		dashboardspagewa.validateDeleteDashboardWithReportWA(TestDataInMap.get("dashboardTitle"));

@@ -68,8 +68,8 @@ public class AgentListPageTestAA extends TestBase{
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AAsheetname"), "Pass", method.getName());
 	}
 	@Test(priority=62)//7
-	public void validateEditIPAddressTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateEditIPAddressTest", "TC_10: To verify edit IP Address");
+	public void validateEditIPAddressAATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateEditIPAddressAATest", "TC_10: To verify edit IP Address");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AAsheetname"),method.getName());
 		agentlistpageaa = new AgentListPageAA();
 		agentlistpageaa.validateEditIPAddress(TestDataInMap.get("AgentIPAddress"));	

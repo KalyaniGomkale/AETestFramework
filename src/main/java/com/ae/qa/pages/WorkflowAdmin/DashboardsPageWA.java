@@ -112,6 +112,8 @@ public class DashboardsPageWA extends TestBase{
 	WebElement endMin;
 	@FindBy(xpath="//a[@id='add-chart']")
 	WebElement addAsChart;
+	@FindBy(xpath="//div[@class='report-card-grid']/div/p[1]")
+	WebElement updatedReportTitle;
 	@FindBy(xpath="//span[text()='Delete Dashboard']")
 	WebElement deleteDashboard;
 	@FindBy(xpath="//button[text()='Delete']")
@@ -329,6 +331,40 @@ public class DashboardsPageWA extends TestBase{
 		Reporter.log("Expected Success Msg:" + expected_message1,true);
 		Assert.assertEquals(actual_message1,expected_message1, "Dashboard not edited");
 		Reporter.log("Dashboard at Custom level updated successfully",true);
+		informationpageta.validateSignOut();
+	}
+	public void validateReportCustom(String dashboardTitle,String reportTypeValue,String wfName1,String PageSize,
+			String NewReportTitle) throws Exception {
+		makeReportUsingWFWA(dashboardTitle,reportTypeValue,wfName1);
+		Select pageSize_dropdown=new Select(pageSize);
+		pageSize_dropdown.selectByVisibleText(PageSize);
+		Thread.sleep(3000);
+		generateBtn.click();
+		Reporter.log("Generate button selected successfully",true);
+		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		AddAs.click();
+		Thread.sleep(2000);
+		addAsTable.click();
+		Reporter.log("Report added as a Table",true);
+		for(int i=0;i<60;i++) {
+			changeReportTitle.sendKeys(Keys.BACK_SPACE);
+		}
+		Thread.sleep(2000);
+		changeReportTitle.sendKeys(NewReportTitle);
+		Thread.sleep(2000);
+		saveBtn.click();
+		//driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		Thread.sleep(3000);
+		String Actual_savedReport=alertMessage.getText();
+		String Expected_savedReport=Messages.reportAddition;
+		Assert.assertEquals(Actual_savedReport,Expected_savedReport,"Report created successfully");
+		Reporter.log("Report saved on screen",true);
+		//validation of name
+		Thread.sleep(3000);
+		String Actual_reportName=updatedReportTitle.getText();
+		String Expected_reportName=NewReportTitle;
+		Assert.assertEquals(Actual_reportName,Expected_reportName,"Report doesn't displayed on screen successfully");
+		Reporter.log("Report " +NewReportTitle+" displayed on screen successfully",true);
 		informationpageta.validateSignOut();
 	}
 	public void validateSetAsDefaultReportWA(String dashboardTitle) throws Exception {

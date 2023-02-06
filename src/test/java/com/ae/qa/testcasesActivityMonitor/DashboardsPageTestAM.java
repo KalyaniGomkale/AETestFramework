@@ -78,13 +78,22 @@ public class DashboardsPageTestAM extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Today dashboard is created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AMsheetname"), "Pass", method.getName());
 	}
-   @Test(priority = 27,alwaysRun=true)
-	public void  validateDeleteDashboardAMTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateDeleteDashboardAMTest", "TC_34: To verify delete dashboard");
+	@Test(priority = 600)
+	public void  validateReportCustomAMTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateReportCustomAMTest", "TC_Additional: To verify add report to custom dashboard");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AMsheetname"),method.getName());
 		dashboardspageam= new DashboardsPageAM();
-	    dashboardspageam.validateDeleteDashboardAM(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),TestDataInMap.get("ReportWF1"),TestDataInMap.get("PageSize"),
-	    		TestDataInMap.get("reportTypeName"));
+		dashboardspageam.validateReportCustom(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),TestDataInMap.get("ReportWF1"),TestDataInMap.get("PageSize"),
+				TestDataInMap.get("reportTypeName"));
+		extentTest.log(extentTest.getStatus(), "Report is added successfully to custom dashboard");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AMsheetname"), "Pass", method.getName());
+	}
+	@Test(priority = 601,dependsOnMethods="validateReportCustomAMTest",alwaysRun=true)
+	public void  validateDeleteDashboardWithReportAMTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateDeleteDashboardWithReportAMTest", "TC_34: To verify delete dashboard with report");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AMsheetname"),method.getName());
+		dashboardspageam= new DashboardsPageAM();
+		dashboardspageam.validateDeleteDashboardAM(TestDataInMap.get("dashboardTitle"));
 		extentTest.log(extentTest.getStatus(), "Dashboard is deleted successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AMsheetname"), "Pass", method.getName());
 	}

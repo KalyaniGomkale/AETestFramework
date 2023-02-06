@@ -414,13 +414,11 @@ public class DashboardsPageAM extends TestBase{
 		Reporter.log("Dashboard at None level created successfully",true);
 		informationpageta.validateSignOut();
 	}
-	public void validateDeleteDashboardAM(String dashboardTitle,String reportTypeValue,String wfName1,String PageSize,
-			String NewReportTitle) throws Exception {
-		validateReportCustom(dashboardTitle,reportTypeValue,wfName1,PageSize,NewReportTitle);
+	public void validateDeleteDashboardAM(String dashboardTitle) throws Exception {
 		loginpageta.login(prop.getProperty("username_AM"), prop.getProperty("password_AM"));
 		Reporter.log("User logged in successfully", true);
 		//wait.until(ExpectedConditions.visibilityOf(reportsTab));
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",reportsTab);
 		Reporter.log("Reports Tab is clicked", true);

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.testng.annotations.Test;
 
 import com.ae.qa.base.TestBase;
+import com.ae.qa.pages.ActivityMonitor.DashboardsPageAM;
 import com.ae.qa.pages.TenantUser.DashboardsPageTU;
 import com.ae.qa.util.ExcelHandler;
 
@@ -78,10 +79,19 @@ public class DashboardsPageTestTU extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Today dashboard is created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TUsheetname"), "Pass", method.getName());
 	}
-
-	@Test(priority = 75,dependsOnMethods="validateDashboardTodayTUTest",alwaysRun=true)
+	@Test(priority = 602)
+	public void  validateReportCustomTUTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateReportCustomTUTest", "TC_Additional: To verify add report to custom dashboard");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());
+		dashboardspagetu= new DashboardsPageTU();
+		dashboardspagetu.validateReportCustom(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),TestDataInMap.get("ReportWF1"),TestDataInMap.get("PageSize"),
+				TestDataInMap.get("reportTypeName"));
+		extentTest.log(extentTest.getStatus(), "Report is added successfully to custom dashboard");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TUsheetname"), "Pass", method.getName());
+	}
+	@Test(priority = 603,dependsOnMethods="validateReportCustomTUTest",alwaysRun=true)
 	public void  validateDeleteDashboardWithReportTUTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateDeleteDashboardWithReportTUTest", "TC_20: To verify delete dashboard");
+		extentTest = extent.createTest("validateDeleteDashboardWithReportTUTest", "TC_20: To verify delete dashboard with report");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());
 		dashboardspagetu= new DashboardsPageTU();
 		dashboardspagetu.validateDeleteDashboardWithReportTU(TestDataInMap.get("dashboardTitle"));

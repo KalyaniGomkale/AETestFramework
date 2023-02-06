@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Feb 03 16:06:53 IST 2023</td>
+<td>Started on:</td><td>Mon Feb 06 11:10:14 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>88 seconds (88374 ms)</td>
+<tr><td>Total time:</td><td>105 seconds (105984 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,8 +75,8 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM.endReport()'><b>endReport</b><br>Test class: com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM</td>
-<td><div><pre>java.lang.RuntimeException: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0151.INDPRD01.PROD.OUTLOOK.COM 2023-02-03T10:38:21.236Z 08DB0572B7343E16]
+<td title='com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA.endReport()'><b>endReport</b><br>Test class: com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA</td>
+<td><div><pre>java.lang.RuntimeException: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN2PR01CA0080.INDPRD01.PROD.OUTLOOK.COM 2023-02-06T05:42:00.441Z 08DB078D0E8716E5]
 
 	at com.ae.qa.util.SendMail.sendExtentReport(SendMail.java:79)
 	at com.ae.qa.base.TestBase.endReport(TestBase.java:218)
@@ -104,7 +104,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0151.INDPRD01.PROD.OUTLOOK.COM 2023-02-03T10:38:21.236Z 08DB0572B7343E16]
+Caused by: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN2PR01CA0080.INDPRD01.PROD.OUTLOOK.COM 2023-02-06T05:42:00.441Z 08DB078D0E8716E5]
 
 	at com.sun.mail.smtp.SMTPTransport$Authenticator.authenticate(SMTPTransport.java:965)
 	at com.sun.mail.smtp.SMTPTransport.authenticate(SMTPTransport.java:876)
@@ -116,8 +116,8 @@ Caused by: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication 
 	at javax.mail.Transport.send(Transport.java:124)
 	at com.ae.qa.util.SendMail.sendExtentReport(SendMail.java:76)
 	... 25 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace1950069658", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1950069658'><pre>java.lang.RuntimeException: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0151.INDPRD01.PROD.OUTLOOK.COM 2023-02-03T10:38:21.236Z 08DB0572B7343E16]
+</pre></div><a href='#' onClick='toggleBox("stack-trace1498944673", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1498944673'><pre>java.lang.RuntimeException: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN2PR01CA0080.INDPRD01.PROD.OUTLOOK.COM 2023-02-06T05:42:00.441Z 08DB078D0E8716E5]
 
 	at com.ae.qa.util.SendMail.sendExtentReport(SendMail.java:79)
 	at com.ae.qa.base.TestBase.endReport(TestBase.java:218)
@@ -145,7 +145,7 @@ Caused by: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication 
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0151.INDPRD01.PROD.OUTLOOK.COM 2023-02-03T10:38:21.236Z 08DB0572B7343E16]
+Caused by: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN2PR01CA0080.INDPRD01.PROD.OUTLOOK.COM 2023-02-06T05:42:00.441Z 08DB078D0E8716E5]
 
 	at com.sun.mail.smtp.SMTPTransport$Authenticator.authenticate(SMTPTransport.java:965)
 	at com.sun.mail.smtp.SMTPTransport.authenticate(SMTPTransport.java:876)
@@ -158,22 +158,41 @@ Caused by: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication 
 	at com.ae.qa.util.SendMail.sendExtentReport(SendMail.java:76)
 	... 25 more
 </pre></div></td>
-<td>10</td>
-<td>com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19</td></tr>
+<td>7</td>
+<td>com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA@2e54db99</td></tr>
 </table><p>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM.validateDeleteDashboardAMTest()'><b>validateDeleteDashboardAMTest</b><br>Test class: com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM<br>Parameters: public void com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM.validateDeleteDashboardAMTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
-<a href="#Output-591247593" onClick='toggleBox("Output-591247593", this, "Show output", "Hide output");'>Show output</a>
+<td title='com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA.validateDeleteDashboardWithReportWATest()'><b>validateDeleteDashboardWithReportWATest</b><br>Test class: com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA<br>Parameters: public void com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA.validateDeleteDashboardWithReportWATest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-1944370016" onClick='toggleBox("Output-1944370016", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-591247593" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-591247593">
+<a href="#Output-1944370016" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1944370016">
+User logged in successfully<br/>
+Reports Tab is clicked<br/>
+Dashboard chosed successfully<br/>
+Delete Dashboard option clicked<br/>
+Delete button clicked on popup<br/>
+After deleting dashboard with report, actual message get is: Dashboard Deleted successfully<br/>
+Dashboard with report deleted successfully<br/>
+User signed out successfully<br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA@2e54db99</td></tr>
+<tr>
+<td title='com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA.validateReportCustomWATest()'><b>validateReportCustomWATest</b><br>Test class: com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA<br>Parameters: public void com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA.validateReportCustomWATest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-270313690" onClick='toggleBox("Output-270313690", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-270313690" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-270313690">
 User logged in successfully<br/>
 Reports Tab is clicked<br/>
 Dashboard chosed successfully<br/>
@@ -186,107 +205,11 @@ Report added as a Table<br/>
 Report saved on screen<br/>
 Report Custom Report KG displayed on screen successfully<br/>
 User signed out successfully<br/>
-User logged in successfully<br/>
 </div>
 </td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=109.0.5414.120)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-5VHKQUJ&apos;, ip: &apos;192.168.0.102&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.2&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49779}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 84331b86614cb32b4b4d12fd7bf3e706
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:489)
-	at com.ae.qa.pages.ActivityMonitor.DashboardsPageAM.validateDeleteDashboardAM(DashboardsPageAM.java:425)
-	at com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM.validateDeleteDashboardAMTest(DashboardsPageTestAM.java:86)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace591247593", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace591247593'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=109.0.5414.120)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-5VHKQUJ&apos;, ip: &apos;192.168.0.102&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.2&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49779}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 84331b86614cb32b4b4d12fd7bf3e706
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:489)
-	at com.ae.qa.pages.ActivityMonitor.DashboardsPageAM.validateDeleteDashboardAM(DashboardsPageAM.java:425)
-	at com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM.validateDeleteDashboardAMTest(DashboardsPageTestAM.java:86)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>71</td>
-<td>com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19</td></tr>
+<td></td>
+<td>66</td>
+<td>com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA@2e54db99</td></tr>
 </table><p>
 </body>
 </html>

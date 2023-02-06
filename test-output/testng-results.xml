@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[User logged in successfully]]>
@@ -40,90 +40,49 @@
     <line>
       <![CDATA[User logged in successfully]]>
     </line>
+    <line>
+      <![CDATA[Reports Tab is clicked]]>
+    </line>
+    <line>
+      <![CDATA[Dashboard chosed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Delete Dashboard option clicked]]>
+    </line>
+    <line>
+      <![CDATA[Delete button clicked on popup]]>
+    </line>
+    <line>
+      <![CDATA[After deleting dashboard with report, actual message get is: Dashboard Deleted successfully]]>
+    </line>
+    <line>
+      <![CDATA[Dashboard with report deleted successfully]]>
+    </line>
+    <line>
+      <![CDATA[User signed out successfully]]>
+    </line>
   </reporter-output>
-  <suite started-at="2023-02-03T10:36:53Z" name="Default suite" finished-at="2023-02-03T10:38:22Z" duration-ms="88374">
+  <suite started-at="2023-02-06T05:40:14Z" name="Default suite" finished-at="2023-02-06T05:42:00Z" duration-ms="105984">
     <groups>
     </groups>
-    <test started-at="2023-02-03T10:36:53Z" name="Default test" finished-at="2023-02-03T10:38:22Z" duration-ms="88374">
-      <class name="com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM">
-        <test-method is-config="true" signature="setExtent()[pri:0, instance:com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19]" started-at="2023-02-03T10:36:53Z" name="setExtent" finished-at="2023-02-03T10:36:53Z" duration-ms="183" status="PASS">
+    <test started-at="2023-02-06T05:40:14Z" name="Default test" finished-at="2023-02-06T05:42:00Z" duration-ms="105984">
+      <class name="com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA">
+        <test-method is-config="true" signature="setExtent()[pri:0, instance:com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA@2e54db99]" started-at="2023-02-06T05:40:14Z" name="setExtent" finished-at="2023-02-06T05:40:14Z" duration-ms="187" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setExtent -->
-        <test-method is-config="true" signature="initialization()[pri:0, instance:com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19]" started-at="2023-02-03T10:36:53Z" name="initialization" finished-at="2023-02-03T10:36:59Z" duration-ms="6044" status="PASS">
+        <test-method is-config="true" signature="initialization()[pri:0, instance:com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA@2e54db99]" started-at="2023-02-06T05:40:14Z" name="initialization" finished-at="2023-02-06T05:40:18Z" duration-ms="4288" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialization -->
-        <test-method signature="validateDeleteDashboardAMTest(java.lang.reflect.Method)[pri:27, instance:com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19]" started-at="2023-02-03T10:36:59Z" name="validateDeleteDashboardAMTest" finished-at="2023-02-03T10:38:11Z" duration-ms="71476" status="FAIL">
+        <test-method signature="validateReportCustomWATest(java.lang.reflect.Method)[pri:604, instance:com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA@2e54db99]" started-at="2023-02-06T05:40:18Z" name="validateReportCustomWATest" finished-at="2023-02-06T05:41:25Z" duration-ms="66606" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM.validateDeleteDashboardAMTest(java.lang.reflect.Method) throws java.lang.Exception]]>
+                <![CDATA[public void com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA.validateReportCustomWATest(java.lang.reflect.Method) throws java.lang.Exception]]>
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.StaleElementReferenceException">
-            <message>
-              <![CDATA[stale element reference: element is not attached to the page document
-  (Session info: chrome=109.0.5414.120)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-5VHKQUJ', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49779}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 84331b86614cb32b4b4d12fd7bf3e706]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=109.0.5414.120)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-5VHKQUJ', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49779}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 84331b86614cb32b4b4d12fd7bf3e706
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:489)
-at com.ae.qa.pages.ActivityMonitor.DashboardsPageAM.validateDeleteDashboardAM(DashboardsPageAM.java:425)
-at com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM.validateDeleteDashboardAMTest(DashboardsPageTestAM.java:86)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:567)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
           <reporter-output>
             <line>
               <![CDATA[User logged in successfully]]>
@@ -161,30 +120,77 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
             <line>
               <![CDATA[User signed out successfully]]>
             </line>
-            <line>
-              <![CDATA[User logged in successfully]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- validateDeleteDashboardAMTest -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19]" started-at="2023-02-03T10:38:11Z" name="getResult" finished-at="2023-02-03T10:38:11Z" duration-ms="347" status="PASS">
+        </test-method> <!-- validateReportCustomWATest -->
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA@2e54db99]" started-at="2023-02-06T05:41:25Z" name="getResult" finished-at="2023-02-06T05:41:25Z" duration-ms="344" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateDeleteDashboardAMTest status=FAILURE method=DashboardsPageTestAM.validateDeleteDashboardAMTest(java.lang.reflect.Method)[pri:27, instance:com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19] output=User logged in successfully]]]>
+                <![CDATA[[TestResult name=validateReportCustomWATest status=SUCCESS method=DashboardsPageTestWA.validateReportCustomWATest(java.lang.reflect.Method)[pri:604, instance:com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA@2e54db99] output=User logged in successfully]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="endReport()[pri:0, instance:com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19]" started-at="2023-02-03T10:38:11Z" name="endReport" finished-at="2023-02-03T10:38:22Z" duration-ms="10282" status="FAIL">
+        <test-method is-config="true" signature="initialization()[pri:0, instance:com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA@2e54db99]" started-at="2023-02-06T05:41:25Z" name="initialization" finished-at="2023-02-06T05:41:31Z" duration-ms="5190" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialization -->
+        <test-method signature="validateDeleteDashboardWithReportWATest(java.lang.reflect.Method)[pri:605, instance:com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA@2e54db99]" started-at="2023-02-06T05:41:31Z" name="validateDeleteDashboardWithReportWATest" finished-at="2023-02-06T05:41:52Z" depends-on-methods="com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA.validateReportCustomWATest" duration-ms="21122" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA.validateDeleteDashboardWithReportWATest(java.lang.reflect.Method) throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[User logged in successfully]]>
+            </line>
+            <line>
+              <![CDATA[Reports Tab is clicked]]>
+            </line>
+            <line>
+              <![CDATA[Dashboard chosed successfully]]>
+            </line>
+            <line>
+              <![CDATA[Delete Dashboard option clicked]]>
+            </line>
+            <line>
+              <![CDATA[Delete button clicked on popup]]>
+            </line>
+            <line>
+              <![CDATA[After deleting dashboard with report, actual message get is: Dashboard Deleted successfully]]>
+            </line>
+            <line>
+              <![CDATA[Dashboard with report deleted successfully]]>
+            </line>
+            <line>
+              <![CDATA[User signed out successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- validateDeleteDashboardWithReportWATest -->
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA@2e54db99]" started-at="2023-02-06T05:41:52Z" name="getResult" finished-at="2023-02-06T05:41:52Z" duration-ms="363" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=validateDeleteDashboardWithReportWATest status=SUCCESS method=DashboardsPageTestWA.validateDeleteDashboardWithReportWATest(java.lang.reflect.Method)[pri:605, instance:com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA@2e54db99] output=User logged in successfully]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method is-config="true" signature="endReport()[pri:0, instance:com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA@2e54db99]" started-at="2023-02-06T05:41:52Z" name="endReport" finished-at="2023-02-06T05:42:00Z" duration-ms="7837" status="FAIL">
           <exception class="java.lang.RuntimeException">
             <message>
-              <![CDATA[javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0151.INDPRD01.PROD.OUTLOOK.COM 2023-02-03T10:38:21.236Z 08DB0572B7343E16]
+              <![CDATA[javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN2PR01CA0080.INDPRD01.PROD.OUTLOOK.COM 2023-02-06T05:42:00.441Z 08DB078D0E8716E5]
 ]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0151.INDPRD01.PROD.OUTLOOK.COM 2023-02-03T10:38:21.236Z 08DB0572B7343E16]
+              <![CDATA[java.lang.RuntimeException: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN2PR01CA0080.INDPRD01.PROD.OUTLOOK.COM 2023-02-06T05:42:00.441Z 08DB078D0E8716E5]
 
 at com.ae.qa.util.SendMail.sendExtentReport(SendMail.java:79)
 at com.ae.qa.base.TestBase.endReport(TestBase.java:218)
@@ -212,7 +218,7 @@ at org.testng.TestNG.run(TestNG.java:1017)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0151.INDPRD01.PROD.OUTLOOK.COM 2023-02-03T10:38:21.236Z 08DB0572B7343E16]
+Caused by: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN2PR01CA0080.INDPRD01.PROD.OUTLOOK.COM 2023-02-06T05:42:00.441Z 08DB078D0E8716E5]
 
 at com.sun.mail.smtp.SMTPTransport$Authenticator.authenticate(SMTPTransport.java:965)
 at com.sun.mail.smtp.SMTPTransport.authenticate(SMTPTransport.java:876)
@@ -230,7 +236,7 @@ at com.ae.qa.util.SendMail.sendExtentReport(SendMail.java:76)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endReport -->
-      </class> <!-- com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM -->
+      </class> <!-- com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

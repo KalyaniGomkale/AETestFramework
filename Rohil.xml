@@ -62,6 +62,7 @@
 					<include name="validateEditDashboardToCustomAMTest" />
 					<include name="validateSetAsDefaultReportAMTest" />
 					<include name="validateDashboardTodayAMTest" />
+					<include name="validateReportCustomAMTest" />
 					<include name="validateDeleteDashboardAMTest" />
 				</methods>
 			</class>
@@ -126,7 +127,21 @@
 					<include name="validateEditDashboardToCustomWATest" />
 					<include name="validateSetAsDefaultReportWATest" />
 					<include name="validateDashboardTodayWATest" />
+					<include name="validateReportCustomWATest" />
 					<include name="validateDeleteDashboardWithReportWATest" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestTU">
+				<methods>
+					<include name="validateDashboardNoneTUTest" />
+					<include name="validateReportNoneMultipleWFTUTest" />
+					<include name="validateDashboardRelativeTUTest" />
+					<include name="validateEditDashboardToCustomTUTest" />
+					<include name="validateSetAsDefaultReportTUTest" />
+					<include name="validateDashboardTodayTUTest" />
+					<include name="validateReportCustomTUTest" />
+					<include name="validateDeleteDashboardWithReportTUTest" />
 				</methods>
 			</class>
 			<class
