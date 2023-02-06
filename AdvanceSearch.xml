@@ -22,7 +22,7 @@
       <class name="com.ae.qa.testcases.InformationPageTest"/>
       <class name="com.ae.qa.testcases.TenantsPageTest"/>
       <class name="com.ae.qa.testcases.TenantUsersPageTest"/>
-      <class name="com.ae.qa.testcases.ArtifactsPageTest"/>
+      <class name="com.ae.qa.testcases.ArtifactsPageTest1"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- AdvancedSearch -->
