@@ -27,7 +27,7 @@ public class DashboardsPageTestTU extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Dashboard at none level created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TUsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 70,dependsOnMethods="validateDashboardNoneTUTest",alwaysRun=true)
+	@Test(priority = 610,dependsOnMethods="validateDashboardNoneTUTest",alwaysRun=true)
 	public void validateReportNoneMultipleWFTUTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateReportNoneMultipleWFTU", "TC_17: Verify create Dashboard None level and of multiple workflows");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());
@@ -48,7 +48,7 @@ public class DashboardsPageTestTU extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Realtive type report is created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TUsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 72,alwaysRun=true)
+	@Test(priority = 72)
 	public void validateEditDashboardToCustomTUTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditDashboardToCustomTUTest", "TC_18 : To verify Edit Dashboard");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());
@@ -79,7 +79,7 @@ public class DashboardsPageTestTU extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Today dashboard is created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TUsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 602)
+	@Test(priority = 606,alwaysRun=true)
 	public void  validateReportCustomTUTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateReportCustomTUTest", "TC_Additional: To verify add report to custom dashboard");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());
@@ -89,7 +89,7 @@ public class DashboardsPageTestTU extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Report is added successfully to custom dashboard");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TUsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 603,dependsOnMethods="validateReportCustomTUTest",alwaysRun=true)
+	@Test(priority = 607,dependsOnMethods="validateReportCustomTUTest",alwaysRun=true)
 	public void  validateDeleteDashboardWithReportTUTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeleteDashboardWithReportTUTest", "TC_20: To verify delete dashboard with report");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());
