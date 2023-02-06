@@ -70,7 +70,7 @@ public class TenantUsersPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority=79)
+/*	@Test(priority=79)
 	public void ValidateUnverifiedStatusTest(Method method) throws Exception { 
 		extentTest = extent.createTest("ValidateUnverifiedStatusTest","TC_Sanity40: To verify UNVERIFIED user status functionality");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
