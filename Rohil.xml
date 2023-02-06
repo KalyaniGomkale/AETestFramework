@@ -132,7 +132,7 @@
 				</methods>
 			</class>
 			<class
-				name="com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestTU">
+				name="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU">
 				<methods>
 					<include name="validateDashboardNoneTUTest" />
 					<include name="validateReportNoneMultipleWFTUTest" />
