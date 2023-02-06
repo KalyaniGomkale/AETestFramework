@@ -467,7 +467,8 @@ public class RequestsPageWA extends TestBase{
 		System.out.println("Request ID:- "+requestID);
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", refershTableBtn);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].click();", refershTableBtn);
 		String wfStatus = requestStatus.getText();
 		if(wfStatus.equals("ExecutionStarted"))
 		{

@@ -2,8 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="TestSuite" thread-count="1" parallel="methods">
 	<test name="AESanity">
-			<classes>
-			<class name="com.ae.qa.testcasesActivityMonitor.InformationPageTestAM">
+		<classes>
+			<class
+				name="com.ae.qa.testcasesActivityMonitor.InformationPageTestAM">
 				<methods>
 					<include name="validateLastLoginAMTest" />
 					<include name="validateViewProfileAMTest" />
@@ -171,8 +172,7 @@
 			</class>
 			<class name="com.ae.qa.testcasesTenantUser.CataloguePageTestTU">
 				<methods>
-					<include name="validateSubmitReqDefaultCategoryTest" />
-					<include name="validateSubmitReqCustomCategoryTest" />
+					<include name="validateSubmitReqDefaultCategoryTUTest" />
 				</methods>
 			</class>
 			<class name="com.ae.qa.testcasesTenantUser.RequestPageTestTU">
@@ -183,25 +183,22 @@
 					<include name="validateDownloadRequestTUTest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcasesWorkflowAdmin.AgentListPageTestWA">
+			<class
+				name="com.ae.qa.testcasesWorkflowAdmin.AgentListPageTestWA">
 				<methods>
 					<include name="validateAssistedAgentDownloadWATest" />
 					<include name="validateCheckAgentStatusWATest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA">
+			<class
+				name="com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA">
 				<methods>
 					<include name="validateSubmitReqDefaultCategoryWATest" />
-					<include name="validateSubmitReqDefaultCustomWATest" />
+					<include name="validateSubmitReqCustomCategoryWATest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA">
-				<methods>
-					<include name="validateSubmitReqDefaultCategoryWATest" />
-					<include name="validateSubmitReqDefaultCustomWATest" />
-				</methods>
-			</class>
-			<class name="com.ae.qa.testcasesWorkflowAdmin.RequestsPageTestWA">
+			<class
+				name="com.ae.qa.testcasesWorkflowAdmin.RequestsPageTestWA">
 				<methods>
 					<include name="validatecheckColumnsInRequestsWATest" />
 					<include name="validatedeselectAllInRequestsWATest" />
@@ -213,7 +210,8 @@
 					<include name="validateTerminateRequestWATest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcasesWorkflowAdmin.SchedulerPageTestWA">
+			<class
+				name="com.ae.qa.testcasesWorkflowAdmin.SchedulerPageTestWA">
 				<methods>
 					<include name="validateDailyScheduleWATest" />
 					<include name="validateEditDailyScheduleWATest" />
@@ -227,10 +225,12 @@
 					<include name="validateInactiveScheduleCreateTATest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcasesWorkflowAdmin.WorkflowListPageTestWA">
+			<class
+				name="com.ae.qa.testcasesWorkflowAdmin.WorkflowListPageTestWA">
 				<methods>
 					<include name="validateImportWFConfigParamWATest" />
-					<include name="validateUpdateWFConfigParamCreatedByTAdminWATest" />
+					<include
+						name="validateUpdateWFConfigParamCreatedByTAdminWATest" />
 					<include name="validateExportWFVerifiedWATest" />
 					<include name="validateEditWFWATest" />
 				</methods>

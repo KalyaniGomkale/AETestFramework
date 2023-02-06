@@ -18,7 +18,7 @@ public class RequestsPageTestWA extends TestBase{
 		super();
 	}
 
-	/*@Test(priority=83)
+	@Test(priority=83)
 	public void validatecheckColumnsInRequestsWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validatecheckColumnsInRequestsWATest", "TC_64:To Verify - Show colum check all option");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
@@ -73,7 +73,7 @@ public class RequestsPageTestWA extends TestBase{
 		requestspagewa.validateRequestStatusWA();
 		extentTest.log(extentTest.getStatus(), "Request are verfied successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
-	}*/
+	}
 	@Test(priority=89)
 	public void validateRestartRequestWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateRestartRequestWATest", "TC_70:Verify Manual Restart of workflow");
@@ -83,7 +83,7 @@ public class RequestsPageTestWA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Request has been restarted successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
 	}
-	/*@Test(priority=90)
+	@Test(priority=90)
 	public void validateTerminateRequestWATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateTerminateRequestWATest", "TC_71: Verify Terminate workflow");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());

@@ -5,46 +5,34 @@
       <![CDATA[User logged in successfully]]>
     </line>
     <line>
-      <![CDATA[Workflows Tab is clicked]]>
+      <![CDATA[Reports Tab is clicked]]>
     </line>
     <line>
-      <![CDATA[Import button clicked]]>
+      <![CDATA[Dashboard chosed successfully]]>
     </line>
     <line>
-      <![CDATA[assisted Workflow is selected]]>
+      <![CDATA[Add report is clicked]]>
     </line>
     <line>
-      <![CDATA[assisted Workflow is unselected]]>
+      <![CDATA[Report Type selected successfully]]>
     </line>
     <line>
-      <![CDATA[Create Button is clicked]]>
+      <![CDATA[Generate on Worklfows radio button already selected]]>
     </line>
     <line>
-      <![CDATA[Priority is set]]>
+      <![CDATA[one workflow is selected]]>
     </line>
     <line>
-      <![CDATA[Expected Completion Time in Seconds is set]]>
+      <![CDATA[Generate button selected successfully]]>
     </line>
     <line>
-      <![CDATA[Maximum Completion Time in Seconds is set]]>
+      <![CDATA[Report added as a Table]]>
     </line>
     <line>
-      <![CDATA[Cleanup Requests older than Hours fields is set]]>
+      <![CDATA[Report saved on screen]]>
     </line>
     <line>
-      <![CDATA[Manual Execution Time is set]]>
-    </line>
-    <line>
-      <![CDATA[Manual Execution time unit is set]]>
-    </line>
-    <line>
-      <![CDATA[Save button is clicked]]>
-    </line>
-    <line>
-      <![CDATA[Workflow updated]]>
-    </line>
-    <line>
-      <![CDATA[Workflow is enabled successfully]]>
+      <![CDATA[Report Custom Report KG displayed on screen successfully]]>
     </line>
     <line>
       <![CDATA[User signed out successfully]]>
@@ -52,56 +40,62 @@
     <line>
       <![CDATA[User logged in successfully]]>
     </line>
-    <line>
-      <![CDATA[Catalogue Tab is clicked]]>
-    </line>
-    <line>
-      <![CDATA[Workflow whose request needs to be send is selected]]>
-    </line>
-    <line>
-      <![CDATA[Submit request button is clicked]]>
-    </line>
-    <line>
-      <![CDATA[Actual Popup Box:- Failure!]]>
-    </line>
-    <line>
-      <![CDATA[Expected Popup Box:- Success!]]>
-    </line>
   </reporter-output>
-  <suite started-at="2023-02-02T07:22:01Z" name="Default suite" finished-at="2023-02-02T07:23:21Z" duration-ms="79433">
+  <suite started-at="2023-02-03T10:36:53Z" name="Default suite" finished-at="2023-02-03T10:38:22Z" duration-ms="88374">
     <groups>
     </groups>
-    <test started-at="2023-02-02T07:22:01Z" name="Default test" finished-at="2023-02-02T07:23:21Z" duration-ms="79433">
-      <class name="com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA">
-        <test-method is-config="true" signature="setExtent()[pri:0, instance:com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA@7b64240d]" started-at="2023-02-02T07:22:01Z" name="setExtent" finished-at="2023-02-02T07:22:02Z" duration-ms="189" status="PASS">
+    <test started-at="2023-02-03T10:36:53Z" name="Default test" finished-at="2023-02-03T10:38:22Z" duration-ms="88374">
+      <class name="com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM">
+        <test-method is-config="true" signature="setExtent()[pri:0, instance:com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19]" started-at="2023-02-03T10:36:53Z" name="setExtent" finished-at="2023-02-03T10:36:53Z" duration-ms="183" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setExtent -->
-        <test-method is-config="true" signature="initialization()[pri:0, instance:com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA@7b64240d]" started-at="2023-02-02T07:22:02Z" name="initialization" finished-at="2023-02-02T07:22:07Z" duration-ms="5259" status="PASS">
+        <test-method is-config="true" signature="initialization()[pri:0, instance:com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19]" started-at="2023-02-03T10:36:53Z" name="initialization" finished-at="2023-02-03T10:36:59Z" duration-ms="6044" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialization -->
-        <test-method signature="validateSubmitReqCustomCategoryWATest(java.lang.reflect.Method)[pri:106, instance:com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA@7b64240d]" started-at="2023-02-02T07:22:07Z" name="validateSubmitReqCustomCategoryWATest" finished-at="2023-02-02T07:23:12Z" duration-ms="64855" status="FAIL">
+        <test-method signature="validateDeleteDashboardAMTest(java.lang.reflect.Method)[pri:27, instance:com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19]" started-at="2023-02-03T10:36:59Z" name="validateDeleteDashboardAMTest" finished-at="2023-02-03T10:38:11Z" duration-ms="71476" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA.validateSubmitReqCustomCategoryWATest(java.lang.reflect.Method) throws java.lang.Exception]]>
+                <![CDATA[public void com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM.validateDeleteDashboardAMTest(java.lang.reflect.Method) throws java.lang.Exception]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
             <message>
-              <![CDATA[Popup Box Message is Failure! expected [Success!] but found [Failure!]]]>
+              <![CDATA[stale element reference: element is not attached to the page document
+  (Session info: chrome=109.0.5414.120)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-5VHKQUJ', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49779}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 84331b86614cb32b4b4d12fd7bf3e706]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Popup Box Message is Failure! expected [Success!] but found [Failure!]
-at org.testng.Assert.fail(Assert.java:96)
-at org.testng.Assert.failNotEquals(Assert.java:776)
-at org.testng.Assert.assertEqualsImpl(Assert.java:137)
-at org.testng.Assert.assertEquals(Assert.java:118)
-at org.testng.Assert.assertEquals(Assert.java:453)
-at com.ae.qa.pages.WorkflowAdmin.CataloguePageWA.validateSubmitReqCustomCategory(CataloguePageWA.java:235)
-at com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA.validateSubmitReqCustomCategoryWATest(CataloguePageTestWA.java:34)
+              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=109.0.5414.120)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-5VHKQUJ', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49779}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 84331b86614cb32b4b4d12fd7bf3e706
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:489)
+at com.ae.qa.pages.ActivityMonitor.DashboardsPageAM.validateDeleteDashboardAM(DashboardsPageAM.java:425)
+at com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM.validateDeleteDashboardAMTest(DashboardsPageTestAM.java:86)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -129,52 +123,40 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
           <reporter-output>
             <line>
               <![CDATA[User logged in successfully]]>
             </line>
             <line>
-              <![CDATA[Workflows Tab is clicked]]>
+              <![CDATA[Reports Tab is clicked]]>
             </line>
             <line>
-              <![CDATA[Import button clicked]]>
+              <![CDATA[Dashboard chosed successfully]]>
             </line>
             <line>
-              <![CDATA[assisted Workflow is selected]]>
+              <![CDATA[Add report is clicked]]>
             </line>
             <line>
-              <![CDATA[assisted Workflow is unselected]]>
+              <![CDATA[Report Type selected successfully]]>
             </line>
             <line>
-              <![CDATA[Create Button is clicked]]>
+              <![CDATA[Generate on Worklfows radio button already selected]]>
             </line>
             <line>
-              <![CDATA[Priority is set]]>
+              <![CDATA[one workflow is selected]]>
             </line>
             <line>
-              <![CDATA[Expected Completion Time in Seconds is set]]>
+              <![CDATA[Generate button selected successfully]]>
             </line>
             <line>
-              <![CDATA[Maximum Completion Time in Seconds is set]]>
+              <![CDATA[Report added as a Table]]>
             </line>
             <line>
-              <![CDATA[Cleanup Requests older than Hours fields is set]]>
+              <![CDATA[Report saved on screen]]>
             </line>
             <line>
-              <![CDATA[Manual Execution Time is set]]>
-            </line>
-            <line>
-              <![CDATA[Manual Execution time unit is set]]>
-            </line>
-            <line>
-              <![CDATA[Save button is clicked]]>
-            </line>
-            <line>
-              <![CDATA[Workflow updated]]>
-            </line>
-            <line>
-              <![CDATA[Workflow is enabled successfully]]>
+              <![CDATA[Report Custom Report KG displayed on screen successfully]]>
             </line>
             <line>
               <![CDATA[User signed out successfully]]>
@@ -182,42 +164,27 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
             <line>
               <![CDATA[User logged in successfully]]>
             </line>
-            <line>
-              <![CDATA[Catalogue Tab is clicked]]>
-            </line>
-            <line>
-              <![CDATA[Workflow whose request needs to be send is selected]]>
-            </line>
-            <line>
-              <![CDATA[Submit request button is clicked]]>
-            </line>
-            <line>
-              <![CDATA[Actual Popup Box:- Failure!]]>
-            </line>
-            <line>
-              <![CDATA[Expected Popup Box:- Success!]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- validateSubmitReqCustomCategoryWATest -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA@7b64240d]" started-at="2023-02-02T07:23:12Z" name="getResult" finished-at="2023-02-02T07:23:12Z" duration-ms="328" status="PASS">
+        </test-method> <!-- validateDeleteDashboardAMTest -->
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19]" started-at="2023-02-03T10:38:11Z" name="getResult" finished-at="2023-02-03T10:38:11Z" duration-ms="347" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateSubmitReqCustomCategoryWATest status=FAILURE method=CataloguePageTestWA.validateSubmitReqCustomCategoryWATest(java.lang.reflect.Method)[pri:106, instance:com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA@7b64240d] output=User logged in successfully]]]>
+                <![CDATA[[TestResult name=validateDeleteDashboardAMTest status=FAILURE method=DashboardsPageTestAM.validateDeleteDashboardAMTest(java.lang.reflect.Method)[pri:27, instance:com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19] output=User logged in successfully]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="endReport()[pri:0, instance:com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA@7b64240d]" started-at="2023-02-02T07:23:12Z" name="endReport" finished-at="2023-02-02T07:23:21Z" duration-ms="8764" status="FAIL">
+        <test-method is-config="true" signature="endReport()[pri:0, instance:com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM@62fad19]" started-at="2023-02-03T10:38:11Z" name="endReport" finished-at="2023-02-03T10:38:22Z" duration-ms="10282" status="FAIL">
           <exception class="java.lang.RuntimeException">
             <message>
-              <![CDATA[javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0046.INDPRD01.PROD.OUTLOOK.COM 2023-02-02T07:23:21.099Z 08DB04789F5E93DD]
+              <![CDATA[javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0151.INDPRD01.PROD.OUTLOOK.COM 2023-02-03T10:38:21.236Z 08DB0572B7343E16]
 ]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0046.INDPRD01.PROD.OUTLOOK.COM 2023-02-02T07:23:21.099Z 08DB04789F5E93DD]
+              <![CDATA[java.lang.RuntimeException: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0151.INDPRD01.PROD.OUTLOOK.COM 2023-02-03T10:38:21.236Z 08DB0572B7343E16]
 
 at com.ae.qa.util.SendMail.sendExtentReport(SendMail.java:79)
 at com.ae.qa.base.TestBase.endReport(TestBase.java:218)
@@ -245,7 +212,7 @@ at org.testng.TestNG.run(TestNG.java:1017)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0046.INDPRD01.PROD.OUTLOOK.COM 2023-02-02T07:23:21.099Z 08DB04789F5E93DD]
+Caused by: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0151.INDPRD01.PROD.OUTLOOK.COM 2023-02-03T10:38:21.236Z 08DB0572B7343E16]
 
 at com.sun.mail.smtp.SMTPTransport$Authenticator.authenticate(SMTPTransport.java:965)
 at com.sun.mail.smtp.SMTPTransport.authenticate(SMTPTransport.java:876)
@@ -263,7 +230,7 @@ at com.ae.qa.util.SendMail.sendExtentReport(SendMail.java:76)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endReport -->
-      </class> <!-- com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA -->
+      </class> <!-- com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

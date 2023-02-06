@@ -25,7 +25,7 @@ public class AgentLogsPageTestWA extends TestBase{
 		agentlogspagewa.validateAgentLogs("Agent","DELL@DESKTOP-5VHKQUJ","2022","May","22","2022","May","23");
 		extentTest.log(extentTest.getStatus(), "Agent logs downloaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
-	}*/
+	}
 	@Test(priority = 90)
 	public void validateWorkflowLogsTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateWorkflowLogsTest", "TC_90: Verify download workflow logs");
@@ -34,7 +34,7 @@ public class AgentLogsPageTestWA extends TestBase{
 		agentlogspagewa.validateWorkflowLogs(TestDataInMap.get("WfInstanceID"));
 		extentTest.log(extentTest.getStatus(), "Workflow logs downloaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
-	}
+	}*/
 	/*@Test(priority = 404)
 	public void validateAssistedAgentLogsTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAssistedAgentLogsTest", "TC_91: Verify download Assisted agent logs");

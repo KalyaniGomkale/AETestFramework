@@ -83,7 +83,8 @@ public class DashboardsPageTestAM extends TestBase{
 		extentTest = extent.createTest("validateDeleteDashboardAMTest", "TC_34: To verify delete dashboard");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AMsheetname"),method.getName());
 		dashboardspageam= new DashboardsPageAM();
-	    dashboardspageam.validateDeleteDashboardAM(TestDataInMap.get("dashboardTitle"));
+	    dashboardspageam.validateDeleteDashboardAM(TestDataInMap.get("dashboardTitle"),TestDataInMap.get("reportTypeValue"),TestDataInMap.get("ReportWF1"),TestDataInMap.get("PageSize"),
+	    		TestDataInMap.get("reportTypeName"));
 		extentTest.log(extentTest.getStatus(), "Dashboard is deleted successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AMsheetname"), "Pass", method.getName());
 	}

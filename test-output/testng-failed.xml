@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA">
+      <class name="com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM">
         <methods>
           <include name="endReport"/>
+          <include name="validateDeleteDashboardAMTest" invocation-numbers="0"/>
           <include name="setExtent"/>
           <include name="initialization"/>
           <include name="getResult"/>
-          <include name="validateSubmitReqCustomCategoryWATest" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA -->
+      </class> <!-- com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
