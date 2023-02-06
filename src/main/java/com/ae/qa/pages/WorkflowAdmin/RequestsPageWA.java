@@ -466,9 +466,11 @@ public class RequestsPageWA extends TestBase{
 		String requestID=driver.findElement(By.xpath("(//table/tbody/tr[1]/td[1])[2]")).getText();
 		System.out.println("Request ID:- "+requestID);
 		Thread.sleep(2000);
-		js.executeScript("arguments[0].click();", refershTableBtn);
-		Thread.sleep(5000);
-		js.executeScript("arguments[0].click();", refershTableBtn);
+		for(int i=1;i<=8;i++)
+		{
+			js.executeScript("arguments[0].click();", refershTableBtn);
+		}
+		Thread.sleep(2000);
 		String wfStatus = requestStatus.getText();
 		if(wfStatus.equals("ExecutionStarted"))
 		{
